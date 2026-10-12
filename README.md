@@ -3,7 +3,13 @@
 Task-conditioned procedural scene generation for robot manipulation evaluation,
 built on **Infinigen** and **RoboDojo**.
 
-## Method
+## Research direction
+
+InfiniDojo aims to generate RoboDojo evaluation episodes with customizable scene
+complexity. A minimal task scene and reference interaction guide procedural
+scene completion, so requested variations can preserve a physically executable
+task. The two components below describe the research direction; the implemented
+v0 scope is listed separately.
 
 1. An LLM agent translates scene descriptions and a supported RoboDojo task
    contract into procedural constraints and interaction events. Structured
@@ -16,6 +22,19 @@ built on **Infinigen** and **RoboDojo**.
 Reference motions are internal generation and validation tools. Evaluated
 policies remain free to choose their own actions. Failure diagnosis and RSI
 evaluation are downstream applications, not the core method.
+
+## Next stage — planned
+
+The [next-stage work plan / 下一阶段任务](docs/next-stage.md) defines the event and
+cluster representation, a complete pick–transport–place cycle, strong generation
+baselines, independent validation, milestones and completion criteria. It also
+records **OpenWAM** and XPolicyLab's **GPT_6_Astra_Direct_EEF** as optional
+downstream evaluation candidates. Neither has been evaluated on this repository's
+generated episodes yet.
+
+The first milestone is to test whether event-conditioned cluster generation
+adds value over both fixed-trajectory scene completion and generate–plan–retry.
+The plan is not a completed implementation or a new experimental result.
 
 ## Initial implementation scope
 
