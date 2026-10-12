@@ -1,0 +1,122 @@
+[
+  {
+    "index": 0,
+    "layout_seed": 1200,
+    "status": "layout_not_found",
+    "proposal_limit": 1000,
+    "proposals": 1000,
+    "generated_count": 8,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2,
+      1,
+      0,
+      2,
+      0,
+      2,
+      1
+    ],
+    "rejections": {
+      "full_reference_occupancy": 183,
+      "footprint_outside_request": 505,
+      "accepted_cluster": 14,
+      "clutter_overlap": 298
+    },
+    "sampler_restarts": 5,
+    "generation_sha256": "a2516f5cad4fcea4e52f26ea5c51995b6a45fe0744ab860a589cb09469f6d155"
+  },
+  {
+    "index": 1,
+    "layout_seed": 1001203,
+    "status": "layout_not_found",
+    "proposal_limit": 1000,
+    "proposals": 1000,
+    "generated_count": 8,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2,
+      1,
+      0,
+      2,
+      0,
+      2,
+      1
+    ],
+    "rejections": {
+      "full_reference_occupancy": 187,
+      "footprint_outside_request": 514,
+      "clutter_overlap": 285,
+      "accepted_cluster": 14
+    },
+    "sampler_restarts": 5,
+    "generation_sha256": "132d5286bce9687725945c26aadec8feea5ca8b44d238cf56086b05c6bbe701c"
+  },
+  {
+    "index": 2,
+    "layout_seed": 2001206,
+    "status": "layout_not_found",
+    "proposal_limit": 1000,
+    "proposals": 1000,
+    "generated_count": 10,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2,
+      1,
+      0,
+      2,
+      0,
+      2,
+      1
+    ],
+    "rejections": {
+      "footprint_outside_request": 489,
+      "full_reference_occupancy": 203,
+      "clutter_overlap": 292,
+      "accepted_cluster": 16
+    },
+    "sampler_restarts": 4,
+    "generation_sha256": "85a305f4667d1224f061bb31f867ce2442e403c6b48669fbccff249b352a146a"
+  },
+  {
+    "index": 3,
+    "layout_seed": 3001209,
+    "status": "layout_not_found",
+    "proposal_limit": 1000,
+    "proposals": 1000,
+    "generated_count": 8,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2,
+      1,
+      0,
+      2,
+      0,
+      2,
+      1
+    ],
+    "rejections": {
+      "footprint_outside_request": 485,
+      "full_reference_occupancy": 152,
+      "clutter_overlap": 347,
+      "accepted_cluster": 16
+    },
+    "sampler_restarts": 4,
+    "generation_sha256": "f3c99ad20312617a1ba7fb472cb25bb369ebc4ba98eaaafef9116f0fbc6d757f"
+  }
+]

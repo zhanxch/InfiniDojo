@@ -1,0 +1,29 @@
+{
+  "status": "development diagnostics; not a held-out or superiority experiment",
+  "request_seeds": [1200],
+  "methods": ["g1", "g2"],
+  "requests": ["requests/stack-paired-6.json", "requests/stack-paired-12.json"],
+  "asset_seeds_in_pool_order": [1200, 1201, 1202],
+  "asset_selection": "Draw once with the request seed; freeze identities across all layout retries.",
+  "layout_sampling_seed": "request_seed + retry_index * 1000003",
+  "budget": {
+    "wall_seconds": 240,
+    "max_layouts": 4,
+    "total_proposals": 4000,
+    "proposals_per_layout": 1000,
+    "cluster_proposals": 128,
+    "reference_physics_steps_per_execution": 20000
+  },
+  "additional_diagnostic": {
+    "method": "g1",
+    "request": "requests/stack-paired-6.json",
+    "wall_seconds": 3,
+    "purpose": "Verify a real simulator stage is stopped when the request deadline expires."
+  },
+  "cost_scope": "Reused precomputed assets; time includes fresh reset/reference acquisition, generation, all execution attempts, validation and export. Historical asset creation time was not measured and is unavailable.",
+  "scope_limitations": [
+    "One request seed, one task and development thresholds cannot establish relative method performance.",
+    "G1 and G2 still use a fixed scripted grasp orientation and transfer order.",
+    "G3 and allowed task-position adjustment are not part of this diagnostic."
+  ]
+}

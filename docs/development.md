@@ -104,7 +104,7 @@ G1/G3、验证阈值校准、LLM 对完整任务的接入、其余任务及两�
 
 `--initial-state-only` 只读取状态源的第一个 reset 状态，不要求参考成功，不使用其后续动作。
 它仅生成 G1 的静态候选；`generation.json` 的 `accepted` 只表示布局采样满足约束，
-必须通过后续规划、执行和共同验证才能成为可用实例。当前尚未实现有总预算约束的 G1 重试循环。
+必须通过后续规划、执行和共同验证才能成为可用实例。下节的请求执行器提供预算内重试。
 上例开发诊断复用了已有状态快照，正式成本实验必须另计 reset/状态获取成本。
 
 规划使用 OBB 和覆盖球近似。允许持物目标接触支撑面时，该支撑暂不进入优化器；
@@ -122,3 +122,38 @@ G1/G3、验证阈值校准、LLM 对完整任务的接入、其余任务及两�
 探针在持物目标处添加虚拟障碍，依次检查无障碍成功、持物受阻失败、诊断性关闭持物几何后
 成功、移除障碍并恢复持物几何后成功。它不修改真实场景，关闭几何仅是探针的负对照。
 开发证据与未完成项见 [规划接入结果](../results/v1-planning-development/README.md)。
+
+## 有界请求执行：G1 与 G2
+
+`infinidojo.request_run` 为每个请求创建新目录，自动执行状态获取、候选生成、物理执行、
+独立验证和 episode 导出。G1 先获取一个新的 reset 状态，再为每个静态候选在线规划；
+G2 先取得一个新的完整参考，固定它并补全场景。两种方法都计入状态/参考获取及每次启动成本。
+
+```bash
+"$TOOL_PY" -m infinidojo.request_run --method g1 --robodojo-root "$RD_ROOT" \
+  --sim-python "$SIM_PY" --assets "$DEV/assets/1200" "$DEV/assets/1201" "$DEV/assets/1202" \
+  --request "$PWD/specs/requests/stack-paired-6.json" --seed 1200 \
+  --wall-seconds 240 --max-layouts 4 --total-proposals 4000 \
+  --proposals-per-layout 1000 --cluster-proposals 128 --max-steps 20000 \
+  --output "$DEV/g1-request"
+```
+
+用 `--method g2` 和另一个新目录执行固定参考补全。`--video` 可开启视频，比较时应统一设置。
+可用 `--layout` 提供原生初始布局。这里的 `--max-steps` 仍是参考控制器的物理步上限，
+不等同于策略动作预算。所有约束在请求开始时复制，资产身份按请求种子只选择一次；
+重试只改变布局采样种子，不能更换失败资产或削减数量。首个候选与独立生成入口可复现一致。
+
+`run.json` 记录预算、每次尝试、每个子进程的耗时与退出状态。超过墙钟预算会终止该请求
+启动的子进程组；清理超过截止时间的部分另行记录，不接受逾期产物。布局候选数和布局采样
+提案数分别计数。若提案进程在写出结果前超时，实际提案数未知，记录其预分配上限，不能当作零。
+启动失败、缺少结果文件或仿真 `error.json` 都归入基础设施错误；不能仅凭进程返回 0 接受结果。
+
+只在共同验证的全部检查通过且导出在预算内完成后，状态才为 `accepted`，实例位于 `episode/`。
+其他终态如 `layout_budget_exhausted`、`budget_exhausted`、`reference_unverified` 都不表示场景无解。
+所有失败的生成目录和执行证据保留。请求开始后修改源码会使运行失效，需另开新目录。
+
+当前输入复用已生成的 Infinigen 资产；历史资产生成耗时不可得，因此此计时明确不包含资产创建，
+不能直接称为从资产生成开始的总成本。正式实验须补记这部分成本，并区分冷启动与复用。
+这套入口也尚未实现 G3 的允许任务参数调整，不提供通用任务搜索。
+开发配置见 [v1-retry-development.json](../specs/v1-retry-development.json)，
+结果见 [预算内生成开发结果](../results/v1-retry-development/README.md)。

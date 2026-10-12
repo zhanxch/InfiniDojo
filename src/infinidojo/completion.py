@@ -72,6 +72,7 @@ def complete_scene(
     attempt_budget=1000,
     cluster_budget=128,
     occupancy="full_reference",
+    selected_indices=None,
 ):
     validate_request(request)
     if occupancy not in ("full_reference", "initial_state"):
@@ -88,6 +89,14 @@ def complete_scene(
     distance = clutter.get("pair_distance_m")
     rng = np.random.default_rng(seed)
     asset_indices = rng.integers(0, len(pool), count)
+    if selected_indices is not None:
+        if len(selected_indices) != count or any(
+            not isinstance(i, int) or isinstance(i, bool) or not 0 <= i < len(pool) for i in selected_indices
+        ):
+            raise ValueError("Fixed asset selection must match the request count and pool")
+        # Consume the same RNG draw as the legacy entry point, while preserving
+        # identities across layout retries with different sampling seeds.
+        asset_indices = np.asarray(selected_indices, dtype=int)
     reserved = np.asarray([aabb(box) for frame in frames for _, box in frame["bodies"]])
     placed, occupied, proposals = [], [], []
     best_partial, restarts = [], 0
@@ -209,6 +218,7 @@ def main():
     parser.add_argument("--request", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--seed", type=int, required=True)
+    parser.add_argument("--asset-selection", type=Path, help="JSON list of fixed asset pool indices")
     parser.add_argument(
         "--initial-state-only",
         action="store_true",
@@ -271,6 +281,7 @@ def main():
         attempt_budget=args.attempt_budget,
         cluster_budget=args.cluster_budget,
         occupancy="initial_state" if args.initial_state_only else "full_reference",
+        selected_indices=json.loads(args.asset_selection.read_text()) if args.asset_selection else None,
     )
     write_json(output / "request.json", request)
     write_json(output / "generation.json", generated)

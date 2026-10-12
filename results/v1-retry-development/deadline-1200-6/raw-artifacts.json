@@ -1,0 +1,12 @@
+{
+  "local_root": "outputs/v1-retry-development/deadline-1200-6",
+  "files_sha256": {
+    "asset-selection.json": "9c5d26b68061554d7bdf588843f2daaf26d919f7712469fde864fee3b4111cbc",
+    "initial-layout.json": "9a6b1ba160b2fc5420fd4aa858400b1ee0346d7d7449bdd85aa99d9f65418191",
+    "initial-state/layout.json": "9a6b1ba160b2fc5420fd4aa858400b1ee0346d7d7449bdd85aa99d9f65418191",
+    "initial-state/provenance.json": "4a8ae7ce06cdf26f042701bb57f17997e04f53666b9c1e4655029edc15771231",
+    "request.json": "cb69281fe89bbd29a3d2a7e0a204e5ac06c6a0f6e3ef48d3ca634db49c190c52",
+    "run.json": "e5fd3174cfcf252e9f8f7f8b6f733b45992b1944fb8c41378593e076b5706ed2",
+    "state-acquisition.stage.json": "012e8761dcaa3074550236a54ec59c4b7579dcc8bd446941fbd95a4e26d5653c"
+  }
+}

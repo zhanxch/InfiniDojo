@@ -1,0 +1,12 @@
+{
+  "local_root": "outputs/v1-retry-development/deadline-cleanup-regression",
+  "files_sha256": {
+    "asset-selection.json": "9c5d26b68061554d7bdf588843f2daaf26d919f7712469fde864fee3b4111cbc",
+    "initial-layout.json": "9a6b1ba160b2fc5420fd4aa858400b1ee0346d7d7449bdd85aa99d9f65418191",
+    "initial-state/layout.json": "9a6b1ba160b2fc5420fd4aa858400b1ee0346d7d7449bdd85aa99d9f65418191",
+    "initial-state/provenance.json": "b337de1ed0f9872b34103ae660d920e80cbe212eedc96b115a58fee066769d1c",
+    "request.json": "cb69281fe89bbd29a3d2a7e0a204e5ac06c6a0f6e3ef48d3ca634db49c190c52",
+    "run.json": "df92fd95e95f7aedfd6d06f177806e5fd78db3c9df03208055f840ca02546a22",
+    "state-acquisition.stage.json": "b2a42632c88a56247b3582b35a38448c63dd72e5a526587f84535ad0677572d9"
+  }
+}

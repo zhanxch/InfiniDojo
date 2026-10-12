@@ -49,13 +49,19 @@ Infinigen 提供程序化资产和可利用的关系约束；RoboDojo 提供机�
 - [Infinigen Indoors](https://arxiv.org/abs/2406.11824) 是资产和约束生成基础。
   比较时固定资产来源，才能区分改进来自交互方法还是不同资产质量。
 - [Sceniris](https://arxiv.org/html/2512.16896v1) 已支持高效程序化布局与可选机器人可达性检查；
-  “添加机器人约束”本身不构成充分的新颖性论证。
+  第 IV-E 节使用 RM4D 检查指定物体/部件的可达性。这个检查与完整取放、释放后的支撑转换
+  及实际执行证据应分别讨论；“添加机器人约束”本身不构成充分的新颖性论证。
 - [DynScene](https://openaccess.thecvf.com/content/CVPR2025/html/Lee_DynScene_Scalable_Generation_of_Dynamic_Robotic_Manipulation_Scenes_for_Embodied_CVPR_2025_paper.html)
   涉及文本驱动的静态场景与动作轨迹生成，是动态操作场景生成的直接相关工作。
 - [Steerable Scene Generation](https://arxiv.org/abs/2505.04831) 是进一步做场景生成
   方法对照的候选。需要统一任务、资产、请求、检查器和预算后再比较。
 - [RoboTwin 2.0](https://arxiv.org/abs/2506.18088) 与任务脚本、随机化和机器人数据
   生成有关。可适配其任务条件随机化，但不能把跨模拟器的公开成功率当作公平对照。
+- [RoboPRO](https://robopro-bench.github.io/RoboPRO/index.html) 的官方项目页（2026-10-12 核查）
+  已描述按示范轨迹扫过的工作空间放置不同密度干扰物，并结合扰动与安全指标做操作评测。
+  因此，不能把“操作评测中控制杂物数量”或“利用参考轨迹安排杂物”单独作为首次贡献。
+  InfiniDojo 需以请求约束、完整交互、共同物理验证和可加载实例的生成闭环及其机制证据
+  说明差异；仅凭该项目页没有写某项功能，不能断言它不具备该功能。
 - [RoboCasa365](https://arxiv.org/abs/2603.04356) 更适合比较任务覆盖和评测接口。
   [Logic-Geometric Programming](https://argmin.lis.tu-berlin.de/papers/15-toussaint-IJCAI.pdf)
   则是阶段切换、抓取附着等表示的已有方法背景，这些表示本身不应被宣称为新发明。

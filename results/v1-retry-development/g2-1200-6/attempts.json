@@ -1,0 +1,78 @@
+[
+  {
+    "index": 0,
+    "layout_seed": 1200,
+    "status": "validated_under_development_checks",
+    "proposal_limit": 1000,
+    "proposals": 307,
+    "native_task_success": true,
+    "controller_status": "completed",
+    "controller_error": null,
+    "physics_steps": 5613,
+    "motions_planned": 0,
+    "failed_checks": [],
+    "generated_count": 6,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2
+    ],
+    "rejections": {
+      "footprint_outside_request": 153,
+      "full_reference_occupancy": 65,
+      "accepted_cluster": 5,
+      "clutter_overlap": 84
+    },
+    "sampler_restarts": 1,
+    "generation_sha256": "0fca760edb791a5db8df25371a51958a3aec8afac2437034e6895a04f5b4c41b",
+    "validation": {
+      "status": "validated_under_development_checks",
+      "checks": {
+        "verifier_owned_contact_contract": true,
+        "native_task_success": true,
+        "complete_event_order": true,
+        "complete_execution": true,
+        "initialization_preserved": true,
+        "initial_rotations_preserved": true,
+        "requested_count": true,
+        "requested_asset_identities": true,
+        "initial_footprints_inside_region": true,
+        "requested_initial_clearance": true,
+        "pair_relation_preserved": true,
+        "clutter_remains_stationary": true,
+        "clutter_rotation_stable": true,
+        "contact_reporting_available": true,
+        "all_recorded_bodies_instrumented": true,
+        "contacts_legal_and_shallow": true,
+        "settle_duration": true,
+        "settle_motion": true,
+        "settle_rotation_stable": true,
+        "final_task_support_contacts": true,
+        "final_support_geometry": true,
+        "held_relation_observed": true,
+        "held_rotation_observed": true,
+        "independent_clutter_geometry_screen": true
+      },
+      "failed_checks": [],
+      "thresholds": {
+        "penetration_m": 0.001,
+        "contact_distance_m": 0.001,
+        "initialization_translation_m": 0.005,
+        "initialization_rotation_deg": 2.0,
+        "clutter_motion_m": 0.002,
+        "clutter_rotation_deg": 2.0,
+        "settle_motion_m": 0.002,
+        "settle_rotation_deg": 2.0,
+        "attachment_translation_m": 0.003,
+        "attachment_rotation_deg": 5.0,
+        "pair_distance_error_m": 0.003,
+        "support_gap_m": 0.001,
+        "minimum_settle_s": 1.0
+      },
+      "full_report_sha256": "0ab12876faff9befc0ba6be3914212d034007a53e67a8a4e260d89215aef2d6e"
+    }
+  }
+]

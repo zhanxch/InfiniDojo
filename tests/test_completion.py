@@ -67,3 +67,23 @@ def test_initial_state_baseline_does_not_reserve_future_motion():
         complete_scene(
             request(), pool, [initial, later], seed=1200, tabletop_z=0.765, occupancy="initial_state"
         )
+
+
+def test_retry_preserves_asset_identities_and_first_candidate_reproducibility():
+    pool = [{"asset_id": i, "bounds": [[-0.01, -0.01, 0], [0.01, 0.01, 0.02 + 0.01 * i]]} for i in range(3)]
+    initial = {"bodies": [("arm", (np.array([-1.0, -1.0, 1.0]), np.ones(3) * 0.1, np.eye(3)))]}
+    kwargs = {"tabletop_z": 0.765, "occupancy": "initial_state", "attempt_budget": 100}
+    first = complete_scene(request(), pool, [initial], seed=1200, **kwargs)
+    repeated = complete_scene(
+        request(), pool, [initial], seed=1200, selected_indices=first["asset_indices"], **kwargs
+    )
+    retried = complete_scene(
+        request(), pool, [initial], seed=1001203, selected_indices=first["asset_indices"], **kwargs
+    )
+    assert first["clutter"] == repeated["clutter"]
+    assert retried["accepted"] and [c["asset_id"] for c in retried["clutter"]] == [
+        c["asset_id"] for c in first["clutter"]
+    ]
+    assert retried["clutter"] != first["clutter"]
+    with pytest.raises(ValueError, match="Fixed asset"):
+        complete_scene(request(), pool, [initial], seed=1200, selected_indices=[0], **kwargs)

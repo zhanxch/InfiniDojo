@@ -48,7 +48,9 @@ physical checks, and portable episode export/reload. The
 [planning integration evidence](results/v1-planning-development/README.md)
 adds observed-scene collision updates, carried-object geometry, and initial-state
 layout candidates. An existing six-clutter layout passes full online execution
-and development validation. G1's bounded retry loop, G3, and policy comparisons
+and development validation. The [bounded request runner](results/v1-retry-development/README.md)
+now performs G1/G2 generation, execution, validation and episode export with
+fixed asset identities and explicit time/layout budgets. G3 and policy comparisons
 remain unfinished; these checks are not a frozen evaluation protocol.
 
 ## Initial implementation scope

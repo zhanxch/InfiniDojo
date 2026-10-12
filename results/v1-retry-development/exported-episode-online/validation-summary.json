@@ -1,0 +1,63 @@
+{
+  "status": "validated_under_development_checks",
+  "checks": {
+    "verifier_owned_contact_contract": true,
+    "native_task_success": true,
+    "complete_event_order": true,
+    "complete_execution": true,
+    "initialization_preserved": true,
+    "initial_rotations_preserved": true,
+    "requested_count": true,
+    "requested_asset_identities": true,
+    "initial_footprints_inside_region": true,
+    "requested_initial_clearance": true,
+    "pair_relation_preserved": true,
+    "clutter_remains_stationary": true,
+    "clutter_rotation_stable": true,
+    "contact_reporting_available": true,
+    "all_recorded_bodies_instrumented": true,
+    "contacts_legal_and_shallow": true,
+    "settle_duration": true,
+    "settle_motion": true,
+    "settle_rotation_stable": true,
+    "final_task_support_contacts": true,
+    "final_support_geometry": true,
+    "held_relation_observed": true,
+    "held_rotation_observed": true,
+    "independent_clutter_geometry_screen": true
+  },
+  "failed_checks": [],
+  "thresholds": {
+    "penetration_m": 0.001,
+    "contact_distance_m": 0.001,
+    "initialization_translation_m": 0.005,
+    "initialization_rotation_deg": 2.0,
+    "clutter_motion_m": 0.002,
+    "clutter_rotation_deg": 2.0,
+    "settle_motion_m": 0.002,
+    "settle_rotation_deg": 2.0,
+    "attachment_translation_m": 0.003,
+    "attachment_rotation_deg": 5.0,
+    "pair_distance_error_m": 0.003,
+    "support_gap_m": 0.001,
+    "minimum_settle_s": 1.0
+  },
+  "input_sha256": {
+    "result.json": "40e18cd2479416cb9914dc8405999e37ed32067e78f5f9647334ba311aefb587",
+    "trajectory.json": "79ee37261646b54283cdba6b5e477a2cf2e7da3c83a43c77234a05464dec107b",
+    "contacts.jsonl": "33cb3faf3e0bc609e075d9a0886e10da98796662b00f4a8bdd242e78d651f39e",
+    "scene-objects.json": "a2d51e13ac688a657e1a6785dfcfdbbe07401d566d70c8718ab84ec57071a3b0",
+    "layout.json": "321411e26c48465a0ee21437ecf559ba21ad9eb5c0d37723ba74cfca47958693",
+    "provenance.json": "7eb63d71783168cd21035246ccc3e36f7e44ae9c586c9ef147809799909347de",
+    "interaction-program.json": "b8d1fd93f4d797522019fbeb7e38b532b39378f946d95ee58434f0f8de2528ce",
+    "contact-summary.json": "6b459bf842e700137c19804aa44b39b882e78d605c385227b4a186d27c93a616",
+    "robot-identities.json": "abd3e62ad5b965688f190f43c43705907927f121d63ea9e60f85bd108d8969e7"
+  },
+  "generation_input_sha256": {
+    "request.json": "cb69281fe89bbd29a3d2a7e0a204e5ac06c6a0f6e3ef48d3ca634db49c190c52",
+    "generation.json": "0fca760edb791a5db8df25371a51958a3aec8afac2437034e6895a04f5b4c41b",
+    "asset-map.json": "901f4ed9cc5b5c1e0056aee01c2efd11bc57996264cabf78638ca64dd7a60ec8"
+  },
+  "validator_sha256": "218c282face666ebcb41f61db8b8eb096fb705de5d43977046586b5c65dd6475",
+  "full_report_sha256": "6b54e7b2b39ed82b031baebd9df305233b11c7ed78d4d767ffbbab8f6835a9bc"
+}

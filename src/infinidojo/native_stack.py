@@ -456,6 +456,11 @@ def main():
     parser.add_argument(
         "--scene-aware", action="store_true", help="Development scene-aware reference planner"
     )
+    parser.add_argument(
+        "--capture-initial-state",
+        action="store_true",
+        help="Record the reset state without planning or executing a reference",
+    )
     from isaaclab.app import AppLauncher
 
     AppLauncher.add_app_launcher_args(parser)
@@ -488,6 +493,8 @@ def main():
     reference = args.reference.resolve() if args.reference else None
     if reference is not None and args.scene_aware:
         parser.error("--scene-aware plans online and cannot be combined with --reference replay")
+    if args.capture_initial_state and (reference is not None or args.scene_aware):
+        parser.error("--capture-initial-state cannot be combined with reference planning/replay")
     output.mkdir(parents=True, exist_ok=False)
     snapshot = output / "source/infinidojo"
     snapshot.mkdir(parents=True)
@@ -509,6 +516,7 @@ def main():
             "max_reference_physics_steps": args.max_steps,
             "reference_controls_sha256": sha256(reference / "controls.json") if reference else None,
             "scene_aware_planning": args.scene_aware,
+            "capture_initial_state": args.capture_initial_state,
         },
     )
     write_json(output / "layout.json", layout)
@@ -522,7 +530,7 @@ def main():
         from task.RoboDojo.tasks.stack_blocks import stack_blocks
 
         config = make_config(root, args.seed)
-        if reference is not None or args.scene_aware:
+        if reference is not None or args.scene_aware or args.capture_initial_state:
             for robot_config in config.robot.robots:
                 robot_config.need_planner = False
         if asset_map is not None:
@@ -546,14 +554,27 @@ def main():
         write_json(
             output / "loaded-layout.json", env.scene_manager.layout_manager.get_layout_records(0, "Rigid")
         )
-        result = run_reference(
-            env,
-            output,
-            args.max_steps,
-            reference,
-            video=not args.no_video,
-            planning_root=root if args.scene_aware else None,
-        )
+        if args.capture_initial_state:
+            rec = EvidenceRecorder(env, output, args.max_steps, video=False)
+            try:
+                rec.sample()
+            finally:
+                rec.close()
+            result = {
+                "status": "initialized",
+                "native_task_success": None,
+                "steps": 0,
+                "note": "Observed reset state only; no completion or validity claim",
+            }
+        else:
+            result = run_reference(
+                env,
+                output,
+                args.max_steps,
+                reference,
+                video=not args.no_video,
+                planning_root=root if args.scene_aware else None,
+            )
         result["wall_seconds"] = time.monotonic() - start
         write_json(output / "result.json", result)
         print(json.dumps(result), flush=True)
