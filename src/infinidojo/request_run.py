@@ -115,7 +115,18 @@ def run_request(args):
     source = Path(__file__).resolve().parents[2]
     output, root = args.output.resolve(), args.robodojo_root.resolve()
     output.mkdir(parents=True, exist_ok=False)
-    request = read_json(args.request)
+    compilation = None
+    compiler_context = None
+    requested_assets = args.assets
+    if getattr(args, "compiled", None):
+        from infinidojo.stack_specification import load_compilation
+
+        request, requested_assets, compiler_context, compilation = load_compilation(
+            args.compiled, args.assets
+        )
+        compilation = {**compilation, "manifest_sha256": sha256(args.compiled / "compilation.json")}
+    else:
+        request = read_json(args.request)
     validate_request(request)
     frozen = source_hashes(source)
     for name in frozen:
@@ -123,7 +134,7 @@ def run_request(args):
         folder.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source / "src/infinidojo" / name, folder / name)
     write_json(output / "request.json", request)
-    assets = [folder.resolve() for folder in args.assets]
+    assets = [folder.resolve() for folder in requested_assets]
     asset_records = []
     for folder in assets:
         record = read_json(folder / "provenance.json")
@@ -142,6 +153,8 @@ def run_request(args):
         if args.layout
         else root / "Assets/Eval_Layout/RoboDojo/arx_x5/0/stack_blocks_0.json"
     )
+    if compiler_context and sha256(native_layout) != compiler_context["native_layout_sha256"]:
+        raise ValueError("Native layout differs from the language compiler context")
     shutil.copyfile(native_layout, output / "base-layout.json")
     base_layout = read_json(output / "base-layout.json")
     current_layout = with_positions(base_layout, initial_positions(request, base_layout, args.seed))
@@ -159,6 +172,7 @@ def run_request(args):
         "initial_layout_sha256": sha256(output / "initial-layout.json"),
         "base_layout_sha256": sha256(output / "base-layout.json"),
         "initial_task_positions": task_positions(current_layout),
+        "language_compilation": compilation,
         "repair_enabled": args.method == "g3" and not args.disable_repair,
         "task_position_updates": [],
         "assets": asset_records,
@@ -467,7 +481,9 @@ def main():
     parser.add_argument("--robodojo-root", type=Path, required=True)
     parser.add_argument("--sim-python", type=Path, required=True)
     parser.add_argument("--assets", type=Path, nargs="+", required=True)
-    parser.add_argument("--request", type=Path, required=True)
+    inputs = parser.add_mutually_exclusive_group(required=True)
+    inputs.add_argument("--request", type=Path)
+    inputs.add_argument("--compiled", type=Path, help="Accepted stack-v1 language compilation directory")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--layout", type=Path)
     parser.add_argument("--seed", type=int, required=True)

@@ -181,3 +181,9 @@ G3 在布局补全失败后，可以从请求明确允许的位置中选择一�
 `task_position_updates` 记录实际变更。新参考失败就记为未验证，不能平移旧控制序列继续。
 配置见 [修复开发清单](../specs/v1-repair-development.json)。
 完整结果与负对照见 [位置修复开发记录](../results/v1-repair-development/README.md)。
+
+## 自然语言描述入口
+
+完整堆叠可用 `frontend --profile stack-v1` 编译描述，再通过 `request_run --compiled` 执行。
+输入约束、能力边界、两阶段计时和复现命令见 [语言前端](language-frontend.md)。
+该入口不改变生成算法；任务程序和物理可用性仍分别检查。

@@ -1,0 +1,1082 @@
+[
+  {
+    "id": "paired-six-en",
+    "result": {
+      "accepted": true,
+      "status": "compiled",
+      "profile": "stack-v1",
+      "attempts": 1,
+      "specification": {
+        "status": "ready",
+        "reason": "",
+        "request": {
+          "task": "stack_blocks",
+          "clutter": {
+            "count": 6,
+            "region_xy_m": [
+              [
+                0.1,
+                -0.3
+              ],
+              [
+                0.48,
+                0.18
+              ]
+            ],
+            "clearance_m": 0.005,
+            "pair_distance_m": 0.09
+          },
+          "task_xy_options_m": null
+        },
+        "asset_pool_ids": [
+          1200,
+          1201,
+          1202
+        ],
+        "transfers": [
+          {
+            "object": "block_1",
+            "source": "Table",
+            "destination": "block_0",
+            "arm": "right_arm"
+          },
+          {
+            "object": "block_2",
+            "source": "Table",
+            "destination": "block_1",
+            "arm": "right_arm"
+          }
+        ],
+        "return_to_initial": true
+      },
+      "wall_seconds": 21.82563551000203
+    },
+    "history": [
+      {
+        "proposal": {
+          "status": "ready",
+          "reason": "",
+          "request": {
+            "task": "stack_blocks",
+            "clutter": {
+              "count": 6,
+              "region_xy_m": [
+                [
+                  0.1,
+                  -0.3
+                ],
+                [
+                  0.48,
+                  0.18
+                ]
+              ],
+              "clearance_m": 0.005,
+              "pair_distance_m": 0.09
+            },
+            "task_xy_options_m": null
+          },
+          "asset_pool_ids": [
+            1200,
+            1201,
+            1202
+          ],
+          "transfers": [
+            {
+              "object": "block_1",
+              "source": "Table",
+              "destination": "block_0",
+              "arm": "right_arm"
+            },
+            {
+              "object": "block_2",
+              "source": "Table",
+              "destination": "block_1",
+              "arm": "right_arm"
+            }
+          ],
+          "return_to_initial": true
+        },
+        "errors": [],
+        "wall_seconds": 21.7328199629992
+      }
+    ],
+    "request_sha256": "8713e77aef0b3701fef3cb452df3f6f74fa8e137f109abc833c38278563faf09",
+    "provenance_sha256": "dbefc7e068be2c36233081edb328e712552583e001d2be0499dd06345ec939ac"
+  },
+  {
+    "id": "anchor-twelve-zh",
+    "result": {
+      "accepted": true,
+      "status": "compiled",
+      "profile": "stack-v1",
+      "attempts": 1,
+      "specification": {
+        "status": "ready",
+        "reason": "",
+        "request": {
+          "task": "stack_blocks",
+          "clutter": {
+            "count": 12,
+            "region_xy_m": [
+              [
+                0.1,
+                -0.3
+              ],
+              [
+                0.48,
+                0.18
+              ]
+            ],
+            "clearance_m": 0.005,
+            "pair_distance_m": 0.09
+          },
+          "task_xy_options_m": {
+            "block_0": [
+              [
+                0.24428776164867352,
+                -0.22786190255571911
+              ],
+              [
+                0.3042877616486735,
+                -0.22786190255571911
+              ],
+              [
+                0.18428776164867353,
+                -0.22786190255571911
+              ],
+              [
+                0.24428776164867352,
+                -0.1678619025557191
+              ],
+              [
+                0.24428776164867352,
+                -0.2878619025557191
+              ]
+            ],
+            "block_1": [
+              [
+                0.37790703809715354,
+                -0.1690098048189287
+              ]
+            ],
+            "block_2": [
+              [
+                0.32280857323529777,
+                -0.054714560931304466
+              ]
+            ]
+          }
+        },
+        "asset_pool_ids": [
+          1200,
+          1201,
+          1202
+        ],
+        "transfers": [
+          {
+            "object": "block_1",
+            "source": "Table",
+            "destination": "block_0",
+            "arm": "right_arm"
+          },
+          {
+            "object": "block_2",
+            "source": "Table",
+            "destination": "block_1",
+            "arm": "right_arm"
+          }
+        ],
+        "return_to_initial": true
+      },
+      "wall_seconds": 22.371331805999944
+    },
+    "history": [
+      {
+        "proposal": {
+          "status": "ready",
+          "reason": "",
+          "request": {
+            "task": "stack_blocks",
+            "clutter": {
+              "count": 12,
+              "region_xy_m": [
+                [
+                  0.1,
+                  -0.3
+                ],
+                [
+                  0.48,
+                  0.18
+                ]
+              ],
+              "clearance_m": 0.005,
+              "pair_distance_m": 0.09
+            },
+            "task_xy_options_m": {
+              "block_0": [
+                [
+                  0.24428776164867352,
+                  -0.22786190255571911
+                ],
+                [
+                  0.3042877616486735,
+                  -0.22786190255571911
+                ],
+                [
+                  0.18428776164867353,
+                  -0.22786190255571911
+                ],
+                [
+                  0.24428776164867352,
+                  -0.1678619025557191
+                ],
+                [
+                  0.24428776164867352,
+                  -0.2878619025557191
+                ]
+              ],
+              "block_1": [
+                [
+                  0.37790703809715354,
+                  -0.1690098048189287
+                ]
+              ],
+              "block_2": [
+                [
+                  0.32280857323529777,
+                  -0.054714560931304466
+                ]
+              ]
+            }
+          },
+          "asset_pool_ids": [
+            1200,
+            1201,
+            1202
+          ],
+          "transfers": [
+            {
+              "object": "block_1",
+              "source": "Table",
+              "destination": "block_0",
+              "arm": "right_arm"
+            },
+            {
+              "object": "block_2",
+              "source": "Table",
+              "destination": "block_1",
+              "arm": "right_arm"
+            }
+          ],
+          "return_to_initial": true
+        },
+        "errors": [],
+        "wall_seconds": 22.367075477999606
+      }
+    ],
+    "request_sha256": "28088f43ee179695846a1c0cbecebc438fb2daca855bb18be11e35a48f2b8d92",
+    "provenance_sha256": "dbefc7e068be2c36233081edb328e712552583e001d2be0499dd06345ec939ac"
+  },
+  {
+    "id": "unpaired-four-en",
+    "result": {
+      "accepted": true,
+      "status": "compiled",
+      "profile": "stack-v1",
+      "attempts": 1,
+      "specification": {
+        "status": "ready",
+        "reason": "",
+        "request": {
+          "task": "stack_blocks",
+          "clutter": {
+            "count": 4,
+            "region_xy_m": [
+              [
+                0.1,
+                -0.3
+              ],
+              [
+                0.48,
+                0.18
+              ]
+            ],
+            "clearance_m": 0.01,
+            "pair_distance_m": null
+          },
+          "task_xy_options_m": null
+        },
+        "asset_pool_ids": [
+          1200,
+          1201,
+          1202
+        ],
+        "transfers": [
+          {
+            "object": "block_1",
+            "source": "Table",
+            "destination": "block_0",
+            "arm": "right_arm"
+          },
+          {
+            "object": "block_2",
+            "source": "Table",
+            "destination": "block_1",
+            "arm": "right_arm"
+          }
+        ],
+        "return_to_initial": true
+      },
+      "wall_seconds": 14.99799337299919
+    },
+    "history": [
+      {
+        "proposal": {
+          "status": "ready",
+          "reason": "",
+          "request": {
+            "task": "stack_blocks",
+            "clutter": {
+              "count": 4,
+              "region_xy_m": [
+                [
+                  0.1,
+                  -0.3
+                ],
+                [
+                  0.48,
+                  0.18
+                ]
+              ],
+              "clearance_m": 0.01,
+              "pair_distance_m": null
+            },
+            "task_xy_options_m": null
+          },
+          "asset_pool_ids": [
+            1200,
+            1201,
+            1202
+          ],
+          "transfers": [
+            {
+              "object": "block_1",
+              "source": "Table",
+              "destination": "block_0",
+              "arm": "right_arm"
+            },
+            {
+              "object": "block_2",
+              "source": "Table",
+              "destination": "block_1",
+              "arm": "right_arm"
+            }
+          ],
+          "return_to_initial": true
+        },
+        "errors": [],
+        "wall_seconds": 14.993573283998558
+      }
+    ],
+    "request_sha256": "c1d1a6454b31099b38a13f292708982a9c12fa6920535e18b8babb685c5c0cd1",
+    "provenance_sha256": "dbefc7e068be2c36233081edb328e712552583e001d2be0499dd06345ec939ac"
+  },
+  {
+    "id": "zero-zh",
+    "result": {
+      "accepted": true,
+      "status": "compiled",
+      "profile": "stack-v1",
+      "attempts": 1,
+      "specification": {
+        "status": "ready",
+        "reason": "",
+        "request": {
+          "task": "stack_blocks",
+          "clutter": {
+            "count": 0,
+            "region_xy_m": [
+              [
+                0.1,
+                -0.3
+              ],
+              [
+                0.48,
+                0.18
+              ]
+            ],
+            "clearance_m": 0.005,
+            "pair_distance_m": null
+          },
+          "task_xy_options_m": null
+        },
+        "asset_pool_ids": [
+          1200,
+          1201,
+          1202
+        ],
+        "transfers": [
+          {
+            "object": "block_1",
+            "source": "Table",
+            "destination": "block_0",
+            "arm": "right_arm"
+          },
+          {
+            "object": "block_2",
+            "source": "Table",
+            "destination": "block_1",
+            "arm": "right_arm"
+          }
+        ],
+        "return_to_initial": true
+      },
+      "wall_seconds": 24.014542633001838
+    },
+    "history": [
+      {
+        "proposal": {
+          "status": "ready",
+          "reason": "",
+          "request": {
+            "task": "stack_blocks",
+            "clutter": {
+              "count": 0,
+              "region_xy_m": [
+                [
+                  0.1,
+                  -0.3
+                ],
+                [
+                  0.48,
+                  0.18
+                ]
+              ],
+              "clearance_m": 0.005,
+              "pair_distance_m": null
+            },
+            "task_xy_options_m": null
+          },
+          "asset_pool_ids": [
+            1200,
+            1201,
+            1202
+          ],
+          "transfers": [
+            {
+              "object": "block_1",
+              "source": "Table",
+              "destination": "block_0",
+              "arm": "right_arm"
+            },
+            {
+              "object": "block_2",
+              "source": "Table",
+              "destination": "block_1",
+              "arm": "right_arm"
+            }
+          ],
+          "return_to_initial": true
+        },
+        "errors": [],
+        "wall_seconds": 24.01143961300113
+      }
+    ],
+    "request_sha256": "eb08cdd64d09245e145deb4a200fc3d7a66e68f17b9a465d197bf2bed3fcac29",
+    "provenance_sha256": "dbefc7e068be2c36233081edb328e712552583e001d2be0499dd06345ec939ac"
+  },
+  {
+    "id": "asset-subset-zh",
+    "result": {
+      "accepted": true,
+      "status": "compiled",
+      "profile": "stack-v1",
+      "attempts": 1,
+      "specification": {
+        "status": "ready",
+        "reason": "",
+        "request": {
+          "task": "stack_blocks",
+          "clutter": {
+            "count": 6,
+            "region_xy_m": [
+              [
+                0.1,
+                -0.3
+              ],
+              [
+                0.48,
+                0.18
+              ]
+            ],
+            "clearance_m": 0.005,
+            "pair_distance_m": 0.09
+          },
+          "task_xy_options_m": null
+        },
+        "asset_pool_ids": [
+          1200
+        ],
+        "transfers": [
+          {
+            "object": "block_1",
+            "source": "Table",
+            "destination": "block_0",
+            "arm": "right_arm"
+          },
+          {
+            "object": "block_2",
+            "source": "Table",
+            "destination": "block_1",
+            "arm": "right_arm"
+          }
+        ],
+        "return_to_initial": true
+      },
+      "wall_seconds": 17.157490302997758
+    },
+    "history": [
+      {
+        "proposal": {
+          "status": "ready",
+          "reason": "",
+          "request": {
+            "task": "stack_blocks",
+            "clutter": {
+              "count": 6,
+              "region_xy_m": [
+                [
+                  0.1,
+                  -0.3
+                ],
+                [
+                  0.48,
+                  0.18
+                ]
+              ],
+              "clearance_m": 0.005,
+              "pair_distance_m": 0.09
+            },
+            "task_xy_options_m": null
+          },
+          "asset_pool_ids": [
+            1200
+          ],
+          "transfers": [
+            {
+              "object": "block_1",
+              "source": "Table",
+              "destination": "block_0",
+              "arm": "right_arm"
+            },
+            {
+              "object": "block_2",
+              "source": "Table",
+              "destination": "block_1",
+              "arm": "right_arm"
+            }
+          ],
+          "return_to_initial": true
+        },
+        "errors": [],
+        "wall_seconds": 17.154387091002718
+      }
+    ],
+    "request_sha256": "ac02b9aa616f6c8e784816c08ac37c3af8074aa9ed3f89d522c3ed281e3d7aca",
+    "provenance_sha256": "dbefc7e068be2c36233081edb328e712552583e001d2be0499dd06345ec939ac"
+  },
+  {
+    "id": "explicit-options-en",
+    "result": {
+      "accepted": true,
+      "status": "compiled",
+      "profile": "stack-v1",
+      "attempts": 1,
+      "specification": {
+        "status": "ready",
+        "reason": "",
+        "request": {
+          "task": "stack_blocks",
+          "clutter": {
+            "count": 2,
+            "region_xy_m": [
+              [
+                0.1,
+                -0.3
+              ],
+              [
+                0.48,
+                0.18
+              ]
+            ],
+            "clearance_m": 0.005,
+            "pair_distance_m": null
+          },
+          "task_xy_options_m": {
+            "block_0": [
+              [
+                0.24,
+                -0.23
+              ],
+              [
+                0.18,
+                -0.23
+              ]
+            ],
+            "block_1": [
+              [
+                0.37790703809715354,
+                -0.1690098048189287
+              ]
+            ],
+            "block_2": [
+              [
+                0.32280857323529777,
+                -0.054714560931304466
+              ]
+            ]
+          }
+        },
+        "asset_pool_ids": [
+          1200,
+          1201,
+          1202
+        ],
+        "transfers": [
+          {
+            "object": "block_1",
+            "source": "Table",
+            "destination": "block_0",
+            "arm": "right_arm"
+          },
+          {
+            "object": "block_2",
+            "source": "Table",
+            "destination": "block_1",
+            "arm": "right_arm"
+          }
+        ],
+        "return_to_initial": true
+      },
+      "wall_seconds": 20.603353414000594
+    },
+    "history": [
+      {
+        "proposal": {
+          "status": "ready",
+          "reason": "",
+          "request": {
+            "task": "stack_blocks",
+            "clutter": {
+              "count": 2,
+              "region_xy_m": [
+                [
+                  0.1,
+                  -0.3
+                ],
+                [
+                  0.48,
+                  0.18
+                ]
+              ],
+              "clearance_m": 0.005,
+              "pair_distance_m": null
+            },
+            "task_xy_options_m": {
+              "block_0": [
+                [
+                  0.24,
+                  -0.23
+                ],
+                [
+                  0.18,
+                  -0.23
+                ]
+              ],
+              "block_1": [
+                [
+                  0.37790703809715354,
+                  -0.1690098048189287
+                ]
+              ],
+              "block_2": [
+                [
+                  0.32280857323529777,
+                  -0.054714560931304466
+                ]
+              ]
+            }
+          },
+          "asset_pool_ids": [
+            1200,
+            1201,
+            1202
+          ],
+          "transfers": [
+            {
+              "object": "block_1",
+              "source": "Table",
+              "destination": "block_0",
+              "arm": "right_arm"
+            },
+            {
+              "object": "block_2",
+              "source": "Table",
+              "destination": "block_1",
+              "arm": "right_arm"
+            }
+          ],
+          "return_to_initial": true
+        },
+        "errors": [],
+        "wall_seconds": 20.600333187001524
+      }
+    ],
+    "request_sha256": "e782d53ef8f37a6002f949e4d9fcf8d4ee26ec50297532dd033fd998f436590e",
+    "provenance_sha256": "dbefc7e068be2c36233081edb328e712552583e001d2be0499dd06345ec939ac"
+  },
+  {
+    "id": "millimetres-en",
+    "result": {
+      "accepted": true,
+      "status": "compiled",
+      "profile": "stack-v1",
+      "attempts": 1,
+      "specification": {
+        "status": "ready",
+        "reason": "",
+        "request": {
+          "task": "stack_blocks",
+          "clutter": {
+            "count": 4,
+            "region_xy_m": [
+              [
+                0.1,
+                -0.3
+              ],
+              [
+                0.48,
+                0.18
+              ]
+            ],
+            "clearance_m": 0.01,
+            "pair_distance_m": 0.1
+          },
+          "task_xy_options_m": null
+        },
+        "asset_pool_ids": [
+          1200,
+          1201,
+          1202
+        ],
+        "transfers": [
+          {
+            "object": "block_1",
+            "source": "Table",
+            "destination": "block_0",
+            "arm": "right_arm"
+          },
+          {
+            "object": "block_2",
+            "source": "Table",
+            "destination": "block_1",
+            "arm": "right_arm"
+          }
+        ],
+        "return_to_initial": true
+      },
+      "wall_seconds": 13.751169656999991
+    },
+    "history": [
+      {
+        "proposal": {
+          "status": "ready",
+          "reason": "",
+          "request": {
+            "task": "stack_blocks",
+            "clutter": {
+              "count": 4,
+              "region_xy_m": [
+                [
+                  0.1,
+                  -0.3
+                ],
+                [
+                  0.48,
+                  0.18
+                ]
+              ],
+              "clearance_m": 0.01,
+              "pair_distance_m": 0.1
+            },
+            "task_xy_options_m": null
+          },
+          "asset_pool_ids": [
+            1200,
+            1201,
+            1202
+          ],
+          "transfers": [
+            {
+              "object": "block_1",
+              "source": "Table",
+              "destination": "block_0",
+              "arm": "right_arm"
+            },
+            {
+              "object": "block_2",
+              "source": "Table",
+              "destination": "block_1",
+              "arm": "right_arm"
+            }
+          ],
+          "return_to_initial": true
+        },
+        "errors": [],
+        "wall_seconds": 13.74627377300203
+      }
+    ],
+    "request_sha256": "33c014513703fbc9ea1f8f38069fccd1e1d48b67c3338caad6108ba4ef318b3b",
+    "provenance_sha256": "dbefc7e068be2c36233081edb328e712552583e001d2be0499dd06345ec939ac"
+  },
+  {
+    "id": "narrow-region-zh",
+    "result": {
+      "accepted": true,
+      "status": "compiled",
+      "profile": "stack-v1",
+      "attempts": 1,
+      "specification": {
+        "status": "ready",
+        "reason": "",
+        "request": {
+          "task": "stack_blocks",
+          "clutter": {
+            "count": 2,
+            "region_xy_m": [
+              [
+                0.1,
+                -0.2
+              ],
+              [
+                0.25,
+                -0.05
+              ]
+            ],
+            "clearance_m": 0.005,
+            "pair_distance_m": null
+          },
+          "task_xy_options_m": null
+        },
+        "asset_pool_ids": [
+          1200,
+          1201,
+          1202
+        ],
+        "transfers": [
+          {
+            "object": "block_1",
+            "source": "Table",
+            "destination": "block_0",
+            "arm": "right_arm"
+          },
+          {
+            "object": "block_2",
+            "source": "Table",
+            "destination": "block_1",
+            "arm": "right_arm"
+          }
+        ],
+        "return_to_initial": true
+      },
+      "wall_seconds": 17.92432541100061
+    },
+    "history": [
+      {
+        "proposal": {
+          "status": "ready",
+          "reason": "",
+          "request": {
+            "task": "stack_blocks",
+            "clutter": {
+              "count": 2,
+              "region_xy_m": [
+                [
+                  0.1,
+                  -0.2
+                ],
+                [
+                  0.25,
+                  -0.05
+                ]
+              ],
+              "clearance_m": 0.005,
+              "pair_distance_m": null
+            },
+            "task_xy_options_m": null
+          },
+          "asset_pool_ids": [
+            1200,
+            1201,
+            1202
+          ],
+          "transfers": [
+            {
+              "object": "block_1",
+              "source": "Table",
+              "destination": "block_0",
+              "arm": "right_arm"
+            },
+            {
+              "object": "block_2",
+              "source": "Table",
+              "destination": "block_1",
+              "arm": "right_arm"
+            }
+          ],
+          "return_to_initial": true
+        },
+        "errors": [],
+        "wall_seconds": 17.92126134999853
+      }
+    ],
+    "request_sha256": "39a3379f3eef6b947b1688ac66f8a096602373b4a5e4ef2b4054f6f48567b0da",
+    "provenance_sha256": "dbefc7e068be2c36233081edb328e712552583e001d2be0499dd06345ec939ac"
+  },
+  {
+    "id": "odd-pairs",
+    "result": {
+      "accepted": false,
+      "status": "unsupported",
+      "profile": "stack-v1",
+      "attempts": 1,
+      "specification": {
+        "status": "unsupported",
+        "reason": "Seven cans cannot be partitioned into disjoint pairs of two with no unpaired object. Paired clutter requires an even total count.",
+        "request": null,
+        "asset_pool_ids": [],
+        "transfers": [],
+        "return_to_initial": false
+      },
+      "wall_seconds": 18.47015630399983
+    },
+    "history": [
+      {
+        "proposal": {
+          "status": "unsupported",
+          "reason": "Seven cans cannot be partitioned into disjoint pairs of two with no unpaired object. Paired clutter requires an even total count.",
+          "request": null,
+          "asset_pool_ids": [],
+          "transfers": [],
+          "return_to_initial": false
+        },
+        "errors": [],
+        "wall_seconds": 18.467452979999507
+      }
+    ],
+    "request_sha256": "9f456bae239aa5a3b99383e4552769f3758698f889a0cb1e3c6f199dd43d4d01",
+    "provenance_sha256": "dbefc7e068be2c36233081edb328e712552583e001d2be0499dd06345ec939ac"
+  },
+  {
+    "id": "count-thirty",
+    "result": {
+      "accepted": false,
+      "status": "unsupported",
+      "profile": "stack-v1",
+      "attempts": 1,
+      "specification": {
+        "status": "unsupported",
+        "reason": "请求恰好添加30个不配对罐子，但此配置最多支持20个杂物对象；不能减少请求数量。",
+        "request": null,
+        "asset_pool_ids": [],
+        "transfers": [],
+        "return_to_initial": false
+      },
+      "wall_seconds": 14.350252403997729
+    },
+    "history": [
+      {
+        "proposal": {
+          "status": "unsupported",
+          "reason": "请求恰好添加30个不配对罐子，但此配置最多支持20个杂物对象；不能减少请求数量。",
+          "request": null,
+          "asset_pool_ids": [],
+          "transfers": [],
+          "return_to_initial": false
+        },
+        "errors": [],
+        "wall_seconds": 14.347735596002167
+      }
+    ],
+    "request_sha256": "33ec5af35fd78d08b89e332cca985c2ee697f54429b09468ae89be8995237920",
+    "provenance_sha256": "dbefc7e068be2c36233081edb328e712552583e001d2be0499dd06345ec939ac"
+  },
+  {
+    "id": "different-task",
+    "result": {
+      "accepted": false,
+      "status": "unsupported",
+      "profile": "stack-v1",
+      "attempts": 1,
+      "specification": {
+        "status": "unsupported",
+        "reason": "The requested cover_blocks covering and uncovering task is unsupported by the stack_blocks-only profile. Substituting the stacking task would violate the request.",
+        "request": null,
+        "asset_pool_ids": [],
+        "transfers": [],
+        "return_to_initial": false
+      },
+      "wall_seconds": 12.603487620999658
+    },
+    "history": [
+      {
+        "proposal": {
+          "status": "unsupported",
+          "reason": "The requested cover_blocks covering and uncovering task is unsupported by the stack_blocks-only profile. Substituting the stacking task would violate the request.",
+          "request": null,
+          "asset_pool_ids": [],
+          "transfers": [],
+          "return_to_initial": false
+        },
+        "errors": [],
+        "wall_seconds": 12.601012997001817
+      }
+    ],
+    "request_sha256": "99b55da3644bc123e3bc9fa13865d617b4e68e8fda7e0117a2330b2f4ceb9aed",
+    "provenance_sha256": "dbefc7e068be2c36233081edb328e712552583e001d2be0499dd06345ec939ac"
+  },
+  {
+    "id": "liquid-container",
+    "result": {
+      "accepted": false,
+      "status": "unsupported",
+      "profile": "stack-v1",
+      "attempts": 1,
+      "specification": {
+        "status": "unsupported",
+        "reason": "The request requires six open containers filled with flowing water and a simulated spill. The available CanFactory assets cannot provide open containers, liquid contents, or spill physics, and the request explicitly forbids substituting empty closed cans.",
+        "request": null,
+        "asset_pool_ids": [],
+        "transfers": [],
+        "return_to_initial": false
+      },
+      "wall_seconds": 13.05015252800149
+    },
+    "history": [
+      {
+        "proposal": {
+          "status": "unsupported",
+          "reason": "The request requires six open containers filled with flowing water and a simulated spill. The available CanFactory assets cannot provide open containers, liquid contents, or spill physics, and the request explicitly forbids substituting empty closed cans.",
+          "request": null,
+          "asset_pool_ids": [],
+          "transfers": [],
+          "return_to_initial": false
+        },
+        "errors": [],
+        "wall_seconds": 13.047507365998172
+      }
+    ],
+    "request_sha256": "fa3069fa12f2b0c54b11a9995211d3a251ec8f88043b0c84ac3569ae94ab89d0",
+    "provenance_sha256": "dbefc7e068be2c36233081edb328e712552583e001d2be0499dd06345ec939ac"
+  }
+]

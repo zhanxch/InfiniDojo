@@ -1,0 +1,316 @@
+{
+  "status": "development language cases, not a held-out study",
+  "profile": "stack-v1",
+  "model": "gpt-6-sol",
+  "max_attempts": 3,
+  "timeout_per_call_s": 90,
+  "expected_labels_used_for_feedback": false,
+  "cases": [
+    {
+      "id": "paired-six-en",
+      "description": "Create a complete three-block stacking task with six clutter cans from the available pool, arranged as three pairs. Pair centers are 9 cm apart. Keep full clutter footprints within x=[10,48] cm and y=[-30,18] cm, with 5 mm clearance. Leave all initial task-cube positions unchanged and return the robot after the full stack.",
+      "expected_status": "ready",
+      "expected_request": {
+        "task": "stack_blocks",
+        "clutter": {
+          "count": 6,
+          "region_xy_m": [
+            [
+              0.1,
+              -0.3
+            ],
+            [
+              0.48,
+              0.18
+            ]
+          ],
+          "clearance_m": 0.005,
+          "pair_distance_m": 0.09
+        }
+      },
+      "expected_asset_pool_ids": [
+        1200,
+        1201,
+        1202
+      ]
+    },
+    {
+      "id": "anchor-twelve-zh",
+      "description": "完成原生三方块堆叠并让机器人返回。加入12个已有罐子，每两个为一组，组内中心距9厘米。所有杂物完整投影在 x=[0.10,0.48] 米、y=[-0.30,0.18] 米，间隙5毫米。block_0 可以保持原位，或沿正负 X、正负 Y 中的任一方向移动6厘米；其他两个方块初始位置不变。",
+      "expected_status": "ready",
+      "expected_request": {
+        "task": "stack_blocks",
+        "clutter": {
+          "count": 12,
+          "region_xy_m": [
+            [
+              0.1,
+              -0.3
+            ],
+            [
+              0.48,
+              0.18
+            ]
+          ],
+          "clearance_m": 0.005,
+          "pair_distance_m": 0.09
+        },
+        "task_xy_options_m": {
+          "block_0": [
+            [
+              0.24428776164867352,
+              -0.22786190255571911
+            ],
+            [
+              0.18428776164867353,
+              -0.22786190255571911
+            ],
+            [
+              0.30428776164867355,
+              -0.22786190255571911
+            ],
+            [
+              0.24428776164867352,
+              -0.2878619025557191
+            ],
+            [
+              0.24428776164867352,
+              -0.16786190255571912
+            ]
+          ],
+          "block_1": [
+            [
+              0.37790703809715354,
+              -0.1690098048189287
+            ]
+          ],
+          "block_2": [
+            [
+              0.32280857323529777,
+              -0.054714560931304466
+            ]
+          ]
+        }
+      },
+      "expected_asset_pool_ids": [
+        1200,
+        1201,
+        1202
+      ]
+    },
+    {
+      "id": "unpaired-four-en",
+      "description": "Use four unpaired clutter objects from the supplied can pool for the full stack_blocks task. Their complete footprints must be inside x=0.10 to 0.48 metres and y=-0.30 to 0.18 metres. Require 1 cm clearance. Keep the native task positions and return after completing all three blocks.",
+      "expected_status": "ready",
+      "expected_request": {
+        "task": "stack_blocks",
+        "clutter": {
+          "count": 4,
+          "region_xy_m": [
+            [
+              0.1,
+              -0.3
+            ],
+            [
+              0.48,
+              0.18
+            ]
+          ],
+          "clearance_m": 0.01
+        }
+      },
+      "expected_asset_pool_ids": [
+        1200,
+        1201,
+        1202
+      ]
+    },
+    {
+      "id": "zero-zh",
+      "description": "生成完整的三方块堆叠任务并返回，方块位置保持不变，不添加任何杂物。保留杂物区域 x=[10,48] 厘米、y=[-30,18] 厘米和5毫米间隙配置，不设置成对关系。",
+      "expected_status": "ready",
+      "expected_request": {
+        "task": "stack_blocks",
+        "clutter": {
+          "count": 0,
+          "region_xy_m": [
+            [
+              0.1,
+              -0.3
+            ],
+            [
+              0.48,
+              0.18
+            ]
+          ],
+          "clearance_m": 0.005
+        }
+      },
+      "expected_asset_pool_ids": [
+        1200,
+        1201,
+        1202
+      ]
+    },
+    {
+      "id": "asset-subset-zh",
+      "description": "完整堆叠三方块并返回，方块初始位置固定。只使用已有资产中圆形截面、半径1.8厘米、高5厘米的罐子作为6个杂物，组成3对，中心间距9厘米；完整投影位于 x=[10,48] 厘米、y=[-30,18] 厘米，间隙5毫米。",
+      "expected_status": "ready",
+      "expected_request": {
+        "task": "stack_blocks",
+        "clutter": {
+          "count": 6,
+          "region_xy_m": [
+            [
+              0.1,
+              -0.3
+            ],
+            [
+              0.48,
+              0.18
+            ]
+          ],
+          "clearance_m": 0.005,
+          "pair_distance_m": 0.09
+        }
+      },
+      "expected_asset_pool_ids": [
+        1200
+      ]
+    },
+    {
+      "id": "explicit-options-en",
+      "description": "Create the complete stack and return task with two unpaired cans from the supplied pool. Use x=[0.10,0.48] m and y=[-0.30,0.18] m for full clutter footprints, with 0.005 m clearance. The initial center of block_0 must be either (0.24,-0.23) m or (0.18,-0.23) m, and the other two task cubes must retain their native initial positions.",
+      "expected_status": "ready",
+      "expected_request": {
+        "task": "stack_blocks",
+        "clutter": {
+          "count": 2,
+          "region_xy_m": [
+            [
+              0.1,
+              -0.3
+            ],
+            [
+              0.48,
+              0.18
+            ]
+          ],
+          "clearance_m": 0.005
+        },
+        "task_xy_options_m": {
+          "block_0": [
+            [
+              0.24,
+              -0.23
+            ],
+            [
+              0.18,
+              -0.23
+            ]
+          ],
+          "block_1": [
+            [
+              0.37790703809715354,
+              -0.1690098048189287
+            ]
+          ],
+          "block_2": [
+            [
+              0.32280857323529777,
+              -0.054714560931304466
+            ]
+          ]
+        }
+      },
+      "expected_asset_pool_ids": [
+        1200,
+        1201,
+        1202
+      ]
+    },
+    {
+      "id": "millimetres-en",
+      "description": "Stack all three native blocks and return, preserving their initial positions. Add four cans in two pairs from the existing pool. Within-pair center distance: 100 mm. Required clearance: 10 mm. Keep complete clutter footprints in x=[100,480] mm, y=[-300,180] mm.",
+      "expected_status": "ready",
+      "expected_request": {
+        "task": "stack_blocks",
+        "clutter": {
+          "count": 4,
+          "region_xy_m": [
+            [
+              0.1,
+              -0.3
+            ],
+            [
+              0.48,
+              0.18
+            ]
+          ],
+          "clearance_m": 0.01,
+          "pair_distance_m": 0.1
+        }
+      },
+      "expected_asset_pool_ids": [
+        1200,
+        1201,
+        1202
+      ]
+    },
+    {
+      "id": "narrow-region-zh",
+      "description": "完成三方块堆叠并返回，初始方块位置不变。加入2个已有罐子，不配对。杂物完整投影只能在 x=[10,25] 厘米、y=[-20,-5] 厘米，间隙5毫米。",
+      "expected_status": "ready",
+      "expected_request": {
+        "task": "stack_blocks",
+        "clutter": {
+          "count": 2,
+          "region_xy_m": [
+            [
+              0.1,
+              -0.2
+            ],
+            [
+              0.25,
+              -0.05
+            ]
+          ],
+          "clearance_m": 0.005
+        }
+      },
+      "expected_asset_pool_ids": [
+        1200,
+        1201,
+        1202
+      ]
+    },
+    {
+      "id": "odd-pairs",
+      "description": "Complete the native stack and return task. Add exactly seven cans, partition all of them into disjoint pairs of two with 9 cm center distance. No object may be unpaired. Use x=[.1,.48] m, y=[-.3,.18] m, 5 mm clearance, fixed task positions.",
+      "expected_status": "unsupported",
+      "expected_request": null,
+      "expected_asset_pool_ids": []
+    },
+    {
+      "id": "count-thirty",
+      "description": "完成三方块堆叠并返回，恰好添加30个不配对的已有罐子，不允许减少数量。完整杂物投影在 x=[10,48] 厘米、y=[-30,18] 厘米，间隙5毫米，方块位置固定。",
+      "expected_status": "unsupported",
+      "expected_request": null,
+      "expected_asset_pool_ids": []
+    },
+    {
+      "id": "different-task",
+      "description": "Generate cover_blocks instead of stacking. Preserve the native covering and uncovering task, with six cans in x=[.1,.48] m and y=[-.3,.18] m and 5 mm clearance. Do not substitute a stacking task.",
+      "expected_status": "unsupported",
+      "expected_request": null,
+      "expected_asset_pool_ids": []
+    },
+    {
+      "id": "liquid-container",
+      "description": "生成完整三方块堆叠并返回。周围加入6个开口容器，装有可流动的水，并模拟洒水。完整投影在 x=[10,48] 厘米、y=[-30,18] 厘米，间隙5毫米。不能替换成封闭的空罐。",
+      "expected_status": "unsupported",
+      "expected_request": null,
+      "expected_asset_pool_ids": []
+    }
+  ]
+}

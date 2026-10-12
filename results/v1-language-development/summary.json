@@ -1,0 +1,22 @@
+{
+  "scope": "Twelve development descriptions; one physical integration check, not held-out performance",
+  "requested_model": "gpt-6-sol",
+  "descriptions": 12,
+  "supported_descriptions": 8,
+  "unsupported_descriptions": 4,
+  "first_response_faithful": 12,
+  "final_response_faithful": 12,
+  "total_model_calls": 12,
+  "feedback_rounds": 0,
+  "compiler_wall_seconds_sum": 211.11989096400066,
+  "physical_run_status": "accepted",
+  "physical_validation_checks": 24,
+  "example_compiler_wall_seconds": 21.82563551000203,
+  "example_backend_wall_seconds": 115.36980455799858,
+  "example_stage_seconds_sum": 137.1954400680006,
+  "cost_limits": "Sum of compiler and backend stage times; excludes precomputed asset creation and between-stage human/orchestration waiting.",
+  "expected_labels_used_for_feedback": false,
+  "compiler_tool_actions_observed": 0,
+  "conclusion": "The restricted language interface and one physical integration path work; no evidence of iterative refinement benefit.",
+  "compiled_program_matches_execution": true
+}

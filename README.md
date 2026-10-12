@@ -23,7 +23,7 @@ Reference motions are internal generation and validation tools. Evaluated
 policies remain free to choose their own actions. Failure diagnosis and RSI
 evaluation are downstream applications, not the core method.
 
-## Next stage — planned
+## Current development and next stage
 
 The [paper scope and stopping contract / 投稿版本约定](docs/paper-contract.md)
 fixes the main claim, finite scope and evidence requirements. The
@@ -57,6 +57,11 @@ development request still fails to find a complete layout; no algorithmic
 advantage has been established. Broader coverage and policy comparisons remain
 unfinished; these checks are not a frozen evaluation protocol.
 See the [repair and ablation development evidence](results/v1-repair-development/README.md).
+The [complete-stack language frontend](docs/language-frontend.md) now compiles
+descriptions into hashed generator inputs and selects assets from an explicit
+pool. [Twelve live development descriptions](results/v1-language-development/README.md)
+all produce faithful first responses or correct declines, and one description
+drives physical generation and export. No iterative-refinement benefit is shown.
 
 ## Initial implementation scope
 

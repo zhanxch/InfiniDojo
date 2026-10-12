@@ -1,0 +1,206 @@
+[
+  {
+    "id": "paired-six-en",
+    "expected_status": "ready",
+    "status": "compiled",
+    "accepted": true,
+    "attempts": 1,
+    "first": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "final": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "wall_seconds": 21.82563551000203,
+    "result_sha256": "bfa606bbf33940fe7b544e40da9b53b66a3f3ddfeca1dcfee721150557599b9b"
+  },
+  {
+    "id": "anchor-twelve-zh",
+    "expected_status": "ready",
+    "status": "compiled",
+    "accepted": true,
+    "attempts": 1,
+    "first": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "final": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "wall_seconds": 22.371331805999944,
+    "result_sha256": "299affedae2c02ca907c9193df1f062059ed1b5b6b5be2b8ce55c00728ab6187"
+  },
+  {
+    "id": "unpaired-four-en",
+    "expected_status": "ready",
+    "status": "compiled",
+    "accepted": true,
+    "attempts": 1,
+    "first": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "final": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "wall_seconds": 14.99799337299919,
+    "result_sha256": "67d74feaf6dcc93240d3d8546258e527620b0f85f78ea16afe0001e19119d921"
+  },
+  {
+    "id": "zero-zh",
+    "expected_status": "ready",
+    "status": "compiled",
+    "accepted": true,
+    "attempts": 1,
+    "first": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "final": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "wall_seconds": 24.014542633001838,
+    "result_sha256": "f8f7312ad96591d19b923d34596ecc63034d951941e1872316f80cf8e6812419"
+  },
+  {
+    "id": "asset-subset-zh",
+    "expected_status": "ready",
+    "status": "compiled",
+    "accepted": true,
+    "attempts": 1,
+    "first": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "final": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "wall_seconds": 17.157490302997758,
+    "result_sha256": "35f6101401104a9b1de48fe8b34df812410d10b2127b99996097a963e800e31d"
+  },
+  {
+    "id": "explicit-options-en",
+    "expected_status": "ready",
+    "status": "compiled",
+    "accepted": true,
+    "attempts": 1,
+    "first": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "final": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "wall_seconds": 20.603353414000594,
+    "result_sha256": "61136fcc3556182ef27df4328dc1997851cfb15dda7fc597d7f714883d8fb751"
+  },
+  {
+    "id": "millimetres-en",
+    "expected_status": "ready",
+    "status": "compiled",
+    "accepted": true,
+    "attempts": 1,
+    "first": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "final": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "wall_seconds": 13.751169656999991,
+    "result_sha256": "33fc950bc4066516001dde3ced99081b9f82f2eb24cda2b8d219acc391f69bb1"
+  },
+  {
+    "id": "narrow-region-zh",
+    "expected_status": "ready",
+    "status": "compiled",
+    "accepted": true,
+    "attempts": 1,
+    "first": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "final": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "wall_seconds": 17.92432541100061,
+    "result_sha256": "d9396313602467302ba9e9d6ee5b1c7c74225ab1e402cdb0f587bd046733964d"
+  },
+  {
+    "id": "odd-pairs",
+    "expected_status": "unsupported",
+    "status": "unsupported",
+    "accepted": false,
+    "attempts": 1,
+    "first": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "final": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "wall_seconds": 18.47015630399983,
+    "result_sha256": "628b4440aeb6a92f43f3d49a0afa043a4efb69f1231332eeca72f5b2be76985b"
+  },
+  {
+    "id": "count-thirty",
+    "expected_status": "unsupported",
+    "status": "unsupported",
+    "accepted": false,
+    "attempts": 1,
+    "first": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "final": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "wall_seconds": 14.350252403997729,
+    "result_sha256": "09edfa10b2a3248daa9434a46294aaad276993e15bc664eec3b8812ae2e31955"
+  },
+  {
+    "id": "different-task",
+    "expected_status": "unsupported",
+    "status": "unsupported",
+    "accepted": false,
+    "attempts": 1,
+    "first": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "final": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "wall_seconds": 12.603487620999658,
+    "result_sha256": "3180fd4f0d3b4924f8a3aae31f5f31ed5caeb9dce016ac0db6bafcb445b43d21"
+  },
+  {
+    "id": "liquid-container",
+    "expected_status": "unsupported",
+    "status": "unsupported",
+    "accepted": false,
+    "attempts": 1,
+    "first": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "final": {
+      "intrinsic_valid": true,
+      "request_faithful": true
+    },
+    "wall_seconds": 13.05015252800149,
+    "result_sha256": "f282eb0b658ad12e3a27bc909e625c4dd7c4a62601be1c90641928ec157a02d3"
+  }
+]

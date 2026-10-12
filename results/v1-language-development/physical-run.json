@@ -1,0 +1,194 @@
+{
+  "status": "accepted",
+  "method": "g3",
+  "seed": 1200,
+  "request": {
+    "task": "stack_blocks",
+    "clutter": {
+      "count": 6,
+      "region_xy_m": [
+        [
+          0.1,
+          -0.3
+        ],
+        [
+          0.48,
+          0.18
+        ]
+      ],
+      "clearance_m": 0.005,
+      "pair_distance_m": 0.09
+    }
+  },
+  "infinidojo_commit": "251f3708b04a986cb65f6bbca40ea81b615e3959",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "source_sha256": {
+    "__init__.py": "44cf1ca788faa02d0337265e81a7d6bbf08492d7a7dfd3f0ec35982305e70827",
+    "assets.py": "bb4a3c092e9a5e2cae62e36ce88b645d9fd78d80caff44c10086742fd9c45f2b",
+    "cli.py": "d97418c4ab80573332d7d737c6c1fcc0a25c1ef20c8f4074d03ed745357a2c1e",
+    "completion.py": "c01ab0970d85d80705c32ae9e3b35f837d18b1000324e4732b1e7879ed862d14",
+    "episode.py": "fc96ad5dfb578d2fcf06447be42854722c8a7e3f400a5b4469d68f93109604f1",
+    "evaluation.py": "55adc643e96d0c90ac56a8205cd59618a28f12607f7ec930f4d0cd9283322be0",
+    "frontend.py": "29db31d5708264c0f28b3955bbf6f926999c7ff60a3b4a8e1970ab0b961fb343",
+    "generation.py": "80dbca774577f6ce7ac6df272b92e857518223e73a97af10866fdc491079ed75",
+    "geometry.py": "350d0be91e221f5b1ecc7541fd8a10dd408bc9aee2776da41531ccfc077b897a",
+    "interaction.py": "17752f32d9a57bf871dd211a39a3262dcfca2713fa9728aa716f038d85dfc59c",
+    "io.py": "23645e5d675a3da52cbdfea486f648aa4ad83bda198181f43cb06ce3949d3391",
+    "native.py": "0e911e97a2ea902eb46b6928c33b31d39cda491ce951a529f186896a37488e94",
+    "native_stack.py": "85253c4dff84f2768167ad04642331bf92bda6fa08bd7847c335011a2fd73e0b",
+    "planning.py": "a04467e969e02941be81def9ed2e42a2062106f5089057024afd8c3459a9f313",
+    "planning_probe.py": "fd32ffd20ecd0a86b4c2229533777b23d9d27c7c8457d4f32bcbb187be9aa2ca",
+    "repair.py": "63f39e341669aa2ca1e4548c06cc9ee448ac8aaef2ddeea81b80d430f329eabd",
+    "request_run.py": "5bc7bdf9b92d8b942811e94eac83f1c01b57f2e218597db275230f11f957c670",
+    "specification.py": "a529f6a93c5c72d52b843d475bdd40a9673430b09abf8fbdf70c2d0170b60ec6",
+    "stack_specification.py": "0ce5554233174f28d727888662c639c9f8f74faf82175ce08d3c7a73cab0f677",
+    "study.py": "2c4ce84a8d89a5e48ae22aa629f836b93b68fba711d4d0fb82b59ac716bc873a",
+    "validation.py": "07844e680c3802c270bbc3a7c0c5e36eb079e015100991c4fd43accf9a7e8412"
+  },
+  "initial_layout_sha256": "9a6b1ba160b2fc5420fd4aa858400b1ee0346d7d7449bdd85aa99d9f65418191",
+  "base_layout_sha256": "9a6b1ba160b2fc5420fd4aa858400b1ee0346d7d7449bdd85aa99d9f65418191",
+  "initial_task_positions": {
+    "block_0": [
+      0.24428776164867352,
+      -0.22786190255571911
+    ],
+    "block_1": [
+      0.37790703809715354,
+      -0.1690098048189287
+    ],
+    "block_2": [
+      0.32280857323529777,
+      -0.054714560931304466
+    ]
+  },
+  "language_compilation": {
+    "profile": "stack-v1",
+    "model": "gpt-6-sol",
+    "wall_seconds": 21.824872943001537,
+    "files_sha256": {
+      "schema.json": "7fa0bf1d4f0c16b7741a012ba0fc32544bfc988f2823f3ef4440c14d8f3e222d",
+      "context.json": "81b45c924a40a3dc18d80ca9afbe5424f192f49501433a8895b5b12df4180ca8",
+      "request.txt": "8713e77aef0b3701fef3cb452df3f6f74fa8e137f109abc833c38278563faf09",
+      "specification.json": "ffc714db36681ef5979a638b00b91c0afca823ce6cd60192c9f66bf39a94b4d7",
+      "generator-request.json": "cb69281fe89bbd29a3d2a7e0a204e5ac06c6a0f6e3ef48d3ca634db49c190c52",
+      "asset-pool.json": "78c2fa4ce33fae1947d269ac416b30acdae8ea748d67cbbd453848319e8d8cf0",
+      "interaction-program.json": "b8d1fd93f4d797522019fbeb7e38b532b39378f946d95ee58434f0f8de2528ce"
+    },
+    "note": "Constraint validation only; physical generation and validation are still required",
+    "manifest_sha256": "7e56fbebc17d4b39938d57cde9c087621cf1b6e7a873f904be26d68e330a24d6"
+  },
+  "repair_enabled": true,
+  "task_position_updates": [],
+  "assets": [
+    {
+      "asset_id": 1200,
+      "provenance_sha256": "d476c3bafeb434d3c3778e036a151f6d3bb07d41ffd1033c7d734a4a3d39ec79"
+    },
+    {
+      "asset_id": 1201,
+      "provenance_sha256": "3208931cc80df2e7b2da3e5f87160ba7d19ffd4e9dc236c5fc70db48b90b035a"
+    },
+    {
+      "asset_id": 1202,
+      "provenance_sha256": "ca9cdeef09080bf887e6d7e94ce1d031cbec55533e011ec835ca12a1a50e69f1"
+    }
+  ],
+  "asset_indices": [
+    2,
+    1,
+    1,
+    0,
+    1,
+    2
+  ],
+  "budgets": {
+    "wall_seconds": 240.0,
+    "max_layouts": 4,
+    "total_proposals": 4000,
+    "proposals_per_layout": 1000,
+    "cluster_proposals": 128,
+    "physics_steps_per_execution": 20000
+  },
+  "cost_scope": "precomputed assets; includes reset/reference acquisition, all candidate generation, simulator startup/shutdown, planning, execution, independent validation and episode export",
+  "asset_generation_seconds": null,
+  "protocol_status": "development; thresholds and formal protocol not frozen",
+  "attempts": [
+    {
+      "index": 0,
+      "layout_seed": 1200,
+      "status": "validated_under_development_checks",
+      "proposal_limit": 1000,
+      "task_positions": {
+        "block_0": [
+          0.24428776164867352,
+          -0.22786190255571911
+        ],
+        "block_1": [
+          0.37790703809715354,
+          -0.1690098048189287
+        ],
+        "block_2": [
+          0.32280857323529777,
+          -0.054714560931304466
+        ]
+      },
+      "state_source": "reference",
+      "proposals": 307,
+      "native_task_success": true,
+      "controller_status": "completed",
+      "controller_error": null,
+      "physics_steps": 5613,
+      "motions_planned": 0,
+      "failed_checks": []
+    }
+  ],
+  "stages": [
+    {
+      "name": "state-acquisition",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 62.24671584099997,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.native_stack"
+    },
+    {
+      "name": "attempt-00/generation",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.7658030780003173,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.completion"
+    },
+    {
+      "name": "attempt-00/execution",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 51.17635919500026,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.native_stack"
+    },
+    {
+      "name": "attempt-00/validation",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 1.06946121099827,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.validation"
+    },
+    {
+      "name": "attempt-00/export",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.06414298699746723,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.episode"
+    }
+  ],
+  "accepted_attempt": 0,
+  "total_proposals_used": 307,
+  "unreported_proposals_upper_bound": 0,
+  "wall_seconds": 115.36980455799858,
+  "deadline_overrun_seconds": 0.0,
+  "episode_manifest_sha256": "3b8a0a75a5c96a66d4302ad4e6600b56c8713dd59c2b20fc6e456c89944653a0",
+  "raw_run_sha256": "f9c449393bdfeab907c269b94f4e337a8cdec7b10c2a948225290ce5dbe14b4f"
+}

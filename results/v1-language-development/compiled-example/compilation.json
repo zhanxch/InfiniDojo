@@ -1,0 +1,15 @@
+{
+  "profile": "stack-v1",
+  "model": "gpt-6-sol",
+  "wall_seconds": 21.824872943001537,
+  "files_sha256": {
+    "schema.json": "7fa0bf1d4f0c16b7741a012ba0fc32544bfc988f2823f3ef4440c14d8f3e222d",
+    "context.json": "81b45c924a40a3dc18d80ca9afbe5424f192f49501433a8895b5b12df4180ca8",
+    "request.txt": "8713e77aef0b3701fef3cb452df3f6f74fa8e137f109abc833c38278563faf09",
+    "specification.json": "ffc714db36681ef5979a638b00b91c0afca823ce6cd60192c9f66bf39a94b4d7",
+    "generator-request.json": "cb69281fe89bbd29a3d2a7e0a204e5ac06c6a0f6e3ef48d3ca634db49c190c52",
+    "asset-pool.json": "78c2fa4ce33fae1947d269ac416b30acdae8ea748d67cbbd453848319e8d8cf0",
+    "interaction-program.json": "b8d1fd93f4d797522019fbeb7e38b532b39378f946d95ee58434f0f8de2528ce"
+  },
+  "note": "Constraint validation only; physical generation and validation are still required"
+}
