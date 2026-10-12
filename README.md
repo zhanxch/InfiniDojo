@@ -62,6 +62,9 @@ descriptions into hashed generator inputs and selects assets from an explicit
 pool. [Twelve live development descriptions](results/v1-language-development/README.md)
 all produce faithful first responses or correct declines, and one description
 drives physical generation and export. No iterative-refinement benefit is shown.
+The [policy evaluation entry point](docs/policy-evaluation.md) now accepts native
+layouts and exported episodes through the unchanged RoboDojo evaluator. Its
+first native reset/RGB diagnostic passes; this is not a policy score.
 
 ## Initial implementation scope
 
