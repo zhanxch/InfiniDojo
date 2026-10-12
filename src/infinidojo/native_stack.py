@@ -13,6 +13,7 @@ import os
 import shutil
 import sys
 import time
+from itertools import groupby
 from pathlib import Path
 
 import numpy as np
@@ -38,8 +39,9 @@ def make_config(root, seed):
 
 
 class EvidenceRecorder:
-    def __init__(self, env, output, max_steps):
+    def __init__(self, env, output, max_steps, video=True):
         self.env, self.output, self.max_steps = env, output, max_steps
+        self.video = video
         self.steps, self.event_id, self.phase = 0, None, "initial"
         self.samples, self.controls, self.boundaries = [], [], []
         self.contact_counts, self.contact_errors = {}, []
@@ -47,6 +49,32 @@ class EvidenceRecorder:
         self.writer = None
         self.video_frames = 0
         self.subscription = None
+        lm = env.scene_manager.layout_manager
+        self.records = lm.get_layout_records(0, "Rigid")
+        self.labels = [item["label"] for item in self.records]
+        objects = {}
+        for item in self.records:
+            vertices = (
+                np.asarray(
+                    lm.get_instance_metadata(0, label=item["label"])["geometry"]["aligned_bbox"]["vertices"]
+                )
+                * item["scale"]
+            )
+            objects[item["label"]] = {
+                "prim_path": item["prim_path"],
+                "category": item["category"],
+                "category_idx": item["category_idx"],
+                "requested_pose": [*item["default_pos"], *item["default_ori"]],
+                "bounds": [vertices.min(0).tolist(), vertices.max(0).tolist()],
+            }
+        write_json(output / "scene-objects.json", objects)
+        write_json(
+            output / "robot-identities.json",
+            {
+                f"robot{i}": {"arm": robot.arm_name, "gripper_bodies": ["link7", "link8"]}
+                for i, robot in enumerate(env.robot_manager.robot_list)
+            },
+        )
         self.start_contacts()
 
     def start_contacts(self):
@@ -134,7 +162,7 @@ class EvidenceRecorder:
                 "time_s": self.steps * self.env.dt,
                 "event_id": self.event_id,
                 "phase": self.phase,
-                "objects": {label: self.object_pose(label).tolist() for label in LABELS},
+                "objects": {label: self.object_pose(label).tolist() for label in self.labels},
                 "robots": [
                     {
                         "body_names": list(key.body_names),
@@ -147,6 +175,8 @@ class EvidenceRecorder:
         )
 
     def capture(self):
+        if not self.video:
+            return
         import cv2
         from env.camera_manager.capture.render_sync import wait_for_latest_cameras
 
@@ -224,7 +254,7 @@ class EvidenceRecorder:
         )
 
 
-def run_reference(env, output, max_steps):
+def run_reference(env, output, max_steps, reference=None, video=True):
     rm = env.robot_manager
     robot = rm.robot_list[1]  # native layout 0 places its three blocks on the right
     initialize_reward(env)
@@ -238,8 +268,10 @@ def run_reference(env, output, max_steps):
         ],
         {label: "Table" for label in LABELS},
     )
+    if reference is not None:
+        program = json.loads((reference / "interaction-program.json").read_text())
     write_json(output / "interaction-program.json", program)
-    rec = EvidenceRecorder(env, output, max_steps)
+    rec = EvidenceRecorder(env, output, max_steps, video=video)
     rec.sample()
     plans, transfers = [], []
     quat = [2**-0.5, 0, 2**-0.5, 0]
@@ -277,7 +309,15 @@ def run_reference(env, output, max_steps):
     status, error = "completed", None
     try:
         rec.capture()
-        for index, (label, destination) in enumerate(zip(LABELS[1:], LABELS[:-1])):
+        if reference is not None:
+            commands = json.loads((reference / "controls.json").read_text())
+            for (phase, event_id), items in groupby(
+                commands, key=lambda row: (row["phase"], row.get("event_id"))
+            ):
+                rec.execute([item["control"] for item in items], phase, event_id)
+        for index, (label, destination) in (
+            enumerate(zip(LABELS[1:], LABELS[:-1])) if reference is None else []
+        ):
 
             def eid(phase, event_index=index):
                 return f"{event_index:02d}/{phase}"
@@ -310,10 +350,11 @@ def run_reference(env, output, max_steps):
                 }
             )
             print(json.dumps(transfers[-1]), flush=True)
-        result = rm.planner[robot.robot_name].plan_joint(rm.get_joint(robot, [0])[0], initial_joints)
-        plans.append({"phase": "return", "status": result["status"]})
-        rec.execute(rm.plan_ee(0, robot.arm_name, result), "return")
-        rec.hold(500, "settle")
+        if reference is None:
+            result = rm.planner[robot.robot_name].plan_joint(rm.get_joint(robot, [0])[0], initial_joints)
+            plans.append({"phase": "return", "status": result["status"]})
+            rec.execute(rm.plan_ee(0, robot.arm_name, result), "return")
+            rec.hold(500, "settle")
     except RuntimeError as exc:
         status, error = "controller_failed", str(exc)
     finally:
@@ -333,7 +374,7 @@ def run_reference(env, output, max_steps):
             ),
             default=None,
         )
-        for label in LABELS
+        for label in rec.labels
     }
     return {
         "status": status,
@@ -350,31 +391,83 @@ def run_reference(env, output, max_steps):
         "physics_dt": env.dt,
         "plans": plans,
         "transfers": transfers,
-        "strict_instance_validation": "pending: full contact/geometry validator not implemented",
+        "execution_mode": "fixed_reference_replay" if reference is not None else "online_reference_planning",
+        "strict_instance_validation": "not evaluated by executor; see separate independent validation report",
         "controller": "privileged CuRobo reference, physical grasp/release, no object welding or teleport",
         "budget_note": "Raw physics steps are not native policy actions; no official leaderboard claim",
     }
+
+
+def install_asset_overlay(root, output, asset_map):
+    """Resolve generated assets without modifying the upstream asset tree."""
+    import env.scene_manager.layout_manager as layout_module
+
+    native = root / "Assets/Object/RoboDojo"
+    overlay = output / "asset_overlay"
+    overlay.mkdir()
+    for path in native.iterdir():
+        if path.name != "Rigid":
+            (overlay / path.name).symlink_to(path.resolve(), target_is_directory=path.is_dir())
+    rigid = overlay / "Rigid"
+    rigid.mkdir()
+    for path in (native / "Rigid").iterdir():
+        (rigid / path.name).symlink_to(path.resolve(), target_is_directory=path.is_dir())
+    category = rigid / "infinigen_can"
+    category.mkdir()
+    provenance = {}
+    for asset_id, path in asset_map.items():
+        folder = Path(path).resolve()
+        record = json.loads((folder / "provenance.json").read_text())
+        for name, digest in record["files"].items():
+            if sha256(folder / name) != digest:
+                raise ValueError(f"Generated asset content changed: {asset_id}/{name}")
+        (category / f"{int(asset_id):05d}").symlink_to(folder, target_is_directory=True)
+        provenance[asset_id] = record
+    write_json(output / "asset-provenance.json", provenance)
+    layout_module.OBJECTS_PATH = str(overlay)
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--robodojo-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--seed", type=int, default=1200)
+    parser.add_argument("--seed", type=int)
     parser.add_argument("--layout", type=Path, help="Native stack layout; default is saved layout 0")
+    parser.add_argument("--episode", type=Path, help="Portable episode bundle to load")
     parser.add_argument("--max-steps", type=int, default=20000)
+    parser.add_argument("--asset-map", type=Path, help="JSON mapping generated can IDs to asset folders")
+    parser.add_argument("--reference", type=Path, help="Replay fixed controls from this reference directory")
+    parser.add_argument("--no-video", action="store_true", help="Keep physical evidence without RGB encoding")
     from isaaclab.app import AppLauncher
 
     AppLauncher.add_app_launcher_args(parser)
     args = parser.parse_args()
     root, output = args.robodojo_root.resolve(), args.output.resolve()
     source = Path(__file__).resolve().parents[2]
+    asset_map = None
+    if args.episode:
+        from infinidojo.episode import load_episode
+
+        if args.layout or args.asset_map or args.seed is not None:
+            parser.error("--episode provides its own layout, asset map and seed")
+        manifest, args.layout, asset_map = load_episode(args.episode)
+        if manifest["robodojo_commit"] != git_revision(root):
+            raise ValueError("Episode requires a different RoboDojo revision")
+        args.seed = manifest["seed"]
+    elif args.asset_map:
+        map_path = args.asset_map.resolve()
+        asset_map = {
+            key: str((map_path.parent / value).resolve())
+            for key, value in json.loads(map_path.read_text()).items()
+        }
+    args.seed = 1200 if args.seed is None else args.seed
     layout_path = (
         args.layout.resolve()
         if args.layout
         else root / "Assets/Eval_Layout/RoboDojo/arx_x5/0/stack_blocks_0.json"
     )
     layout = json.loads(layout_path.read_text())
+    reference = args.reference.resolve() if args.reference else None
     output.mkdir(parents=True, exist_ok=False)
     snapshot = output / "source/infinidojo"
     snapshot.mkdir(parents=True)
@@ -385,6 +478,7 @@ def main():
         {
             "infinidojo_commit": git_revision(source),
             "robodojo_commit": git_revision(root),
+            "robot_usd_sha256": sha256(root / "Assets/Robots/x5/ARX.usd"),
             "source_sha256": {
                 str(p.relative_to(source)): sha256(p) for p in (source / "src/infinidojo").glob("*.py")
             },
@@ -393,6 +487,7 @@ def main():
             "seed": args.seed,
             "native_layout_sha256": sha256(layout_path),
             "max_reference_physics_steps": args.max_steps,
+            "reference_controls_sha256": sha256(reference / "controls.json") if reference else None,
         },
     )
     write_json(output / "layout.json", layout)
@@ -406,6 +501,11 @@ def main():
         from task.RoboDojo.tasks.stack_blocks import stack_blocks
 
         config = make_config(root, args.seed)
+        if reference is not None:
+            for robot_config in config.robot.robots:
+                robot_config.need_planner = False
+        if asset_map is not None:
+            install_asset_overlay(root, output, asset_map)
         write_json(output / "config.json", OmegaConf.to_container(config, resolve=True))
         env = stack_blocks(config, app)
         install_reset_cleanup(env)
@@ -425,7 +525,7 @@ def main():
         write_json(
             output / "loaded-layout.json", env.scene_manager.layout_manager.get_layout_records(0, "Rigid")
         )
-        result = run_reference(env, output, args.max_steps)
+        result = run_reference(env, output, args.max_steps, reference, video=not args.no_video)
         result["wall_seconds"] = time.monotonic() - start
         write_json(output / "result.json", result)
         print(json.dumps(result), flush=True)

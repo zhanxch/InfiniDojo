@@ -1,0 +1,450 @@
+{
+  "status": "validated_under_development_checks",
+  "checks": {
+    "verifier_owned_contact_contract": true,
+    "native_task_success": true,
+    "complete_event_order": true,
+    "complete_execution": true,
+    "initialization_preserved": true,
+    "initial_rotations_preserved": true,
+    "requested_count": true,
+    "requested_asset_identities": true,
+    "initial_footprints_inside_region": true,
+    "requested_initial_clearance": true,
+    "pair_relation_preserved": true,
+    "clutter_remains_stationary": true,
+    "clutter_rotation_stable": true,
+    "contact_reporting_available": true,
+    "all_recorded_bodies_instrumented": true,
+    "contacts_legal_and_shallow": true,
+    "settle_duration": true,
+    "settle_motion": true,
+    "settle_rotation_stable": true,
+    "final_task_support_contacts": true,
+    "final_support_geometry": true,
+    "held_relation_observed": true,
+    "held_rotation_observed": true,
+    "independent_clutter_geometry_screen": true
+  },
+  "failed_checks": [],
+  "threshold_status": "development values, not frozen held-out protocol",
+  "thresholds": {
+    "penetration_m": 0.001,
+    "contact_distance_m": 0.001,
+    "initialization_translation_m": 0.005,
+    "initialization_rotation_deg": 2.0,
+    "clutter_motion_m": 0.002,
+    "clutter_rotation_deg": 2.0,
+    "settle_motion_m": 0.002,
+    "settle_rotation_deg": 2.0,
+    "attachment_translation_m": 0.003,
+    "attachment_rotation_deg": 5.0,
+    "pair_distance_error_m": 0.003,
+    "support_gap_m": 0.001,
+    "minimum_settle_s": 1.0
+  },
+  "diagnostics": {
+    "initial_translation_error_m": {
+      "block_0": 4.330488333126451e-05,
+      "block_1": 4.333139247048284e-05,
+      "block_2": 4.332343689030801e-05,
+      "clutter_0": 7.405878007716324e-07,
+      "clutter_1": 1.521041197524773e-07,
+      "clutter_2": 1.6677445853153303e-07,
+      "clutter_3": 1.5288387246719782e-07,
+      "clutter_4": 1.3857131859835735e-07,
+      "clutter_5": 7.428074014298235e-07
+    },
+    "initial_rotation_error_deg": {
+      "block_0": 0.14564638494466514,
+      "block_1": 0.1456673782943094,
+      "block_2": 0.1456676797043388,
+      "clutter_0": 0.0011742538414252904,
+      "clutter_1": 0.00020828927565397606,
+      "clutter_2": 0.00043007994707197937,
+      "clutter_3": 0.000509915193421108,
+      "clutter_4": 0.0004245616414642809,
+      "clutter_5": 0.0011728351693329768
+    },
+    "pair_distance_errors_m": [
+      1.499020043510546e-07,
+      1.5800977268276561e-07,
+      1.4337393058894143e-07
+    ],
+    "clutter_motion_m": {
+      "clutter_0": 1.3514129182113002e-07,
+      "clutter_1": 3.2544627290728025e-07,
+      "clutter_2": 3.3155083656311035e-07,
+      "clutter_3": 1.0133885226201597e-07,
+      "clutter_4": 2.4237300961633206e-07,
+      "clutter_5": 1.3493575361575808e-07
+    },
+    "clutter_rotation_deg": {
+      "clutter_0": 0.00026379809644081246,
+      "clutter_1": 0.0005702364345779073,
+      "clutter_2": 0.0005380887662269105,
+      "clutter_3": 0.0004798785141896706,
+      "clutter_4": 0.0005617661911141664,
+      "clutter_5": 0.00026625420872526147
+    },
+    "settle_translation_m": {
+      "block_0": 1.784362878095486e-05,
+      "block_1": 8.156189067562376e-05,
+      "block_2": 0.0001674497593173628,
+      "clutter_0": 6.365778852490731e-08,
+      "clutter_1": 3.591767189858541e-07,
+      "clutter_2": 2.2794393510786228e-07,
+      "clutter_3": 2.2351741790771484e-08,
+      "clutter_4": 1.8192999731115668e-07,
+      "clutter_5": 4.470348358154297e-08
+    },
+    "settle_rotation_deg": {
+      "block_0": 0.037825970140221606,
+      "block_1": 0.1493791187575571,
+      "block_2": 0.14293092263967092,
+      "clutter_0": 2.9103539443806935e-05,
+      "clutter_1": 0.0006147869833304249,
+      "clutter_2": 0.0004611104921076702,
+      "clutter_3": 3.610160435482575e-05,
+      "clutter_4": 0.0005779637708820434,
+      "clutter_5": 2.9476836521720566e-05
+    },
+    "final_support_gaps_m": {
+      "block_0": -2.9360891394825117e-06,
+      "block_1": -3.346907782797448e-05,
+      "block_2": -4.69551063357887e-05
+    },
+    "held_relative_translation_error_m": {
+      "00/lift": 0.0001531264127936616,
+      "00/transport": 0.00021479162282394675,
+      "01/lift": 0.00018213573481500576,
+      "01/transport": 0.0002855651784065863
+    },
+    "held_relative_rotation_error_deg": {
+      "00/lift": 0.007441198411393777,
+      "00/transport": 0.006408311928090446,
+      "01/lift": 0.011871524646273265,
+      "01/transport": 0.011287375334200482
+    }
+  },
+  "contact_audit": {
+    "clear": true,
+    "raw_records": 9350,
+    "point_count": 38970,
+    "violations": [],
+    "evidence": [
+      {
+        "event": "00/grasp",
+        "pair": [
+          "block_1",
+          "right_arm/gripper"
+        ],
+        "step_count": 202,
+        "first_step": 681,
+        "last_step": 882
+      },
+      {
+        "event": "00/lift",
+        "pair": [
+          "block_1",
+          "right_arm/gripper"
+        ],
+        "step_count": 251,
+        "first_step": 883,
+        "last_step": 1133
+      },
+      {
+        "event": "00/transport",
+        "pair": [
+          "block_1",
+          "right_arm/gripper"
+        ],
+        "step_count": 231,
+        "first_step": 1134,
+        "last_step": 1364
+      },
+      {
+        "event": "00/place",
+        "pair": [
+          "block_1",
+          "right_arm/gripper"
+        ],
+        "step_count": 211,
+        "first_step": 1365,
+        "last_step": 1575
+      },
+      {
+        "event": "00/place",
+        "pair": [
+          "block_0",
+          "block_1"
+        ],
+        "step_count": 63,
+        "first_step": 1513,
+        "last_step": 1575
+      },
+      {
+        "event": "00/release",
+        "pair": [
+          "block_1",
+          "right_arm/gripper"
+        ],
+        "step_count": 18,
+        "first_step": 1576,
+        "last_step": 1593
+      },
+      {
+        "event": "00/release",
+        "pair": [
+          "block_0",
+          "block_1"
+        ],
+        "step_count": 300,
+        "first_step": 1576,
+        "last_step": 1875
+      },
+      {
+        "event": "00/retreat",
+        "pair": [
+          "block_0",
+          "block_1"
+        ],
+        "step_count": 461,
+        "first_step": 1876,
+        "last_step": 2336
+      },
+      {
+        "event": "01/approach",
+        "pair": [
+          "block_0",
+          "block_1"
+        ],
+        "step_count": 251,
+        "first_step": 2337,
+        "last_step": 2587
+      },
+      {
+        "event": "01/descend",
+        "pair": [
+          "block_0",
+          "block_1"
+        ],
+        "step_count": 211,
+        "first_step": 2588,
+        "last_step": 2798
+      },
+      {
+        "event": "01/grasp",
+        "pair": [
+          "block_0",
+          "block_1"
+        ],
+        "step_count": 300,
+        "first_step": 2799,
+        "last_step": 3098
+      },
+      {
+        "event": "01/grasp",
+        "pair": [
+          "block_2",
+          "right_arm/gripper"
+        ],
+        "step_count": 202,
+        "first_step": 2897,
+        "last_step": 3098
+      },
+      {
+        "event": "01/lift",
+        "pair": [
+          "block_0",
+          "block_1"
+        ],
+        "step_count": 251,
+        "first_step": 3099,
+        "last_step": 3349
+      },
+      {
+        "event": "01/lift",
+        "pair": [
+          "block_2",
+          "right_arm/gripper"
+        ],
+        "step_count": 251,
+        "first_step": 3099,
+        "last_step": 3349
+      },
+      {
+        "event": "01/transport",
+        "pair": [
+          "block_0",
+          "block_1"
+        ],
+        "step_count": 271,
+        "first_step": 3350,
+        "last_step": 3620
+      },
+      {
+        "event": "01/transport",
+        "pair": [
+          "block_2",
+          "right_arm/gripper"
+        ],
+        "step_count": 271,
+        "first_step": 3350,
+        "last_step": 3620
+      },
+      {
+        "event": "01/place",
+        "pair": [
+          "block_0",
+          "block_1"
+        ],
+        "step_count": 211,
+        "first_step": 3621,
+        "last_step": 3831
+      },
+      {
+        "event": "01/place",
+        "pair": [
+          "block_2",
+          "right_arm/gripper"
+        ],
+        "step_count": 211,
+        "first_step": 3621,
+        "last_step": 3831
+      },
+      {
+        "event": "01/place",
+        "pair": [
+          "block_1",
+          "block_2"
+        ],
+        "step_count": 64,
+        "first_step": 3768,
+        "last_step": 3831
+      },
+      {
+        "event": "01/release",
+        "pair": [
+          "block_0",
+          "block_1"
+        ],
+        "step_count": 300,
+        "first_step": 3832,
+        "last_step": 4131
+      },
+      {
+        "event": "01/release",
+        "pair": [
+          "block_2",
+          "right_arm/gripper"
+        ],
+        "step_count": 17,
+        "first_step": 3832,
+        "last_step": 3848
+      },
+      {
+        "event": "01/release",
+        "pair": [
+          "block_1",
+          "block_2"
+        ],
+        "step_count": 300,
+        "first_step": 3832,
+        "last_step": 4131
+      },
+      {
+        "event": "01/retreat",
+        "pair": [
+          "block_0",
+          "block_1"
+        ],
+        "step_count": 461,
+        "first_step": 4132,
+        "last_step": 4592
+      },
+      {
+        "event": "01/retreat",
+        "pair": [
+          "block_1",
+          "block_2"
+        ],
+        "step_count": 461,
+        "first_step": 4132,
+        "last_step": 4592
+      },
+      {
+        "event": "return",
+        "pair": [
+          "block_0",
+          "block_1"
+        ],
+        "step_count": 341,
+        "first_step": 4593,
+        "last_step": 4933
+      },
+      {
+        "event": "return",
+        "pair": [
+          "block_1",
+          "block_2"
+        ],
+        "step_count": 341,
+        "first_step": 4593,
+        "last_step": 4933
+      },
+      {
+        "event": "settle",
+        "pair": [
+          "block_0",
+          "block_1"
+        ],
+        "step_count": 500,
+        "first_step": 4934,
+        "last_step": 5433
+      },
+      {
+        "event": "settle",
+        "pair": [
+          "block_1",
+          "block_2"
+        ],
+        "step_count": 500,
+        "first_step": 4934,
+        "last_step": 5433
+      }
+    ]
+  },
+  "geometry_audit": {
+    "clear": true,
+    "intersections": [],
+    "scope": "clutter versus each robot link, task object and other clutter; sampled conservative OBBs",
+    "interpretation": "Overlap requires review; it is not proof of a mesh collision"
+  },
+  "limitations": [
+    "Recorded time resolution does not prove continuous collision freedom.",
+    "OBBs may reject valid near-contact placements.",
+    "Contact evidence covers active reported bodies; initial settling is checked by poses and geometry."
+  ],
+  "input_sha256": {
+    "result.json": "93e4c85231a83c1c60ed65a1f8c1e59bce51e344deea1834867dd4fd6677d595",
+    "trajectory.json": "aa2166cc66efc9c59c278a1550a0ee39c9ea86a133f0c42a555c6fcc8793ca79",
+    "contacts.jsonl": "95b9df3d522608de52724563092df9c134fc4613baacc7c8fab79024a7d6ad47",
+    "scene-objects.json": "a2d51e13ac688a657e1a6785dfcfdbbe07401d566d70c8718ab84ec57071a3b0",
+    "layout.json": "321411e26c48465a0ee21437ecf559ba21ad9eb5c0d37723ba74cfca47958693",
+    "provenance.json": "af33e57f6b28851373b3d2c9bac77bae936b1978ab9b77061950f1e62a25c508",
+    "interaction-program.json": "b8d1fd93f4d797522019fbeb7e38b532b39378f946d95ee58434f0f8de2528ce",
+    "contact-summary.json": "89cfa6073bf6da269a680b9425783911c892570f980d31fe3d2a648f9e0a5085",
+    "robot-identities.json": "abd3e62ad5b965688f190f43c43705907927f121d63ea9e60f85bd108d8969e7"
+  },
+  "generation_input_sha256": {
+    "request.json": "cb69281fe89bbd29a3d2a7e0a204e5ac06c6a0f6e3ef48d3ca634db49c190c52",
+    "generation.json": "a2270974833ccfde7cb22db4306decaec28815bd2979e7936432c301ff8780fb",
+    "asset-map.json": "901f4ed9cc5b5c1e0056aee01c2efd11bc57996264cabf78638ca64dd7a60ec8"
+  },
+  "robot_geometry_sha256": "5723a835bf5627a935a8dabb3a44447725bd1465243ce791e221b3e990121d63",
+  "robot_geometry_hash_recorded_at_execution": false,
+  "validator_sha256": "218c282face666ebcb41f61db8b8eb096fb705de5d43977046586b5c65dd6475",
+  "raw_validation_sha256": "b748e08bf6138065a3c64601204f71158e2a96aa474f5da844aea3831671e10d",
+  "note": "Compact publication view. Raw reports retain full contact-step lists."
+}

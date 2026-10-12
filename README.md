@@ -42,6 +42,10 @@ Development has started with explicit event/support transitions and a native
 full-stack reference runner. The plan is not a completed implementation or a
 new held-out experimental result.
 See the [development notes and reproduction commands](docs/development.md).
+The [latest development evidence](results/v1-completion-development/README.md)
+adds real Infinigen clutter around complete stack references, independent
+physical checks, and portable episode export/reload. G1/G3 and policy comparisons
+remain unimplemented; the development checks are not a frozen evaluation protocol.
 
 ## Initial implementation scope
 

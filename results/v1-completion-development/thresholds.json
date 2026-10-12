@@ -1,0 +1,15 @@
+{
+  "penetration_m": 0.001,
+  "contact_distance_m": 0.001,
+  "initialization_translation_m": 0.005,
+  "initialization_rotation_deg": 2.0,
+  "clutter_motion_m": 0.002,
+  "clutter_rotation_deg": 2.0,
+  "settle_motion_m": 0.002,
+  "settle_rotation_deg": 2.0,
+  "attachment_translation_m": 0.003,
+  "attachment_rotation_deg": 5.0,
+  "pair_distance_error_m": 0.003,
+  "support_gap_m": 0.001,
+  "minimum_settle_s": 1.0
+}

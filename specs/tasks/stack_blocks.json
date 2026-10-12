@@ -62,11 +62,18 @@
     "no_object_teleport_or_welding_during_execution": true
   },
   "independent_checks_pending": [
-    "per-event legal contact mapping including fixtures and robot self-collision",
-    "geometric penetration and sampling calibration",
-    "actual attachment and release verification",
-    "post-release support and stability thresholds",
-    "initialization displacement and request fidelity"
+    "freeze calibrated thresholds and budgets before held-out execution",
+    "validate precise geometry for ambiguous OBB intersections and fixture/self-contact coverage",
+    "instrument initialization contact history; current initial-settling checks use poses and geometry",
+    "extend the verifier-owned event contract when additional reference orders or tasks are implemented"
   ],
-  "heldout_status": "not executed"
+  "heldout_status": "not executed",
+  "independent_checks_implemented": [
+    "verifier-owned event-dependent contact contract",
+    "actual PhysX contact/penetration audit",
+    "actual holding translation and rotation consistency",
+    "final support geometry/contact and settling stability",
+    "initialization/request fidelity and clutter motion",
+    "independent sampled OBB screen from native robot USD and observed poses"
+  ]
 }

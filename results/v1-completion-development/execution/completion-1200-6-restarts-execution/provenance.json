@@ -1,0 +1,27 @@
+{
+  "infinidojo_commit": "8084b8e90bc38cf4d3ba5cd8e6524987a74cf0b4",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "source_sha256": {
+    "src/infinidojo/geometry.py": "350d0be91e221f5b1ecc7541fd8a10dd408bc9aee2776da41531ccfc077b897a",
+    "src/infinidojo/validation.py": "4bdebae678d5ded1df05c9e591712f6a3539d150cfb6aeb5f0797e55f3c9dfa3",
+    "src/infinidojo/native_stack.py": "b5bbab4cefba0a0b719a16981cb2984088a7e983db4f317f3c65fb5ba1f65401",
+    "src/infinidojo/io.py": "23645e5d675a3da52cbdfea486f648aa4ad83bda198181f43cb06ce3949d3391",
+    "src/infinidojo/generation.py": "80dbca774577f6ce7ac6df272b92e857518223e73a97af10866fdc491079ed75",
+    "src/infinidojo/native.py": "0e911e97a2ea902eb46b6928c33b31d39cda491ce951a529f186896a37488e94",
+    "src/infinidojo/study.py": "2c4ce84a8d89a5e48ae22aa629f836b93b68fba711d4d0fb82b59ac716bc873a",
+    "src/infinidojo/assets.py": "bb4a3c092e9a5e2cae62e36ce88b645d9fd78d80caff44c10086742fd9c45f2b",
+    "src/infinidojo/__init__.py": "44cf1ca788faa02d0337265e81a7d6bbf08492d7a7dfd3f0ec35982305e70827",
+    "src/infinidojo/cli.py": "d97418c4ab80573332d7d737c6c1fcc0a25c1ef20c8f4074d03ed745357a2c1e",
+    "src/infinidojo/frontend.py": "64c370ae67f74a05f317acb0f27e194b0b4bc12f2f91a0a8a552a9c3ca98867d",
+    "src/infinidojo/completion.py": "8fde3566f18c4465c9ac4c32607b0dcc222d932fc26c8720f3792986520c8ba2",
+    "src/infinidojo/interaction.py": "17752f32d9a57bf871dd211a39a3262dcfca2713fa9728aa716f038d85dfc59c",
+    "src/infinidojo/specification.py": "a529f6a93c5c72d52b843d475bdd40a9673430b09abf8fbdf70c2d0170b60ec6",
+    "src/infinidojo/evaluation.py": "55adc643e96d0c90ac56a8205cd59618a28f12607f7ec930f4d0cd9283322be0"
+  },
+  "task": "stack_blocks",
+  "robot": "arx_x5",
+  "seed": 1200,
+  "native_layout_sha256": "321411e26c48465a0ee21437ecf559ba21ad9eb5c0d37723ba74cfca47958693",
+  "max_reference_physics_steps": 20000,
+  "reference_controls_sha256": "8f5296d86d0936ea13f08d35c048620fdcca30f0130c055b5463e01f9f46a02a"
+}
