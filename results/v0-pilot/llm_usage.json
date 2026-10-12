@@ -1,0 +1,80 @@
+[
+  {
+    "case": "count0-wording0",
+    "usage": [
+      {
+        "input_tokens": 14393,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 247,
+        "reasoning_output_tokens": 55
+      }
+    ],
+    "tool_calls": []
+  },
+  {
+    "case": "count0-wording1",
+    "usage": [
+      {
+        "input_tokens": 13636,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 210,
+        "reasoning_output_tokens": 12
+      }
+    ],
+    "tool_calls": []
+  },
+  {
+    "case": "count12-wording0",
+    "usage": [
+      {
+        "input_tokens": 13617,
+        "cached_input_tokens": 12032,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 240,
+        "reasoning_output_tokens": 48
+      }
+    ],
+    "tool_calls": []
+  },
+  {
+    "case": "count12-wording1",
+    "usage": [
+      {
+        "input_tokens": 13638,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 207,
+        "reasoning_output_tokens": 15
+      }
+    ],
+    "tool_calls": []
+  },
+  {
+    "case": "count6-wording0",
+    "usage": [
+      {
+        "input_tokens": 13615,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 244,
+        "reasoning_output_tokens": 48
+      }
+    ],
+    "tool_calls": []
+  },
+  {
+    "case": "count6-wording1",
+    "usage": [
+      {
+        "input_tokens": 13636,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 220,
+        "reasoning_output_tokens": 25
+      }
+    ],
+    "tool_calls": []
+  }
+]

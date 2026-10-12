@@ -1,0 +1,50 @@
+{
+  "clear": false,
+  "intersections": [
+    {
+      "body": "target",
+      "clutter_id": "clutter_5",
+      "phase": "initial",
+      "time_s": 0.0
+    },
+    {
+      "body": "target",
+      "clutter_id": "clutter_5",
+      "phase": "approach",
+      "time_s": 0.02
+    },
+    {
+      "body": "target",
+      "clutter_id": "clutter_5",
+      "phase": "descend",
+      "time_s": 1.6600000000000001
+    },
+    {
+      "body": "robot0/link8",
+      "clutter_id": "clutter_5",
+      "phase": "descend",
+      "time_s": 1.98
+    },
+    {
+      "body": "robot0/link8",
+      "clutter_id": "clutter_5",
+      "phase": "grasp",
+      "time_s": 2.5
+    },
+    {
+      "body": "target",
+      "clutter_id": "clutter_5",
+      "phase": "grasp",
+      "time_s": 2.5
+    },
+    {
+      "body": "robot0/link7",
+      "clutter_id": "clutter_5",
+      "phase": "grasp",
+      "time_s": 3.2
+    }
+  ],
+  "frames": 300,
+  "sample_period_s": 0.02,
+  "method": "observed poses, native collider bounding boxes, oriented-box SAT"
+}

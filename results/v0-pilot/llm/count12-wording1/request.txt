@@ -1,0 +1,1 @@
+Let the left X5 arm pick up a can by 0.15 metres. Place 12 other cans on the table; their full footprints must lie between -0.45 and 0.25 m in x, and -0.25 and 0.20 m in y. Allow 0.005 m clearance. The target stands at (-0.23,-0.05) m in XY; its height is 0.07 m and radius is 0.025 m. Include the interaction events.

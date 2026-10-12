@@ -1,0 +1,37 @@
+{
+  "generator": "infinigen.assets.objects.tableware.can.CanFactory",
+  "seed": 1100,
+  "infinigen_commit": "01c39c7f7adcf7363ccbcc57c64410c69f4a4e7c",
+  "blender_version": "4.2.0",
+  "parameters": {
+    "x_length": 0.025,
+    "z_length": 0.07,
+    "skewness": 1.0,
+    "shape": "rectangle"
+  },
+  "canonical_offset": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "bounds": [
+    [
+      -0.025025000795722008,
+      -0.025025000795722008,
+      0.0
+    ],
+    [
+      0.025025000795722008,
+      0.025025000795722008,
+      0.07000000029802322
+    ]
+  ],
+  "material": "seeded USD PreviewSurface; original procedural shaders retained only in source.blend",
+  "collision": "convex hull, closed can family only",
+  "files": {
+    "mesh.npz": "2098fe268defccabf5a563134eb5729326fbeaabccc3b80345f83bf4f17c6169",
+    "object.usd": "463bc2fca67338ce63b7a5f58222af6c583c04d7e96e8e53dc956877e525c81c",
+    "metadata.json": "39415d68dec6ad42ec7666887e9833ac1ee1d2c703e1facd01979fb31f5e9abb",
+    "description.json": "e74d25c68378954579279bc0c359d19388309f9889690335a2bd0f30a932ef5f"
+  }
+}

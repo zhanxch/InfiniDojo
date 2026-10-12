@@ -1,0 +1,44 @@
+{
+  "time_unix": 1791788931.258768,
+  "source_commit": "c62d46a0881f77ee96379881df7ae73f0d360234",
+  "seeds": [
+    1100,
+    1101,
+    1102,
+    1103,
+    1104,
+    1105
+  ],
+  "clutter_counts": [
+    0,
+    6,
+    12
+  ],
+  "methods": [
+    "independent",
+    "static",
+    "interaction"
+  ],
+  "asset_parameters": {
+    "radius": 0.025,
+    "height": 0.07
+  },
+  "candidate_budget": 500,
+  "physics_dt": 0.004,
+  "trajectory_sample_dt": 0.02,
+  "initial_layout_xy_tolerance_m": 0.01,
+  "protocol": "c9aa22965a2f507247855a9ff756137f4f7d001328456bee963a70eed95c1c4d",
+  "source_files": {
+    "src/infinidojo/__init__.py": "44cf1ca788faa02d0337265e81a7d6bbf08492d7a7dfd3f0ec35982305e70827",
+    "src/infinidojo/assets.py": "bb4a3c092e9a5e2cae62e36ce88b645d9fd78d80caff44c10086742fd9c45f2b",
+    "src/infinidojo/cli.py": "d97418c4ab80573332d7d737c6c1fcc0a25c1ef20c8f4074d03ed745357a2c1e",
+    "src/infinidojo/evaluation.py": "55adc643e96d0c90ac56a8205cd59618a28f12607f7ec930f4d0cd9283322be0",
+    "src/infinidojo/frontend.py": "64c370ae67f74a05f317acb0f27e194b0b4bc12f2f91a0a8a552a9c3ca98867d",
+    "src/infinidojo/generation.py": "80dbca774577f6ce7ac6df272b92e857518223e73a97af10866fdc491079ed75",
+    "src/infinidojo/geometry.py": "350d0be91e221f5b1ecc7541fd8a10dd408bc9aee2776da41531ccfc077b897a",
+    "src/infinidojo/io.py": "23645e5d675a3da52cbdfea486f648aa4ad83bda198181f43cb06ce3949d3391",
+    "src/infinidojo/native.py": "0e911e97a2ea902eb46b6928c33b31d39cda491ce951a529f186896a37488e94",
+    "src/infinidojo/specification.py": "a529f6a93c5c72d52b843d475bdd40a9673430b09abf8fbdf70c2d0170b60ec6",
+    "src/infinidojo/study.py": "2c4ce84a8d89a5e48ae22aa629f836b93b68fba711d4d0fb82b59ac716bc873a"
+  }
+}

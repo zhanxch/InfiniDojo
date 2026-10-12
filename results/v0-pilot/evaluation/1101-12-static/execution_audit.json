@@ -1,0 +1,7 @@
+{
+  "clear": true,
+  "intersections": [],
+  "frames": 300,
+  "sample_period_s": 0.02,
+  "method": "observed poses, native collider bounding boxes, oriented-box SAT"
+}

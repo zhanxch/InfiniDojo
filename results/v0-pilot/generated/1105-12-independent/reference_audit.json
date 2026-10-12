@@ -1,0 +1,97 @@
+{
+  "clear": false,
+  "intersections": [
+    {
+      "body": "target",
+      "clutter_id": "clutter_4",
+      "phase": "initial",
+      "time_s": 0.0
+    },
+    {
+      "body": "target",
+      "clutter_id": "clutter_4",
+      "phase": "approach",
+      "time_s": 0.02
+    },
+    {
+      "body": "target",
+      "clutter_id": "clutter_4",
+      "phase": "descend",
+      "time_s": 1.6600000000000001
+    },
+    {
+      "body": "robot0/link7",
+      "clutter_id": "clutter_10",
+      "phase": "descend",
+      "time_s": 1.98
+    },
+    {
+      "body": "robot0/link8",
+      "clutter_id": "clutter_4",
+      "phase": "descend",
+      "time_s": 1.98
+    },
+    {
+      "body": "robot0/link8",
+      "clutter_id": "clutter_9",
+      "phase": "descend",
+      "time_s": 1.98
+    },
+    {
+      "body": "robot0/link7",
+      "clutter_id": "clutter_10",
+      "phase": "grasp",
+      "time_s": 2.5
+    },
+    {
+      "body": "robot0/link8",
+      "clutter_id": "clutter_4",
+      "phase": "grasp",
+      "time_s": 2.5
+    },
+    {
+      "body": "robot0/link8",
+      "clutter_id": "clutter_9",
+      "phase": "grasp",
+      "time_s": 2.5
+    },
+    {
+      "body": "target",
+      "clutter_id": "clutter_4",
+      "phase": "grasp",
+      "time_s": 2.5
+    },
+    {
+      "body": "robot0/link7",
+      "clutter_id": "clutter_10",
+      "phase": "lift",
+      "time_s": 3.9
+    },
+    {
+      "body": "robot0/link8",
+      "clutter_id": "clutter_4",
+      "phase": "lift",
+      "time_s": 3.9
+    },
+    {
+      "body": "robot0/link8",
+      "clutter_id": "clutter_9",
+      "phase": "lift",
+      "time_s": 3.9
+    },
+    {
+      "body": "target",
+      "clutter_id": "clutter_4",
+      "phase": "lift",
+      "time_s": 3.9
+    },
+    {
+      "body": "target",
+      "clutter_id": "clutter_10",
+      "phase": "lift",
+      "time_s": 4.2
+    }
+  ],
+  "frames": 300,
+  "method": "oriented collision-geometry bounding boxes; sampled, conservative"
+}

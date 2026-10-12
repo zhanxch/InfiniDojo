@@ -1,0 +1,18 @@
+{
+  "reference_batch": {
+    "completed": 6,
+    "wall_seconds": 73.02532681199955
+  },
+  "evaluation_batch": {
+    "completed": 54,
+    "wall_seconds": 1049.7714035209992
+  },
+  "llm_wall_seconds": 130.6161709379994,
+  "llm_tokens": {
+    "input_tokens": 82535,
+    "cached_input_tokens": 12032,
+    "output_tokens": 1368,
+    "reasoning_output_tokens": 203
+  },
+  "note": "CLI token totals include its harness context. Layout generation excludes reference acquisition; report both."
+}

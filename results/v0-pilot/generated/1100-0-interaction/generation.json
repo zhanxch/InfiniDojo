@@ -1,0 +1,13 @@
+{
+  "accepted": true,
+  "method": "interaction",
+  "seed": 1100,
+  "requested_count": 0,
+  "generated_count": 0,
+  "clutter": [],
+  "proposals": [],
+  "attempts": 0,
+  "attempt_budget": 500,
+  "wall_seconds": 0.010026124999058084,
+  "reason": null
+}

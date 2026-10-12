@@ -1,0 +1,547 @@
+{
+  "instances": [
+    {
+      "id": "1102-6-interaction",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1104-12-interaction",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1104-6-interaction",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1105-12-independent",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1102-6-independent",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1100-6-independent",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1105-12-static",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1102-12-interaction",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1103-12-independent",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1101-6-static",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1101-0-interaction",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1100-6-static",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1103-6-static",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1102-12-static",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1101-12-interaction",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1104-6-independent",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1102-0-static",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1100-0-independent",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1100-6-interaction",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1102-6-static",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1100-0-static",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1101-6-independent",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1105-6-independent",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1102-12-independent",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1104-0-independent",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1104-0-interaction",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1104-12-independent",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1101-0-static",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1104-0-static",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1100-0-interaction",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1102-0-independent",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1103-12-interaction",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1101-0-independent",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1103-6-interaction",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1104-12-static",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1105-0-static",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1103-12-static",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1103-0-independent",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1103-0-interaction",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1105-12-interaction",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1100-12-static",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1102-0-interaction",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1105-0-independent",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1100-12-independent",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1105-6-interaction",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1105-6-static",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1101-12-static",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1101-6-interaction",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1103-6-independent",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1101-12-independent",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1105-0-interaction",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1100-12-interaction",
+      "requested_clutter": 12,
+      "generated_clutter": 12,
+      "native_clutter": 12,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1104-6-static",
+      "requested_clutter": 6,
+      "generated_clutter": 6,
+      "native_clutter": 6,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    },
+    {
+      "id": "1103-0-static",
+      "requested_clutter": 0,
+      "generated_clutter": 0,
+      "native_clutter": 0,
+      "count_preserved": true,
+      "generated_bounds_satisfied": true,
+      "settled_bounds_satisfied": true,
+      "settled_out_of_bounds": []
+    }
+  ],
+  "count_preserved": 54,
+  "generated_bounds_satisfied": 54,
+  "settled_bounds_satisfied": 54
+}

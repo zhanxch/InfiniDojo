@@ -1,0 +1,31 @@
+{
+  "clear": false,
+  "intersections": [
+    {
+      "body": "robot0/link7",
+      "clutter_id": "clutter_7",
+      "phase": "descend",
+      "time_s": 1.98
+    },
+    {
+      "body": "robot0/link7",
+      "clutter_id": "clutter_7",
+      "phase": "grasp",
+      "time_s": 2.5
+    },
+    {
+      "body": "robot0/link7",
+      "clutter_id": "clutter_7",
+      "phase": "lift",
+      "time_s": 3.9
+    },
+    {
+      "body": "target",
+      "clutter_id": "clutter_7",
+      "phase": "lift",
+      "time_s": 4.2
+    }
+  ],
+  "frames": 300,
+  "method": "oriented collision-geometry bounding boxes; sampled, conservative"
+}

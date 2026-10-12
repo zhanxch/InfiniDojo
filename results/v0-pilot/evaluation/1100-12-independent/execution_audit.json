@@ -1,0 +1,20 @@
+{
+  "clear": false,
+  "intersections": [
+    {
+      "body": "robot0/link8",
+      "clutter_id": "clutter_3",
+      "phase": "descend",
+      "time_s": 1.98
+    },
+    {
+      "body": "robot0/link8",
+      "clutter_id": "clutter_3",
+      "phase": "grasp",
+      "time_s": 2.5
+    }
+  ],
+  "frames": 300,
+  "sample_period_s": 0.02,
+  "method": "observed poses, native collider bounding boxes, oriented-box SAT"
+}

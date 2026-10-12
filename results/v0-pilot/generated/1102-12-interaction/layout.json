@@ -1,0 +1,504 @@
+{
+  "Rigid": {
+    "infinigen_can": [
+      {
+        "category": "infinigen_can",
+        "category_idx": 1102,
+        "label": "target",
+        "default_pos": [
+          -0.23,
+          -0.05,
+          0.767
+        ],
+        "default_ori": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "physics": {
+          "type": "rigid",
+          "mass": 0.08,
+          "static_friction": 1.0,
+          "dynamic_friction": 0.8
+        },
+        "visual": {},
+        "relative_plane": "Table"
+      },
+      {
+        "category": "infinigen_can",
+        "category_idx": 1102,
+        "label": "clutter_0",
+        "default_pos": [
+          -0.07171950287641693,
+          -0.2039396977663328,
+          0.767
+        ],
+        "default_ori": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "physics": {
+          "type": "rigid",
+          "mass": 0.08,
+          "static_friction": 1.0,
+          "dynamic_friction": 0.8
+        },
+        "visual": {},
+        "relative_plane": "Table"
+      },
+      {
+        "category": "infinigen_can",
+        "category_idx": 1103,
+        "label": "clutter_1",
+        "default_pos": [
+          0.10781573524794269,
+          -0.10326072692979782,
+          0.767
+        ],
+        "default_ori": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "physics": {
+          "type": "rigid",
+          "mass": 0.08,
+          "static_friction": 1.0,
+          "dynamic_friction": 0.8
+        },
+        "visual": {},
+        "relative_plane": "Table"
+      },
+      {
+        "category": "infinigen_can",
+        "category_idx": 1105,
+        "label": "clutter_2",
+        "default_pos": [
+          -0.13856820456179858,
+          -0.17384451622529262,
+          0.767
+        ],
+        "default_ori": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "physics": {
+          "type": "rigid",
+          "mass": 0.08,
+          "static_friction": 1.0,
+          "dynamic_friction": 0.8
+        },
+        "visual": {},
+        "relative_plane": "Table"
+      },
+      {
+        "category": "infinigen_can",
+        "category_idx": 1100,
+        "label": "clutter_3",
+        "default_pos": [
+          -0.3545999825195367,
+          -0.012906870552908623,
+          0.767
+        ],
+        "default_ori": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "physics": {
+          "type": "rigid",
+          "mass": 0.08,
+          "static_friction": 1.0,
+          "dynamic_friction": 0.8
+        },
+        "visual": {},
+        "relative_plane": "Table"
+      },
+      {
+        "category": "infinigen_can",
+        "category_idx": 1101,
+        "label": "clutter_4",
+        "default_pos": [
+          0.03759430919926732,
+          -0.07179499537457393,
+          0.767
+        ],
+        "default_ori": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "physics": {
+          "type": "rigid",
+          "mass": 0.08,
+          "static_friction": 1.0,
+          "dynamic_friction": 0.8
+        },
+        "visual": {},
+        "relative_plane": "Table"
+      },
+      {
+        "category": "infinigen_can",
+        "category_idx": 1104,
+        "label": "clutter_5",
+        "default_pos": [
+          0.14511363143324635,
+          0.15452635232297957,
+          0.767
+        ],
+        "default_ori": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "physics": {
+          "type": "rigid",
+          "mass": 0.08,
+          "static_friction": 1.0,
+          "dynamic_friction": 0.8
+        },
+        "visual": {},
+        "relative_plane": "Table"
+      },
+      {
+        "category": "infinigen_can",
+        "category_idx": 1105,
+        "label": "clutter_6",
+        "default_pos": [
+          0.21103440132807844,
+          0.0021500543512102954,
+          0.767
+        ],
+        "default_ori": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "physics": {
+          "type": "rigid",
+          "mass": 0.08,
+          "static_friction": 1.0,
+          "dynamic_friction": 0.8
+        },
+        "visual": {},
+        "relative_plane": "Table"
+      },
+      {
+        "category": "infinigen_can",
+        "category_idx": 1101,
+        "label": "clutter_7",
+        "default_pos": [
+          -0.04539074339202126,
+          -0.07256607604836937,
+          0.767
+        ],
+        "default_ori": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "physics": {
+          "type": "rigid",
+          "mass": 0.08,
+          "static_friction": 1.0,
+          "dynamic_friction": 0.8
+        },
+        "visual": {},
+        "relative_plane": "Table"
+      },
+      {
+        "category": "infinigen_can",
+        "category_idx": 1101,
+        "label": "clutter_8",
+        "default_pos": [
+          -0.37600370091565494,
+          -0.11654140372756014,
+          0.767
+        ],
+        "default_ori": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "physics": {
+          "type": "rigid",
+          "mass": 0.08,
+          "static_friction": 1.0,
+          "dynamic_friction": 0.8
+        },
+        "visual": {},
+        "relative_plane": "Table"
+      },
+      {
+        "category": "infinigen_can",
+        "category_idx": 1102,
+        "label": "clutter_9",
+        "default_pos": [
+          -0.02920533076137788,
+          0.11920403366373827,
+          0.767
+        ],
+        "default_ori": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "physics": {
+          "type": "rigid",
+          "mass": 0.08,
+          "static_friction": 1.0,
+          "dynamic_friction": 0.8
+        },
+        "visual": {},
+        "relative_plane": "Table"
+      },
+      {
+        "category": "infinigen_can",
+        "category_idx": 1102,
+        "label": "clutter_10",
+        "default_pos": [
+          -0.2891000785842262,
+          0.0884908118720849,
+          0.767
+        ],
+        "default_ori": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "physics": {
+          "type": "rigid",
+          "mass": 0.08,
+          "static_friction": 1.0,
+          "dynamic_friction": 0.8
+        },
+        "visual": {},
+        "relative_plane": "Table"
+      },
+      {
+        "category": "infinigen_can",
+        "category_idx": 1100,
+        "label": "clutter_11",
+        "default_pos": [
+          -0.1572271395481029,
+          0.1350280382877006,
+          0.767
+        ],
+        "default_ori": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "physics": {
+          "type": "rigid",
+          "mass": 0.08,
+          "static_friction": 1.0,
+          "dynamic_friction": 0.8
+        },
+        "visual": {},
+        "relative_plane": "Table"
+      }
+    ]
+  },
+  "Geometry": {
+    "camera_stand": [
+      {
+        "category": "camera_stand",
+        "category_idx": 0,
+        "group": null,
+        "xlim": [
+          0.0,
+          0.0
+        ],
+        "ylim": [
+          -0.47,
+          -0.47
+        ],
+        "zlim": [
+          0.715,
+          0.715
+        ],
+        "qpos": [
+          0.707,
+          -0.707,
+          0.0,
+          0.0
+        ],
+        "rotate_deg": 0,
+        "rotate_rand": false,
+        "relative_plane": "Ground",
+        "place_tag": null,
+        "margin": 0.01,
+        "check_mode": "bbox",
+        "need_check_stable": true,
+        "label": "camera_stand",
+        "default_pos": [
+          0.0,
+          -0.47,
+          0.765
+        ],
+        "default_ori": [
+          0.707,
+          -0.707,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "physics": {
+          "type": "geometry"
+        },
+        "visual": {}
+      }
+    ]
+  },
+  "Room": {
+    "default": "Simple_Room_nolight",
+    "default_pos": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "default_rot": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "Table": {
+    "default": "material_0122",
+    "scale": [
+      1.4,
+      1.1,
+      0.05
+    ],
+    "default_pos": [
+      0.0,
+      -0.05,
+      0.74
+    ],
+    "default_ori": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "Ground": {
+    "geometry": "cube",
+    "thickness": 0.1,
+    "axis": "Z",
+    "default_pos": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "materials": {
+      "type": "mdl",
+      "default": "material_0564",
+      "random": false
+    },
+    "physics_material": {
+      "static_friction": 1.0,
+      "dynamic_friction": 1.0,
+      "restitution": 0.0,
+      "friction_combine_mode": "multiply",
+      "restitution_combine_mode": "multiply",
+      "compliant_contact_stiffness": 0.0,
+      "compliant_contact_damping": 0.0
+    }
+  },
+  "Background": {
+    "intensity": 1000,
+    "category_name": "brown_photostudio_02_4k.hdr"
+  }
+}

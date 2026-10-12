@@ -1,0 +1,66 @@
+{
+  "status": "completed",
+  "native_lift_success": true,
+  "initial_target_position": [
+    -0.22999994456768036,
+    -0.05000002309679985,
+    0.7649999856948853
+  ],
+  "final_target_position": [
+    -0.23000837862491608,
+    -0.050124142318964005,
+    0.9149612188339233
+  ],
+  "lift_m": 0.14996123313903809,
+  "object_displacement_m": {
+    "env0_rigid_infinigen_can_1102_168": 0.1499612847414144,
+    "env0_rigid_infinigen_can_1102_169": 1.666000468656264e-08,
+    "env0_rigid_infinigen_can_1103_170": 7.450580596923828e-09,
+    "env0_rigid_infinigen_can_1105_171": 1.4901161193847656e-08,
+    "env0_rigid_infinigen_can_1100_172": 3.003425057343598e-08,
+    "env0_rigid_infinigen_can_1101_173": 8.886203499046388e-08,
+    "env0_rigid_infinigen_can_1104_174": 8.688795409866125e-08,
+    "env0_rigid_infinigen_can_1105_175": 1.501712528671799e-08,
+    "env0_rigid_infinigen_can_1101_176": 8.688795409866125e-08,
+    "env0_rigid_infinigen_can_1101_177": 8.560065398421926e-08,
+    "env0_rigid_infinigen_can_1102_178": 1.1250129990683123e-07,
+    "env0_rigid_infinigen_can_1102_179": 9.942059326978414e-08,
+    "env0_rigid_infinigen_can_1100_180": 7.450580596923828e-09
+  },
+  "initial_xy_displacement_m": {
+    "env0_rigid_infinigen_can_1102_168": 6.005167961936193e-08,
+    "env0_rigid_infinigen_can_1102_169": 5.7232484047215524e-08,
+    "env0_rigid_infinigen_can_1103_170": 6.260785750546159e-09,
+    "env0_rigid_infinigen_can_1105_171": 1.1841499638049382e-08,
+    "env0_rigid_infinigen_can_1100_172": 1.4649355664648243e-08,
+    "env0_rigid_infinigen_can_1101_173": 6.193581409896588e-08,
+    "env0_rigid_infinigen_can_1104_174": 7.530720062438709e-08,
+    "env0_rigid_infinigen_can_1105_175": 1.6034847225106836e-08,
+    "env0_rigid_infinigen_can_1101_176": 6.357399944924898e-08,
+    "env0_rigid_infinigen_can_1101_177": 7.606885513817935e-08,
+    "env0_rigid_infinigen_can_1102_178": 3.799005342530472e-08,
+    "env0_rigid_infinigen_can_1102_179": 7.22768683933312e-08,
+    "env0_rigid_infinigen_can_1100_180": 1.7134347769905923e-08
+  },
+  "initial_layout_preserved_1cm": true,
+  "object_labels": {
+    "env0_rigid_infinigen_can_1102_168": "target",
+    "env0_rigid_infinigen_can_1102_169": "clutter_0",
+    "env0_rigid_infinigen_can_1103_170": "clutter_1",
+    "env0_rigid_infinigen_can_1105_171": "clutter_2",
+    "env0_rigid_infinigen_can_1100_172": "clutter_3",
+    "env0_rigid_infinigen_can_1101_173": "clutter_4",
+    "env0_rigid_infinigen_can_1104_174": "clutter_5",
+    "env0_rigid_infinigen_can_1105_175": "clutter_6",
+    "env0_rigid_infinigen_can_1101_176": "clutter_7",
+    "env0_rigid_infinigen_can_1101_177": "clutter_8",
+    "env0_rigid_infinigen_can_1102_178": "clutter_9",
+    "env0_rigid_infinigen_can_1102_179": "clutter_10",
+    "env0_rigid_infinigen_can_1100_180": "clutter_11"
+  },
+  "steps": 1493,
+  "physics_dt": 0.004,
+  "controller": "frozen native reference controls replayed in physical simulation",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "wall_seconds": 15.290436553999825
+}

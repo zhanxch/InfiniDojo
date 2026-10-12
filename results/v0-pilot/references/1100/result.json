@@ -1,0 +1,62 @@
+{
+  "status": "completed",
+  "error": null,
+  "native_lift_success": true,
+  "initial_target_position": [
+    -0.22999997437000275,
+    -0.049999941140413284,
+    0.7649999856948853
+  ],
+  "final_target_position": [
+    -0.2300087809562683,
+    -0.05009673908352852,
+    0.9149619340896606
+  ],
+  "lift_m": 0.1499619483947754,
+  "steps": 1493,
+  "physics_dt": 0.004,
+  "controller": "privileged native CuRobo reference; no object welding or teleport during action",
+  "plans": [
+    {
+      "phase": "approach",
+      "target_flange_pose": [
+        -0.22999997437000275,
+        -0.049999941140413284,
+        1.044999985843897,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "phase": "descend",
+      "target_flange_pose": [
+        -0.22999997437000275,
+        -0.049999941140413284,
+        0.9449999858438969,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "phase": "lift",
+      "target_flange_pose": [
+        -0.22999997437000275,
+        -0.049999941140413284,
+        1.0949999858438968,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    }
+  ],
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "wall_seconds": 11.176636582000356
+}

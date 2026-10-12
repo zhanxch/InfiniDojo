@@ -17,8 +17,9 @@ python3.11 -m venv .venv
 .venv/bin/python -m pip install -e '.[assets,dev]'
 ```
 
-Infinigen also needs its upstream Python dependencies (see its installation
-guide); this adapter does not replace that installation. Connect an existing
+Infinigen also needs its [upstream Python dependencies](https://github.com/princeton-vl/infinigen/blob/v1.19.0/pyproject.toml)
+and [installation workflow](https://github.com/princeton-vl/infinigen/tree/v1.19.0);
+this adapter does not replace that installation. Connect an existing
 licensed RoboDojo asset installation at `.deps/robodojo/Assets`. The native
 fixture adapter currently uses its `arx_x5/0/general_pickup_0.json` layout.
 Use absolute paths when invoking the native runner, which changes directory

@@ -1,0 +1,30 @@
+{
+  "status": "completed",
+  "native_lift_success": true,
+  "initial_target_position": [
+    -0.22999998927116394,
+    -0.05000000074505806,
+    0.7649999856948853
+  ],
+  "final_target_position": [
+    -0.23000182211399078,
+    -0.05015753582119942,
+    0.9149653911590576
+  ],
+  "lift_m": 0.14996540546417236,
+  "object_displacement_m": {
+    "env0_rigid_infinigen_can_1105_557": 0.149965488218767
+  },
+  "initial_xy_displacement_m": {
+    "env0_rigid_infinigen_can_1105_557": 1.0754675026039518e-08
+  },
+  "initial_layout_preserved_1cm": true,
+  "object_labels": {
+    "env0_rigid_infinigen_can_1105_557": "target"
+  },
+  "steps": 1493,
+  "physics_dt": 0.004,
+  "controller": "frozen native reference controls replayed in physical simulation",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "wall_seconds": 28.696980155000347
+}

@@ -28,9 +28,16 @@ The v0 prototype includes real Infinigen can meshes, a live structured LLM
 compiler with validator feedback, three matched layout generators, native
 RoboDojo reference execution, and independent collision-box audits.
 
-Development smoke runs have physically lifted a generated can by 15 cm.
-The held-out quantitative study is **in progress**, so no comparative result
-is claimed yet. See [running the prototype](docs/running.md).
+The [first quantitative study](results/v0-pilot/README.md) is complete: all 54
+held-out scene requests were physically executed. Native lift success was
+14/18 (independent), 17/18 (static), and 18/18 (interaction). Conservative usable
+scene yield was 9/18, 15/18, and 18/18, respectively. These are small controlled
+in-house baselines, not reproduced results from other papers or VLA scores.
+
+See [running the prototype](docs/running.md) and
+[research positioning](docs/research-positioning.md).
+
+![First evaluation](results/v0-pilot/comparison.png)
 
 v0 conditions clutter placement on a validated reference interaction. It does
 not yet jointly optimize arbitrary manipulation trajectories and scenes. Its

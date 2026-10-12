@@ -1,0 +1,13 @@
+{
+  "accepted": true,
+  "method": "static",
+  "seed": 1101,
+  "requested_count": 0,
+  "generated_count": 0,
+  "clutter": [],
+  "proposals": [],
+  "attempts": 0,
+  "attempt_budget": 500,
+  "wall_seconds": 9.253499956685118e-05,
+  "reason": null
+}

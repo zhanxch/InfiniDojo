@@ -1,0 +1,37 @@
+{
+  "clear": false,
+  "intersections": [
+    {
+      "body": "robot0/link7",
+      "clutter_id": "clutter_6",
+      "phase": "grasp",
+      "time_s": 2.8000000000000003
+    },
+    {
+      "body": "robot0/link8",
+      "clutter_id": "clutter_6",
+      "phase": "grasp",
+      "time_s": 2.8000000000000003
+    },
+    {
+      "body": "robot0/link7",
+      "clutter_id": "clutter_6",
+      "phase": "lift",
+      "time_s": 3.9
+    },
+    {
+      "body": "robot0/link8",
+      "clutter_id": "clutter_6",
+      "phase": "lift",
+      "time_s": 3.98
+    },
+    {
+      "body": "target",
+      "clutter_id": "clutter_6",
+      "phase": "lift",
+      "time_s": 4.16
+    }
+  ],
+  "frames": 300,
+  "method": "oriented collision-geometry bounding boxes; sampled, conservative"
+}

@@ -1,0 +1,1 @@
+Create a pickup scene with exactly 0 clutter objects. The target is an Infinigen can with radius 2.5 cm and height 7 cm at x=-23 cm, y=-5 cm. Keep complete clutter footprints in x=[-45,25] cm and y=[-25,20] cm, with 5 mm clearance. Use the left X5 arm to lift the target 15 cm.

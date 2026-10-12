@@ -1,0 +1,131 @@
+{
+  "type": "object",
+  "properties": {
+    "task": {
+      "type": "string",
+      "enum": [
+        "general_pickup"
+      ]
+    },
+    "instruction": {
+      "type": "string"
+    },
+    "target": {
+      "type": "object",
+      "properties": {
+        "family": {
+          "type": "string",
+          "enum": [
+            "infinigen_can"
+          ]
+        },
+        "radius_m": {
+          "type": "number"
+        },
+        "height_m": {
+          "type": "number"
+        },
+        "xy_m": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "required": [
+        "family",
+        "radius_m",
+        "height_m",
+        "xy_m"
+      ],
+      "additionalProperties": false
+    },
+    "clutter": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "x_bounds_m": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "y_bounds_m": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "clearance_m": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "count",
+        "x_bounds_m",
+        "y_bounds_m",
+        "clearance_m"
+      ],
+      "additionalProperties": false
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "approach",
+              "descend",
+              "grasp",
+              "lift",
+              "hold"
+            ]
+          },
+          "attachment": {
+            "type": "string",
+            "enum": [
+              "free",
+              "contact",
+              "held"
+            ]
+          },
+          "support": {
+            "type": "string",
+            "enum": [
+              "table",
+              "gripper"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "attachment",
+          "support"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "lift_m": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "task",
+    "instruction",
+    "target",
+    "clutter",
+    "events",
+    "lift_m"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,6 @@
+{
+  "clear": true,
+  "intersections": [],
+  "frames": 300,
+  "method": "oriented collision-geometry bounding boxes; sampled, conservative"
+}
