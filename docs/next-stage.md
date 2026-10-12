@@ -48,6 +48,10 @@
 正式主任务调整须在冻结前说明理由，不能根据测试集结果换任务。
 `general_pickup` 先作为回归检查，随后与 `cover_blocks` 补充论文任务覆盖。
 `cover_blocks` 必须包含按顺序覆盖、按颜色揭开及返回初始位置，不能只完成覆盖阶段。
+另外两个任务的原生判定已核对并记录为 [general_pickup 契约](../specs/tasks/general_pickup.json)
+和 [cover_blocks 契约](../specs/tasks/cover_blocks.json)。覆盖任务还有方块位移超过 5 cm
+即失败的约束；覆盖判定使用外部包围轮廓，不能代替杯腔的物理有效性验证。
+这是源码核对，尚不是这两个任务的 v1 完整执行/生成证据。
 
 ### 2.2 Event：关系在何时切换
 

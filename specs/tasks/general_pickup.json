@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "source-audited development contract; v1 execution and independent thresholds pending",
+  "task": "general_pickup",
+  "robot_configuration": "arx_x5",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "source_sha256": {
+    "task/RoboDojo/tasks/general_pickup.py": "1a9eef7fe518f9d2c6805ad1a8f97c1045fa83726f84b9c63f67ffdfabbc40a7",
+    "task/RoboDojo/config/general_pickup.yml": "35de68117cb0ed596b30db1c62f1f9090f2cd1237242a03d5aaeb7186e791d93",
+    "env/reward_manager/func_parser.py": "eb928a05c3eb6bae429a922c59e64272c2c3851c22d779143d45627e47b3a504",
+    "env/reward_manager/reward_manager.py": "bc56efd3aaa861b4b38960dc4fb7778a9b4da9cf131f815ac3170300dd233a41",
+    "src/eval_client/eval_env.py": "3ae75304d8a840ede2589441f987824f50b2a89cc2ef37f4d43ce0a8dbc4fd88"
+  },
+  "heldout_status": "not executed",
+  "instruction_template": "Pick up the <target> by 10 cm.",
+  "labels": [
+    "target"
+  ],
+  "native_policy_action_limit": 200,
+  "native_success": {
+    "predicate": "is_lift(target, z_threshold=0.1)",
+    "comparison": "current object-origin z minus reward initialization object-origin z > 0.1 m",
+    "required_release": false,
+    "required_return_to_origin": false,
+    "reward_registered_once_then_evaluated_over_time": true
+  },
+  "native_process_score": {
+    "available": false,
+    "reported_score": "100 for native success, 0 otherwise"
+  },
+  "native_limitations": [
+    "Origin height alone does not verify grasp contact, a sustained hold, or absence of collateral collisions.",
+    "Native task identity is preserved only if target metadata and instruction still resolve consistently."
+  ],
+  "generation_contract": {
+    "task_objects": [
+      "target"
+    ],
+    "clutter_role": "Additional Infinigen objects must not become target labels.",
+    "proposed_reference_events": [
+      "approach",
+      "grasp",
+      "lift",
+      "hold"
+    ],
+    "minimum_reference_evidence": [
+      "actual finger-object contact",
+      "target initially supported and stable",
+      "measured object lift without teleporting or welding",
+      "stable hand-object relation during the validated holding segment",
+      "request fidelity and independent illegal-contact checks"
+    ]
+  },
+  "implementation_status": {
+    "historical_v0": "Native lift was executed with generated targets; historical conservative box audit remains separate.",
+    "v1": "Full event/contact validator and portable episode export have not yet been generalized from stack_blocks."
+  }
+}

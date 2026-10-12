@@ -66,3 +66,28 @@ PYTHONPATH="$PWD/src" .venv/bin/python scripts/astra_pair.py \
 OpenWAM 权重和旧部署环境已在本机找到，但旧副本含 CPU 文本编码器迁移补丁；
 需确定可复现的部署配置并核对内存，再运行真实权重。当前入口列出 OpenWAM 选项不等于
 已验证它的执行链路。两策略四组比较、更广任务覆盖及正式冻结仍未完成。
+
+## OpenWAM 的显存约束与部署诊断
+
+新服务入口 `infinidojo.openwam_service` 从上述固定 XPolicyLab 的干净副本加载权重，
+只在本进程中将文本编码器留在 CPU，并将其输出送回 GPU。三个相关上游文件的哈希须匹配；
+不会修改旧副本、上游文件或 checkpoint。临时路径映射让适配器读取同一 RoboDojo 的机器人配置。
+
+该 variant 名为 `OpenWAM-step60000-cpu-text-bf16`，保留 BF16、10 次同步去噪和完整动作 chunk；
+上游适配器禁用 compile、DiT cache 与视频解码。CPU/GPU 计算不声称逐位等价，正式两组
+评测必须共用这个部署配置。模型仍采用真实权重，不能开启 `allow_dummy_policy`。
+
+已单独加载真实文本编码器的 5,680,910,336 个参数，在 CPU 上执行原生堆叠指令：
+输出为有限值的 `[1, 512, 4096]` BF16 张量，8 线程下该次约 7.25 秒。
+这是文本编码诊断，尚未完成整个模型的动作推理或策略评分。
+checkpoint SHA256：`78ca4ef5d2f6c8fa877bcae8b40c36b3d8700547fd5a708b472c4564e5f40abb`。
+
+```bash
+PYTHONPATH="$PWD/src" "$OPENWAM_PYTHON" -m infinidojo.openwam_service \
+  --xpolicylab-root "$XPOLICYLAB_ROOT" --robodojo-root "$ROBODOJO_ROOT" \
+  --checkpoint "$OPENWAM_CHECKPOINT" --output outputs/openwam-service-example --port 6124
+```
+
+服务入口归档实际配置、权重哈希、模块放置与显存。
+`--probe-observation /absolute/path/to/policy-io.jsonl` 可改为单次真实动作推理诊断，
+不启动仿真、不产生任务成功率。正式性能评测仍必须经过完整 evaluator。
