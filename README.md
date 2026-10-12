@@ -24,8 +24,19 @@ and lift a procedurally generated rigid object by more than 10 cm. The native
 task predicate is retained. This is a benchmark extension, not an official
 RoboDojo leaderboard run.
 
-The prototype and its first evaluation are **in development**. No experimental
-results are claimed until simulator outputs and their provenance are committed.
+The v0 prototype includes real Infinigen can meshes, a live structured LLM
+compiler with validator feedback, three matched layout generators, native
+RoboDojo reference execution, and independent collision-box audits.
+
+Development smoke runs have physically lifted a generated can by 15 cm.
+The held-out quantitative study is **in progress**, so no comparative result
+is claimed yet. See [running the prototype](docs/running.md).
+
+v0 conditions clutter placement on a validated reference interaction. It does
+not yet jointly optimize arbitrary manipulation trajectories and scenes. Its
+LLM feedback checks supported task/scene constraints. The asset family, task
+and event vocabulary are deliberately small; release/placement tasks are future
+extensions. USD exports use a preview material, not baked photoreal shaders.
 
 See [evaluation protocol](docs/evaluation.md) and
 [dependency provenance](docs/dependencies.md). Runtime assets, environments,

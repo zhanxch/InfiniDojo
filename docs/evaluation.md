@@ -42,6 +42,20 @@ collecting replacement evaluation data. No selective deletion of failed seeds.
 All method variants use the same asset pool and request for each paired seed.
 Generation has an explicit candidate-attempt budget, recorded per instance.
 
+Frozen v0 details: 500 placement proposals per scene; can radius 0.025 m,
+height 0.07 m, target XY (-0.23, -0.05) m; clutter footprints inside
+x=[-0.45, 0.25], y=[-0.25, 0.20] m; clearance 0.005 m. Two phrasings per clutter
+count give six live LLM requests. Generate one clean reference per asset seed,
+then replay its controls for every paired method/count. Execute the generated
+cases in a seeded shuffled order (shuffle seed 710). A failed clean reference
+rejects its nine requests; it is not replaced.
+
+The conservative **usable yield** requires accepted generation, a clear
+reference OBB audit, initial XY positions preserved to 1 cm after settling,
+native lift success and a clear OBB audit using actual execution poses. Report
+these components separately. It is stricter than physical task success and can
+reject close but collision-free arrangements because of bounding boxes.
+
 ## Required metrics and denominators
 
 - Requested vs generated clutter count; support-bound satisfaction; task-target
