@@ -1,0 +1,442 @@
+"""Full native stack_blocks reference with event, state and contact evidence.
+
+Run using RoboDojo's Isaac Python. This privileged development controller is
+neither a tested policy nor a complete instance validator. It uses unchanged
+native assets, task predicates and physical grasp/release actions.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import shutil
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+
+from infinidojo.interaction import build_program, validate_event_trace
+from infinidojo.io import git_revision, sha256, write_json
+from infinidojo.native import initialize_reward, install_reset_cleanup
+
+LABELS = ("block_0", "block_1", "block_2")
+
+
+def make_config(root, seed):
+    from omegaconf import OmegaConf
+    from utils.pipeline_utils import process_config
+
+    mapping = {"sim": "sim_config", "scene": "default", "robot": "dual_x5", "camera": "camera_config"}
+    config = OmegaConf.create({k: OmegaConf.load(root / f"env_cfg/{k}/{v}.yml") for k, v in mapping.items()})
+    config.task_env = OmegaConf.load(root / "task/RoboDojo/config/stack_blocks.yml")
+    config.sim.scene.num_envs = 1
+    config.sim.seed = [seed]
+    config.camera.default_frequency = 25
+    return process_config(config, "stack_blocks")[0]
+
+
+class EvidenceRecorder:
+    def __init__(self, env, output, max_steps):
+        self.env, self.output, self.max_steps = env, output, max_steps
+        self.steps, self.event_id, self.phase = 0, None, "initial"
+        self.samples, self.controls, self.boundaries = [], [], []
+        self.contact_counts, self.contact_errors = {}, []
+        self.contact_file = (output / "contacts.jsonl").open("w")
+        self.writer = None
+        self.video_frames = 0
+        self.subscription = None
+        self.start_contacts()
+
+    def start_contacts(self):
+        import carb.settings
+        from omni.physx import get_physx_simulation_interface
+        from pxr import PhysxSchema, Usd, UsdPhysics
+
+        # IsaacLab disables report processing by default when no sensor exists.
+        carb.settings.get_settings().set_bool("/physics/disableContactProcessing", False)
+        self.report_bodies = []
+        for prim in Usd.PrimRange(self.env.stage.GetPseudoRoot(), Usd.TraverseInstanceProxies()):
+            if prim.HasAPI(UsdPhysics.RigidBodyAPI) and not prim.IsInstanceProxy():
+                api = PhysxSchema.PhysxContactReportAPI.Apply(prim)
+                api.CreateThresholdAttr().Set(0)
+                self.report_bodies.append(str(prim.GetPath()))
+        self.subscription = get_physx_simulation_interface().subscribe_contact_report_events(self.on_contacts)
+
+    def on_contacts(self, headers, data):
+        from pxr import PhysicsSchemaTools
+
+        try:
+            for header in headers:
+                actors = [
+                    str(PhysicsSchemaTools.intToSdfPath(getattr(header, f"actor{i}"))) for i in range(2)
+                ]
+                colliders = [
+                    str(PhysicsSchemaTools.intToSdfPath(getattr(header, f"collider{i}"))) for i in range(2)
+                ]
+                points = []
+                for i in range(
+                    header.contact_data_offset, header.contact_data_offset + header.num_contact_data
+                ):
+                    point = data[i]
+                    points.append(
+                        {
+                            "position": list(point.position),
+                            "normal": list(point.normal),
+                            "impulse": list(point.impulse),
+                            "separation": float(point.separation),
+                        }
+                    )
+                record = {
+                    "step": self.steps,
+                    "event_id": self.event_id,
+                    "phase": self.phase,
+                    "type": str(header.type),
+                    "actors": actors,
+                    "colliders": colliders,
+                    "points": points,
+                }
+                self.contact_file.write(json.dumps(record, allow_nan=False) + "\n")
+                if not points:
+                    continue
+                pair = " | ".join(sorted(actors))
+                key = f"{self.event_id or self.phase}: {pair}"
+                summary = self.contact_counts.setdefault(
+                    key,
+                    {
+                        "phase": self.phase,
+                        "event_id": self.event_id,
+                        "actors": sorted(actors),
+                        "reports": 0,
+                        "first_step": self.steps,
+                        "last_step": self.steps,
+                        "min_separation_m": 0.0,
+                    },
+                )
+                summary["reports"] += 1
+                summary["last_step"] = self.steps
+                summary["min_separation_m"] = min(
+                    summary["min_separation_m"], *(p["separation"] for p in points)
+                )
+        except Exception as exc:  # noqa: BLE001 -- callback errors must survive simulator dispatch
+            # PhysX callback exceptions otherwise disappear into the simulator log.
+            self.contact_errors.append(f"{type(exc).__name__}: {exc}")
+
+    def object_pose(self, label):
+        pos, quat = self.env.scene_manager.layout_manager.get_instance_pose(0, label=label)
+        return np.r_[pos, quat]
+
+    def sample(self):
+        self.samples.append(
+            {
+                "step": self.steps,
+                "time_s": self.steps * self.env.dt,
+                "event_id": self.event_id,
+                "phase": self.phase,
+                "objects": {label: self.object_pose(label).tolist() for label in LABELS},
+                "robots": [
+                    {
+                        "body_names": list(key.body_names),
+                        "body_poses": key.data.body_link_pose_w[0].cpu().numpy().tolist(),
+                        "joint_positions": key.data.joint_pos[0].cpu().numpy().tolist(),
+                    }
+                    for key in self.env.robot_manager.robot_key
+                ],
+            }
+        )
+
+    def capture(self):
+        import cv2
+        from env.camera_manager.capture.render_sync import wait_for_latest_cameras
+
+        wait_for_latest_cameras(self.env, capture_manager=self.env.capture_manager)
+        data = self.env.capture_manager.step(env_ids=[0], cam_ids=[0])
+        frame = np.asarray(data[0]["rgb"][0]["data"])[..., :3]
+        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+        if self.writer is None:
+            self.writer = cv2.VideoWriter(
+                str(self.output / "reference.mp4"),
+                cv2.VideoWriter_fourcc(*"mp4v"),
+                25,
+                (frame.shape[1], frame.shape[0]),
+            )
+            if not self.writer.isOpened():
+                raise RuntimeError("Could not open reference video writer")
+            cv2.imwrite(str(self.output / "initial.png"), frame)
+        self.writer.write(frame)
+        self.video_frames += 1
+        cv2.imwrite(str(self.output / "latest.png"), frame)
+
+    def execute(self, controls, phase, event_id=None):
+        if controls is None:
+            raise RuntimeError(f"Planner failed during {phase}")
+        if self.phase != phase or self.event_id != event_id:
+            self.phase, self.event_id = phase, event_id
+            self.boundaries.append({"step": self.steps, "phase": phase, "event_id": event_id})
+            self.sample()
+        rm = self.env.robot_manager
+        rm.control_manager.push([0], [controls])
+        while not rm.control_manager.control_queue[0].is_empty():
+            if self.steps >= self.max_steps:
+                raise RuntimeError("Reference physics step budget exhausted")
+            meta = rm.control_manager.pop([0])
+            self.controls.append(
+                {
+                    "step": self.steps + 1,
+                    "phase": phase,
+                    "event_id": event_id,
+                    "control": {
+                        k: {s: np.asarray(v).tolist() for s, v in value.items()}
+                        for k, value in meta[0].control_info_dict.items()
+                    },
+                }
+            )
+            self.steps += 1
+            self.env.step(meta)
+            self.env.sim_step(render=False)
+            self.env.reward_manager.step()
+            if self.steps % 5 == 0:
+                self.sample()
+            if self.steps % 10 == 0:
+                self.capture()
+        self.sample()
+
+    def hold(self, n, phase, event_id=None):
+        self.execute([{} for _ in range(n)], phase, event_id)
+
+    def close(self):
+        self.subscription = None
+        self.contact_file.close()
+        if self.writer is not None:
+            self.writer.release()
+        write_json(self.output / "trajectory.json", self.samples)
+        write_json(self.output / "controls.json", self.controls)
+        write_json(self.output / "event-boundaries.json", self.boundaries)
+        write_json(
+            self.output / "contact-summary.json",
+            {
+                "report_bodies": self.report_bodies,
+                "errors": self.contact_errors,
+                "pairs_by_phase": list(self.contact_counts.values()),
+                "note": "Sleeping objects need not emit persistent reports. This is evidence, not a full validator.",
+            },
+        )
+
+
+def run_reference(env, output, max_steps):
+    rm = env.robot_manager
+    robot = rm.robot_list[1]  # native layout 0 places its three blocks on the right
+    initialize_reward(env)
+    env.run_reward()
+    env.get_score()
+    initial_joints = np.array(rm.get_joint(robot, [0])[0], copy=True)
+    program = build_program(
+        [
+            {"object": "block_1", "source": "Table", "destination": "block_0", "arm": robot.arm_name},
+            {"object": "block_2", "source": "Table", "destination": "block_1", "arm": robot.arm_name},
+        ],
+        {label: "Table" for label in LABELS},
+    )
+    write_json(output / "interaction-program.json", program)
+    rec = EvidenceRecorder(env, output, max_steps)
+    rec.sample()
+    plans, transfers = [], []
+    quat = [2**-0.5, 0, 2**-0.5, 0]
+    heights = {
+        label: env.scene_manager.layout_manager.get_instance_metadata(0, label=label)["geometry"][
+            "aligned_bbox"
+        ]["extents"][2]
+        for label in LABELS
+    }
+
+    def move(pos, phase, event_id):
+        result = rm.planner[robot.robot_name].plan_path(
+            rm.get_joint(robot, [0])[0], [*pos, *quat], robot.entity_origin_pose
+        )
+        plans.append(
+            {
+                "event_id": event_id,
+                "phase": phase,
+                "target_flange_pose": [*pos, *quat],
+                "status": result["status"],
+            }
+        )
+        print(json.dumps(plans[-1]), flush=True)
+        rec.execute(rm.plan_ee(0, robot.arm_name, result), phase, event_id)
+        rec.hold(50, phase, event_id)
+
+    def gripper(value, phase, event_id):
+        rec.execute(
+            rm.plan_endeffector_joint(0, robot.arm_name, target_val=value, control_step_num=200),
+            phase,
+            event_id,
+        )
+        rec.hold(100, phase, event_id)
+
+    status, error = "completed", None
+    try:
+        rec.capture()
+        for index, (label, destination) in enumerate(zip(LABELS[1:], LABELS[:-1])):
+
+            def eid(phase, event_index=index):
+                return f"{event_index:02d}/{phase}"
+
+            start = rec.object_pose(label)[:3].copy()
+            flange = start + [0, 0, robot.gripper_bias]
+            move(flange + [0, 0, 0.10], "approach", eid("approach"))
+            move(flange, "descend", eid("descend"))
+            gripper(0, "grasp", eid("grasp"))
+            move(flange + [0, 0, 0.15], "lift", eid("lift"))
+            lifted = rec.object_pose(label)[:3]
+            if lifted[2] - start[2] < 0.08:
+                raise RuntimeError(f"{label}: physical grasp/lift failed")
+            # Measured offset is used only by this privileged reference controller.
+            offset = rm.get_real_endpose(robot, [0], is_relative=False)[0][:3] - lifted
+            goal = rec.object_pose(destination)[:3] + [0, 0, (heights[label] + heights[destination]) / 2]
+            place_flange = goal + offset
+            move(place_flange + [0, 0, 0.10], "transport", eid("transport"))
+            move(place_flange + [0, 0, 0.001], "place", eid("place"))
+            gripper(1, "release", eid("release"))
+            move(place_flange + [0, 0, 0.10], "retreat", eid("retreat"))
+            rec.hold(250, "retreat", eid("retreat"))
+            transfers.append(
+                {
+                    "object": label,
+                    "destination": destination,
+                    "initial_position": start.tolist(),
+                    "after_release_pose": rec.object_pose(label).tolist(),
+                    "destination_pose": rec.object_pose(destination).tolist(),
+                }
+            )
+            print(json.dumps(transfers[-1]), flush=True)
+        result = rm.planner[robot.robot_name].plan_joint(rm.get_joint(robot, [0])[0], initial_joints)
+        plans.append({"phase": "return", "status": result["status"]})
+        rec.execute(rm.plan_ee(0, robot.arm_name, result), "return")
+        rec.hold(500, "settle")
+    except RuntimeError as exc:
+        status, error = "controller_failed", str(exc)
+    finally:
+        rec.sample()
+        rec.close()
+    reward = env.reward_manager.get_reward()
+    settle = [s for s in rec.samples if s["phase"] == "settle"]
+    displacement = {
+        label: max(
+            (
+                float(
+                    np.linalg.norm(
+                        np.array(s["objects"][label][:3]) - np.array(settle[0]["objects"][label][:3])
+                    )
+                )
+                for s in settle
+            ),
+            default=None,
+        )
+        for label in LABELS
+    }
+    return {
+        "status": status,
+        "error": error,
+        "native_task_success": bool(reward[0]),
+        "native_score": env.reward_manager.get_score(reward)[0],
+        "event_trace": validate_event_trace(program, rec.samples),
+        "initial_object_poses": rec.samples[0]["objects"],
+        "final_object_poses": rec.samples[-1]["objects"],
+        "final_settle_displacement_m": displacement,
+        "contact_reporting_errors": rec.contact_errors,
+        "video_frames": rec.video_frames,
+        "steps": rec.steps,
+        "physics_dt": env.dt,
+        "plans": plans,
+        "transfers": transfers,
+        "strict_instance_validation": "pending: full contact/geometry validator not implemented",
+        "controller": "privileged CuRobo reference, physical grasp/release, no object welding or teleport",
+        "budget_note": "Raw physics steps are not native policy actions; no official leaderboard claim",
+    }
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--robodojo-root", type=Path, required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--seed", type=int, default=1200)
+    parser.add_argument("--layout", type=Path, help="Native stack layout; default is saved layout 0")
+    parser.add_argument("--max-steps", type=int, default=20000)
+    from isaaclab.app import AppLauncher
+
+    AppLauncher.add_app_launcher_args(parser)
+    args = parser.parse_args()
+    root, output = args.robodojo_root.resolve(), args.output.resolve()
+    source = Path(__file__).resolve().parents[2]
+    layout_path = (
+        args.layout.resolve()
+        if args.layout
+        else root / "Assets/Eval_Layout/RoboDojo/arx_x5/0/stack_blocks_0.json"
+    )
+    layout = json.loads(layout_path.read_text())
+    output.mkdir(parents=True, exist_ok=False)
+    snapshot = output / "source/infinidojo"
+    snapshot.mkdir(parents=True)
+    for path in (source / "src/infinidojo").glob("*.py"):
+        shutil.copyfile(path, snapshot / path.name)
+    write_json(
+        output / "provenance.json",
+        {
+            "infinidojo_commit": git_revision(source),
+            "robodojo_commit": git_revision(root),
+            "source_sha256": {
+                str(p.relative_to(source)): sha256(p) for p in (source / "src/infinidojo").glob("*.py")
+            },
+            "task": "stack_blocks",
+            "robot": "arx_x5",
+            "seed": args.seed,
+            "native_layout_sha256": sha256(layout_path),
+            "max_reference_physics_steps": args.max_steps,
+        },
+    )
+    write_json(output / "layout.json", layout)
+    sys.path.insert(0, str(root))
+    os.chdir(root)
+    start = time.monotonic()
+    app = AppLauncher(args).app
+    env = None
+    try:
+        from omegaconf import OmegaConf
+        from task.RoboDojo.tasks.stack_blocks import stack_blocks
+
+        config = make_config(root, args.seed)
+        write_json(output / "config.json", OmegaConf.to_container(config, resolve=True))
+        env = stack_blocks(config, app)
+        install_reset_cleanup(env)
+        env.scene_manager.layout_manager.set_saved_layout(0, layout)
+        env.reset(seed=[args.seed])
+        for key in env.robot_manager.robot_key:
+            key.write_joint_state_to_sim(
+                key.data.default_joint_pos.clone(), key.data.default_joint_vel.clone()
+            )
+            key.set_joint_position_target(key.data.default_joint_pos.clone())
+            key.set_joint_velocity_target(key.data.default_joint_vel.clone())
+        for _ in range(50):
+            env.sim_step(render=False)
+        env.scene_manager.apply_saved_poses([0])
+        for _ in range(200):
+            env.sim_step(render=False)
+        write_json(
+            output / "loaded-layout.json", env.scene_manager.layout_manager.get_layout_records(0, "Rigid")
+        )
+        result = run_reference(env, output, args.max_steps)
+        result["wall_seconds"] = time.monotonic() - start
+        write_json(output / "result.json", result)
+        print(json.dumps(result), flush=True)
+    except BaseException as exc:
+        write_json(output / "error.json", {"type": type(exc).__name__, "message": str(exc)})
+        raise
+    finally:
+        if env is not None:
+            env.close()
+        app.close()
+
+
+if __name__ == "__main__":
+    main()

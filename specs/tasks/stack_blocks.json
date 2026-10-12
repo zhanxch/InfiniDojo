@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "development: independent validation thresholds not frozen",
+  "task": "stack_blocks",
+  "robot_configuration": "arx_x5",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "source_sha256": {
+    "task/RoboDojo/tasks/stack_blocks.py": "50bd388f9e47002966fbb0146742467a820295b8686e0f86379f0efbcfffcc1b",
+    "task/RoboDojo/config/stack_blocks.yml": "2802e88ebc3e2d3d05ce345d75e9ad6151a6690e4ef1e0021a5223d291a402d2",
+    "env/reward_manager/func_parser.py": "eb928a05c3eb6bae429a922c59e64272c2c3851c22d779143d45627e47b3a504",
+    "env/reward_manager/reward_manager.py": "bc56efd3aaa861b4b38960dc4fb7778a9b4da9cf131f815ac3170300dd233a41"
+  },
+  "instruction": "Stack the three blocks with different textures.",
+  "labels": [
+    "block_0",
+    "block_1",
+    "block_2"
+  ],
+  "native_policy_action_limit": 550,
+  "native_success": {
+    "stacked": {
+      "sorted_by": "object-origin z (not required block-label order)",
+      "adjacent_xy_distance_m_by_block_0_category": {
+        "5,8,11,14,17": 0.015,
+        "6,9,12,15,18": 0.0175,
+        "7,10,13,16,19": 0.02
+      },
+      "fallback_xy_distance_m": 0.015,
+      "minimum_adjacent_origin_z_difference_m": 0.005,
+      "maximum_z_difference_m": null
+    },
+    "all_robot_back_to_origin": {
+      "per_axis_position_tolerance_m": 0.15,
+      "orientation_tolerance_degrees": 20
+    },
+    "reward_is_registered_once_and_evaluated_over_time": true
+  },
+  "native_process_score": {
+    "mode": "transition",
+    "tiers": [
+      15,
+      100
+    ],
+    "requires_all_grippers_open_above": 0.8,
+    "tiers_describe": [
+      "any pair stacked",
+      "all three stacked"
+    ],
+    "final_tier_gated_by_native_success": true
+  },
+  "native_limitations": [
+    "Stack predicate does not require object contact or bound upper vertical separation.",
+    "Native success alone is not independent physical scene validity."
+  ],
+  "reference_protocol": {
+    "privileged": true,
+    "physical_dt_s": 0.004,
+    "max_physics_steps": 20000,
+    "budget_scope": "reference development, not native policy action budget",
+    "contacts": "PhysX reports with threshold zero, actual states at 0.02 s",
+    "release_and_settle_s": 2.0,
+    "no_object_teleport_or_welding_during_execution": true
+  },
+  "independent_checks_pending": [
+    "per-event legal contact mapping including fixtures and robot self-collision",
+    "geometric penetration and sampling calibration",
+    "actual attachment and release verification",
+    "post-release support and stability thresholds",
+    "initialization displacement and request fidelity"
+  ],
+  "heldout_status": "not executed"
+}

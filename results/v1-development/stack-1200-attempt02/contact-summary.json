@@ -1,0 +1,489 @@
+{
+  "report_bodies": [
+    "/World/envs/env_0/robot0/base_link",
+    "/World/envs/env_0/robot0/link1",
+    "/World/envs/env_0/robot0/link2",
+    "/World/envs/env_0/robot0/link3",
+    "/World/envs/env_0/robot0/link4",
+    "/World/envs/env_0/robot0/link5",
+    "/World/envs/env_0/robot0/link6",
+    "/World/envs/env_0/robot0/camera_base",
+    "/World/envs/env_0/robot0/camera",
+    "/World/envs/env_0/robot0/link7",
+    "/World/envs/env_0/robot0/link8",
+    "/World/envs/env_0/robot1/base_link",
+    "/World/envs/env_0/robot1/link1",
+    "/World/envs/env_0/robot1/link2",
+    "/World/envs/env_0/robot1/link3",
+    "/World/envs/env_0/robot1/link4",
+    "/World/envs/env_0/robot1/link5",
+    "/World/envs/env_0/robot1/link6",
+    "/World/envs/env_0/robot1/camera_base",
+    "/World/envs/env_0/robot1/camera",
+    "/World/envs/env_0/robot1/link7",
+    "/World/envs/env_0/robot1/link8",
+    "/World/envs/env_0/rigid/block/block_9_1",
+    "/World/envs/env_0/rigid/block/block_18_2",
+    "/World/envs/env_0/rigid/block/block_15_3"
+  ],
+  "errors": [],
+  "pairs_by_phase": [
+    {
+      "phase": "grasp",
+      "event_id": "00/grasp",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/robot1/link7"
+      ],
+      "reports": 204,
+      "first_step": 679,
+      "last_step": 882,
+      "min_separation_m": -6.243586540222168e-05
+    },
+    {
+      "phase": "grasp",
+      "event_id": "00/grasp",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/robot1/link8"
+      ],
+      "reports": 204,
+      "first_step": 679,
+      "last_step": 882,
+      "min_separation_m": -4.704470848082565e-05
+    },
+    {
+      "phase": "lift",
+      "event_id": "00/lift",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/robot1/link7"
+      ],
+      "reports": 251,
+      "first_step": 883,
+      "last_step": 1133,
+      "min_separation_m": -6.2551349401474e-05
+    },
+    {
+      "phase": "lift",
+      "event_id": "00/lift",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/robot1/link8"
+      ],
+      "reports": 251,
+      "first_step": 883,
+      "last_step": 1133,
+      "min_separation_m": -4.9337711971020326e-05
+    },
+    {
+      "phase": "transport",
+      "event_id": "00/transport",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/robot1/link7"
+      ],
+      "reports": 231,
+      "first_step": 1134,
+      "last_step": 1364,
+      "min_separation_m": -6.09811395406723e-05
+    },
+    {
+      "phase": "transport",
+      "event_id": "00/transport",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/robot1/link8"
+      ],
+      "reports": 231,
+      "first_step": 1134,
+      "last_step": 1364,
+      "min_separation_m": -4.9517191655468196e-05
+    },
+    {
+      "phase": "place",
+      "event_id": "00/place",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/robot1/link7"
+      ],
+      "reports": 211,
+      "first_step": 1365,
+      "last_step": 1575,
+      "min_separation_m": -6.107613444328308e-05
+    },
+    {
+      "phase": "place",
+      "event_id": "00/place",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/robot1/link8"
+      ],
+      "reports": 211,
+      "first_step": 1365,
+      "last_step": 1575,
+      "min_separation_m": -4.857722160522826e-05
+    },
+    {
+      "phase": "place",
+      "event_id": "00/place",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/rigid/block/block_9_1"
+      ],
+      "reports": 67,
+      "first_step": 1509,
+      "last_step": 1575,
+      "min_separation_m": 0.0
+    },
+    {
+      "phase": "release",
+      "event_id": "00/release",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/robot1/link7"
+      ],
+      "reports": 21,
+      "first_step": 1576,
+      "last_step": 1596,
+      "min_separation_m": -6.072036921977997e-05
+    },
+    {
+      "phase": "release",
+      "event_id": "00/release",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/robot1/link8"
+      ],
+      "reports": 21,
+      "first_step": 1576,
+      "last_step": 1596,
+      "min_separation_m": -4.630684634321369e-05
+    },
+    {
+      "phase": "release",
+      "event_id": "00/release",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/rigid/block/block_9_1"
+      ],
+      "reports": 300,
+      "first_step": 1576,
+      "last_step": 1875,
+      "min_separation_m": -1.3414770364761353e-05
+    },
+    {
+      "phase": "retreat",
+      "event_id": "00/retreat",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/rigid/block/block_9_1"
+      ],
+      "reports": 461,
+      "first_step": 1876,
+      "last_step": 2336,
+      "min_separation_m": -7.171183824539185e-07
+    },
+    {
+      "phase": "approach",
+      "event_id": "01/approach",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/rigid/block/block_9_1"
+      ],
+      "reports": 251,
+      "first_step": 2337,
+      "last_step": 2587,
+      "min_separation_m": -7.096678018569946e-07
+    },
+    {
+      "phase": "descend",
+      "event_id": "01/descend",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/rigid/block/block_9_1"
+      ],
+      "reports": 211,
+      "first_step": 2588,
+      "last_step": 2798,
+      "min_separation_m": -7.245689630508423e-07
+    },
+    {
+      "phase": "grasp",
+      "event_id": "01/grasp",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/rigid/block/block_9_1"
+      ],
+      "reports": 300,
+      "first_step": 2799,
+      "last_step": 3098,
+      "min_separation_m": -7.152557373046875e-07
+    },
+    {
+      "phase": "grasp",
+      "event_id": "01/grasp",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/robot1/link8"
+      ],
+      "reports": 204,
+      "first_step": 2895,
+      "last_step": 3098,
+      "min_separation_m": -5.822628736495972e-05
+    },
+    {
+      "phase": "grasp",
+      "event_id": "01/grasp",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/robot1/link7"
+      ],
+      "reports": 204,
+      "first_step": 2895,
+      "last_step": 3098,
+      "min_separation_m": -4.61809613625519e-05
+    },
+    {
+      "phase": "lift",
+      "event_id": "01/lift",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/rigid/block/block_9_1"
+      ],
+      "reports": 251,
+      "first_step": 3099,
+      "last_step": 3349,
+      "min_separation_m": -7.171183824539185e-07
+    },
+    {
+      "phase": "lift",
+      "event_id": "01/lift",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/robot1/link8"
+      ],
+      "reports": 251,
+      "first_step": 3099,
+      "last_step": 3349,
+      "min_separation_m": -6.55241310596466e-05
+    },
+    {
+      "phase": "lift",
+      "event_id": "01/lift",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/robot1/link7"
+      ],
+      "reports": 251,
+      "first_step": 3099,
+      "last_step": 3349,
+      "min_separation_m": -4.730640648631379e-05
+    },
+    {
+      "phase": "transport",
+      "event_id": "01/transport",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/rigid/block/block_9_1"
+      ],
+      "reports": 271,
+      "first_step": 3350,
+      "last_step": 3620,
+      "min_separation_m": -7.133930921554565e-07
+    },
+    {
+      "phase": "transport",
+      "event_id": "01/transport",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/robot1/link8"
+      ],
+      "reports": 271,
+      "first_step": 3350,
+      "last_step": 3620,
+      "min_separation_m": -6.324239075183868e-05
+    },
+    {
+      "phase": "transport",
+      "event_id": "01/transport",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/robot1/link7"
+      ],
+      "reports": 271,
+      "first_step": 3350,
+      "last_step": 3620,
+      "min_separation_m": -4.6190321882022545e-05
+    },
+    {
+      "phase": "place",
+      "event_id": "01/place",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/rigid/block/block_9_1"
+      ],
+      "reports": 211,
+      "first_step": 3621,
+      "last_step": 3831,
+      "min_separation_m": -7.096678018569946e-07
+    },
+    {
+      "phase": "place",
+      "event_id": "01/place",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/robot1/link8"
+      ],
+      "reports": 211,
+      "first_step": 3621,
+      "last_step": 3831,
+      "min_separation_m": -6.4115971326828e-05
+    },
+    {
+      "phase": "place",
+      "event_id": "01/place",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/robot1/link7"
+      ],
+      "reports": 211,
+      "first_step": 3621,
+      "last_step": 3831,
+      "min_separation_m": -4.6039414883125573e-05
+    },
+    {
+      "phase": "place",
+      "event_id": "01/place",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/rigid/block/block_18_2"
+      ],
+      "reports": 67,
+      "first_step": 3765,
+      "last_step": 3831,
+      "min_separation_m": 0.0
+    },
+    {
+      "phase": "release",
+      "event_id": "01/release",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/rigid/block/block_9_1"
+      ],
+      "reports": 300,
+      "first_step": 3832,
+      "last_step": 4131,
+      "min_separation_m": -4.421152698341757e-05
+    },
+    {
+      "phase": "release",
+      "event_id": "01/release",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/robot1/link8"
+      ],
+      "reports": 22,
+      "first_step": 3832,
+      "last_step": 3853,
+      "min_separation_m": -6.198510527610779e-05
+    },
+    {
+      "phase": "release",
+      "event_id": "01/release",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/robot1/link7"
+      ],
+      "reports": 20,
+      "first_step": 3832,
+      "last_step": 3851,
+      "min_separation_m": -4.567994619719684e-05
+    },
+    {
+      "phase": "release",
+      "event_id": "01/release",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/rigid/block/block_18_2"
+      ],
+      "reports": 300,
+      "first_step": 3832,
+      "last_step": 4131,
+      "min_separation_m": -1.2252479791641235e-05
+    },
+    {
+      "phase": "retreat",
+      "event_id": "01/retreat",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/rigid/block/block_9_1"
+      ],
+      "reports": 461,
+      "first_step": 4132,
+      "last_step": 4592,
+      "min_separation_m": -4.665278902393766e-05
+    },
+    {
+      "phase": "retreat",
+      "event_id": "01/retreat",
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/rigid/block/block_18_2"
+      ],
+      "reports": 461,
+      "first_step": 4132,
+      "last_step": 4592,
+      "min_separation_m": -1.1080875992774963e-05
+    },
+    {
+      "phase": "return",
+      "event_id": null,
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/rigid/block/block_9_1"
+      ],
+      "reports": 341,
+      "first_step": 4593,
+      "last_step": 4933,
+      "min_separation_m": -4.504062235355377e-05
+    },
+    {
+      "phase": "return",
+      "event_id": null,
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/rigid/block/block_18_2"
+      ],
+      "reports": 341,
+      "first_step": 4593,
+      "last_step": 4933,
+      "min_separation_m": -9.803101420402527e-06
+    },
+    {
+      "phase": "settle",
+      "event_id": null,
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_18_2",
+        "/World/envs/env_0/rigid/block/block_9_1"
+      ],
+      "reports": 500,
+      "first_step": 4934,
+      "last_step": 5433,
+      "min_separation_m": -4.39230352640152e-05
+    },
+    {
+      "phase": "settle",
+      "event_id": null,
+      "actors": [
+        "/World/envs/env_0/rigid/block/block_15_3",
+        "/World/envs/env_0/rigid/block/block_18_2"
+      ],
+      "reports": 500,
+      "first_step": 4934,
+      "last_step": 5433,
+      "min_separation_m": -1.0848045349121094e-05
+    }
+  ],
+  "note": "Sleeping objects need not emit persistent reports. This is evidence, not a full validator."
+}

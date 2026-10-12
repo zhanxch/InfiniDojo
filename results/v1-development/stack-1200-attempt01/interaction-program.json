@@ -1,0 +1,344 @@
+{
+  "events": [
+    {
+      "id": "00/approach",
+      "phase": "approach",
+      "object": "block_1",
+      "arm": "right_arm",
+      "attachment": "free",
+      "support": "Table",
+      "allowed_contacts": [
+        [
+          "block_1",
+          "Table"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_2": "Table",
+        "block_1": "Table"
+      }
+    },
+    {
+      "id": "00/descend",
+      "phase": "descend",
+      "object": "block_1",
+      "arm": "right_arm",
+      "attachment": "free",
+      "support": "Table",
+      "allowed_contacts": [
+        [
+          "block_1",
+          "Table"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_2": "Table",
+        "block_1": "Table"
+      }
+    },
+    {
+      "id": "00/grasp",
+      "phase": "grasp",
+      "object": "block_1",
+      "arm": "right_arm",
+      "attachment": "contact",
+      "support": "Table",
+      "allowed_contacts": [
+        [
+          "block_1",
+          "Table"
+        ],
+        [
+          "block_1",
+          "right_arm/gripper"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_2": "Table",
+        "block_1": "Table"
+      }
+    },
+    {
+      "id": "00/lift",
+      "phase": "lift",
+      "object": "block_1",
+      "arm": "right_arm",
+      "attachment": "held",
+      "support": null,
+      "allowed_contacts": [
+        [
+          "block_1",
+          "Table"
+        ],
+        [
+          "block_1",
+          "right_arm/gripper"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_2": "Table"
+      }
+    },
+    {
+      "id": "00/transport",
+      "phase": "transport",
+      "object": "block_1",
+      "arm": "right_arm",
+      "attachment": "held",
+      "support": null,
+      "allowed_contacts": [
+        [
+          "block_1",
+          "right_arm/gripper"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_2": "Table"
+      }
+    },
+    {
+      "id": "00/place",
+      "phase": "place",
+      "object": "block_1",
+      "arm": "right_arm",
+      "attachment": "held",
+      "support": null,
+      "allowed_contacts": [
+        [
+          "block_1",
+          "right_arm/gripper"
+        ],
+        [
+          "block_1",
+          "block_0"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_2": "Table"
+      }
+    },
+    {
+      "id": "00/release",
+      "phase": "release",
+      "object": "block_1",
+      "arm": "right_arm",
+      "attachment": "contact",
+      "support": "block_0",
+      "allowed_contacts": [
+        [
+          "block_1",
+          "right_arm/gripper"
+        ],
+        [
+          "block_1",
+          "block_0"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_2": "Table",
+        "block_1": "block_0"
+      }
+    },
+    {
+      "id": "00/retreat",
+      "phase": "retreat",
+      "object": "block_1",
+      "arm": "right_arm",
+      "attachment": "free",
+      "support": "block_0",
+      "allowed_contacts": [
+        [
+          "block_1",
+          "block_0"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_2": "Table",
+        "block_1": "block_0"
+      }
+    },
+    {
+      "id": "01/approach",
+      "phase": "approach",
+      "object": "block_2",
+      "arm": "right_arm",
+      "attachment": "free",
+      "support": "Table",
+      "allowed_contacts": [
+        [
+          "block_2",
+          "Table"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_1": "block_0",
+        "block_2": "Table"
+      }
+    },
+    {
+      "id": "01/descend",
+      "phase": "descend",
+      "object": "block_2",
+      "arm": "right_arm",
+      "attachment": "free",
+      "support": "Table",
+      "allowed_contacts": [
+        [
+          "block_2",
+          "Table"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_1": "block_0",
+        "block_2": "Table"
+      }
+    },
+    {
+      "id": "01/grasp",
+      "phase": "grasp",
+      "object": "block_2",
+      "arm": "right_arm",
+      "attachment": "contact",
+      "support": "Table",
+      "allowed_contacts": [
+        [
+          "block_2",
+          "Table"
+        ],
+        [
+          "block_2",
+          "right_arm/gripper"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_1": "block_0",
+        "block_2": "Table"
+      }
+    },
+    {
+      "id": "01/lift",
+      "phase": "lift",
+      "object": "block_2",
+      "arm": "right_arm",
+      "attachment": "held",
+      "support": null,
+      "allowed_contacts": [
+        [
+          "block_2",
+          "Table"
+        ],
+        [
+          "block_2",
+          "right_arm/gripper"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_1": "block_0"
+      }
+    },
+    {
+      "id": "01/transport",
+      "phase": "transport",
+      "object": "block_2",
+      "arm": "right_arm",
+      "attachment": "held",
+      "support": null,
+      "allowed_contacts": [
+        [
+          "block_2",
+          "right_arm/gripper"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_1": "block_0"
+      }
+    },
+    {
+      "id": "01/place",
+      "phase": "place",
+      "object": "block_2",
+      "arm": "right_arm",
+      "attachment": "held",
+      "support": null,
+      "allowed_contacts": [
+        [
+          "block_2",
+          "right_arm/gripper"
+        ],
+        [
+          "block_2",
+          "block_1"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_1": "block_0"
+      }
+    },
+    {
+      "id": "01/release",
+      "phase": "release",
+      "object": "block_2",
+      "arm": "right_arm",
+      "attachment": "contact",
+      "support": "block_1",
+      "allowed_contacts": [
+        [
+          "block_2",
+          "right_arm/gripper"
+        ],
+        [
+          "block_2",
+          "block_1"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_1": "block_0",
+        "block_2": "block_1"
+      }
+    },
+    {
+      "id": "01/retreat",
+      "phase": "retreat",
+      "object": "block_2",
+      "arm": "right_arm",
+      "attachment": "free",
+      "support": "block_1",
+      "allowed_contacts": [
+        [
+          "block_2",
+          "block_1"
+        ]
+      ],
+      "support_relations": {
+        "block_0": "Table",
+        "block_1": "block_0",
+        "block_2": "block_1"
+      }
+    }
+  ],
+  "initial_support": {
+    "block_0": "Table",
+    "block_1": "Table",
+    "block_2": "Table"
+  },
+  "final_support": {
+    "block_0": "Table",
+    "block_1": "block_0",
+    "block_2": "block_1"
+  }
+}

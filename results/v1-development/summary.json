@@ -1,0 +1,251 @@
+{
+  "status": "development diagnostics only, not held-out results or policy evaluation",
+  "all_attempts": [
+    {
+      "id": "stack-1200-attempt01",
+      "seed": 1200,
+      "layout": "native layout 0",
+      "status": "completed",
+      "native_task_success": true,
+      "native_score": 100.0,
+      "event_trace_complete": true,
+      "physics_steps": 5433,
+      "simulated_seconds": 21.732,
+      "wall_seconds": 111.22055418400123,
+      "contact_records": 0,
+      "contact_types": {},
+      "contact_pair_event_groups": 0,
+      "min_contact_separation_m": null,
+      "contact_callback_errors": [],
+      "settle_pairs": [],
+      "max_settle_displacement_m": {
+        "block_0": 1.784362878095486e-05,
+        "block_1": 8.156189067562376e-05,
+        "block_2": 0.0001674497593173628
+      },
+      "max_held_relative_translation_deviation_m": {
+        "block_1": 0.00021479162282394675,
+        "block_2": 0.0002855651784065858
+      },
+      "strict_instance_validation": "pending",
+      "infinigen_scene_completion": false,
+      "raw_artifact_sha256": {
+        "result.json": "72e6083570fc625d3e36d413033ab8ec025d2fd3a0fe491eb777863663c4b59e",
+        "trajectory.json": "21cec37d8984fef4e9989e1681965310c30d6fcde135136abb779c0b1ba4ae35",
+        "controls.json": "8f5296d86d0936ea13f08d35c048620fdcca30f0130c055b5463e01f9f46a02a",
+        "contacts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "contact-summary.json": "cf8c0b12e7fabbc696c125069931dac0da543c564f61e8ad0bb4fcb15a7ec594",
+        "layout.json": "9a6b1ba160b2fc5420fd4aa858400b1ee0346d7d7449bdd85aa99d9f65418191",
+        "reference.mp4": "b917edc5b68f3bbfcd99c195738cc503f0acaa7836e5b9485e70e4615e5d64f5"
+      },
+      "provenance": {
+        "infinidojo_commit": "7c9402d5dd27423ecd56b8aa040dd58ca8384992",
+        "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+        "source_sha256": {
+          "src/infinidojo/geometry.py": "350d0be91e221f5b1ecc7541fd8a10dd408bc9aee2776da41531ccfc077b897a",
+          "src/infinidojo/native_stack.py": "8d0f40333c0ca01264f031f769f632b452d7c1abf3b1421e2aefd2623ddc1c5b",
+          "src/infinidojo/io.py": "23645e5d675a3da52cbdfea486f648aa4ad83bda198181f43cb06ce3949d3391",
+          "src/infinidojo/generation.py": "80dbca774577f6ce7ac6df272b92e857518223e73a97af10866fdc491079ed75",
+          "src/infinidojo/native.py": "0e911e97a2ea902eb46b6928c33b31d39cda491ce951a529f186896a37488e94",
+          "src/infinidojo/study.py": "2c4ce84a8d89a5e48ae22aa629f836b93b68fba711d4d0fb82b59ac716bc873a",
+          "src/infinidojo/assets.py": "bb4a3c092e9a5e2cae62e36ce88b645d9fd78d80caff44c10086742fd9c45f2b",
+          "src/infinidojo/__init__.py": "44cf1ca788faa02d0337265e81a7d6bbf08492d7a7dfd3f0ec35982305e70827",
+          "src/infinidojo/cli.py": "d97418c4ab80573332d7d737c6c1fcc0a25c1ef20c8f4074d03ed745357a2c1e",
+          "src/infinidojo/frontend.py": "64c370ae67f74a05f317acb0f27e194b0b4bc12f2f91a0a8a552a9c3ca98867d",
+          "src/infinidojo/interaction.py": "17752f32d9a57bf871dd211a39a3262dcfca2713fa9728aa716f038d85dfc59c",
+          "src/infinidojo/specification.py": "a529f6a93c5c72d52b843d475bdd40a9673430b09abf8fbdf70c2d0170b60ec6",
+          "src/infinidojo/evaluation.py": "55adc643e96d0c90ac56a8205cd59618a28f12607f7ec930f4d0cd9283322be0"
+        },
+        "task": "stack_blocks",
+        "robot": "arx_x5",
+        "seed": 1200,
+        "native_layout_sha256": "9a6b1ba160b2fc5420fd4aa858400b1ee0346d7d7449bdd85aa99d9f65418191",
+        "max_reference_physics_steps": 20000
+      }
+    },
+    {
+      "id": "stack-1200-attempt02",
+      "seed": 1200,
+      "layout": "native layout 0",
+      "status": "completed",
+      "native_task_success": true,
+      "native_score": 100.0,
+      "event_trace_complete": true,
+      "physics_steps": 5433,
+      "simulated_seconds": 21.732,
+      "wall_seconds": 116.67651594400013,
+      "contact_records": 9350,
+      "contact_types": {
+        "ContactEventType.CONTACT_FOUND": 6,
+        "ContactEventType.CONTACT_PERSIST": 9340,
+        "ContactEventType.CONTACT_LOST": 4
+      },
+      "contact_pair_event_groups": 38,
+      "min_contact_separation_m": -6.55241310596466e-05,
+      "contact_callback_errors": [],
+      "settle_pairs": [
+        {
+          "phase": "settle",
+          "event_id": null,
+          "actors": [
+            "/World/envs/env_0/rigid/block/block_18_2",
+            "/World/envs/env_0/rigid/block/block_9_1"
+          ],
+          "reports": 500,
+          "first_step": 4934,
+          "last_step": 5433,
+          "min_separation_m": -4.39230352640152e-05
+        },
+        {
+          "phase": "settle",
+          "event_id": null,
+          "actors": [
+            "/World/envs/env_0/rigid/block/block_15_3",
+            "/World/envs/env_0/rigid/block/block_18_2"
+          ],
+          "reports": 500,
+          "first_step": 4934,
+          "last_step": 5433,
+          "min_separation_m": -1.0848045349121094e-05
+        }
+      ],
+      "max_settle_displacement_m": {
+        "block_0": 1.784362878095486e-05,
+        "block_1": 8.156189067562376e-05,
+        "block_2": 0.0001674497593173628
+      },
+      "max_held_relative_translation_deviation_m": {
+        "block_1": 0.00021479162282394675,
+        "block_2": 0.0002855651784065858
+      },
+      "strict_instance_validation": "pending",
+      "infinigen_scene_completion": false,
+      "raw_artifact_sha256": {
+        "result.json": "32e059d07b94523f80d73d1cf1030bd8b8108d1f686ff09cfc106bbf36157c83",
+        "trajectory.json": "21cec37d8984fef4e9989e1681965310c30d6fcde135136abb779c0b1ba4ae35",
+        "controls.json": "8f5296d86d0936ea13f08d35c048620fdcca30f0130c055b5463e01f9f46a02a",
+        "contacts.jsonl": "95b9df3d522608de52724563092df9c134fc4613baacc7c8fab79024a7d6ad47",
+        "contact-summary.json": "69be1bca646e5771277f8d4e67f64cd3f09248a1a6f9507213c24991faf9eb23",
+        "layout.json": "9a6b1ba160b2fc5420fd4aa858400b1ee0346d7d7449bdd85aa99d9f65418191",
+        "reference.mp4": "e50aca7b8b3da48bbecd8ecb029737878d7a044903a26a1c79d4fedeb8062611"
+      },
+      "provenance": {
+        "infinidojo_commit": "7c9402d5dd27423ecd56b8aa040dd58ca8384992",
+        "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+        "source_sha256": {
+          "src/infinidojo/geometry.py": "350d0be91e221f5b1ecc7541fd8a10dd408bc9aee2776da41531ccfc077b897a",
+          "src/infinidojo/native_stack.py": "e0c46725c63ff36de1aae68f5e92d7d8b4b04788801baf36e3d082c4e79b3d86",
+          "src/infinidojo/io.py": "23645e5d675a3da52cbdfea486f648aa4ad83bda198181f43cb06ce3949d3391",
+          "src/infinidojo/generation.py": "80dbca774577f6ce7ac6df272b92e857518223e73a97af10866fdc491079ed75",
+          "src/infinidojo/native.py": "0e911e97a2ea902eb46b6928c33b31d39cda491ce951a529f186896a37488e94",
+          "src/infinidojo/study.py": "2c4ce84a8d89a5e48ae22aa629f836b93b68fba711d4d0fb82b59ac716bc873a",
+          "src/infinidojo/assets.py": "bb4a3c092e9a5e2cae62e36ce88b645d9fd78d80caff44c10086742fd9c45f2b",
+          "src/infinidojo/__init__.py": "44cf1ca788faa02d0337265e81a7d6bbf08492d7a7dfd3f0ec35982305e70827",
+          "src/infinidojo/cli.py": "d97418c4ab80573332d7d737c6c1fcc0a25c1ef20c8f4074d03ed745357a2c1e",
+          "src/infinidojo/frontend.py": "64c370ae67f74a05f317acb0f27e194b0b4bc12f2f91a0a8a552a9c3ca98867d",
+          "src/infinidojo/interaction.py": "17752f32d9a57bf871dd211a39a3262dcfca2713fa9728aa716f038d85dfc59c",
+          "src/infinidojo/specification.py": "a529f6a93c5c72d52b843d475bdd40a9673430b09abf8fbdf70c2d0170b60ec6",
+          "src/infinidojo/evaluation.py": "55adc643e96d0c90ac56a8205cd59618a28f12607f7ec930f4d0cd9283322be0"
+        },
+        "task": "stack_blocks",
+        "robot": "arx_x5",
+        "seed": 1200,
+        "native_layout_sha256": "9a6b1ba160b2fc5420fd4aa858400b1ee0346d7d7449bdd85aa99d9f65418191",
+        "max_reference_physics_steps": 20000
+      }
+    },
+    {
+      "id": "stack-1201-attempt01",
+      "seed": 1201,
+      "layout": "native layout 0 with recorded task-object XY offsets",
+      "status": "completed",
+      "native_task_success": true,
+      "native_score": 100.0,
+      "event_trace_complete": true,
+      "physics_steps": 5353,
+      "simulated_seconds": 21.412,
+      "wall_seconds": 114.54996699500043,
+      "contact_records": 9170,
+      "contact_types": {
+        "ContactEventType.CONTACT_FOUND": 6,
+        "ContactEventType.CONTACT_PERSIST": 9160,
+        "ContactEventType.CONTACT_LOST": 4
+      },
+      "contact_pair_event_groups": 38,
+      "min_contact_separation_m": -6.535463035106659e-05,
+      "contact_callback_errors": [],
+      "settle_pairs": [
+        {
+          "phase": "settle",
+          "event_id": null,
+          "actors": [
+            "/World/envs/env_0/rigid/block/block_18_2",
+            "/World/envs/env_0/rigid/block/block_9_1"
+          ],
+          "reports": 500,
+          "first_step": 4854,
+          "last_step": 5353,
+          "min_separation_m": -4.453584551811218e-05
+        },
+        {
+          "phase": "settle",
+          "event_id": null,
+          "actors": [
+            "/World/envs/env_0/rigid/block/block_15_3",
+            "/World/envs/env_0/rigid/block/block_18_2"
+          ],
+          "reports": 500,
+          "first_step": 4854,
+          "last_step": 5353,
+          "min_separation_m": -1.1535361409187317e-05
+        }
+      ],
+      "max_settle_displacement_m": {
+        "block_0": 2.4207471813800256e-05,
+        "block_1": 7.549839600343889e-05,
+        "block_2": 0.0002986264085202027
+      },
+      "max_held_relative_translation_deviation_m": {
+        "block_1": 0.00019351999984143115,
+        "block_2": 0.00030602280418865895
+      },
+      "strict_instance_validation": "pending",
+      "infinigen_scene_completion": false,
+      "raw_artifact_sha256": {
+        "result.json": "f5b9d8ceb9ec08a9d09263e9d81a25479dc54bb4d9131295fde717012c90e76a",
+        "trajectory.json": "9a2961f6fa1bb3c0f1ed6a35922c04d8b254ac94d2a70d914645e8cdaa06bd62",
+        "controls.json": "7013ad997e7fb5a6db147962942f2f5c78a43570c5916a18c1e9aa4fea8136e7",
+        "contacts.jsonl": "24b6ff5a59787a279e9daa47f13ab95ad9f1e11bfa7e8bb7ca8d142289f7827a",
+        "contact-summary.json": "f0d7f0aad01c0e7420fa4cf562f5189d38cbd683a1057cd42b63f25a263083dd",
+        "layout.json": "9ceba22a25301a490b006841bd9aa421acdd1ad7c95a965a201b271207c00ce3",
+        "reference.mp4": "d7403002e1a4b59f911172a4d9584b51d754db4c1e6dbc93c770a66839b780fc"
+      },
+      "provenance": {
+        "infinidojo_commit": "7c9402d5dd27423ecd56b8aa040dd58ca8384992",
+        "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+        "source_sha256": {
+          "src/infinidojo/geometry.py": "350d0be91e221f5b1ecc7541fd8a10dd408bc9aee2776da41531ccfc077b897a",
+          "src/infinidojo/native_stack.py": "e0c46725c63ff36de1aae68f5e92d7d8b4b04788801baf36e3d082c4e79b3d86",
+          "src/infinidojo/io.py": "23645e5d675a3da52cbdfea486f648aa4ad83bda198181f43cb06ce3949d3391",
+          "src/infinidojo/generation.py": "80dbca774577f6ce7ac6df272b92e857518223e73a97af10866fdc491079ed75",
+          "src/infinidojo/native.py": "0e911e97a2ea902eb46b6928c33b31d39cda491ce951a529f186896a37488e94",
+          "src/infinidojo/study.py": "2c4ce84a8d89a5e48ae22aa629f836b93b68fba711d4d0fb82b59ac716bc873a",
+          "src/infinidojo/assets.py": "bb4a3c092e9a5e2cae62e36ce88b645d9fd78d80caff44c10086742fd9c45f2b",
+          "src/infinidojo/__init__.py": "44cf1ca788faa02d0337265e81a7d6bbf08492d7a7dfd3f0ec35982305e70827",
+          "src/infinidojo/cli.py": "d97418c4ab80573332d7d737c6c1fcc0a25c1ef20c8f4074d03ed745357a2c1e",
+          "src/infinidojo/frontend.py": "64c370ae67f74a05f317acb0f27e194b0b4bc12f2f91a0a8a552a9c3ca98867d",
+          "src/infinidojo/interaction.py": "17752f32d9a57bf871dd211a39a3262dcfca2713fa9728aa716f038d85dfc59c",
+          "src/infinidojo/specification.py": "a529f6a93c5c72d52b843d475bdd40a9673430b09abf8fbdf70c2d0170b60ec6",
+          "src/infinidojo/evaluation.py": "55adc643e96d0c90ac56a8205cd59618a28f12607f7ec930f4d0cd9283322be0"
+        },
+        "task": "stack_blocks",
+        "robot": "arx_x5",
+        "seed": 1201,
+        "native_layout_sha256": "9ceba22a25301a490b006841bd9aa421acdd1ad7c95a965a201b271207c00ce3",
+        "max_reference_physics_steps": 20000
+      }
+    }
+  ],
+  "unique_layouts": 2,
+  "note": "First attempt had contact processing disabled. Second repeats that layout with reporting enabled. These are not three independent scene samples."
+}

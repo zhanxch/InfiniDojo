@@ -25,7 +25,9 @@ evaluation are downstream applications, not the core method.
 
 ## Next stage — planned
 
-The [next-stage work plan / 下一阶段任务](docs/next-stage.md) defines the event and
+The [paper scope and stopping contract / 投稿版本约定](docs/paper-contract.md)
+fixes the main claim, finite scope and evidence requirements. The
+[next-stage work plan / 下一阶段任务](docs/next-stage.md) defines the event and
 cluster representation, a complete pick–transport–place cycle, strong generation
 baselines, independent validation, milestones and completion criteria. It also
 plans to evaluate **OpenWAM** and XPolicyLab's **GPT_6_Astra_Direct_EEF** on both
@@ -36,7 +38,10 @@ The main claim to establish is a controllable generation workflow that produces
 physically validated, runnable manipulation evaluation episodes. Generation
 baselines and ablations explain the role of event/cluster constraints; higher
 throughput than other generators is a secondary hypothesis, not the central claim.
-The plan is not a completed implementation or a new experimental result.
+Development has started with explicit event/support transitions and a native
+full-stack reference runner. The plan is not a completed implementation or a
+new held-out experimental result.
+See the [development notes and reproduction commands](docs/development.md).
 
 ## Initial implementation scope
 

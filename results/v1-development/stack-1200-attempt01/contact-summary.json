@@ -1,0 +1,32 @@
+{
+  "report_bodies": [
+    "/World/envs/env_0/robot0/base_link",
+    "/World/envs/env_0/robot0/link1",
+    "/World/envs/env_0/robot0/link2",
+    "/World/envs/env_0/robot0/link3",
+    "/World/envs/env_0/robot0/link4",
+    "/World/envs/env_0/robot0/link5",
+    "/World/envs/env_0/robot0/link6",
+    "/World/envs/env_0/robot0/camera_base",
+    "/World/envs/env_0/robot0/camera",
+    "/World/envs/env_0/robot0/link7",
+    "/World/envs/env_0/robot0/link8",
+    "/World/envs/env_0/robot1/base_link",
+    "/World/envs/env_0/robot1/link1",
+    "/World/envs/env_0/robot1/link2",
+    "/World/envs/env_0/robot1/link3",
+    "/World/envs/env_0/robot1/link4",
+    "/World/envs/env_0/robot1/link5",
+    "/World/envs/env_0/robot1/link6",
+    "/World/envs/env_0/robot1/camera_base",
+    "/World/envs/env_0/robot1/camera",
+    "/World/envs/env_0/robot1/link7",
+    "/World/envs/env_0/robot1/link8",
+    "/World/envs/env_0/rigid/block/block_9_1",
+    "/World/envs/env_0/rigid/block/block_18_2",
+    "/World/envs/env_0/rigid/block/block_15_3"
+  ],
+  "errors": [],
+  "pairs_by_phase": [],
+  "note": "Sleeping objects need not emit persistent reports. This is evidence, not a full validator."
+}
