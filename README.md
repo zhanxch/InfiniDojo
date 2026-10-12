@@ -28,12 +28,14 @@ evaluation are downstream applications, not the core method.
 The [next-stage work plan / 下一阶段任务](docs/next-stage.md) defines the event and
 cluster representation, a complete pick–transport–place cycle, strong generation
 baselines, independent validation, milestones and completion criteria. It also
-records **OpenWAM** and XPolicyLab's **GPT_6_Astra_Direct_EEF** as optional
-downstream evaluation candidates. Neither has been evaluated on this repository's
-generated episodes yet.
+plans to evaluate **OpenWAM** and XPolicyLab's **GPT_6_Astra_Direct_EEF** on both
+native RoboDojo instances and InfiniDojo-generated instances. Neither has been
+evaluated on this repository's generated episodes yet.
 
-The first milestone is to test whether event-conditioned cluster generation
-adds value over both fixed-trajectory scene completion and generate–plan–retry.
+The main claim to establish is a controllable generation workflow that produces
+physically validated, runnable manipulation evaluation episodes. Generation
+baselines and ablations explain the role of event/cluster constraints; higher
+throughput than other generators is a secondary hypothesis, not the central claim.
 The plan is not a completed implementation or a new experimental result.
 
 ## Initial implementation scope
