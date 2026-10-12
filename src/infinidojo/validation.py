@@ -25,6 +25,7 @@ from infinidojo.geometry import (
 )
 from infinidojo.interaction import build_program, validate_event_trace
 from infinidojo.io import sha256, write_json
+from infinidojo.repair import validate_position_options
 
 
 @dataclass(frozen=True)
@@ -207,6 +208,16 @@ def audit_episode(execution, generation, robot_usd, thresholds=None):
     )
     clutter = [label for label in objects if label.startswith("clutter_")]
     checks["requested_count"] = generated["accepted"] and len(clutter) == request["clutter"]["count"]
+    if "task_xy_options_m" in request:
+        validate_position_options(request)
+        diagnostics["task_position_option_error_m"] = {
+            label: min(float(np.linalg.norm(np.array(initial[label][:2]) - point)) for point in options)
+            for label, options in request["task_xy_options_m"].items()
+        }
+        checks["requested_task_positions"] = all(
+            error <= thresholds.initialization_translation_m
+            for error in diagnostics["task_position_option_error_m"].values()
+        )
     checks["requested_asset_identities"] = all(
         objects[item["id"]]["category_idx"] == item["asset_id"] for item in generated["clutter"]
     )

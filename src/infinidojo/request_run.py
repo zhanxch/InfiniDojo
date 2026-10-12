@@ -1,8 +1,9 @@
 """Bounded generation, physical execution and independent validation per request.
 
 G1 samples from reset occupancy and replans each layout. G2 obtains one full
-reference, reserves its occupancy, then replays it. Both use the same assets,
-sampler, validator and explicit budgets. Precomputed asset creation is outside
+reference, reserves its occupancy, then replays it. G3 can make one event-guided
+task-anchor change after failed completion and obtain a new physical reference.
+All use the same assets, sampler, validator and explicit budgets. Asset creation is outside
 this runner's timer and must be accounted for separately in formal experiments.
 """
 
@@ -22,6 +23,13 @@ import numpy as np
 
 from infinidojo.completion import validate_request
 from infinidojo.io import git_revision, sha256, write_json
+from infinidojo.repair import (
+    initial_positions,
+    position_choices,
+    rank_repairs,
+    task_positions,
+    with_positions,
+)
 
 
 def terminate_group(process):
@@ -134,7 +142,12 @@ def run_request(args):
         if args.layout
         else root / "Assets/Eval_Layout/RoboDojo/arx_x5/0/stack_blocks_0.json"
     )
-    shutil.copyfile(native_layout, output / "initial-layout.json")
+    shutil.copyfile(native_layout, output / "base-layout.json")
+    base_layout = read_json(output / "base-layout.json")
+    current_layout = with_positions(base_layout, initial_positions(request, base_layout, args.seed))
+    write_json(output / "initial-layout.json", current_layout)
+    choices = position_choices(request, base_layout)
+    tried_positions = [task_positions(current_layout)]
     manifest = {
         "status": "running",
         "method": args.method,
@@ -144,6 +157,10 @@ def run_request(args):
         "robodojo_commit": git_revision(root),
         "source_sha256": frozen,
         "initial_layout_sha256": sha256(output / "initial-layout.json"),
+        "base_layout_sha256": sha256(output / "base-layout.json"),
+        "initial_task_positions": task_positions(current_layout),
+        "repair_enabled": args.method == "g3" and not args.disable_repair,
+        "task_position_updates": [],
         "assets": asset_records,
         "asset_indices": selected,
         "budgets": {
@@ -231,9 +248,10 @@ def run_request(args):
         initial_result = execution_result(state)
         if initial_result is None:
             return manifest
-        if args.method == "g2" and not initial_result.get("native_task_success"):
+        if args.method != "g1" and not initial_result.get("native_task_success"):
             manifest["status"] = "reference_unverified"
             return manifest
+        pending_repair, repair_used = None, False
         for index in range(args.max_layouts):
             remaining_proposals = args.total_proposals - manifest["total_proposals_used"]
             if time.monotonic() >= deadline or remaining_proposals <= 0:
@@ -245,6 +263,46 @@ def run_request(args):
             row = {"index": index, "layout_seed": layout_seed, "status": "running"}
             row["proposal_limit"] = min(args.proposals_per_layout, remaining_proposals)
             manifest["attempts"].append(row)
+            positions = None
+            if args.method == "g1" and index:
+                remaining = [choice for choice in choices if choice not in tried_positions]
+                if remaining:
+                    positions = remaining[int(np.random.default_rng(layout_seed).integers(len(remaining)))]
+                    update = {"selection": "uniform_untried_task_positions", "after": positions}
+            elif pending_repair is not None:
+                positions = task_positions(current_layout)
+                positions[pending_repair["anchor"]] = pending_repair["after_xy_m"]
+                update = {
+                    "selection": "event_conditioned_anchor_repair",
+                    **pending_repair,
+                    "after": positions,
+                }
+                pending_repair = None
+            if positions is not None:
+                current_layout = with_positions(base_layout, positions)
+                tried_positions.append(positions)
+                attempt.mkdir(parents=True, exist_ok=False)
+                changed_layout = attempt / "task-layout.json"
+                write_json(changed_layout, current_layout)
+                state = attempt / "initial-state" if args.method == "g1" else attempt / "reference"
+                update.update(attempt=index, layout_sha256=sha256(changed_layout))
+                manifest["task_position_updates"].append(update)
+                mode = "--capture-initial-state" if args.method == "g1" else "--scene-aware"
+                if not stage(
+                    f"attempt-{index:02d}/state-acquisition",
+                    [*sim_base, "--layout", str(changed_layout), "--output", str(state), mode],
+                ):
+                    row["status"] = manifest["status"]
+                    break
+                changed_result = execution_result(state)
+                if changed_result is None:
+                    row["status"] = "infrastructure_error"
+                    break
+                if args.method != "g1" and not changed_result.get("native_task_success"):
+                    manifest["status"] = row["status"] = "reference_unverified"
+                    break
+            row["task_positions"] = task_positions(current_layout)
+            row["state_source"] = str(state.relative_to(output))
             command = [
                 sys.executable,
                 "-m",
@@ -282,6 +340,31 @@ def run_request(args):
             manifest["total_proposals_used"] += generated["attempts"]
             if not generated["accepted"]:
                 row["status"] = "layout_not_found"
+                if (
+                    args.method == "g3"
+                    and not args.disable_repair
+                    and not repair_used
+                    and index + 1 < args.max_layouts
+                ):
+                    ranked = rank_repairs(
+                        request,
+                        current_layout,
+                        generated,
+                        read_json(state / "interaction-program.json"),
+                        read_json(state / "robot-identities.json"),
+                    )
+                    write_json(
+                        attempt / "repair-ranking.json",
+                        {
+                            "ranking": ranked,
+                            "generation_sha256": sha256(generation / "generation.json"),
+                            "program_sha256": sha256(state / "interaction-program.json"),
+                            "note": "Directional search heuristic only; replan and execute the full task before use",
+                        },
+                    )
+                    if ranked:
+                        pending_repair, repair_used = ranked[0], True
+                        row["repair_scheduled"] = pending_repair
                 save()
                 continue
             mode_args = ["--scene-aware"] if args.method == "g1" else ["--reference", str(state)]
@@ -377,7 +460,10 @@ def main():
 
     signal.signal(signal.SIGTERM, stop)
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--method", choices=["g1", "g2"], required=True)
+    parser.add_argument("--method", choices=["g1", "g2", "g3"], required=True)
+    parser.add_argument(
+        "--disable-repair", action="store_true", help="G3 ablation: retain the first reference"
+    )
     parser.add_argument("--robodojo-root", type=Path, required=True)
     parser.add_argument("--sim-python", type=Path, required=True)
     parser.add_argument("--assets", type=Path, nargs="+", required=True)
@@ -393,6 +479,8 @@ def main():
     parser.add_argument("--max-steps", type=int, default=20000)
     parser.add_argument("--video", action="store_true")
     args = parser.parse_args()
+    if args.disable_repair and args.method != "g3":
+        parser.error("--disable-repair is only meaningful for G3")
     if (
         not np.isfinite(args.wall_seconds)
         or min(

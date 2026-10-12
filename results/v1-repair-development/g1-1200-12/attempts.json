@@ -1,0 +1,255 @@
+[
+  {
+    "index": 0,
+    "layout_seed": 1200,
+    "status": "unverified",
+    "proposal_limit": 1000,
+    "task_positions": {
+      "block_0": [
+        0.24428776164867352,
+        -0.22786190255571911
+      ],
+      "block_1": [
+        0.37790703809715354,
+        -0.1690098048189287
+      ],
+      "block_2": [
+        0.32280857323529777,
+        -0.054714560931304466
+      ]
+    },
+    "state_source": "initial-state",
+    "proposals": 62,
+    "native_task_success": false,
+    "controller_status": "controller_failed",
+    "controller_error": "Planner failed during descend",
+    "physics_steps": 431,
+    "motions_planned": 2,
+    "failed_checks": [
+      "native_task_success",
+      "complete_event_order",
+      "complete_execution",
+      "contact_reporting_available",
+      "settle_duration",
+      "settle_motion",
+      "settle_rotation_stable",
+      "final_task_support_contacts",
+      "final_support_geometry",
+      "held_relation_observed",
+      "held_rotation_observed"
+    ],
+    "generated_count": 12,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2,
+      1,
+      0,
+      2,
+      0,
+      2,
+      1
+    ],
+    "rejections": {
+      "accepted_cluster": 6,
+      "footprint_outside_request": 28,
+      "clutter_overlap": 24,
+      "initial_state_occupancy": 4
+    },
+    "generation_sha256": "cfd8dc2bcf8b2458e3e1ff0c834e2d74a156444d96f7cdaae20b5dde779e79e8",
+    "validation": {
+      "status": "unverified",
+      "checks": {
+        "verifier_owned_contact_contract": true,
+        "native_task_success": false,
+        "complete_event_order": false,
+        "complete_execution": false,
+        "initialization_preserved": true,
+        "initial_rotations_preserved": true,
+        "requested_count": true,
+        "requested_task_positions": true,
+        "requested_asset_identities": true,
+        "initial_footprints_inside_region": true,
+        "requested_initial_clearance": true,
+        "pair_relation_preserved": true,
+        "clutter_remains_stationary": true,
+        "clutter_rotation_stable": true,
+        "contact_reporting_available": false,
+        "all_recorded_bodies_instrumented": true,
+        "contacts_legal_and_shallow": true,
+        "settle_duration": false,
+        "settle_motion": false,
+        "settle_rotation_stable": false,
+        "final_task_support_contacts": false,
+        "final_support_geometry": false,
+        "held_relation_observed": false,
+        "held_rotation_observed": false,
+        "independent_clutter_geometry_screen": true
+      },
+      "failed_checks": [
+        "native_task_success",
+        "complete_event_order",
+        "complete_execution",
+        "contact_reporting_available",
+        "settle_duration",
+        "settle_motion",
+        "settle_rotation_stable",
+        "final_task_support_contacts",
+        "final_support_geometry",
+        "held_relation_observed",
+        "held_rotation_observed"
+      ],
+      "thresholds": {
+        "penetration_m": 0.001,
+        "contact_distance_m": 0.001,
+        "initialization_translation_m": 0.005,
+        "initialization_rotation_deg": 2.0,
+        "clutter_motion_m": 0.002,
+        "clutter_rotation_deg": 2.0,
+        "settle_motion_m": 0.002,
+        "settle_rotation_deg": 2.0,
+        "attachment_translation_m": 0.003,
+        "attachment_rotation_deg": 5.0,
+        "pair_distance_error_m": 0.003,
+        "support_gap_m": 0.001,
+        "minimum_settle_s": 1.0
+      },
+      "full_report_sha256": "619155a8b11fd8b32f9a7d43954d8fdc68b7f0beaab78f9276da59e2e237423d"
+    }
+  },
+  {
+    "index": 1,
+    "layout_seed": 1001203,
+    "status": "layout_not_found",
+    "proposal_limit": 1000,
+    "task_positions": {
+      "block_0": [
+        0.18428776164867353,
+        -0.22786190255571911
+      ],
+      "block_1": [
+        0.37790703809715354,
+        -0.1690098048189287
+      ],
+      "block_2": [
+        0.32280857323529777,
+        -0.054714560931304466
+      ]
+    },
+    "state_source": "attempt-01/initial-state",
+    "proposals": 1000,
+    "generated_count": 10,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2,
+      1,
+      0,
+      2,
+      0,
+      2,
+      1
+    ],
+    "rejections": {
+      "initial_state_occupancy": 58,
+      "footprint_outside_request": 525,
+      "clutter_overlap": 393,
+      "accepted_cluster": 24
+    },
+    "generation_sha256": "6609caa2240a14948fe74f56e5c57d1b81ba65c28f65bb7830439809386c1e7c"
+  },
+  {
+    "index": 2,
+    "layout_seed": 2001206,
+    "status": "layout_not_found",
+    "proposal_limit": 1000,
+    "task_positions": {
+      "block_0": [
+        0.30428776164867355,
+        -0.22786190255571911
+      ],
+      "block_1": [
+        0.37790703809715354,
+        -0.1690098048189287
+      ],
+      "block_2": [
+        0.32280857323529777,
+        -0.054714560931304466
+      ]
+    },
+    "state_source": "attempt-02/initial-state",
+    "proposals": 1000,
+    "generated_count": 10,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2,
+      1,
+      0,
+      2,
+      0,
+      2,
+      1
+    ],
+    "rejections": {
+      "footprint_outside_request": 497,
+      "accepted_cluster": 19,
+      "clutter_overlap": 447,
+      "initial_state_occupancy": 37
+    },
+    "generation_sha256": "e1cd985651945f3555dadaec77fdf44ccee59d6a19785d28ef6761303249be2d"
+  },
+  {
+    "index": 3,
+    "layout_seed": 3001209,
+    "status": "layout_not_found",
+    "proposal_limit": 1000,
+    "task_positions": {
+      "block_0": [
+        0.24428776164867352,
+        -0.16786190255571912
+      ],
+      "block_1": [
+        0.37790703809715354,
+        -0.1690098048189287
+      ],
+      "block_2": [
+        0.32280857323529777,
+        -0.054714560931304466
+      ]
+    },
+    "state_source": "attempt-03/initial-state",
+    "proposals": 1000,
+    "generated_count": 10,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2,
+      1,
+      0,
+      2,
+      0,
+      2,
+      1
+    ],
+    "rejections": {
+      "footprint_outside_request": 515,
+      "initial_state_occupancy": 75,
+      "clutter_overlap": 384,
+      "accepted_cluster": 26
+    },
+    "generation_sha256": "76d05687c0abc593cb789228223e0d82ef4b1646490613401b972b17a3353c9f"
+  }
+]

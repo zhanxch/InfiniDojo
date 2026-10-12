@@ -1,0 +1,20 @@
+[
+  {
+    "source": "reference",
+    "status": "completed",
+    "native_task_success": true,
+    "steps": 5613,
+    "wall_seconds": 60.50375279999935,
+    "motions_planned": 13,
+    "result_sha256": "0836d82a7cea89d0748b6d921e487845827fdde5f8450cc1b92f758b80b7831b"
+  },
+  {
+    "source": "attempt-01/reference",
+    "status": "completed",
+    "native_task_success": true,
+    "steps": 5713,
+    "wall_seconds": 69.82216657200115,
+    "motions_planned": 13,
+    "result_sha256": "834f62442dcacd3b093fd44a42f5cbcb0390fd82c75b618e0cc8ffbdd6a4fd1e"
+  }
+]

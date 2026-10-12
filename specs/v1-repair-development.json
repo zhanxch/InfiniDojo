@@ -1,0 +1,32 @@
+{
+  "status": "development diagnostics; not a frozen held-out study",
+  "task": "stack_blocks",
+  "request_seeds": [1200],
+  "requests": ["requests/stack-anchor-paired-6.json", "requests/stack-anchor-paired-12.json"],
+  "method_requests": [
+    {"method": "g3", "count": 12},
+    {"method": "g1", "count": 12},
+    {"method": "g2", "count": 12},
+    {"method": "g3", "disable_repair": true, "count": 12},
+    {"method": "g3", "count": 6}
+  ],
+  "asset_seeds_in_pool_order": [1200, 1201, 1202],
+  "budget": {
+    "wall_seconds": 240,
+    "max_layouts": 4,
+    "total_proposals": 4000,
+    "proposals_per_layout": 1000,
+    "cluster_proposals": 128,
+    "physics_steps_per_execution": 20000,
+    "g3_anchor_repairs": 1
+  },
+  "shared_task_freedom": "Five explicit positions for block_0: original and four axis offsets of 6 cm; the other two blocks are fixed. All methods have the same allowed task positions and initial choice.",
+  "purpose": "Check event-attributed repair, actual complete replanning, request preservation, and fixed-reference ablation. Record negative and unverified results.",
+  "cost_scope": "Includes fresh state/reference acquisition and all subsequent stages. Precomputed asset creation is excluded and its historical cost is unknown.",
+  "limitations": [
+    "A single seed does not establish method superiority or an overall success rate.",
+    "New position freedom makes these requests distinct from the earlier fixed-position requests.",
+    "Reference control uses a fixed grasp orientation and transfer order.",
+    "The distance-gain ranking is a heuristic; only full physical execution and validation provide acceptance evidence."
+  ]
+}

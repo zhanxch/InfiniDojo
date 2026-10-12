@@ -46,6 +46,8 @@ def test_paired_clutter_keeps_relation_and_does_not_shrink_failed_request():
     failed = complete_scene(request(), pool, [far, blocked], seed=1200, tabletop_z=0.765, attempt_budget=20)
     assert not failed["accepted"] and failed["requested_count"] == 2
     assert failed["generated_count"] == 0 and failed["attempts"] == 20
+    conflicts = [p for p in failed["proposals"] if p["rejection"] == "full_reference_occupancy"]
+    assert conflicts and all(any(b["body"] == "later_object" for b in p["blockers"]) for p in conflicts)
 
 
 def test_unsupported_relation_is_rejected_before_generation():

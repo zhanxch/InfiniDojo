@@ -1,0 +1,24 @@
+{
+  "scope": "One development request; no proof of equivalence for every possible request",
+  "attempts": [
+    {
+      "attempt": 0,
+      "all_nontiming_generation_fields_equal": true
+    },
+    {
+      "attempt": 1,
+      "all_nontiming_generation_fields_equal": true
+    },
+    {
+      "attempt": 2,
+      "all_nontiming_generation_fields_equal": true
+    },
+    {
+      "attempt": 3,
+      "all_nontiming_generation_fields_equal": true
+    }
+  ],
+  "reference_controls_equal": true,
+  "reference_trajectory_equal": true,
+  "no_task_position_updates": true
+}

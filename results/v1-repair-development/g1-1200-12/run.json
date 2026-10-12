@@ -1,0 +1,394 @@
+{
+  "status": "layout_budget_exhausted",
+  "method": "g1",
+  "seed": 1200,
+  "request": {
+    "task": "stack_blocks",
+    "clutter": {
+      "count": 12,
+      "region_xy_m": [
+        [
+          0.1,
+          -0.3
+        ],
+        [
+          0.48,
+          0.18
+        ]
+      ],
+      "clearance_m": 0.005,
+      "pair_distance_m": 0.09
+    },
+    "task_xy_options_m": {
+      "block_0": [
+        [
+          0.24428776164867352,
+          -0.22786190255571911
+        ],
+        [
+          0.18428776164867353,
+          -0.22786190255571911
+        ],
+        [
+          0.30428776164867355,
+          -0.22786190255571911
+        ],
+        [
+          0.24428776164867352,
+          -0.2878619025557191
+        ],
+        [
+          0.24428776164867352,
+          -0.16786190255571912
+        ]
+      ],
+      "block_1": [
+        [
+          0.37790703809715354,
+          -0.1690098048189287
+        ]
+      ],
+      "block_2": [
+        [
+          0.32280857323529777,
+          -0.054714560931304466
+        ]
+      ]
+    }
+  },
+  "infinidojo_commit": "abd4310501832462b71ff1245f8523895b0faa7e",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "source_sha256": {
+    "__init__.py": "44cf1ca788faa02d0337265e81a7d6bbf08492d7a7dfd3f0ec35982305e70827",
+    "assets.py": "bb4a3c092e9a5e2cae62e36ce88b645d9fd78d80caff44c10086742fd9c45f2b",
+    "cli.py": "d97418c4ab80573332d7d737c6c1fcc0a25c1ef20c8f4074d03ed745357a2c1e",
+    "completion.py": "c01ab0970d85d80705c32ae9e3b35f837d18b1000324e4732b1e7879ed862d14",
+    "episode.py": "fc96ad5dfb578d2fcf06447be42854722c8a7e3f400a5b4469d68f93109604f1",
+    "evaluation.py": "55adc643e96d0c90ac56a8205cd59618a28f12607f7ec930f4d0cd9283322be0",
+    "frontend.py": "64c370ae67f74a05f317acb0f27e194b0b4bc12f2f91a0a8a552a9c3ca98867d",
+    "generation.py": "80dbca774577f6ce7ac6df272b92e857518223e73a97af10866fdc491079ed75",
+    "geometry.py": "350d0be91e221f5b1ecc7541fd8a10dd408bc9aee2776da41531ccfc077b897a",
+    "interaction.py": "17752f32d9a57bf871dd211a39a3262dcfca2713fa9728aa716f038d85dfc59c",
+    "io.py": "23645e5d675a3da52cbdfea486f648aa4ad83bda198181f43cb06ce3949d3391",
+    "native.py": "0e911e97a2ea902eb46b6928c33b31d39cda491ce951a529f186896a37488e94",
+    "native_stack.py": "85253c4dff84f2768167ad04642331bf92bda6fa08bd7847c335011a2fd73e0b",
+    "planning.py": "a04467e969e02941be81def9ed2e42a2062106f5089057024afd8c3459a9f313",
+    "planning_probe.py": "fd32ffd20ecd0a86b4c2229533777b23d9d27c7c8457d4f32bcbb187be9aa2ca",
+    "repair.py": "63f39e341669aa2ca1e4548c06cc9ee448ac8aaef2ddeea81b80d430f329eabd",
+    "request_run.py": "60e92bf4fd0d03cc387545affd0e32fbfbb38d8c531b40a45af61fb78d41fed1",
+    "specification.py": "a529f6a93c5c72d52b843d475bdd40a9673430b09abf8fbdf70c2d0170b60ec6",
+    "study.py": "2c4ce84a8d89a5e48ae22aa629f836b93b68fba711d4d0fb82b59ac716bc873a",
+    "validation.py": "07844e680c3802c270bbc3a7c0c5e36eb079e015100991c4fd43accf9a7e8412"
+  },
+  "initial_layout_sha256": "9a6b1ba160b2fc5420fd4aa858400b1ee0346d7d7449bdd85aa99d9f65418191",
+  "base_layout_sha256": "9a6b1ba160b2fc5420fd4aa858400b1ee0346d7d7449bdd85aa99d9f65418191",
+  "initial_task_positions": {
+    "block_0": [
+      0.24428776164867352,
+      -0.22786190255571911
+    ],
+    "block_1": [
+      0.37790703809715354,
+      -0.1690098048189287
+    ],
+    "block_2": [
+      0.32280857323529777,
+      -0.054714560931304466
+    ]
+  },
+  "repair_enabled": false,
+  "task_position_updates": [
+    {
+      "selection": "uniform_untried_task_positions",
+      "after": {
+        "block_0": [
+          0.18428776164867353,
+          -0.22786190255571911
+        ],
+        "block_1": [
+          0.37790703809715354,
+          -0.1690098048189287
+        ],
+        "block_2": [
+          0.32280857323529777,
+          -0.054714560931304466
+        ]
+      },
+      "attempt": 1,
+      "layout_sha256": "6685f37d8a579079482bdcedbefffa481d8bf253b1cef779fafa98c4a9acb4fd"
+    },
+    {
+      "selection": "uniform_untried_task_positions",
+      "after": {
+        "block_0": [
+          0.30428776164867355,
+          -0.22786190255571911
+        ],
+        "block_1": [
+          0.37790703809715354,
+          -0.1690098048189287
+        ],
+        "block_2": [
+          0.32280857323529777,
+          -0.054714560931304466
+        ]
+      },
+      "attempt": 2,
+      "layout_sha256": "0648e5e11a27eef9839c984a09ea21052bff22419f0205072e69e5ee8c387cc5"
+    },
+    {
+      "selection": "uniform_untried_task_positions",
+      "after": {
+        "block_0": [
+          0.24428776164867352,
+          -0.16786190255571912
+        ],
+        "block_1": [
+          0.37790703809715354,
+          -0.1690098048189287
+        ],
+        "block_2": [
+          0.32280857323529777,
+          -0.054714560931304466
+        ]
+      },
+      "attempt": 3,
+      "layout_sha256": "c1f119eb4ac0db0f089da921f846ead5665cdec9a053432b4c529928053f3ada"
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": 1200,
+      "provenance_sha256": "d476c3bafeb434d3c3778e036a151f6d3bb07d41ffd1033c7d734a4a3d39ec79"
+    },
+    {
+      "asset_id": 1201,
+      "provenance_sha256": "3208931cc80df2e7b2da3e5f87160ba7d19ffd4e9dc236c5fc70db48b90b035a"
+    },
+    {
+      "asset_id": 1202,
+      "provenance_sha256": "ca9cdeef09080bf887e6d7e94ce1d031cbec55533e011ec835ca12a1a50e69f1"
+    }
+  ],
+  "asset_indices": [
+    2,
+    1,
+    1,
+    0,
+    1,
+    2,
+    1,
+    0,
+    2,
+    0,
+    2,
+    1
+  ],
+  "budgets": {
+    "wall_seconds": 240.0,
+    "max_layouts": 4,
+    "total_proposals": 4000,
+    "proposals_per_layout": 1000,
+    "cluster_proposals": 128,
+    "physics_steps_per_execution": 20000
+  },
+  "cost_scope": "precomputed assets; includes reset/reference acquisition, all candidate generation, simulator startup/shutdown, planning, execution, independent validation and episode export",
+  "asset_generation_seconds": null,
+  "protocol_status": "development; thresholds and formal protocol not frozen",
+  "attempts": [
+    {
+      "index": 0,
+      "layout_seed": 1200,
+      "status": "unverified",
+      "proposal_limit": 1000,
+      "task_positions": {
+        "block_0": [
+          0.24428776164867352,
+          -0.22786190255571911
+        ],
+        "block_1": [
+          0.37790703809715354,
+          -0.1690098048189287
+        ],
+        "block_2": [
+          0.32280857323529777,
+          -0.054714560931304466
+        ]
+      },
+      "state_source": "initial-state",
+      "proposals": 62,
+      "native_task_success": false,
+      "controller_status": "controller_failed",
+      "controller_error": "Planner failed during descend",
+      "physics_steps": 431,
+      "motions_planned": 2,
+      "failed_checks": [
+        "native_task_success",
+        "complete_event_order",
+        "complete_execution",
+        "contact_reporting_available",
+        "settle_duration",
+        "settle_motion",
+        "settle_rotation_stable",
+        "final_task_support_contacts",
+        "final_support_geometry",
+        "held_relation_observed",
+        "held_rotation_observed"
+      ]
+    },
+    {
+      "index": 1,
+      "layout_seed": 1001203,
+      "status": "layout_not_found",
+      "proposal_limit": 1000,
+      "task_positions": {
+        "block_0": [
+          0.18428776164867353,
+          -0.22786190255571911
+        ],
+        "block_1": [
+          0.37790703809715354,
+          -0.1690098048189287
+        ],
+        "block_2": [
+          0.32280857323529777,
+          -0.054714560931304466
+        ]
+      },
+      "state_source": "attempt-01/initial-state",
+      "proposals": 1000
+    },
+    {
+      "index": 2,
+      "layout_seed": 2001206,
+      "status": "layout_not_found",
+      "proposal_limit": 1000,
+      "task_positions": {
+        "block_0": [
+          0.30428776164867355,
+          -0.22786190255571911
+        ],
+        "block_1": [
+          0.37790703809715354,
+          -0.1690098048189287
+        ],
+        "block_2": [
+          0.32280857323529777,
+          -0.054714560931304466
+        ]
+      },
+      "state_source": "attempt-02/initial-state",
+      "proposals": 1000
+    },
+    {
+      "index": 3,
+      "layout_seed": 3001209,
+      "status": "layout_not_found",
+      "proposal_limit": 1000,
+      "task_positions": {
+        "block_0": [
+          0.24428776164867352,
+          -0.16786190255571912
+        ],
+        "block_1": [
+          0.37790703809715354,
+          -0.1690098048189287
+        ],
+        "block_2": [
+          0.32280857323529777,
+          -0.054714560931304466
+        ]
+      },
+      "state_source": "attempt-03/initial-state",
+      "proposals": 1000
+    }
+  ],
+  "stages": [
+    {
+      "name": "state-acquisition",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 13.203446845000144,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.native_stack"
+    },
+    {
+      "name": "attempt-00/generation",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.21574512599909212,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.completion"
+    },
+    {
+      "name": "attempt-00/execution",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 25.126141034998,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.native_stack"
+    },
+    {
+      "name": "attempt-00/validation",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.3643706500006374,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.validation"
+    },
+    {
+      "name": "attempt-01/state-acquisition",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 13.149765479000052,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.native_stack"
+    },
+    {
+      "name": "attempt-01/generation",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.2650078350015974,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.completion"
+    },
+    {
+      "name": "attempt-02/state-acquisition",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 13.098201105000044,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.native_stack"
+    },
+    {
+      "name": "attempt-02/generation",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.31536542899993947,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.completion"
+    },
+    {
+      "name": "attempt-03/state-acquisition",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 13.097462061999977,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.native_stack"
+    },
+    {
+      "name": "attempt-03/generation",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.31708750600228086,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.completion"
+    }
+  ],
+  "accepted_attempt": null,
+  "total_proposals_used": 3062,
+  "unreported_proposals_upper_bound": 0,
+  "wall_seconds": 79.18004914000267,
+  "deadline_overrun_seconds": 0.0,
+  "raw_run_sha256": "66c6355a5441785f759473d078c33e6eba876184174a609c3a33e6dad703d165"
+}

@@ -1,0 +1,69 @@
+{
+  "status": "validated_under_development_checks",
+  "checks": {
+    "verifier_owned_contact_contract": true,
+    "native_task_success": true,
+    "complete_event_order": true,
+    "complete_execution": true,
+    "initialization_preserved": true,
+    "initial_rotations_preserved": true,
+    "requested_count": true,
+    "requested_task_positions": true,
+    "requested_asset_identities": true,
+    "initial_footprints_inside_region": true,
+    "requested_initial_clearance": true,
+    "pair_relation_preserved": true,
+    "clutter_remains_stationary": true,
+    "clutter_rotation_stable": true,
+    "contact_reporting_available": true,
+    "all_recorded_bodies_instrumented": true,
+    "contacts_legal_and_shallow": true,
+    "settle_duration": true,
+    "settle_motion": true,
+    "settle_rotation_stable": true,
+    "final_task_support_contacts": true,
+    "final_support_geometry": true,
+    "held_relation_observed": true,
+    "held_rotation_observed": true,
+    "independent_clutter_geometry_screen": true
+  },
+  "failed_checks": [],
+  "thresholds": {
+    "penetration_m": 0.001,
+    "contact_distance_m": 0.001,
+    "initialization_translation_m": 0.005,
+    "initialization_rotation_deg": 2.0,
+    "clutter_motion_m": 0.002,
+    "clutter_rotation_deg": 2.0,
+    "settle_motion_m": 0.002,
+    "settle_rotation_deg": 2.0,
+    "attachment_translation_m": 0.003,
+    "attachment_rotation_deg": 5.0,
+    "pair_distance_error_m": 0.003,
+    "support_gap_m": 0.001,
+    "minimum_settle_s": 1.0
+  },
+  "input_sha256": {
+    "result.json": "834f62442dcacd3b093fd44a42f5cbcb0390fd82c75b618e0cc8ffbdd6a4fd1e",
+    "trajectory.json": "0d6f10c27598810d7f99fe230d41dc7b0014583a78f251f2f0da2f564b8793d5",
+    "contacts.jsonl": "4384d770933fceeb79fce55db4f9d57723e3a5f9e84b85cd4a0ae5fb2d570edc",
+    "scene-objects.json": "5eb855fb368cdf52ff08e5965c6ce6453fe60f118f07a4b6150016daab146056",
+    "layout.json": "03bb8f242458fb7b4db5c24b1e8d6ac8b7caef6433ddec67738a18e95fe5c0f7",
+    "provenance.json": "6182133ec9a6d473c1519c7c7c41224dff4c444ed4284586c3763c29503a90ad",
+    "interaction-program.json": "b8d1fd93f4d797522019fbeb7e38b532b39378f946d95ee58434f0f8de2528ce",
+    "contact-summary.json": "3e50e584290fb472e8037fa2b6eeed717578e95439bc470faf86dc475f0b31d4",
+    "robot-identities.json": "abd3e62ad5b965688f190f43c43705907927f121d63ea9e60f85bd108d8969e7"
+  },
+  "generation_input_sha256": {
+    "request.json": "675097e7801e1b3b5c98f5013902fbb7ccfb548fd7a6978db5cac82c9ced29ea",
+    "generation.json": "8c89ec99ca62ef16aeef55f40aa5099dd867e482de127990cd0fe3c8ac07d8db",
+    "asset-map.json": "901f4ed9cc5b5c1e0056aee01c2efd11bc57996264cabf78638ca64dd7a60ec8"
+  },
+  "validator_sha256": "07844e680c3802c270bbc3a7c0c5e36eb079e015100991c4fd43accf9a7e8412",
+  "task_position_option_error_m": {
+    "block_0": 4.329762490779792e-05,
+    "block_1": 4.3330889093541926e-05,
+    "block_2": 4.332293342092978e-05
+  },
+  "full_report_sha256": "ffd4add4d6c024ebdd710cdaafee76418a8196728d84e1952ab25f25e1c4a840"
+}

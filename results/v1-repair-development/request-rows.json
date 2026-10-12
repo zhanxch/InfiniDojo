@@ -1,0 +1,99 @@
+[
+  {
+    "id": "g3-1200-12",
+    "method": "g3",
+    "status": "layout_budget_exhausted",
+    "seed": 1200,
+    "wall_seconds": 138.31398381500185,
+    "accepted_attempt": null,
+    "total_proposals_used": 4000,
+    "repair_enabled": true,
+    "clutter_count": 12,
+    "layout_attempts": 4,
+    "task_position_updates": 1,
+    "physically_executed_candidates": 0,
+    "generated_counts": [
+      8,
+      8,
+      10,
+      8
+    ]
+  },
+  {
+    "id": "g1-1200-12",
+    "method": "g1",
+    "status": "layout_budget_exhausted",
+    "seed": 1200,
+    "wall_seconds": 79.18004914000267,
+    "accepted_attempt": null,
+    "total_proposals_used": 3062,
+    "repair_enabled": false,
+    "clutter_count": 12,
+    "layout_attempts": 4,
+    "task_position_updates": 3,
+    "physically_executed_candidates": 1,
+    "generated_counts": [
+      12,
+      10,
+      10,
+      10
+    ]
+  },
+  {
+    "id": "g2-1200-12",
+    "method": "g2",
+    "status": "layout_budget_exhausted",
+    "seed": 1200,
+    "wall_seconds": 67.31405639600052,
+    "accepted_attempt": null,
+    "total_proposals_used": 4000,
+    "repair_enabled": false,
+    "clutter_count": 12,
+    "layout_attempts": 4,
+    "task_position_updates": 0,
+    "physically_executed_candidates": 0,
+    "generated_counts": [
+      8,
+      8,
+      10,
+      8
+    ]
+  },
+  {
+    "id": "g3-1200-12-disabled",
+    "method": "g3",
+    "status": "layout_budget_exhausted",
+    "seed": 1200,
+    "wall_seconds": 67.42561362199922,
+    "accepted_attempt": null,
+    "total_proposals_used": 4000,
+    "repair_enabled": false,
+    "clutter_count": 12,
+    "layout_attempts": 4,
+    "task_position_updates": 0,
+    "physically_executed_candidates": 0,
+    "generated_counts": [
+      8,
+      8,
+      10,
+      8
+    ]
+  },
+  {
+    "id": "g3-1200-6",
+    "method": "g3",
+    "status": "accepted",
+    "seed": 1200,
+    "wall_seconds": 116.57635529199979,
+    "accepted_attempt": 0,
+    "total_proposals_used": 307,
+    "repair_enabled": true,
+    "clutter_count": 6,
+    "layout_attempts": 1,
+    "task_position_updates": 0,
+    "physically_executed_candidates": 1,
+    "generated_counts": [
+      6
+    ]
+  }
+]

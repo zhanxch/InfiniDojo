@@ -1,0 +1,11 @@
+[
+  {
+    "source": "reference",
+    "status": "completed",
+    "native_task_success": true,
+    "steps": 5613,
+    "wall_seconds": 61.99830624599781,
+    "motions_planned": 13,
+    "result_sha256": "bfbeed3f9f36372520a8e348820eaf59e698a193a8c8237e60a9af7a627cadbc"
+  }
+]

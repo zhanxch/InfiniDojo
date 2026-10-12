@@ -1,0 +1,93 @@
+[
+  {
+    "index": 0,
+    "layout_seed": 1200,
+    "status": "validated_under_development_checks",
+    "proposal_limit": 1000,
+    "task_positions": {
+      "block_0": [
+        0.24428776164867352,
+        -0.22786190255571911
+      ],
+      "block_1": [
+        0.37790703809715354,
+        -0.1690098048189287
+      ],
+      "block_2": [
+        0.32280857323529777,
+        -0.054714560931304466
+      ]
+    },
+    "state_source": "reference",
+    "proposals": 307,
+    "native_task_success": true,
+    "controller_status": "completed",
+    "controller_error": null,
+    "physics_steps": 5613,
+    "motions_planned": 0,
+    "failed_checks": [],
+    "generated_count": 6,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2
+    ],
+    "rejections": {
+      "footprint_outside_request": 153,
+      "full_reference_occupancy": 65,
+      "accepted_cluster": 5,
+      "clutter_overlap": 84
+    },
+    "generation_sha256": "890f27c7a3f5c00acf4d05597722d45ccc28632f1aeba58814e3ff0aaad417bb",
+    "validation": {
+      "status": "validated_under_development_checks",
+      "checks": {
+        "verifier_owned_contact_contract": true,
+        "native_task_success": true,
+        "complete_event_order": true,
+        "complete_execution": true,
+        "initialization_preserved": true,
+        "initial_rotations_preserved": true,
+        "requested_count": true,
+        "requested_task_positions": true,
+        "requested_asset_identities": true,
+        "initial_footprints_inside_region": true,
+        "requested_initial_clearance": true,
+        "pair_relation_preserved": true,
+        "clutter_remains_stationary": true,
+        "clutter_rotation_stable": true,
+        "contact_reporting_available": true,
+        "all_recorded_bodies_instrumented": true,
+        "contacts_legal_and_shallow": true,
+        "settle_duration": true,
+        "settle_motion": true,
+        "settle_rotation_stable": true,
+        "final_task_support_contacts": true,
+        "final_support_geometry": true,
+        "held_relation_observed": true,
+        "held_rotation_observed": true,
+        "independent_clutter_geometry_screen": true
+      },
+      "failed_checks": [],
+      "thresholds": {
+        "penetration_m": 0.001,
+        "contact_distance_m": 0.001,
+        "initialization_translation_m": 0.005,
+        "initialization_rotation_deg": 2.0,
+        "clutter_motion_m": 0.002,
+        "clutter_rotation_deg": 2.0,
+        "settle_motion_m": 0.002,
+        "settle_rotation_deg": 2.0,
+        "attachment_translation_m": 0.003,
+        "attachment_rotation_deg": 5.0,
+        "pair_distance_error_m": 0.003,
+        "support_gap_m": 0.001,
+        "minimum_settle_s": 1.0
+      },
+      "full_report_sha256": "6412a8f42144d04e203535e72e1141a82c252d12872d7138f38b657fafa0a69c"
+    }
+  }
+]

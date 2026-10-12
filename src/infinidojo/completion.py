@@ -18,9 +18,11 @@ import numpy as np
 
 from infinidojo.geometry import aabb, extract_robot_bounds, overlap_aabb, transformed_box
 from infinidojo.io import git_revision, sha256, write_json
+from infinidojo.repair import validate_position_options
 
 
 def validate_request(request):
+    validate_position_options(request)
     if request["task"] != "stack_blocks":
         raise ValueError("Only the complete native stack_blocks contract is supported here")
     clutter = request["clutter"]
@@ -98,6 +100,11 @@ def complete_scene(
         # identities across layout retries with different sampling seeds.
         asset_indices = np.asarray(selected_indices, dtype=int)
     reserved = np.asarray([aabb(box) for frame in frames for _, box in frame["bodies"]])
+    identities = [
+        (frame.get("event_id"), frame.get("phase", "initial"), body)
+        for frame in frames
+        for body, _ in frame["bodies"]
+    ]
     placed, occupied, proposals = [], [], []
     best_partial, restarts = [], 0
     group_size = 2 if distance is not None else 1
@@ -125,7 +132,7 @@ def complete_scene(
                         "cluster": first // group_size,
                     }
                 )
-            reason = None
+            reason, blockers = None, []
             if any(np.any(box[0, :2] < region[0]) or np.any(box[1, :2] > region[1]) for box in boxes):
                 reason = "footprint_outside_request"
             elif any(
@@ -134,21 +141,27 @@ def complete_scene(
                 for other in [*occupied, *boxes[:index]]
             ):
                 reason = "clutter_overlap"
-            elif any(
-                len(reserved)
-                and np.any(
-                    np.all(box[0] < reserved[:, 1] + margin, axis=1)
-                    & np.all(reserved[:, 0] < box[1] + margin, axis=1)
-                )
-                for box in boxes
-            ):
-                reason = f"{occupancy}_occupancy"
+            elif len(reserved):
+                hits = np.zeros(len(reserved), dtype=bool)
+                for box in boxes:
+                    hits |= np.all(box[0] < reserved[:, 1] + margin, axis=1) & np.all(
+                        reserved[:, 0] < box[1] + margin, axis=1
+                    )
+                if hits.any():
+                    reason = f"{occupancy}_occupancy"
+                    blockers = [
+                        {"event_id": event, "phase": phase, "body": body}
+                        for event, phase, body in sorted(
+                            {identities[i] for i in np.flatnonzero(hits)}, key=str
+                        )
+                    ]
             proposals.append(
                 {
                     "restart": restarts,
                     "cluster": first // group_size,
                     "poses": [m["pose"] for m in members],
                     "rejection": reason,
+                    "blockers": blockers,
                 }
             )
             if reason is None:

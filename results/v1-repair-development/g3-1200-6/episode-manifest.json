@@ -1,0 +1,53 @@
+{
+  "format": "infinidojo.episode.v1",
+  "task": "stack_blocks",
+  "robot": "arx_x5",
+  "seed": 1200,
+  "instruction": "Stack the three blocks with different textures.",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "layout": "layout.json",
+  "asset_map": "asset-map.json",
+  "request": "request.json",
+  "files_sha256": {
+    "asset-map.json": "bcfa408d1bdd7ea18d5194db255f5276d931e446cd0593a784075fb4abf17091",
+    "assets/1200/description.json": "e74d25c68378954579279bc0c359d19388309f9889690335a2bd0f30a932ef5f",
+    "assets/1200/mesh.npz": "0c41efec7021643a2990dcf69a60a37585c6f157149f0a836e27e9d5cf4f4159",
+    "assets/1200/metadata.json": "f11ced6519e767133cce2a7d5b7cb71ca248db5cfa2c4f9df940684899531aaf",
+    "assets/1200/object.usd": "93795903d767606deab6265e0bd0a486dda374cd9b14428ddac1f78c0233795e",
+    "assets/1200/provenance.json": "d476c3bafeb434d3c3778e036a151f6d3bb07d41ffd1033c7d734a4a3d39ec79",
+    "assets/1201/description.json": "e74d25c68378954579279bc0c359d19388309f9889690335a2bd0f30a932ef5f",
+    "assets/1201/mesh.npz": "c8fcc279387d22b4f3af0f6ac4e31d90bf6fc5f6506ef54a16ec1aa3831c3915",
+    "assets/1201/metadata.json": "ec9f377b1e5e3b060cb2fde363964b154a0db11d78bb5ad961ffbc541ac931c8",
+    "assets/1201/object.usd": "ae88a55df1fd10d5086d7c996b268a7cf65667cf97d14c6d5767fcbac59eae7d",
+    "assets/1201/provenance.json": "3208931cc80df2e7b2da3e5f87160ba7d19ffd4e9dc236c5fc70db48b90b035a",
+    "assets/1202/description.json": "e74d25c68378954579279bc0c359d19388309f9889690335a2bd0f30a932ef5f",
+    "assets/1202/mesh.npz": "21e5e65d1de027fd56434562e9e2efeb9c284aa726173452bcc764f556f437a7",
+    "assets/1202/metadata.json": "a4379f7f3b269e11560af50b729f19bc162a8d72025897300e1e29802ee58cf9",
+    "assets/1202/object.usd": "f0c0ebc7f99ea018fe4da9a796b0f2db2e0bd52007d0ae8a44d1fc575dd7a07c",
+    "assets/1202/provenance.json": "ca9cdeef09080bf887e6d7e94ce1d031cbec55533e011ec835ca12a1a50e69f1",
+    "layout.json": "321411e26c48465a0ee21437ecf559ba21ad9eb5c0d37723ba74cfca47958693",
+    "request.json": "7d261d251940880ca3d3243c5e5ca6097c7e0fb25ea0079c48dd820854158564"
+  },
+  "validation": {
+    "status": "validated_under_development_checks",
+    "threshold_status": "development values, not frozen held-out protocol",
+    "thresholds": {
+      "penetration_m": 0.001,
+      "contact_distance_m": 0.001,
+      "initialization_translation_m": 0.005,
+      "initialization_rotation_deg": 2.0,
+      "clutter_motion_m": 0.002,
+      "clutter_rotation_deg": 2.0,
+      "settle_motion_m": 0.002,
+      "settle_rotation_deg": 2.0,
+      "attachment_translation_m": 0.003,
+      "attachment_rotation_deg": 5.0,
+      "pair_distance_error_m": 0.003,
+      "support_gap_m": 0.001,
+      "minimum_settle_s": 1.0
+    },
+    "report_sha256": "6412a8f42144d04e203535e72e1141a82c252d12872d7138f38b657fafa0a69c"
+  },
+  "policy_observation_contract": "Native cameras and proprioception only; scene metadata stays in harness.",
+  "native_asset_requirement": "Licensed native RoboDojo assets must be installed separately."
+}

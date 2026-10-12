@@ -1,0 +1,178 @@
+[
+  {
+    "index": 0,
+    "layout_seed": 1200,
+    "status": "layout_not_found",
+    "proposal_limit": 1000,
+    "task_positions": {
+      "block_0": [
+        0.24428776164867352,
+        -0.22786190255571911
+      ],
+      "block_1": [
+        0.37790703809715354,
+        -0.1690098048189287
+      ],
+      "block_2": [
+        0.32280857323529777,
+        -0.054714560931304466
+      ]
+    },
+    "state_source": "reference",
+    "proposals": 1000,
+    "generated_count": 8,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2,
+      1,
+      0,
+      2,
+      0,
+      2,
+      1
+    ],
+    "rejections": {
+      "full_reference_occupancy": 183,
+      "footprint_outside_request": 505,
+      "accepted_cluster": 14,
+      "clutter_overlap": 298
+    },
+    "generation_sha256": "36a50ce433263bdaf4313601ab120a1d2ee43deb49c004f92b9b81ad0baee8c1"
+  },
+  {
+    "index": 1,
+    "layout_seed": 1001203,
+    "status": "layout_not_found",
+    "proposal_limit": 1000,
+    "task_positions": {
+      "block_0": [
+        0.24428776164867352,
+        -0.22786190255571911
+      ],
+      "block_1": [
+        0.37790703809715354,
+        -0.1690098048189287
+      ],
+      "block_2": [
+        0.32280857323529777,
+        -0.054714560931304466
+      ]
+    },
+    "state_source": "reference",
+    "proposals": 1000,
+    "generated_count": 8,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2,
+      1,
+      0,
+      2,
+      0,
+      2,
+      1
+    ],
+    "rejections": {
+      "full_reference_occupancy": 187,
+      "footprint_outside_request": 514,
+      "clutter_overlap": 285,
+      "accepted_cluster": 14
+    },
+    "generation_sha256": "382448d6e1769944238a41bee922d2fd868b4985a60b162159f251fa49e39b43"
+  },
+  {
+    "index": 2,
+    "layout_seed": 2001206,
+    "status": "layout_not_found",
+    "proposal_limit": 1000,
+    "task_positions": {
+      "block_0": [
+        0.24428776164867352,
+        -0.22786190255571911
+      ],
+      "block_1": [
+        0.37790703809715354,
+        -0.1690098048189287
+      ],
+      "block_2": [
+        0.32280857323529777,
+        -0.054714560931304466
+      ]
+    },
+    "state_source": "reference",
+    "proposals": 1000,
+    "generated_count": 10,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2,
+      1,
+      0,
+      2,
+      0,
+      2,
+      1
+    ],
+    "rejections": {
+      "footprint_outside_request": 489,
+      "full_reference_occupancy": 203,
+      "clutter_overlap": 292,
+      "accepted_cluster": 16
+    },
+    "generation_sha256": "31cc6651e9c9da2828f987c0dc5098dbb399715d5941b0ea0cba81ea6272e9bb"
+  },
+  {
+    "index": 3,
+    "layout_seed": 3001209,
+    "status": "layout_not_found",
+    "proposal_limit": 1000,
+    "task_positions": {
+      "block_0": [
+        0.24428776164867352,
+        -0.22786190255571911
+      ],
+      "block_1": [
+        0.37790703809715354,
+        -0.1690098048189287
+      ],
+      "block_2": [
+        0.32280857323529777,
+        -0.054714560931304466
+      ]
+    },
+    "state_source": "reference",
+    "proposals": 1000,
+    "generated_count": 8,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2,
+      1,
+      0,
+      2,
+      0,
+      2,
+      1
+    ],
+    "rejections": {
+      "footprint_outside_request": 485,
+      "full_reference_occupancy": 152,
+      "clutter_overlap": 347,
+      "accepted_cluster": 16
+    },
+    "generation_sha256": "9313a74cc444835315f712650f4e8e38ed2e8a6065952a6c3ba50fd89906a162"
+  }
+]

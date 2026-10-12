@@ -50,8 +50,13 @@ adds observed-scene collision updates, carried-object geometry, and initial-stat
 layout candidates. An existing six-clutter layout passes full online execution
 and development validation. The [bounded request runner](results/v1-retry-development/README.md)
 now performs G1/G2 generation, execution, validation and episode export with
-fixed asset identities and explicit time/layout budgets. G3 and policy comparisons
-remain unfinished; these checks are not a frozen evaluation protocol.
+fixed asset identities and explicit time/layout budgets. G3 now adds one
+[event-guided task-position repair](docs/interaction-repair.md), with full physical
+replanning and an explicit request-position check. Its first twelve-clutter
+development request still fails to find a complete layout; no algorithmic
+advantage has been established. Broader coverage and policy comparisons remain
+unfinished; these checks are not a frozen evaluation protocol.
+See the [repair and ablation development evidence](results/v1-repair-development/README.md).
 
 ## Initial implementation scope
 

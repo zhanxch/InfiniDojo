@@ -1,0 +1,117 @@
+{
+  "ranking": [
+    {
+      "anchor": "block_0",
+      "before_xy_m": [
+        0.24428776164867352,
+        -0.22786190255571911
+      ],
+      "after_xy_m": [
+        0.24428776164867352,
+        -0.2878619025557191
+      ],
+      "mean_distance_gain_m": 0.0383137210357965,
+      "blocking_cluster_proposals": 103,
+      "blocking_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/lift",
+        "00/place",
+        "00/release",
+        "00/retreat",
+        "00/transport",
+        "01/approach",
+        "01/descend",
+        "01/grasp",
+        "01/lift",
+        "01/place",
+        "01/release",
+        "01/retreat",
+        "01/transport",
+        "initial",
+        "return",
+        "settle"
+      ],
+      "dependent_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/lift",
+        "00/place",
+        "00/release",
+        "00/retreat",
+        "00/transport",
+        "01/approach",
+        "01/descend",
+        "01/grasp",
+        "01/lift",
+        "01/place",
+        "01/release",
+        "01/retreat",
+        "01/transport",
+        "initial",
+        "return",
+        "settle"
+      ]
+    },
+    {
+      "anchor": "block_0",
+      "before_xy_m": [
+        0.24428776164867352,
+        -0.22786190255571911
+      ],
+      "after_xy_m": [
+        0.18428776164867353,
+        -0.22786190255571911
+      ],
+      "mean_distance_gain_m": 0.034825367277268024,
+      "blocking_cluster_proposals": 103,
+      "blocking_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/lift",
+        "00/place",
+        "00/release",
+        "00/retreat",
+        "00/transport",
+        "01/approach",
+        "01/descend",
+        "01/grasp",
+        "01/lift",
+        "01/place",
+        "01/release",
+        "01/retreat",
+        "01/transport",
+        "initial",
+        "return",
+        "settle"
+      ],
+      "dependent_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/lift",
+        "00/place",
+        "00/release",
+        "00/retreat",
+        "00/transport",
+        "01/approach",
+        "01/descend",
+        "01/grasp",
+        "01/lift",
+        "01/place",
+        "01/release",
+        "01/retreat",
+        "01/transport",
+        "initial",
+        "return",
+        "settle"
+      ]
+    }
+  ],
+  "generation_sha256": "9bb175b628e971b760400832a6add1a2e1c6d1bf03048ec282ef951d8d53bcca",
+  "program_sha256": "b8d1fd93f4d797522019fbeb7e38b532b39378f946d95ee58434f0f8de2528ce",
+  "note": "Directional search heuristic only; replan and execute the full task before use"
+}

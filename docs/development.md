@@ -8,7 +8,7 @@
 `infinidojo.native_stack` 在原生 `stack_blocks` 上执行两次真实取放，再使机械臂返回初始位置。
 它复用原生 CuRobo，不修改原生任务评分或物体质量/摩擦，不在操作过程中焊接或瞬移物体。
 当前控制器限定原生布局 0 及附近右侧布局、三块同尺寸方块，由右臂完成操作。
-任务物体保留原生资产。G2 已围绕完整参考补全 Infinigen 杂物；关联任务位置调整的 G3 仍待实现。
+任务物体保留原生资产。G2 已围绕完整参考补全 Infinigen 杂物；G3 的一次位置修复见文末。
 
 程序按 16 个 event 记录状态：每次取放的接近、下降、闭合、抬升、搬运、放置、释放、撤离。
 event 标签表示控制阶段，不能单凭标签断言接触条件成立。
@@ -76,7 +76,7 @@ episode 导出要求全部声明检查通过，并重新核对验证输入和资
 难以放置时重新排布，但不增加总候选预算，不更换资产或放宽请求。
 
 最新证据见 [场景补全开发结果](../results/v1-completion-development/README.md)。
-G1/G3、验证阈值校准、LLM 对完整任务的接入、其余任务及两策略评测仍未完成。
+验证阈值校准、LLM 对完整任务的接入、其余任务及两策略评测仍未完成。
 
 ## 场景感知规划与 G1 初始布局候选
 
@@ -154,6 +154,30 @@ G2 先取得一个新的完整参考，固定它并补全场景。两种方法�
 
 当前输入复用已生成的 Infinigen 资产；历史资产生成耗时不可得，因此此计时明确不包含资产创建，
 不能直接称为从资产生成开始的总成本。正式实验须补记这部分成本，并区分冷启动与复用。
-这套入口也尚未实现 G3 的允许任务参数调整，不提供通用任务搜索。
+这套入口不提供通用任务搜索；G3 的有限位置调整范围见下节。
 开发配置见 [v1-retry-development.json](../specs/v1-retry-development.json)，
 结果见 [预算内生成开发结果](../results/v1-retry-development/README.md)。
+
+## G3：一次 event-conditioned 任务位置修复
+
+[方法与边界](interaction-repair.md) 说明冲突如何关联到任务位置，以及释放后的支撑依赖。
+G3 在布局补全失败后，可以从请求明确允许的位置中选择一次修改，再获取新的完整物理参考。
+机器人动作由共用规划器重新计算。支持位置选项的请求还会触发独立的初始化位置检查。
+
+```bash
+"$TOOL_PY" -m infinidojo.request_run --method g3 --robodojo-root "$RD_ROOT" \
+  --sim-python "$SIM_PY" --assets "$DEV/assets/1200" "$DEV/assets/1201" "$DEV/assets/1202" \
+  --request "$PWD/specs/requests/stack-anchor-paired-12.json" --seed 1200 \
+  --wall-seconds 240 --max-layouts 4 --total-proposals 4000 \
+  --proposals-per-layout 1000 --cluster-proposals 128 --max-steps 20000 \
+  --output "$DEV/g3-anchor-request"
+```
+
+用相同请求分别运行 `--method g1`、`--method g2` 和 `--method g3 --disable-repair`，
+每次使用新目录。G1 可以在静态布局重试时重采样相同允许位置；G2/消融固定首个参考。
+不要用旧的位置固定请求与新的位置可选请求直接比较方法得分。
+
+`repair-ranking.json` 保留被拒 cluster 的来源哈希与候选排序；`run.json` 的
+`task_position_updates` 记录实际变更。新参考失败就记为未验证，不能平移旧控制序列继续。
+配置见 [修复开发清单](../specs/v1-repair-development.json)。
+完整结果与负对照见 [位置修复开发记录](../results/v1-repair-development/README.md)。

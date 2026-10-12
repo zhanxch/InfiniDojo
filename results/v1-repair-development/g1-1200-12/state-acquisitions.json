@@ -1,0 +1,38 @@
+[
+  {
+    "source": "initial-state",
+    "status": "initialized",
+    "native_task_success": null,
+    "steps": 0,
+    "wall_seconds": 11.682298178002384,
+    "motions_planned": 0,
+    "result_sha256": "89b12a37da473d3028d5d70cb21b54c2eacdd162462fe1ff1d6a886ec0289e4b"
+  },
+  {
+    "source": "attempt-01/initial-state",
+    "status": "initialized",
+    "native_task_success": null,
+    "steps": 0,
+    "wall_seconds": 11.625413378002122,
+    "motions_planned": 0,
+    "result_sha256": "8b35d67c3774915cd4f09c603dc401fc57e341710cc9a4ee49a29a4feb189a6a"
+  },
+  {
+    "source": "attempt-02/initial-state",
+    "status": "initialized",
+    "native_task_success": null,
+    "steps": 0,
+    "wall_seconds": 11.416997592998086,
+    "motions_planned": 0,
+    "result_sha256": "c03c370c40e70015196074d33cb57a3d8cc6649eb1a5db12495dacf0ca92ad99"
+  },
+  {
+    "source": "attempt-03/initial-state",
+    "status": "initialized",
+    "native_task_success": null,
+    "steps": 0,
+    "wall_seconds": 11.580102844000066,
+    "motions_planned": 0,
+    "result_sha256": "e4e8f5290da69f6a67bc3e71bc70ca5a28c963d54c2a49664e3539c6369ddb4b"
+  }
+]
