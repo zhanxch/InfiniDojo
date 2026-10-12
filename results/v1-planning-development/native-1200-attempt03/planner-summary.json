@@ -1,0 +1,537 @@
+[
+  {
+    "event_id": "00/approach",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": null,
+    "optimizer_omissions": [],
+    "flange_position_error_m": 4.7299833204806184e-08,
+    "flange_rotation_error_deg": 9.659346157805877e-06,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.43807633300093585,
+    "world_objects": [
+      "block_0",
+      "block_1",
+      "block_2",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 0
+    }
+  },
+  {
+    "event_id": "00/descend",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": null,
+    "optimizer_omissions": [],
+    "flange_position_error_m": 2.426149801026683e-07,
+    "flange_rotation_error_deg": 4.0444006492826406e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.3911247399992135,
+    "world_objects": [
+      "block_0",
+      "block_1",
+      "block_2",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 0
+    }
+  },
+  {
+    "event_id": "00/lift",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": "block_1",
+    "optimizer_omissions": [
+      "Table"
+    ],
+    "flange_position_error_m": 1.22998090601161e-07,
+    "flange_rotation_error_deg": 2.937775443794112e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.37238147999960347,
+    "world_objects": [
+      "block_0",
+      "block_2",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 64
+    }
+  },
+  {
+    "event_id": "00/transport",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": "block_1",
+    "optimizer_omissions": [],
+    "flange_position_error_m": 1.5534993036174944e-07,
+    "flange_rotation_error_deg": 3.7468895094184944e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.34961724300228525,
+    "world_objects": [
+      "block_0",
+      "block_2",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 64
+    }
+  },
+  {
+    "event_id": "00/place",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": "block_1",
+    "optimizer_omissions": [
+      "block_0"
+    ],
+    "flange_position_error_m": 1.8867102239712913e-07,
+    "flange_rotation_error_deg": 3.93662798265952e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.34167622400127584,
+    "world_objects": [
+      "block_0",
+      "block_2",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 64
+    }
+  },
+  {
+    "event_id": "00/retreat",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": null,
+    "optimizer_omissions": [],
+    "flange_position_error_m": 2.0793445327439838e-07,
+    "flange_rotation_error_deg": 2.867459515372585e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.34240050700100255,
+    "world_objects": [
+      "block_0",
+      "block_1",
+      "block_2",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 0
+    }
+  },
+  {
+    "event_id": "01/approach",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": null,
+    "optimizer_omissions": [],
+    "flange_position_error_m": 1.7464212847686406e-07,
+    "flange_rotation_error_deg": 2.4328804008734323e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.36947492900071666,
+    "world_objects": [
+      "block_0",
+      "block_1",
+      "block_2",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 0
+    }
+  },
+  {
+    "event_id": "01/descend",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": null,
+    "optimizer_omissions": [],
+    "flange_position_error_m": 1.406805512288892e-07,
+    "flange_rotation_error_deg": 1.878302021753515e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.3926762159971986,
+    "world_objects": [
+      "block_0",
+      "block_1",
+      "block_2",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 0
+    }
+  },
+  {
+    "event_id": "01/lift",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": "block_2",
+    "optimizer_omissions": [
+      "Table"
+    ],
+    "flange_position_error_m": 1.1326019445369415e-07,
+    "flange_rotation_error_deg": 2.5783398697588023e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.38115104800090194,
+    "world_objects": [
+      "block_0",
+      "block_1",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 64
+    }
+  },
+  {
+    "event_id": "01/transport",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": "block_2",
+    "optimizer_omissions": [],
+    "flange_position_error_m": 2.2124050810708723e-07,
+    "flange_rotation_error_deg": 3.4469624100431306e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.3749859939998714,
+    "world_objects": [
+      "block_0",
+      "block_1",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 64
+    }
+  },
+  {
+    "event_id": "01/place",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": "block_2",
+    "optimizer_omissions": [
+      "block_1"
+    ],
+    "flange_position_error_m": 7.839513086579777e-08,
+    "flange_rotation_error_deg": 3.339553924885263e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.35879582099732943,
+    "world_objects": [
+      "block_0",
+      "block_1",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 64
+    }
+  },
+  {
+    "event_id": "01/retreat",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": null,
+    "optimizer_omissions": [],
+    "flange_position_error_m": 1.749940135019249e-07,
+    "flange_rotation_error_deg": 4.923839268524486e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.34582675700221444,
+    "world_objects": [
+      "block_0",
+      "block_1",
+      "block_2",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 0
+    }
+  },
+  {
+    "event_id": null,
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": null,
+    "optimizer_omissions": [],
+    "flange_position_error_m": 4.909455711099513e-08,
+    "flange_rotation_error_deg": 1.983990668017933e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 2.4407838890001585,
+    "world_objects": [
+      "block_0",
+      "block_1",
+      "block_2",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 0
+    }
+  }
+]

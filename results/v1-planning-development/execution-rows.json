@@ -1,0 +1,93 @@
+[
+  {
+    "id": "native-1200-attempt01",
+    "development_only": true,
+    "status": "infrastructure_error",
+    "native_task_success": null,
+    "error_type": "OutOfMemoryError"
+  },
+  {
+    "id": "native-1200-attempt02",
+    "development_only": true,
+    "status": "controller_failed",
+    "error": "Planner failed during approach",
+    "native_task_success": false,
+    "native_score": 0.0,
+    "steps": 0,
+    "wall_seconds": 19.822251713001606,
+    "motions_planned": 1,
+    "fixtures_in_planning": false,
+    "max_flange_position_error_m": null
+  },
+  {
+    "id": "native-1200-attempt03",
+    "development_only": true,
+    "status": "completed",
+    "error": null,
+    "native_task_success": true,
+    "native_score": 100.0,
+    "steps": 5613,
+    "wall_seconds": 63.69082003799849,
+    "motions_planned": 13,
+    "fixtures_in_planning": false,
+    "max_flange_position_error_m": 2.426149801026683e-07,
+    "validation_status": "validated_under_development_checks",
+    "failed_checks": []
+  },
+  {
+    "id": "g1-candidate-1200-6-execution",
+    "development_only": true,
+    "status": "controller_failed",
+    "error": "Planner failed during place",
+    "native_task_success": false,
+    "native_score": 0.0,
+    "steps": 1444,
+    "wall_seconds": 31.58535229500194,
+    "motions_planned": 5,
+    "fixtures_in_planning": false,
+    "max_flange_position_error_m": 2.426149801026683e-07,
+    "validation_status": "unverified",
+    "failed_checks": [
+      "native_task_success",
+      "complete_event_order",
+      "complete_execution",
+      "settle_duration",
+      "settle_motion",
+      "settle_rotation_stable",
+      "final_task_support_contacts",
+      "final_support_geometry",
+      "held_relation_observed",
+      "held_rotation_observed"
+    ]
+  },
+  {
+    "id": "g2-layout-online-1200-6",
+    "development_only": true,
+    "status": "completed",
+    "error": null,
+    "native_task_success": true,
+    "native_score": 100.0,
+    "steps": 5613,
+    "wall_seconds": 66.79375183199954,
+    "motions_planned": 13,
+    "fixtures_in_planning": false,
+    "max_flange_position_error_m": 3.0413427079861357e-07,
+    "validation_status": "validated_under_development_checks",
+    "failed_checks": []
+  },
+  {
+    "id": "g2-layout-online-1200-6-fixtures",
+    "development_only": true,
+    "status": "completed",
+    "error": null,
+    "native_task_success": true,
+    "native_score": 100.0,
+    "steps": 5613,
+    "wall_seconds": 67.49864940299813,
+    "motions_planned": 13,
+    "fixtures_in_planning": true,
+    "max_flange_position_error_m": 3.0413427079861357e-07,
+    "validation_status": "validated_under_development_checks",
+    "failed_checks": []
+  }
+]

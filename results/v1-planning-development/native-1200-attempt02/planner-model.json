@@ -1,0 +1,14 @@
+{
+  "world": "observed object OBBs, table, inactive-arm OBBs",
+  "robot": "native fitted spheres; fixed-base lower extent clipped to base support plane",
+  "gripper": "covering spheres of measured finger OBBs, fixed during arm motions",
+  "held_object": "covering spheres of measured object OBB, flange-relative in planning only",
+  "contact_handling": "omit legal payload support from optimizer, screen all other pairs before execution",
+  "collision_cache_cuboids": 64,
+  "proxy_slots": {
+    "gripper_proxy": 512,
+    "attached_object": 125
+  },
+  "candidate_screen": "all interpolated arm controls; sphere-OBB overlap, tolerance 1e-5 m",
+  "validation": "requires separate physical validation; approximations can reject valid motions"
+}

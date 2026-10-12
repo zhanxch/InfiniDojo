@@ -1,0 +1,238 @@
+[
+  {
+    "event_id": "00/approach",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": null,
+    "optimizer_omissions": [],
+    "flange_position_error_m": 4.7299833204806184e-08,
+    "flange_rotation_error_deg": 9.659346157805877e-06,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.4909430269981385,
+    "world_objects": [
+      "block_0",
+      "block_1",
+      "block_2",
+      "clutter_0",
+      "clutter_1",
+      "clutter_2",
+      "clutter_3",
+      "clutter_4",
+      "clutter_5",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 0
+    }
+  },
+  {
+    "event_id": "00/descend",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": null,
+    "optimizer_omissions": [],
+    "flange_position_error_m": 2.426149801026683e-07,
+    "flange_rotation_error_deg": 4.0444006492826406e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.4384080170020752,
+    "world_objects": [
+      "block_0",
+      "block_1",
+      "block_2",
+      "clutter_0",
+      "clutter_1",
+      "clutter_2",
+      "clutter_3",
+      "clutter_4",
+      "clutter_5",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 0
+    }
+  },
+  {
+    "event_id": "00/lift",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": "block_1",
+    "optimizer_omissions": [
+      "Table"
+    ],
+    "flange_position_error_m": 1.22998090601161e-07,
+    "flange_rotation_error_deg": 2.937775443794112e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.4048774759976368,
+    "world_objects": [
+      "block_0",
+      "block_2",
+      "clutter_0",
+      "clutter_1",
+      "clutter_2",
+      "clutter_3",
+      "clutter_4",
+      "clutter_5",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 64
+    }
+  },
+  {
+    "event_id": "00/transport",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": "block_1",
+    "optimizer_omissions": [],
+    "flange_position_error_m": 1.5534993036174944e-07,
+    "flange_rotation_error_deg": 3.7468895094184944e-05,
+    "native_planner_status": "Success",
+    "candidate_intersections": [],
+    "status": "Success",
+    "planning_and_screen_seconds": 0.4011287760004052,
+    "world_objects": [
+      "block_0",
+      "block_2",
+      "clutter_0",
+      "clutter_1",
+      "clutter_2",
+      "clutter_3",
+      "clutter_4",
+      "clutter_5",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 64
+    }
+  },
+  {
+    "event_id": "00/place",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": "block_1",
+    "optimizer_omissions": [
+      "block_0"
+    ],
+    "flange_position_error_m": 1.6439494891546602e-07,
+    "flange_rotation_error_deg": 4.065970939060676e-05,
+    "native_planner_status": "Fail",
+    "candidate_intersections": [],
+    "status": "Fail",
+    "planning_and_screen_seconds": 0.08941425300145056,
+    "world_objects": [
+      "block_0",
+      "block_2",
+      "clutter_0",
+      "clutter_1",
+      "clutter_2",
+      "clutter_3",
+      "clutter_4",
+      "clutter_5",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 64
+    }
+  }
+]

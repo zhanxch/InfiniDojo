@@ -62,8 +62,22 @@ def reference_boxes(trajectory, robot_bounds, object_bounds, fixtures=()):
     return frames
 
 
-def complete_scene(request, pool, frames, *, seed, tabletop_z, attempt_budget=1000, cluster_budget=128):
+def complete_scene(
+    request,
+    pool,
+    frames,
+    *,
+    seed,
+    tabletop_z,
+    attempt_budget=1000,
+    cluster_budget=128,
+    occupancy="full_reference",
+):
     validate_request(request)
+    if occupancy not in ("full_reference", "initial_state"):
+        raise ValueError("Unknown occupancy scope")
+    if occupancy == "initial_state" and len(frames) != 1:
+        raise ValueError("Initial-state sampling must receive exactly one observed state")
     if not pool or not frames or attempt_budget < 1 or cluster_budget < 1:
         raise ValueError("Asset pool, reference and positive attempt budget required")
     started = time.monotonic()
@@ -119,7 +133,7 @@ def complete_scene(request, pool, frames, *, seed, tabletop_z, attempt_budget=10
                 )
                 for box in boxes
             ):
-                reason = "full_reference_occupancy"
+                reason = f"{occupancy}_occupancy"
             proposals.append(
                 {
                     "restart": restarts,
@@ -142,7 +156,8 @@ def complete_scene(request, pool, frames, *, seed, tabletop_z, attempt_budget=10
     if len(best_partial) > len(placed):
         placed = best_partial
     return {
-        "method": "G2_fixed_reference_completion",
+        "method": "G2_fixed_reference_completion" if occupancy == "full_reference" else "G1_static_candidate",
+        "occupancy": occupancy,
         "accepted": len(placed) == count,
         "requested_count": count,
         "generated_count": len(placed),
@@ -194,6 +209,11 @@ def main():
     parser.add_argument("--request", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--seed", type=int, required=True)
+    parser.add_argument(
+        "--initial-state-only",
+        action="store_true",
+        help="Sample a G1 static candidate using only the initial observed state; requires planning",
+    )
     parser.add_argument("--attempt-budget", type=int, default=1000)
     parser.add_argument(
         "--cluster-budget",
@@ -210,11 +230,17 @@ def main():
     for path in (source / "src/infinidojo").glob("*.py"):
         shutil.copyfile(path, snapshot / path.name)
     request = json.loads(args.request.read_text())
-    result = json.loads((reference / "result.json").read_text())
-    if not result["native_task_success"] or not result["event_trace"]["complete"]:
-        raise ValueError("Reference did not complete the native task and event sequence")
+    if not args.initial_state_only:
+        result = json.loads((reference / "result.json").read_text())
+        if not result["native_task_success"] or not result["event_trace"]["complete"]:
+            raise ValueError("Reference did not complete the native task and event sequence")
     base = json.loads((reference / "layout.json").read_text())
     trajectory = json.loads((reference / "trajectory.json").read_text())
+    if args.initial_state_only:
+        trajectory = trajectory[:1]
+        if not trajectory or trajectory[0]["phase"] != "initial" or trajectory[0]["step"] != 0:
+            raise ValueError("G1 needs an observed reset state before any reference motion")
+        write_json(output / "initial-state.json", trajectory[0])
     object_bounds = {
         item["label"]: metadata_bounds(root, item) for group in base["Rigid"].values() for item in group
     }
@@ -244,6 +270,7 @@ def main():
         tabletop_z=table["default_pos"][2] + table["scale"][2] / 2,
         attempt_budget=args.attempt_budget,
         cluster_budget=args.cluster_budget,
+        occupancy="initial_state" if args.initial_state_only else "full_reference",
     )
     write_json(output / "request.json", request)
     write_json(output / "generation.json", generated)
@@ -257,6 +284,7 @@ def main():
                 str(p.relative_to(source)): sha256(p) for p in (source / "src/infinidojo").glob("*.py")
             },
             "reference_trajectory_sha256": sha256(reference / "trajectory.json"),
+            "uses_reference_motion": not args.initial_state_only,
             "asset_provenance_sha256": {str(a.resolve()): sha256(a / "provenance.json") for a in args.assets},
         },
     )

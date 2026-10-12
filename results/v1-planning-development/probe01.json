@@ -1,0 +1,33 @@
+{
+  "shared_spheres": true,
+  "initial_overlaps": [
+    [
+      "Table",
+      "base_link",
+      1.4305114738599745e-08
+    ]
+  ],
+  "cases": [
+    {
+      "case": "full",
+      "status": "Fail",
+      "seconds": 0.07564263599851984
+    },
+    {
+      "case": "no_world",
+      "status": "Success",
+      "seconds": 0.15223817999867606
+    },
+    {
+      "case": "no_gripper",
+      "status": "Fail",
+      "seconds": 0.06471198500003084
+    },
+    {
+      "case": "no_world_no_gripper",
+      "status": "Success",
+      "seconds": 0.15182393699797103
+    }
+  ],
+  "raw_sha256": "662c6c6932c04f6d84a05f4fe3d7bd8c250ca3bf583fb02cccc4a76e7a0c0f7c"
+}

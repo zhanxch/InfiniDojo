@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "clear_world",
+      "status": "Success",
+      "seconds": 0.2954967730001954
+    },
+    {
+      "case": "payload_blocked",
+      "status": "Fail",
+      "seconds": 0.08062905800034059
+    },
+    {
+      "case": "same_blocker_payload_disabled",
+      "status": "Success",
+      "seconds": 0.28432541899746866
+    },
+    {
+      "case": "blocker_removed_payload_restored",
+      "status": "Success",
+      "seconds": 0.29534443200100213
+    }
+  ],
+  "blocker": {
+    "name": "diagnostic_payload_blocker",
+    "pose": [
+      0.22220183908939362,
+      0.055585943162441254,
+      0.15249958634376526,
+      1,
+      0,
+      0,
+      0
+    ],
+    "dims": [
+      0.014,
+      0.014,
+      0.014
+    ]
+  },
+  "non_payload_robot_overlap_m": -0.007140445739030839,
+  "event_id": "00/transport",
+  "description": "GPU diagnostic: a blocker at the carried object must affect planning.\n\nThis is a synthetic planning-model test, not a generated episode or a physical\nexperiment. Disabling the payload is solely a negative control in this probe.\nRun with RoboDojo's CuRobo Python; an Isaac application is not required.\n"
+}

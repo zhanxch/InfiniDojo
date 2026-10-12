@@ -1,0 +1,18 @@
+{
+  "task": "stack_blocks",
+  "clutter": {
+    "count": 0,
+    "region_xy_m": [
+      [
+        0.1,
+        -0.3
+      ],
+      [
+        0.48,
+        0.18
+      ]
+    ],
+    "clearance_m": 0.005,
+    "pair_distance_m": 0.09
+  }
+}

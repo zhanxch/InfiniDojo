@@ -1,0 +1,17 @@
+{
+  "method": "G1_static_candidate",
+  "occupancy": "initial_state",
+  "accepted": true,
+  "requested_count": 0,
+  "generated_count": 0,
+  "seed": 1200,
+  "asset_indices": [],
+  "clutter": [],
+  "proposals": [],
+  "attempt_budget": 1000,
+  "cluster_budget": 128,
+  "restarts": 0,
+  "attempts": 0,
+  "reason": null,
+  "wall_seconds": 0.0001493420022598002
+}

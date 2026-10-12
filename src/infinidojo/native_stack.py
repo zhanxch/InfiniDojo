@@ -254,7 +254,7 @@ class EvidenceRecorder:
         )
 
 
-def run_reference(env, output, max_steps, reference=None, video=True):
+def run_reference(env, output, max_steps, reference=None, video=True, planning_root=None):
     rm = env.robot_manager
     robot = rm.robot_list[1]  # native layout 0 places its three blocks on the right
     initialize_reward(env)
@@ -273,6 +273,7 @@ def run_reference(env, output, max_steps, reference=None, video=True):
     write_json(output / "interaction-program.json", program)
     rec = EvidenceRecorder(env, output, max_steps, video=video)
     rec.sample()
+    scene_planning = None
     plans, transfers = [], []
     quat = [2**-0.5, 0, 2**-0.5, 0]
     heights = {
@@ -283,9 +284,14 @@ def run_reference(env, output, max_steps, reference=None, video=True):
     }
 
     def move(pos, phase, event_id):
-        result = rm.planner[robot.robot_name].plan_path(
-            rm.get_joint(robot, [0])[0], [*pos, *quat], robot.entity_origin_pose
-        )
+        if scene_planning:
+            event = next(e for e in program["events"] if e["id"] == event_id)
+            scene_planning.update(event)
+            result = scene_planning.plan(target=[*pos, *quat])
+        else:
+            result = rm.planner[robot.robot_name].plan_path(
+                rm.get_joint(robot, [0])[0], [*pos, *quat], robot.entity_origin_pose
+            )
         plans.append(
             {
                 "event_id": event_id,
@@ -308,6 +314,10 @@ def run_reference(env, output, max_steps, reference=None, video=True):
 
     status, error = "completed", None
     try:
+        if planning_root is not None:
+            from infinidojo.planning import ScenePlanningContext
+
+            scene_planning = ScenePlanningContext(env, rec, planning_root, output)
         rec.capture()
         if reference is not None:
             commands = json.loads((reference / "controls.json").read_text())
@@ -351,7 +361,11 @@ def run_reference(env, output, max_steps, reference=None, video=True):
             )
             print(json.dumps(transfers[-1]), flush=True)
         if reference is None:
-            result = rm.planner[robot.robot_name].plan_joint(rm.get_joint(robot, [0])[0], initial_joints)
+            if scene_planning:
+                scene_planning.update()
+                result = scene_planning.plan(initial_joints=initial_joints)
+            else:
+                result = rm.planner[robot.robot_name].plan_joint(rm.get_joint(robot, [0])[0], initial_joints)
             plans.append({"phase": "return", "status": result["status"]})
             rec.execute(rm.plan_ee(0, robot.arm_name, result), "return")
             rec.hold(500, "settle")
@@ -392,6 +406,7 @@ def run_reference(env, output, max_steps, reference=None, video=True):
         "plans": plans,
         "transfers": transfers,
         "execution_mode": "fixed_reference_replay" if reference is not None else "online_reference_planning",
+        "planning_collision_world": "observed_scene" if scene_planning else "native_table_only_or_replay",
         "strict_instance_validation": "not evaluated by executor; see separate independent validation report",
         "controller": "privileged CuRobo reference, physical grasp/release, no object welding or teleport",
         "budget_note": "Raw physics steps are not native policy actions; no official leaderboard claim",
@@ -438,6 +453,9 @@ def main():
     parser.add_argument("--asset-map", type=Path, help="JSON mapping generated can IDs to asset folders")
     parser.add_argument("--reference", type=Path, help="Replay fixed controls from this reference directory")
     parser.add_argument("--no-video", action="store_true", help="Keep physical evidence without RGB encoding")
+    parser.add_argument(
+        "--scene-aware", action="store_true", help="Development scene-aware reference planner"
+    )
     from isaaclab.app import AppLauncher
 
     AppLauncher.add_app_launcher_args(parser)
@@ -468,6 +486,8 @@ def main():
     )
     layout = json.loads(layout_path.read_text())
     reference = args.reference.resolve() if args.reference else None
+    if reference is not None and args.scene_aware:
+        parser.error("--scene-aware plans online and cannot be combined with --reference replay")
     output.mkdir(parents=True, exist_ok=False)
     snapshot = output / "source/infinidojo"
     snapshot.mkdir(parents=True)
@@ -488,6 +508,7 @@ def main():
             "native_layout_sha256": sha256(layout_path),
             "max_reference_physics_steps": args.max_steps,
             "reference_controls_sha256": sha256(reference / "controls.json") if reference else None,
+            "scene_aware_planning": args.scene_aware,
         },
     )
     write_json(output / "layout.json", layout)
@@ -501,7 +522,7 @@ def main():
         from task.RoboDojo.tasks.stack_blocks import stack_blocks
 
         config = make_config(root, args.seed)
-        if reference is not None:
+        if reference is not None or args.scene_aware:
             for robot_config in config.robot.robots:
                 robot_config.need_planner = False
         if asset_map is not None:
@@ -525,7 +546,14 @@ def main():
         write_json(
             output / "loaded-layout.json", env.scene_manager.layout_manager.get_layout_records(0, "Rigid")
         )
-        result = run_reference(env, output, args.max_steps, reference, video=not args.no_video)
+        result = run_reference(
+            env,
+            output,
+            args.max_steps,
+            reference,
+            video=not args.no_video,
+            planning_root=root if args.scene_aware else None,
+        )
         result["wall_seconds"] = time.monotonic() - start
         write_json(output / "result.json", result)
         print(json.dumps(result), flush=True)

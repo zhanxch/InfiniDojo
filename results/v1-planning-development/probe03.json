@@ -1,0 +1,47 @@
+{
+  "description": "Synthetic planning-model diagnostic; no physical obstacle was inserted. Disabling payload here is diagnostic only.",
+  "event": "00/transport",
+  "reference_planner_scenes_sha256": "bf647af0e368d7ad0b3c43167abb3d0377963f73bdefe2f46931fa083aaa5ba6",
+  "probe_source_sha256": "92d5d8e356af8e0e16652e2baad7fdb5bf63e5c49b53433f0ea79962f8196f63",
+  "blocker": {
+    "name": "diagnostic_payload_blocker",
+    "pose": [
+      0.22220183908939362,
+      0.055585943162441254,
+      0.15249958634376526,
+      1,
+      0,
+      0,
+      0
+    ],
+    "dims": [
+      0.014,
+      0.014,
+      0.014
+    ]
+  },
+  "non_payload_robot_overlap_m": -0.007140445739030839,
+  "cases": [
+    {
+      "case": "clear_world",
+      "status": "Success",
+      "seconds": 0.29441755000152625
+    },
+    {
+      "case": "payload_blocked",
+      "status": "Fail",
+      "seconds": 0.07893711200085818
+    },
+    {
+      "case": "same_blocker_payload_disabled",
+      "status": "Success",
+      "seconds": 0.2774970790014777
+    },
+    {
+      "case": "blocker_removed_payload_restored",
+      "status": "Success",
+      "seconds": 0.2938979680002376
+    }
+  ],
+  "passed": true
+}

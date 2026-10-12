@@ -1,0 +1,31 @@
+{
+  "infinidojo_commit": "1c29f9ccecab672f4ddb6c8eed51a5806515998d",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "robot_usd_sha256": "5723a835bf5627a935a8dabb3a44447725bd1465243ce791e221b3e990121d63",
+  "source_sha256": {
+    "src/infinidojo/geometry.py": "350d0be91e221f5b1ecc7541fd8a10dd408bc9aee2776da41531ccfc077b897a",
+    "src/infinidojo/validation.py": "218c282face666ebcb41f61db8b8eb096fb705de5d43977046586b5c65dd6475",
+    "src/infinidojo/native_stack.py": "613c78767686adfa9ab71df38e818303d4d1fdee2da578bf21a2af9ee8acbe3e",
+    "src/infinidojo/io.py": "23645e5d675a3da52cbdfea486f648aa4ad83bda198181f43cb06ce3949d3391",
+    "src/infinidojo/generation.py": "80dbca774577f6ce7ac6df272b92e857518223e73a97af10866fdc491079ed75",
+    "src/infinidojo/native.py": "0e911e97a2ea902eb46b6928c33b31d39cda491ce951a529f186896a37488e94",
+    "src/infinidojo/study.py": "2c4ce84a8d89a5e48ae22aa629f836b93b68fba711d4d0fb82b59ac716bc873a",
+    "src/infinidojo/assets.py": "bb4a3c092e9a5e2cae62e36ce88b645d9fd78d80caff44c10086742fd9c45f2b",
+    "src/infinidojo/episode.py": "fc96ad5dfb578d2fcf06447be42854722c8a7e3f400a5b4469d68f93109604f1",
+    "src/infinidojo/planning.py": "ea7cc418979c7a287a82357642690215d7ec04cefe7eacddf954cf0098624e16",
+    "src/infinidojo/__init__.py": "44cf1ca788faa02d0337265e81a7d6bbf08492d7a7dfd3f0ec35982305e70827",
+    "src/infinidojo/cli.py": "d97418c4ab80573332d7d737c6c1fcc0a25c1ef20c8f4074d03ed745357a2c1e",
+    "src/infinidojo/frontend.py": "64c370ae67f74a05f317acb0f27e194b0b4bc12f2f91a0a8a552a9c3ca98867d",
+    "src/infinidojo/completion.py": "4c825aa22fb1a94af672e6cca66d2bfe156d73b40e264e87e99dda48354e3b85",
+    "src/infinidojo/interaction.py": "17752f32d9a57bf871dd211a39a3262dcfca2713fa9728aa716f038d85dfc59c",
+    "src/infinidojo/specification.py": "a529f6a93c5c72d52b843d475bdd40a9673430b09abf8fbdf70c2d0170b60ec6",
+    "src/infinidojo/evaluation.py": "55adc643e96d0c90ac56a8205cd59618a28f12607f7ec930f4d0cd9283322be0"
+  },
+  "task": "stack_blocks",
+  "robot": "arx_x5",
+  "seed": 1200,
+  "native_layout_sha256": "9a6b1ba160b2fc5420fd4aa858400b1ee0346d7d7449bdd85aa99d9f65418191",
+  "max_reference_physics_steps": 20000,
+  "reference_controls_sha256": null,
+  "scene_aware_planning": true
+}

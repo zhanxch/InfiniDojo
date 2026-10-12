@@ -1,0 +1,118 @@
+{
+  "status": "controller_failed",
+  "error": "Planner failed during approach",
+  "native_task_success": false,
+  "native_score": 0.0,
+  "event_trace": {
+    "complete": false,
+    "expected": [
+      "00/approach",
+      "00/descend",
+      "00/grasp",
+      "00/lift",
+      "00/transport",
+      "00/place",
+      "00/release",
+      "00/retreat",
+      "01/approach",
+      "01/descend",
+      "01/grasp",
+      "01/lift",
+      "01/transport",
+      "01/place",
+      "01/release",
+      "01/retreat"
+    ],
+    "observed": []
+  },
+  "initial_object_poses": {
+    "block_0": [
+      0.24433061480522156,
+      -0.22785566747188568,
+      0.7824997305870056,
+      1.0,
+      6.500022209365852e-06,
+      -4.3831423681695014e-05,
+      7.2514826570113655e-06
+    ],
+    "block_1": [
+      0.37794992327690125,
+      -0.16900360584259033,
+      0.7824997305870056,
+      1.0,
+      6.704404768242966e-06,
+      -4.361538958619349e-05,
+      7.387482128251577e-06
+    ],
+    "block_2": [
+      0.3228514492511749,
+      -0.05470835417509079,
+      0.7824997305870056,
+      1.0,
+      6.588561063836096e-06,
+      -4.363111293059774e-05,
+      7.481531156372512e-06
+    ]
+  },
+  "final_object_poses": {
+    "block_0": [
+      0.24433061480522156,
+      -0.22785566747188568,
+      0.7824997305870056,
+      1.0,
+      6.500022209365852e-06,
+      -4.3831423681695014e-05,
+      7.2514826570113655e-06
+    ],
+    "block_1": [
+      0.37794992327690125,
+      -0.16900360584259033,
+      0.7824997305870056,
+      1.0,
+      6.704404768242966e-06,
+      -4.361538958619349e-05,
+      7.387482128251577e-06
+    ],
+    "block_2": [
+      0.3228514492511749,
+      -0.05470835417509079,
+      0.7824997305870056,
+      1.0,
+      6.588561063836096e-06,
+      -4.363111293059774e-05,
+      7.481531156372512e-06
+    ]
+  },
+  "final_settle_displacement_m": {
+    "block_0": null,
+    "block_1": null,
+    "block_2": null
+  },
+  "contact_reporting_errors": [],
+  "video_frames": 0,
+  "steps": 0,
+  "physics_dt": 0.004,
+  "plans": [
+    {
+      "event_id": "00/approach",
+      "phase": "approach",
+      "target_flange_pose": [
+        0.37794992327690125,
+        -0.16900360584259033,
+        1.0274997305870057,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Fail"
+    }
+  ],
+  "transfers": [],
+  "execution_mode": "online_reference_planning",
+  "planning_collision_world": "observed_scene",
+  "strict_instance_validation": "not evaluated by executor; see separate independent validation report",
+  "controller": "privileged CuRobo reference, physical grasp/release, no object welding or teleport",
+  "budget_note": "Raw physics steps are not native policy actions; no official leaderboard claim",
+  "wall_seconds": 19.822251713001606
+}

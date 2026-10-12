@@ -51,3 +51,19 @@ def test_paired_clutter_keeps_relation_and_does_not_shrink_failed_request():
 def test_unsupported_relation_is_rejected_before_generation():
     with pytest.raises(ValueError, match="even count"):
         complete_scene(request(count=3), [], [], seed=1, tabletop_z=0.765)
+
+
+def test_initial_state_baseline_does_not_reserve_future_motion():
+    pool = [{"asset_id": 1, "bounds": [[-0.02, -0.02, 0], [0.02, 0.02, 0.06]]}]
+    initial = {"bodies": [("arm", (np.array([-1.0, -1.0, 1.0]), np.ones(3) * 0.1, np.eye(3)))]}
+    later = {"bodies": [("arm", (np.array([0.3, 0, 0.8]), np.ones(3), np.eye(3)))]}
+    static = complete_scene(
+        request(), pool, [initial], seed=1200, tabletop_z=0.765, occupancy="initial_state", attempt_budget=20
+    )
+    assert static["accepted"] and static["method"] == "G1_static_candidate"
+    full = complete_scene(request(), pool, [initial, later], seed=1200, tabletop_z=0.765, attempt_budget=20)
+    assert not full["accepted"]
+    with pytest.raises(ValueError, match="exactly one"):
+        complete_scene(
+            request(), pool, [initial, later], seed=1200, tabletop_z=0.765, occupancy="initial_state"
+        )

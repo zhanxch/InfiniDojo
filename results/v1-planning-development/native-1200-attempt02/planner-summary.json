@@ -1,0 +1,41 @@
+[
+  {
+    "event_id": "00/approach",
+    "base_pose": [
+      0.30000001192092896,
+      -0.44999998807907104,
+      0.7649999856948853,
+      0.7070000171661377,
+      0.0,
+      0.0,
+      0.7072135210037231
+    ],
+    "held_object": null,
+    "optimizer_omissions": [],
+    "native_planner_status": "Fail",
+    "candidate_intersections": [],
+    "status": "Fail",
+    "planning_and_screen_seconds": 0.08184332299788366,
+    "world_objects": [
+      "block_0",
+      "block_1",
+      "block_2",
+      "Table",
+      "robot0/base_link",
+      "robot0/link1",
+      "robot0/link2",
+      "robot0/link3",
+      "robot0/link4",
+      "robot0/link5",
+      "robot0/link6",
+      "robot0/camera_base",
+      "robot0/link7",
+      "robot0/link8",
+      "robot0/camera"
+    ],
+    "proxy_sphere_counts": {
+      "gripper_proxy": 504,
+      "attached_object": 0
+    }
+  }
+]

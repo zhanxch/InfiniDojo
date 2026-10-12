@@ -77,3 +77,48 @@ episode 导出要求全部声明检查通过，并重新核对验证输入和资
 
 最新证据见 [场景补全开发结果](../results/v1-completion-development/README.md)。
 G1/G3、验证阈值校准、LLM 对完整任务的接入、其余任务及两策略评测仍未完成。
+
+## 场景感知规划与 G1 初始布局候选
+
+`native_stack --scene-aware` 使用共用 CuRobo 在线规划，逐阶段更新实际物体、固定设施、
+桌面及未操作机械臂的碰撞几何。夹指使用当前实际开合状态；持物几何只附着在规划模型中，
+释放后物体重新进入场景。真实执行仍由物理夹持完成。该接口限于当前右臂堆叠控制器。
+
+原生 wrapper 的碰撞场景只有桌面，机器人球模型也未包含夹指。新接口复用原生规划方法，
+补充碰撞输入、检查 FK 与实际末端坐标的一致性，并只创建单环境所需的规划器。
+固定底座球的下沿限制在底座支撑平面上方 0.1 mm，处理球拟合及浮点误差造成的桌面重叠。
+这属于共用规划器接入，不是新的运动规划算法。
+
+```bash
+"$TOOL_PY" -m infinidojo.completion --robodojo-root "$RD_ROOT" --reference "$REF" \
+  --assets "$DEV/assets/1200" "$DEV/assets/1201" "$DEV/assets/1202" \
+  --request "$PWD/specs/requests/stack-paired-6.json" --seed 1200 \
+  --initial-state-only --output "$DEV/static-candidate"
+"$SIM_PY" -m infinidojo.native_stack --robodojo-root "$RD_ROOT" \
+  --layout "$DEV/static-candidate/layout.json" --asset-map "$DEV/static-candidate/asset-map.json" \
+  --scene-aware --seed 1200 --output "$DEV/online-execution" --headless --enable_cameras
+"$TOOL_PY" -m infinidojo.validation --robodojo-root "$RD_ROOT" \
+  --execution "$DEV/online-execution" --generation "$DEV/static-candidate" \
+  --output "$DEV/online-validation.json"
+```
+
+`--initial-state-only` 只读取状态源的第一个 reset 状态，不要求参考成功，不使用其后续动作。
+它仅生成 G1 的静态候选；`generation.json` 的 `accepted` 只表示布局采样满足约束，
+必须通过后续规划、执行和共同验证才能成为可用实例。当前尚未实现有总预算约束的 G1 重试循环。
+上例开发诊断复用了已有状态快照，正式成本实验必须另计 reset/状态获取成本。
+
+规划使用 OBB 和覆盖球近似。允许持物目标接触支撑面时，该支撑暂不进入优化器；
+候选控制序列随后对所有世界物体逐点复查，只豁免指定持物—支撑接触及固定底座—桌面。
+物理验证仍检查接触是否合法、穿透是否过深。包围近似可能误拒绝可行解，不能视为连续几何证明。
+`planner-scenes.json` 保存每阶段场景、持物几何、优化器豁免、候选检查及耗时。
+
+可在完成 `00/transport` 的场景感知执行上运行持物探针（仅使用 GPU 规划器）：
+
+```bash
+"$SIM_PY" -m infinidojo.planning_probe --robodojo-root "$RD_ROOT" \
+  --execution "$DEV/online-execution" --output "$DEV/payload-probe"
+```
+
+探针在持物目标处添加虚拟障碍，依次检查无障碍成功、持物受阻失败、诊断性关闭持物几何后
+成功、移除障碍并恢复持物几何后成功。它不修改真实场景，关闭几何仅是探针的负对照。
+开发证据与未完成项见 [规划接入结果](../results/v1-planning-development/README.md)。
