@@ -45,6 +45,7 @@ def main():
     output, episode = args.output.resolve(), args.episode.resolve()
     source = Path(__file__).resolve().parents[1]
     manifest, _, _ = load_episode(episode)
+    task = manifest["task"]
     if manifest["robodojo_commit"] != git_revision(root):
         raise ValueError("Episode and simulation revisions differ")
     if git_revision(xpl) != "f6e309e8ece20bfa33c0e5d7b05a5f3287522757":
@@ -98,7 +99,7 @@ def main():
         f"port={port}",
         "host=localhost",
         "bench_name=RoboDojo",
-        "task_name=stack_blocks",
+        f"task_name={task}",
         "ckpt_name=codex-account",
         "env_cfg_type=arx_x5",
         "seed=0",
@@ -111,6 +112,7 @@ def main():
     record = {
         "development_only": True,
         "policy": policy,
+        "task": task,
         "official_api_reproduction": False,
         "model": "gpt-6-astra",
         "max_calls": 100,
@@ -177,6 +179,8 @@ def main():
                     str(destination),
                     "--policy",
                     policy,
+                    "--task",
+                    task,
                     "--port",
                     str(port),
                     "--headless",

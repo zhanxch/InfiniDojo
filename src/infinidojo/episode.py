@@ -25,6 +25,11 @@ def export_episode(execution, generation, validation_path, destination):
         if sha256(generation / name) != digest:
             raise ValueError(f"Generation changed since validation: {name}")
     provenance = json.loads((execution / "provenance.json").read_text())
+    task = provenance["task"]
+    if task not in ("stack_blocks", "general_pickup"):
+        raise ValueError("Unsupported validated task")
+    if json.loads((generation / "request.json").read_text())["task"] != task:
+        raise ValueError("Generation request differs from the validated task")
     mapping = json.loads((generation / "asset-map.json").read_text())
     destination.mkdir(parents=True, exist_ok=False)
     shutil.copyfile(execution / "layout.json", destination / "layout.json")
@@ -47,10 +52,15 @@ def export_episode(execution, generation, validation_path, destination):
     }
     manifest = {
         "format": "infinidojo.episode.v1",
-        "task": "stack_blocks",
+        "task": task,
         "robot": "arx_x5",
         "seed": provenance["seed"],
-        "instruction": "Stack the three blocks with different textures.",
+        "instruction": (
+            "Stack the three blocks with different textures."
+            if task == "stack_blocks"
+            else "Pick up the <target> by 10 cm."
+        ),
+        "instruction_resolution": "Native observation manager resolves target descriptions from scene assets.",
         "robodojo_commit": provenance["robodojo_commit"],
         "layout": "layout.json",
         "asset_map": "asset-map.json",
@@ -74,7 +84,7 @@ def load_episode(folder):
     manifest = json.loads((folder / "episode.json").read_text())
     if (
         manifest["format"] != "infinidojo.episode.v1"
-        or manifest["task"] != "stack_blocks"
+        or manifest["task"] not in ("stack_blocks", "general_pickup")
         or manifest["robot"] != "arx_x5"
     ):
         raise ValueError("Unsupported episode format or task")

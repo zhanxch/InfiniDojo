@@ -51,7 +51,9 @@
 另外两个任务的原生判定已核对并记录为 [general_pickup 契约](../specs/tasks/general_pickup.json)
 和 [cover_blocks 契约](../specs/tasks/cover_blocks.json)。覆盖任务还有方块位移超过 5 cm
 即失败的约束；覆盖判定使用外部包围轮廓，不能代替杯腔的物理有效性验证。
-这是源码核对，尚不是这两个任务的 v1 完整执行/生成证据。
+`general_pickup` 现已有两个原生罐体位置的完整参考、G2 六杂物补全、26 项独立开发检查及
+episode 导出/重载证据，见 [拾取开发结果](../results/v1-pickup-development/README.md)。
+其语言入口、预算内 G1/G3 和策略执行尚未完成；`cover_blocks` 仍停留在源码契约核对阶段。
 
 ### 2.2 Event：关系在何时切换
 
@@ -179,6 +181,8 @@ LLM 一次生成与反馈修正在多样的真实描述上比较，人工注入�
       [开发证据](../results/v1-development/README.md)。此项不是大范围有效率结论。
 - [x] `stack_blocks` 导出 episode：场景、指令、原生任务/重置配置、种子及资产来源；
       已复制到新目录重新加载并执行。正式策略适配和更广任务覆盖仍待完成。
+- [x] `general_pickup` 补充持物终态：两个原生罐体开发位置、六杂物补全及物理重放均通过，
+      其中一个 episode 搬到新目录后重新执行与验证。不是全目标类型或正式实验覆盖。
 
 交付：完整参考 episode、视频和可独立加载的任务实例。
 验收：原生完整成功条件通过，后续操作考虑已放置物体，不以简化评分冒充原任务。

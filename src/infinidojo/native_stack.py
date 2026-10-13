@@ -25,17 +25,17 @@ from infinidojo.native import initialize_reward, install_reset_cleanup
 LABELS = ("block_0", "block_1", "block_2")
 
 
-def make_config(root, seed):
+def make_config(root, seed, task="stack_blocks"):
     from omegaconf import OmegaConf
     from utils.pipeline_utils import process_config
 
     mapping = {"sim": "sim_config", "scene": "default", "robot": "dual_x5", "camera": "camera_config"}
     config = OmegaConf.create({k: OmegaConf.load(root / f"env_cfg/{k}/{v}.yml") for k, v in mapping.items()})
-    config.task_env = OmegaConf.load(root / "task/RoboDojo/config/stack_blocks.yml")
+    config.task_env = OmegaConf.load(root / f"task/RoboDojo/config/{task}.yml")
     config.sim.scene.num_envs = 1
     config.sim.seed = [seed]
     config.camera.default_frequency = 25
-    return process_config(config, "stack_blocks")[0]
+    return process_config(config, task)[0]
 
 
 class EvidenceRecorder:
@@ -442,12 +442,13 @@ def install_asset_overlay(root, output, asset_map):
     layout_module.OBJECTS_PATH = str(overlay)
 
 
-def main():
+def main(default_task="stack_blocks"):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--robodojo-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--task", choices=("stack_blocks", "general_pickup"), default=default_task)
     parser.add_argument("--seed", type=int)
-    parser.add_argument("--layout", type=Path, help="Native stack layout; default is saved layout 0")
+    parser.add_argument("--layout", type=Path, help="Native task layout; default is its saved layout 0")
     parser.add_argument("--episode", type=Path, help="Portable episode bundle to load")
     parser.add_argument("--max-steps", type=int, default=20000)
     parser.add_argument("--asset-map", type=Path, help="JSON mapping generated can IDs to asset folders")
@@ -474,6 +475,8 @@ def main():
         if args.layout or args.asset_map or args.seed is not None:
             parser.error("--episode provides its own layout, asset map and seed")
         manifest, args.layout, asset_map = load_episode(args.episode)
+        if manifest["task"] != args.task:
+            parser.error("Episode task differs from --task")
         if manifest["robodojo_commit"] != git_revision(root):
             raise ValueError("Episode requires a different RoboDojo revision")
         args.seed = manifest["seed"]
@@ -487,10 +490,12 @@ def main():
     layout_path = (
         args.layout.resolve()
         if args.layout
-        else root / "Assets/Eval_Layout/RoboDojo/arx_x5/0/stack_blocks_0.json"
+        else root / f"Assets/Eval_Layout/RoboDojo/arx_x5/0/{args.task}_0.json"
     )
     layout = json.loads(layout_path.read_text())
     reference = args.reference.resolve() if args.reference else None
+    if reference is not None and json.loads((reference / "provenance.json").read_text())["task"] != args.task:
+        parser.error("Reference task differs from --task")
     if reference is not None and args.scene_aware:
         parser.error("--scene-aware plans online and cannot be combined with --reference replay")
     if args.capture_initial_state and (reference is not None or args.scene_aware):
@@ -509,7 +514,7 @@ def main():
             "source_sha256": {
                 str(p.relative_to(source)): sha256(p) for p in (source / "src/infinidojo").glob("*.py")
             },
-            "task": "stack_blocks",
+            "task": args.task,
             "robot": "arx_x5",
             "seed": args.seed,
             "native_layout_sha256": sha256(layout_path),
@@ -526,17 +531,23 @@ def main():
     app = AppLauncher(args).app
     env = None
     try:
-        from omegaconf import OmegaConf
-        from task.RoboDojo.tasks.stack_blocks import stack_blocks
+        from importlib import import_module
 
-        config = make_config(root, args.seed)
+        from omegaconf import OmegaConf
+
+        task_class = getattr(import_module(f"task.RoboDojo.tasks.{args.task}"), args.task)
+        controller = run_reference
+        if args.task == "general_pickup":
+            from infinidojo.native_pickup import run_reference as controller
+
+        config = make_config(root, args.seed, args.task)
         if reference is not None or args.scene_aware or args.capture_initial_state:
             for robot_config in config.robot.robots:
                 robot_config.need_planner = False
         if asset_map is not None:
             install_asset_overlay(root, output, asset_map)
         write_json(output / "config.json", OmegaConf.to_container(config, resolve=True))
-        env = stack_blocks(config, app)
+        env = task_class(config, app)
         install_reset_cleanup(env)
         env.scene_manager.layout_manager.set_saved_layout(0, layout)
         env.reset(seed=[args.seed])
@@ -567,7 +578,7 @@ def main():
                 "note": "Observed reset state only; no completion or validity claim",
             }
         else:
-            result = run_reference(
+            result = controller(
                 env,
                 output,
                 args.max_steps,

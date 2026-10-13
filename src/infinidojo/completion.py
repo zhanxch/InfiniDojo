@@ -23,8 +23,10 @@ from infinidojo.repair import validate_position_options
 
 def validate_request(request):
     validate_position_options(request)
-    if request["task"] != "stack_blocks":
-        raise ValueError("Only the complete native stack_blocks contract is supported here")
+    if request["task"] not in ("stack_blocks", "general_pickup"):
+        raise ValueError("Only the complete native stack_blocks/general_pickup contracts are supported here")
+    if request["task"] == "general_pickup" and "task_xy_options_m" in request:
+        raise ValueError("Pickup task-position repair has not been connected")
     clutter = request["clutter"]
     region = np.asarray(clutter["region_xy_m"], dtype=float)
     count = clutter["count"]
@@ -253,6 +255,8 @@ def main():
     for path in (source / "src/infinidojo").glob("*.py"):
         shutil.copyfile(path, snapshot / path.name)
     request = json.loads(args.request.read_text())
+    if request["task"] != json.loads((reference / "provenance.json").read_text())["task"]:
+        raise ValueError("Request and reference tasks differ")
     if not args.initial_state_only:
         result = json.loads((reference / "result.json").read_text())
         if not result["native_task_success"] or not result["event_trace"]["complete"]:

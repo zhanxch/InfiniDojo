@@ -1,4 +1,4 @@
-"""Independent development checks on executed stack episodes.
+"""Independent development checks on executed stack and pickup episodes.
 
 Uses native task success, actual PhysX contacts, actual motion and an independent
 OBB screen. Thresholds are explicit development values, not a frozen paper
@@ -23,7 +23,7 @@ from infinidojo.geometry import (
     rotation,
     transformed_box,
 )
-from infinidojo.interaction import build_program, validate_event_trace
+from infinidojo.interaction import build_pickup_program, build_program, validate_event_trace
 from infinidojo.io import sha256, write_json
 from infinidojo.repair import validate_position_options
 
@@ -91,6 +91,11 @@ def stack_contact_contract(arm):
             )
         )
     )
+
+
+def pickup_contact_contract(arm):
+    """Verifier-owned pickup contract ends in an actual sustained grasp."""
+    return json.loads(json.dumps(build_pickup_program("target", "Table", arm)))
 
 
 def audit_contacts(records, program, objects, robots, thresholds):
@@ -176,11 +181,16 @@ def audit_episode(execution, generation, robot_usd, thresholds=None):
     objects = read(execution / "scene-objects.json")
     robots = read(execution / "robot-identities.json")
     recorded_program = read(execution / "interaction-program.json")
-    program = stack_contact_contract(robots["robot1"]["arm"])
     sensor = read(execution / "contact-summary.json")
     request = read(generation / "request.json")
     generated = read(generation / "generation.json")
     provenance = read(execution / "provenance.json")
+    task = provenance["task"]
+    if task not in ("stack_blocks", "general_pickup") or request["task"] != task:
+        raise ValueError("Execution and generation must use the same supported task")
+    pickup = task == "general_pickup"
+    contract = pickup_contact_contract if pickup else stack_contact_contract
+    program = contract(robots["robot1"]["arm"])
     robot_hash = sha256(robot_usd)
     if provenance.get("robot_usd_sha256", robot_hash) != robot_hash:
         raise ValueError("Robot geometry changed since execution")
@@ -275,7 +285,7 @@ def audit_episode(execution, generation, robot_usd, thresholds=None):
         for name in robot["body_names"]
     )
     checks["contacts_legal_and_shallow"] = contact["clear"]
-    settled = [frame for frame in frames if frame["phase"] == "settle"]
+    settled = [frame for frame in frames if frame["phase"] == ("hold" if pickup else "settle")]
     checks["settle_duration"] = (
         bool(settled) and settled[-1]["time_s"] - settled[0]["time_s"] >= thresholds.minimum_settle_s
     )
@@ -333,9 +343,45 @@ def audit_episode(execution, generation, robot_usd, thresholds=None):
     checks["final_support_geometry"] = all(
         abs(gap) <= thresholds.support_gap_m for gap in support_gaps.values()
     )
+    if pickup:
+        # Empty final_support means still held, not vacuously valid support.
+        del checks["final_task_support_contacts"], checks["final_support_geometry"]
+        diagnostics.pop("final_support_gaps_m")
+        for old, new in (
+            ("settle_duration", "hold_duration"),
+            ("settle_motion", "hold_motion"),
+            ("settle_rotation_stable", "hold_rotation_stable"),
+        ):
+            checks[new] = checks.pop(old)
+        for old, new in (
+            ("settle_translation_m", "hold_translation_m"),
+            ("settle_rotation_deg", "hold_rotation_deg"),
+        ):
+            diagnostics[new] = diagnostics.pop(old)
+        diagnostics["minimum_hold_origin_lift_m"] = min(
+            (frame["objects"]["target"][2] - initial["target"][2] for frame in settled), default=None
+        )
+        checks["sustained_native_lift"] = bool(settled) and diagnostics["minimum_hold_origin_lift_m"] > 0.1
+        resting = [frame for frame in frames if frame["phase"] == "initial"]
+        checks["initial_rest_duration"] = bool(resting) and (
+            resting[-1]["time_s"] - resting[0]["time_s"] >= thresholds.minimum_settle_s
+        )
+        diagnostics["initial_target_support_gap_m"] = float(
+            aabb(transformed_box(objects["target"]["bounds"], initial["target"]))[0, 2] - table_z
+        )
+        checks["initial_target_support_geometry"] = (
+            abs(diagnostics["initial_target_support_gap_m"]) <= thresholds.support_gap_m
+        )
+        checks["initial_target_stable"] = bool(resting) and all(
+            np.linalg.norm(np.array(frame["objects"]["target"][:3]) - initial["target"][:3])
+            <= thresholds.settle_motion_m
+            and angle_degrees(rotation(initial["target"]), rotation(frame["objects"]["target"]))
+            <= thresholds.settle_rotation_deg
+            for frame in resting
+        )
     attached_errors, attached_angles, held_contacts = {}, {}, []
     for event in program["events"]:
-        if event["phase"] not in ("lift", "transport"):
+        if event["phase"] not in ("lift", "transport", "hold"):
             continue
         label = event["object"]
         robot_id = next(

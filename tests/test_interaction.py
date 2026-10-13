@@ -1,6 +1,6 @@
 import pytest
 
-from infinidojo.interaction import build_program, validate_event_trace
+from infinidojo.interaction import build_pickup_program, build_program, validate_event_trace
 
 
 def program():
@@ -44,3 +44,15 @@ def test_skipped_or_reordered_events_do_not_count_as_complete():
     assert not validate_event_trace(p, trace[1:])["complete"]
     with pytest.raises(ValueError, match="backwards"):
         validate_event_trace(p, trace[::-1])
+
+
+def test_pickup_ends_held_without_invented_release_or_support():
+    p = build_pickup_program("target", "Table", "arm1")
+    hold = p["events"][-1]
+    assert hold["phase"] == "hold" and hold["attachment"] == "held"
+    assert hold["support_relations"] == {} and p["final_support"] == {}
+    assert p["final_attachment"] == {"target": "arm1/gripper"}
+    assert ("target", "Table") not in hold["allowed_contacts"]
+    trace = [{"step": i, "event_id": e["id"]} for i, e in enumerate(p["events"])]
+    assert validate_event_trace(p, trace)["complete"]
+    assert not validate_event_trace(p, trace[:-1])["complete"]

@@ -69,6 +69,11 @@ evaluation on the native and generated development inputs: each scores 15/100
 without full task success. The Astra pair preserves quota failures without
 counting them as task failures. See the [policy development evidence](results/v1-policy-development/README.md)
 for the distinction between inference probes, completed episodes and infrastructure errors.
+The [pickup development evidence](results/v1-pickup-development/README.md) extends
+the shared generator/validator to a task that ends with an object still held.
+Two native-can references and their six-clutter generated episodes pass physical
+development checks; one exported bundle also passes after relocation and replay.
+Pickup language and bounded G1/G3 integration, broader coverage and policy scores remain pending.
 
 ## Initial implementation scope
 

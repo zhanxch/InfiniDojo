@@ -128,6 +128,10 @@ def run_request(args):
     else:
         request = read_json(args.request)
     validate_request(request)
+    if request["task"] != "stack_blocks":
+        raise ValueError(
+            "The bounded G1/G2/G3 runner still requires stack_blocks; pickup uses completion directly"
+        )
     frozen = source_hashes(source)
     for name in frozen:
         folder = output / "source/infinidojo"

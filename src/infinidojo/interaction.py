@@ -68,6 +68,30 @@ def build_program(transfers: list[dict], initial_support: dict[str, str]):
     return {"events": frames, "initial_support": initial_support, "final_support": supports}
 
 
+def build_pickup_program(obj: str, source: str, arm: str):
+    """A pickup ends held, without inventing a release or return requirement."""
+    if obj == source:
+        raise ValueError("Object and initial support must differ")
+    gripper = f"{arm}/gripper"
+    phases = [
+        ("approach", "free", source, [(obj, source)]),
+        ("descend", "free", source, [(obj, source)]),
+        ("grasp", "contact", source, [(obj, source), (obj, gripper)]),
+        ("lift", "held", None, [(obj, source), (obj, gripper)]),
+        ("hold", "held", None, [(obj, gripper)]),
+    ]
+    events = []
+    for phase, attachment, support, contacts in phases:
+        event = InteractionEvent(f"00/{phase}", phase, obj, arm, attachment, support, tuple(contacts))
+        events.append({**event.as_dict(), "support_relations": {obj: support} if support else {}})
+    return {
+        "events": events,
+        "initial_support": {obj: source},
+        "final_support": {},
+        "final_attachment": {obj: gripper},
+    }
+
+
 def validate_event_trace(program, trajectory):
     """Check actual recorded ordering and boundaries, without claiming feasibility."""
     expected = [event["id"] for event in program["events"]]

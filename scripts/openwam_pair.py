@@ -36,9 +36,10 @@ def main():
     root, xpl, output = args.robodojo_root.resolve(), args.xpolicylab_root.resolve(), args.output.resolve()
     source, episode = Path(__file__).resolve().parents[1], args.episode.resolve()
     manifest, _, _ = load_episode(episode)
+    task = manifest["task"]
     if manifest["robodojo_commit"] != git_revision(root) or git_revision(xpl) != XPL_REVISION:
         raise ValueError("Episode, service and evaluator must use the declared revisions")
-    native = root / f"Assets/Eval_Layout/RoboDojo/arx_x5/0/stack_blocks_{args.native_layout}.json"
+    native = root / f"Assets/Eval_Layout/RoboDojo/arx_x5/0/{task}_{args.native_layout}.json"
     if not native.is_file():
         raise FileNotFoundError(native)
     output.mkdir(parents=True, exist_ok=False)
@@ -67,6 +68,8 @@ def main():
         str(output / "service"),
         "--port",
         str(port),
+        "--task",
+        task,
     ]
     planned = [
         ("native", ["--native-layout", str(args.native_layout)]),
@@ -75,6 +78,7 @@ def main():
     record = {
         "development_only": True,
         "policy": "OpenWAM",
+        "task": task,
         "native_layout": args.native_layout,
         "native_layout_sha256": sha256(native),
         "episode_sha256": sha256(episode / "episode.json"),
@@ -141,6 +145,8 @@ def main():
                     str(destination),
                     "--policy",
                     "OpenWAM",
+                    "--task",
+                    task,
                     "--port",
                     str(port),
                     "--policy-service-record",

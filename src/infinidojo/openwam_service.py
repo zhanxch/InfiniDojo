@@ -105,6 +105,7 @@ def main():
     parser.add_argument("--checkpoint", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--port", type=int, default=6124)
+    parser.add_argument("--task", choices=("stack_blocks", "general_pickup"), default="stack_blocks")
     parser.add_argument(
         "--seed",
         type=int,
@@ -146,7 +147,7 @@ def main():
             "port": args.port,
             "env_cfg_type": "arx_x5",
             "bench_name": "RoboDojo",
-            "task_name": "stack_blocks",
+            "task_name": args.task,
             "seed": args.seed,
             "ckpt_dir": str(ckpt),
             "openwam_root": str(openwam),

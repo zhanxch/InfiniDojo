@@ -132,7 +132,7 @@ def record_policy_io(env, output):
                     delattr(env, name)
 
 
-def make_eval_config(root, policy, port, run_id):
+def make_eval_config(root, policy, port, run_id, task="stack_blocks"):
     """Use the official single-environment configuration and processing order."""
     from omegaconf import OmegaConf
     from utils.pipeline_utils import process_config, process_randomization
@@ -140,7 +140,7 @@ def make_eval_config(root, policy, port, run_id):
     evaluation = OmegaConf.load(root / "env_cfg/arx_x5.yml")
     evaluation.update(
         {
-            "task_name": "stack_blocks",
+            "task_name": task,
             "num_envs": 1,
             "device_id": 0,
             "eval_batch": False,
@@ -154,7 +154,7 @@ def make_eval_config(root, policy, port, run_id):
     config = OmegaConf.create(
         {k: OmegaConf.load(root / f"env_cfg/{k}/{v}.yml") for k, v in evaluation.config.items()}
     )
-    config.task_env = OmegaConf.load(root / "task/RoboDojo/config/stack_blocks.yml")
+    config.task_env = OmegaConf.load(root / f"task/RoboDojo/config/{task}.yml")
     config.eval_cfg = evaluation
     config.deploy_cfg = {
         "policy_name": policy,
@@ -163,11 +163,11 @@ def make_eval_config(root, policy, port, run_id):
         "protocol": "ws",
         "evaluation_id": run_id,
         "trial_id": run_id,
-        "action_case_id": "stack_blocks_case",
+        "action_case_id": f"{task}_case",
     }
     config.sim.scene.num_envs = 1
     config = process_randomization(config)
-    config = process_config(config, "stack_blocks")[0]
+    config = process_config(config, task)[0]
     config.camera.default_frequency = evaluation.observation.collect_freq
     config.sim.seed = [0]
     return config
@@ -180,6 +180,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--policy", choices=POLICIES, required=True)
     parser.add_argument("--port", type=int, required=True)
+    parser.add_argument("--task", choices=("stack_blocks", "general_pickup"))
     parser.add_argument("--policy-service-record", type=Path, help="Ready OpenWAM deployment provenance")
     inputs = parser.add_mutually_exclusive_group(required=True)
     inputs.add_argument("--episode", type=Path)
@@ -209,14 +210,20 @@ def main():
     manifest, assets = None, None
     if args.episode:
         manifest, layout, assets = load_episode(args.episode)
+        task = manifest["task"]
+        if args.task is not None and args.task != task:
+            parser.error("Episode task differs from --task")
         if manifest["robodojo_commit"] != git_revision(root):
             raise ValueError("Episode requires a different RoboDojo revision")
         seed = manifest["seed"]
     else:
+        task = args.task or "stack_blocks"
         if args.native_layout < 0:
             parser.error("Native layout must be nonnegative")
         seed = args.native_layout
-        layout = root / f"Assets/Eval_Layout/RoboDojo/arx_x5/0/stack_blocks_{seed}.json"
+        layout = root / f"Assets/Eval_Layout/RoboDojo/arx_x5/0/{task}_{seed}.json"
+    if service is not None and service["adapter_config"]["task_name"] != task:
+        raise ValueError("OpenWAM service task differs from this episode")
     layout_data = json.loads(layout.read_text())
     output.mkdir(parents=True, exist_ok=False)
     if service is not None:
@@ -248,7 +255,7 @@ def main():
             "xpolicylab_commit": git_revision(xpl),
             "policy": args.policy,
             "policy_service_sha256": sha256(output / "service-provenance.json") if service else None,
-            "task": "stack_blocks",
+            "task": task,
             "instance_source": "generated" if manifest else "native",
             "reset_seed": seed,
             "episode_manifest": manifest,
@@ -289,7 +296,7 @@ def main():
         from infinidojo.native import install_reset_cleanup
         from infinidojo.native_stack import install_asset_overlay
 
-        config = make_eval_config(root, args.policy, args.port, run_id)
+        config = make_eval_config(root, args.policy, args.port, run_id, task)
         write_json(output / "config.json", OmegaConf.to_container(config, resolve=True))
         if assets is not None:
             install_asset_overlay(root, output, assets)

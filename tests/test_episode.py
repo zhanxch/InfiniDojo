@@ -6,14 +6,15 @@ from infinidojo.episode import export_episode, load_episode
 from infinidojo.io import sha256, write_json
 
 
-def test_portable_bundle_rejects_changed_or_external_files(tmp_path):
+@pytest.mark.parametrize("task", ["stack_blocks", "general_pickup"])
+def test_portable_bundle_rejects_changed_or_external_files(tmp_path, task):
     folder = tmp_path / "episode"
     folder.mkdir()
     for name in ("layout.json", "request.json", "asset-map.json"):
         write_json(folder / name, {})
     manifest = {
         "format": "infinidojo.episode.v1",
-        "task": "stack_blocks",
+        "task": task,
         "robot": "arx_x5",
         "layout": "layout.json",
         "request": "request.json",

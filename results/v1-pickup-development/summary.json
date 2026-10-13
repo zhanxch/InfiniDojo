@@ -1,0 +1,343 @@
+{
+  "development_only": true,
+  "date": "2026-10-13",
+  "task": "general_pickup",
+  "plan": {
+    "development_only": true,
+    "task": "general_pickup",
+    "seeds": [
+      1200,
+      1201
+    ],
+    "selection": "Two right-arm tabletop positions declared before execution; native can target selected for an upright pinch grasp. Not coverage of all native pickup assets.",
+    "target": "native can/00000",
+    "target_metadata_sha256": "5259953c55ce2b350f8a8ea3e6e91ff88eac6e4e08530ad3f7fb56f5dfe67fa1",
+    "fixture_layout_sha256": "7a3ecf189e248f99a75ef8f6fdbe7fca85795846d67e9fd7f2d74954c8e78dda",
+    "max_reference_physics_steps": 10000,
+    "reference": {
+      "rise_m": 0.15,
+      "initial_hold_s": 1.0,
+      "final_hold_s": 1.0
+    },
+    "native_semantics": "unchanged origin lift > 0.1 m; separate grasp/contact/hold validation required"
+  },
+  "request": {
+    "task": "general_pickup",
+    "clutter": {
+      "count": 6,
+      "region_xy_m": [
+        [
+          0.08,
+          -0.14
+        ],
+        [
+          0.5,
+          0.28
+        ]
+      ],
+      "clearance_m": 0.003,
+      "pair_distance_m": 0.09
+    }
+  },
+  "reference_attempts": [
+    {
+      "name": "reference-1200",
+      "seed": 1200,
+      "status": "controller_failed",
+      "error": "Planner failed during lift",
+      "native_task_success": false,
+      "event_trace": {
+        "complete": false,
+        "expected": [
+          "00/approach",
+          "00/descend",
+          "00/grasp",
+          "00/lift",
+          "00/hold"
+        ],
+        "observed": [
+          "00/approach",
+          "00/descend",
+          "00/grasp"
+        ]
+      },
+      "final_origin_lift_m": 6.604194641113281e-05,
+      "minimum_hold_origin_lift_m": null,
+      "hold_duration_s": 0,
+      "steps": 1282,
+      "wall_seconds": 49.326404387000366,
+      "grasp_profile": "downward midpoint pinch"
+    },
+    {
+      "name": "reference-1200-side",
+      "seed": 1200,
+      "status": "controller_failed",
+      "error": "Planner failed during approach",
+      "native_task_success": false,
+      "event_trace": {
+        "complete": false,
+        "expected": [
+          "00/approach",
+          "00/descend",
+          "00/grasp",
+          "00/lift",
+          "00/hold"
+        ],
+        "observed": []
+      },
+      "final_origin_lift_m": 0.0,
+      "minimum_hold_origin_lift_m": null,
+      "hold_duration_s": 0,
+      "steps": 250,
+      "wall_seconds": 33.38185767500545,
+      "grasp_profile": "upright_can_front_pinch; no arbitrary-object grasp synthesis claim"
+    },
+    {
+      "name": "reference-1200-angled",
+      "seed": 1200,
+      "status": "completed",
+      "error": null,
+      "native_task_success": true,
+      "event_trace": {
+        "complete": true,
+        "expected": [
+          "00/approach",
+          "00/descend",
+          "00/grasp",
+          "00/lift",
+          "00/hold"
+        ],
+        "observed": [
+          "00/approach",
+          "00/descend",
+          "00/grasp",
+          "00/lift",
+          "00/hold"
+        ]
+      },
+      "final_origin_lift_m": 0.14973974227905273,
+      "minimum_hold_origin_lift_m": 0.14973962306976318,
+      "hold_duration_s": 1.0,
+      "steps": 1643,
+      "wall_seconds": 135.38859074001084,
+      "grasp_profile": "upright_can_front_down_45_pinch; no arbitrary-object grasp synthesis claim"
+    },
+    {
+      "name": "reference-1201-angled",
+      "seed": 1201,
+      "status": "completed",
+      "error": null,
+      "native_task_success": true,
+      "event_trace": {
+        "complete": true,
+        "expected": [
+          "00/approach",
+          "00/descend",
+          "00/grasp",
+          "00/lift",
+          "00/hold"
+        ],
+        "observed": [
+          "00/approach",
+          "00/descend",
+          "00/grasp",
+          "00/lift",
+          "00/hold"
+        ]
+      },
+      "final_origin_lift_m": 0.1496930718421936,
+      "minimum_hold_origin_lift_m": 0.1496930718421936,
+      "hold_duration_s": 1.0,
+      "steps": 1663,
+      "wall_seconds": 77.12770246599393,
+      "grasp_profile": "upright_can_front_down_45_pinch; no arbitrary-object grasp synthesis claim"
+    }
+  ],
+  "generated_instances": [
+    {
+      "seed": 1200,
+      "method": "G2_fixed_reference_completion",
+      "requested_count": 6,
+      "generated_count": 6,
+      "candidate_proposals": 17,
+      "geometry_generation_seconds": 0.017379544995492324,
+      "native_task_success": true,
+      "minimum_hold_origin_lift_m": 0.14973962306976318,
+      "hold_duration_s": 1.0,
+      "reference_physics_steps": 1643,
+      "execution_wall_seconds": 43.003806922992226,
+      "validation_status": "validated_under_development_checks",
+      "checks": {
+        "verifier_owned_contact_contract": true,
+        "native_task_success": true,
+        "complete_event_order": true,
+        "complete_execution": true,
+        "initialization_preserved": true,
+        "initial_rotations_preserved": true,
+        "requested_count": true,
+        "requested_asset_identities": true,
+        "initial_footprints_inside_region": true,
+        "requested_initial_clearance": true,
+        "pair_relation_preserved": true,
+        "clutter_remains_stationary": true,
+        "clutter_rotation_stable": true,
+        "contact_reporting_available": true,
+        "all_recorded_bodies_instrumented": true,
+        "contacts_legal_and_shallow": true,
+        "hold_duration": true,
+        "hold_motion": true,
+        "hold_rotation_stable": true,
+        "sustained_native_lift": true,
+        "initial_rest_duration": true,
+        "initial_target_support_geometry": true,
+        "initial_target_stable": true,
+        "held_relation_observed": true,
+        "held_rotation_observed": true,
+        "independent_clutter_geometry_screen": true
+      },
+      "failed_checks": [],
+      "episode_sha256": "ce1f12c5b2da08f8d12eb18a3883a3492b68c73aac78b4feef5f62a4bbd9225d"
+    },
+    {
+      "seed": 1201,
+      "method": "G2_fixed_reference_completion",
+      "requested_count": 6,
+      "generated_count": 6,
+      "candidate_proposals": 18,
+      "geometry_generation_seconds": 0.019071842994890176,
+      "native_task_success": true,
+      "minimum_hold_origin_lift_m": 0.1496930718421936,
+      "hold_duration_s": 1.0,
+      "reference_physics_steps": 1663,
+      "execution_wall_seconds": 48.65534771500097,
+      "validation_status": "validated_under_development_checks",
+      "checks": {
+        "verifier_owned_contact_contract": true,
+        "native_task_success": true,
+        "complete_event_order": true,
+        "complete_execution": true,
+        "initialization_preserved": true,
+        "initial_rotations_preserved": true,
+        "requested_count": true,
+        "requested_asset_identities": true,
+        "initial_footprints_inside_region": true,
+        "requested_initial_clearance": true,
+        "pair_relation_preserved": true,
+        "clutter_remains_stationary": true,
+        "clutter_rotation_stable": true,
+        "contact_reporting_available": true,
+        "all_recorded_bodies_instrumented": true,
+        "contacts_legal_and_shallow": true,
+        "hold_duration": true,
+        "hold_motion": true,
+        "hold_rotation_stable": true,
+        "sustained_native_lift": true,
+        "initial_rest_duration": true,
+        "initial_target_support_geometry": true,
+        "initial_target_stable": true,
+        "held_relation_observed": true,
+        "held_rotation_observed": true,
+        "independent_clutter_geometry_screen": true
+      },
+      "failed_checks": [],
+      "episode_sha256": "b215bbe073bb785650f7cf84bb313e65fe624c19debb5dbf9b7f87cecc9490ae"
+    }
+  ],
+  "limitations": [
+    "Two development positions, one native upright can; not all native pickup objects.",
+    "Grasp pose corrected using development failures; no held-out effectiveness claim.",
+    "G2 completion and task-specific acceptance; pickup language and bounded G1/G3 integration pending.",
+    "Reference raw physics steps are not official policy actions; no pickup policy scores yet."
+  ],
+  "evidence_sha256": {
+    "reference-1200/result.json": "05afb2f2d690981f190d10d34ebdd5b9382b0c9fa97caac49cf1ff8a02ccebf5",
+    "reference-1200/provenance.json": "cda1ffc265c272dcdb94cfeb983c2244079a508d20b0539cf5e90ccb156bd9d3",
+    "reference-1200/contacts.jsonl": "34b140f3f044e81ecf6230796ce4cbe6c0d737defe787eff1ca062d59b3408cd",
+    "reference-1200-side/result.json": "16b27afb9684da05bcd2ec89fb500dbd610b7a13291444bc9c2d62d9ed81e724",
+    "reference-1200-side/provenance.json": "33884accd05e236cf5befa143a93559b5058bc2bd53521d8fdd67da3391496e5",
+    "reference-1200-side/contacts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "reference-1200-angled/result.json": "7af94b47c2987b6ad3d25b08a4566d85fbbc43a1960e89508fa85651893733d2",
+    "reference-1200-angled/provenance.json": "2a06f41d3f5f066c115c4da386b3a46278f5eea58c427ac7aabbd24dcabb0ae9",
+    "reference-1200-angled/contacts.jsonl": "1b8656f3f425718f73d699848a6bcd67174e2c7d55344ad36546f76d0b9719c9",
+    "reference-1201-angled/result.json": "b3887babb1159cf5a50d9e6c8ba5a24301cad92e3afb4d4113de0b8e490cae99",
+    "reference-1201-angled/provenance.json": "8f5726fe449531218c0475f6d0ffd040349ec5d8b586c0dec5c22edd19c715bd",
+    "reference-1201-angled/contacts.jsonl": "56338b154a83ea835ee8a4db468f0f0f7acf324b4daa953aa853abc921bcc8b2",
+    "generated-1200-6/generation.json": "b020b2836ae9a1875f2a0f622793adb23fc8a4fece18deb1aa21010e6e23d07a",
+    "generated-1200-6-execution/result.json": "8610acb401f80556767e09cb81aa3b205d180cc2d6f5aff076470998fcf204ae",
+    "generated-1200-6-execution/provenance.json": "694493c770146aac90966911aa79b467a249490311f42a3817fa920d4c96db96",
+    "generated-1200-6-validation.json": "b11545dfe937af8eb72771f004611c686ca1c14a8277663ce1c64eec3bfe91e7",
+    "generated-1201-6/generation.json": "cbc58fb24a73e7c6a48faf6fc9edaaeefd3cd6c8a4c65b2dfc6ab066ab6234dc",
+    "generated-1201-6-execution/result.json": "646da9b1ea868111361d018adef0b66d491436a26083ea59485c0f59485bf504",
+    "generated-1201-6-execution/provenance.json": "745937d9e7944be86ce712ec3dd3542440f762d73d4eed80d31da7493f98758e",
+    "generated-1201-6-validation.json": "37072881140dca986c9f06e3ae73a2c3280131930a51773dc36a1d03368ee6dc",
+    "relocated-execution/result.json": "476d0d2a44faa0b8d6b74ca28f779266752e8efa112742012b5063956c591141",
+    "relocated-execution/provenance.json": "ec2c38d60e6392d4ae1f48c2fb1390bd81f02b171c52df4e204ccfd4265ce697",
+    "relocated-validation.json": "1658110e4ea6b1742077c9cc84aa8be46390bfaea65b346dc5316070d56e8723"
+  },
+  "stack_regression": {
+    "status": "validated_under_development_checks",
+    "failed_checks": []
+  },
+  "relocated_episode": {
+    "manifest_matches_original": true,
+    "native_task_success": true,
+    "minimum_hold_origin_lift_m": 0.14973962306976318,
+    "validation_status": "validated_under_development_checks",
+    "checks": {
+      "verifier_owned_contact_contract": true,
+      "native_task_success": true,
+      "complete_event_order": true,
+      "complete_execution": true,
+      "initialization_preserved": true,
+      "initial_rotations_preserved": true,
+      "requested_count": true,
+      "requested_asset_identities": true,
+      "initial_footprints_inside_region": true,
+      "requested_initial_clearance": true,
+      "pair_relation_preserved": true,
+      "clutter_remains_stationary": true,
+      "clutter_rotation_stable": true,
+      "contact_reporting_available": true,
+      "all_recorded_bodies_instrumented": true,
+      "contacts_legal_and_shallow": true,
+      "hold_duration": true,
+      "hold_motion": true,
+      "hold_rotation_stable": true,
+      "sustained_native_lift": true,
+      "initial_rest_duration": true,
+      "initial_target_support_geometry": true,
+      "initial_target_stable": true,
+      "held_relation_observed": true,
+      "held_rotation_observed": true,
+      "independent_clutter_geometry_screen": true
+    },
+    "failed_checks": []
+  },
+  "reproduced_inputs": {
+    "development_only": true,
+    "task": "general_pickup",
+    "positions": {
+      "1200": [
+        0.22,
+        -0.05
+      ],
+      "1201": [
+        0.28,
+        0.02
+      ]
+    },
+    "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+    "fixture_layout_sha256": "7a3ecf189e248f99a75ef8f6fdbe7fca85795846d67e9fd7f2d74954c8e78dda",
+    "native_target_sha256": {
+      "metadata.json": "5259953c55ce2b350f8a8ea3e6e91ff88eac6e4e08530ad3f7fb56f5dfe67fa1",
+      "description.json": "aeb30c5c7d72e786e6f832e6ad2c7b41f67ea799ac5e71955ca4bc8bbcc4e0b3",
+      "object.usdz": "c6b06ac091429387017b5c03ce0a62c48d378f5e08dd224aaaf54ea3e3767b17"
+    },
+    "selection": "Two previously declared right-arm positions; native upright can; not all pickup assets.",
+    "files_sha256": {
+      "layout-1201.json": "1405cad281e649a845f828e89a395482f89a399820e7986549f4f57df4ff3448",
+      "layout-1200.json": "d0158f73800081b1d88020de56c3f228a2f301e08a397010e5cecaee4891afac",
+      "request-6.json": "fb95987a022d622bc8e014195a560c89bcd0ff41255a359b4f1cb80ce7487521"
+    }
+  }
+}
