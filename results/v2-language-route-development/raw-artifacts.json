@@ -282,5 +282,49 @@
   "stack/generation/attempt-00/execution/asset-provenance.json": {
     "sha256": "dc1799f36848964f2dd819f5af469423574ab6d1f2ef916619288567f935d708",
     "bytes": 1331
+  },
+  "cover/generation/reference/provenance.json": {
+    "sha256": "29d1865d427d943db11fb1db9a1bd6a97618c444d91fbc105569209ab92c5f64",
+    "bytes": 3567
+  },
+  "cover/generation/reference/trajectory.json": {
+    "sha256": "4be0afe164449acabb6762917afa6928f356a2062b0196e94e944c40a82af781",
+    "bytes": 27160451
+  },
+  "cover/generation/reference/controls.json": {
+    "sha256": "80a11dbdb37951bfd3416e0c624af711ff07deaa06d6ad47aa8617099a3a3276",
+    "bytes": 18026664
+  },
+  "cover/generation/reference/contacts.jsonl": {
+    "sha256": "23ffaae325c9c1880a27b6381c69285e4f39c2428bb029dc69a999b85964593a",
+    "bytes": 187563424
+  },
+  "cover/generation/reference/scene-objects.json": {
+    "sha256": "a0197164646a1c39bff4c5e3d8c07103cc619a3ff3d827fc36d154afb4262b6d",
+    "bytes": 2303
+  },
+  "cover/generation/attempt-00/execution/provenance.json": {
+    "sha256": "3890ac84d0a4bf6fc846665317dd38264b613f3267ce7918265b439549a01d75",
+    "bytes": 3629
+  },
+  "cover/generation/attempt-00/execution/trajectory.json": {
+    "sha256": "72107710ad911bdd33357107a49cdba13c5ee5ff83b639f4e3eb101ea85dda9f",
+    "bytes": 31176095
+  },
+  "cover/generation/attempt-00/execution/controls.json": {
+    "sha256": "a29fc3b948ba417cf7c6e56599b5ffe91ef8e2f18b40504c6af4d47d2733ffa4",
+    "bytes": 18026670
+  },
+  "cover/generation/attempt-00/execution/contacts.jsonl": {
+    "sha256": "a8d05b0d1322673c1a7eff3e6fa1fb8cea9272afd062131cb2d38bc71d13f8d2",
+    "bytes": 187630912
+  },
+  "cover/generation/attempt-00/execution/scene-objects.json": {
+    "sha256": "290919d7d2d3a471d3dcb9cdff050fae78eb716970bdc65444a92e0c0b289c13",
+    "bytes": 5588
+  },
+  "cover/generation/attempt-00/execution/asset-provenance.json": {
+    "sha256": "7be756ca1949b202ac14681d929095822eb7093eb6152ed43d71b51a2bb90687",
+    "bytes": 1331
   }
 }

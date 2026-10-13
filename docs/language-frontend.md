@@ -5,7 +5,10 @@
 `infinidojo.route --description` 连接真实 LLM 编译、按需 Infinigen 资产生成、
 基于实际任务几何的参考操作、场景补全、物理执行与 episode 导出。
 支持完整 `general_pickup`、`stack_blocks`、`cover_blocks`；event 和评分程序由后端固定模板负责。
-首条真实拾取描述已跑通，其他声明条件的开发验证正在执行，不能据接口存在就认定全部通过。
+九条真实语言请求已完成：七条支持请求忠实编译，两条不支持请求正确拒绝。
+七个生成条件覆盖三个完整任务，均已执行、导出并在独立目录通过 bundle 重载检查；
+其中拾取基准还完成了真实 OpenWAM 原生评测。见 [路线开发证据](../results/v2-language-route-development/README.md)。
+这是有限条件下的接入结果，不代表整个参数范围都已验证。
 
 当前参数范围：
 

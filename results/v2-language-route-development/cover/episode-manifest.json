@@ -1,0 +1,44 @@
+{
+  "format": "infinidojo.episode.v1",
+  "task": "cover_blocks",
+  "robot": "arx_x5",
+  "seed": 1206,
+  "instruction": "Cover the blocks from left to right, remember their colors, then uncover them in the order: red, green, and blue.",
+  "instruction_resolution": "Native observation manager resolves target descriptions from scene assets.",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "layout": "layout.json",
+  "asset_map": "asset-map.json",
+  "request": "request.json",
+  "files_sha256": {
+    "asset-map.json": "65e3a5d054af74f07bc0b3f9abdde564c5a8019eebef412983713b47fe2f4b38",
+    "assets/19297/description.json": "a3ebeb2734acac6a3c2c8785860f3665ff16dd7336444dd3ae14e27e8de361fb",
+    "assets/19297/mesh.npz": "7f43d82880079ddf54d56726b5aa4f3bb91d925d8057a7382a0943907af2a361",
+    "assets/19297/metadata.json": "f11ced6519e767133cce2a7d5b7cb71ca248db5cfa2c4f9df940684899531aaf",
+    "assets/19297/object.usd": "ba22a2b3d4bbd66f307e2b2ec28c853e731dc520c228f0864709c31e2a794a45",
+    "assets/19297/provenance.json": "6bb902ffd904be788785bf330e4c413a9d32a2ca0af4c4a993022c12cf03f8d1",
+    "layout.json": "7b5e1d6860638ca2d393f5538138f4dfd3df264ba006f3fa5163eedf2ecb7ce9",
+    "request.json": "8171d2c069e3b849f5614c6908c81e5cb66bff08347c1f785f454c6a395e804f"
+  },
+  "validation": {
+    "status": "validated_under_development_checks",
+    "threshold_status": "development values, not frozen held-out protocol",
+    "thresholds": {
+      "penetration_m": 0.001,
+      "contact_distance_m": 0.001,
+      "initialization_translation_m": 0.005,
+      "initialization_rotation_deg": 2.0,
+      "clutter_motion_m": 0.002,
+      "clutter_rotation_deg": 2.0,
+      "settle_motion_m": 0.002,
+      "settle_rotation_deg": 2.0,
+      "attachment_translation_m": 0.003,
+      "attachment_rotation_deg": 5.0,
+      "pair_distance_error_m": 0.003,
+      "support_gap_m": 0.001,
+      "minimum_settle_s": 1.0
+    },
+    "report_sha256": "7fcd76b412fad661aed7864b6cc86b26b5b1b9e5fef88d44bda5cd070832e9ef"
+  },
+  "policy_observation_contract": "Native cameras and proprioception only; scene metadata stays in harness.",
+  "native_asset_requirement": "Licensed native RoboDojo assets must be installed separately."
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "pickup-base",
+    "task": "general_pickup",
+    "episode_sha256": "93b9774d7110b2035f46f727f458736185b094a8b153118d83e2c21c02fe6fb0",
+    "generated_assets_inside_bundle": true,
+    "generated_asset_count": 2
+  },
+  {
+    "id": "pickup-appearance",
+    "task": "general_pickup",
+    "episode_sha256": "3720c313e2e9099f417e26ca4ee086a4ae4c3f66b22405f653331ecf24143661",
+    "generated_assets_inside_bundle": true,
+    "generated_asset_count": 2
+  },
+  {
+    "id": "pickup-relation",
+    "task": "general_pickup",
+    "episode_sha256": "5f9ec788aaf8ed3f78c3f6c7c2c3c2fa6d9fc635a29a6759e547f8f2ad0c95c6",
+    "generated_assets_inside_bundle": true,
+    "generated_asset_count": 2
+  },
+  {
+    "id": "pickup-composition",
+    "task": "general_pickup",
+    "episode_sha256": "c80dd309febdaae047bce88c1864b0fb5f5697fc2dc16c7381cbbae2c18ae39b",
+    "generated_assets_inside_bundle": true,
+    "generated_asset_count": 2
+  },
+  {
+    "id": "pickup-combined",
+    "task": "general_pickup",
+    "episode_sha256": "ebe3462dd73bfecc10be7b07765e72738025aa033b8b5f216fea8f8c20455506",
+    "generated_assets_inside_bundle": true,
+    "generated_asset_count": 2
+  },
+  {
+    "id": "stack",
+    "task": "stack_blocks",
+    "episode_sha256": "94a4b09ee03406c99f1641d01fd234258e942ffe082b4982cbe2a163dfb19113",
+    "generated_assets_inside_bundle": true,
+    "generated_asset_count": 1
+  },
+  {
+    "id": "cover",
+    "task": "cover_blocks",
+    "episode_sha256": "2012cd514e01f46a5689ba639ae2348a39a7b725970b424ef719d2a386f1645f",
+    "generated_assets_inside_bundle": true,
+    "generated_asset_count": 1
+  }
+]

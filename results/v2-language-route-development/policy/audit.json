@@ -1,0 +1,70 @@
+{
+  "development_only": true,
+  "requested": 2,
+  "pair_sha256": "694c31fda1d1a8f898f096c4f6d58ff89af2c6ea6f0f5aa2405760fb86851f96",
+  "condition_comparison": {
+    "status": "matched",
+    "checks": {
+      "policy": true,
+      "task": true,
+      "robodojo_commit": true,
+      "xpolicylab_commit": true,
+      "policy_environment": true,
+      "instance_sources": true,
+      "policy_deployment": true,
+      "evaluation_configuration": true,
+      "runner_and_adapter_sources": true
+    },
+    "scope": "Same policy/evaluator settings; different instance distributions, no causal attribution."
+  },
+  "runs": [
+    {
+      "condition": "native",
+      "status": "evaluated",
+      "returncode": 0,
+      "native_success": false,
+      "native_score": 0.0,
+      "policy": "OpenWAM",
+      "task": "general_pickup",
+      "instance_source": "native",
+      "reset_seed": 0,
+      "native_score_scale": 100,
+      "evaluator_wall_seconds": 123.84704360799515,
+      "io": {
+        "actions_executed": 200,
+        "action_requests": 224,
+        "ignored_after_end": 24,
+        "observations": 225,
+        "unique_rgb_images": 675,
+        "instructions": [
+          "Pick up the mint green scissors by 10 cm."
+        ],
+        "unfinished_action_request": false
+      }
+    },
+    {
+      "condition": "generated",
+      "status": "evaluated",
+      "returncode": 0,
+      "native_success": false,
+      "native_score": 0.0,
+      "policy": "OpenWAM",
+      "task": "general_pickup",
+      "instance_source": "generated",
+      "reset_seed": 1204,
+      "native_score_scale": 100,
+      "evaluator_wall_seconds": 118.04966925299959,
+      "io": {
+        "actions_executed": 200,
+        "action_requests": 224,
+        "ignored_after_end": 24,
+        "observations": 225,
+        "unique_rgb_images": 675,
+        "instructions": [
+          "Pick up the red circle can, 7 cm tall and 4.4 cm wide by 10 cm."
+        ],
+        "unfinished_action_request": false
+      }
+    }
+  ]
+}

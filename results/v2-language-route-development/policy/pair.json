@@ -1,0 +1,144 @@
+{
+  "development_only": true,
+  "policy": "OpenWAM",
+  "task": "general_pickup",
+  "native_layout": 0,
+  "native_layout_sha256": "7a3ecf189e248f99a75ef8f6fdbe7fca85795846d67e9fd7f2d74954c8e78dda",
+  "episode_sha256": "93b9774d7110b2035f46f727f458736185b094a8b153118d83e2c21c02fe6fb0",
+  "infinidojo_commit": "6c12f324db0b8167fee2007d0f4b081be91689ba",
+  "launcher_sha256": "a26fa2cfc9e69771e88870f08a88ca934c311cfcc8242a0c2ad6911f4756fc88",
+  "server_command": [
+    "<host>/miniforge3/envs/openwam/bin/python",
+    "-u",
+    "-m",
+    "infinidojo.openwam_service",
+    "--xpolicylab-root",
+    "<host>/文档/ChatGPT/infiniDojo/reproduction/astra_robodojo/XPolicyLab",
+    "--robodojo-root",
+    "<repo>/.deps/robodojo",
+    "--checkpoint",
+    "<host>/RoboDojo/.cache/openwam_ckpt/OpenWAM-Alpha-Sim-RoboDojo",
+    "--output",
+    "<repo>/outputs/v2-language-route-development/openwam-pair/service",
+    "--port",
+    "49739",
+    "--task",
+    "general_pickup"
+  ],
+  "conditions": [
+    "native",
+    "generated"
+  ],
+  "runs": [
+    {
+      "condition": "native",
+      "command": [
+        "<host>/文档/ChatGPT/infiniDojo/reproduction/astra_robodojo/.venv/bin/python",
+        "-u",
+        "-m",
+        "infinidojo.policy_eval",
+        "--robodojo-root",
+        "<repo>/.deps/robodojo",
+        "--xpolicylab-root",
+        "<host>/文档/ChatGPT/infiniDojo/reproduction/astra_robodojo/XPolicyLab",
+        "--output",
+        "<repo>/outputs/v2-language-route-development/openwam-pair/native",
+        "--policy",
+        "OpenWAM",
+        "--task",
+        "general_pickup",
+        "--port",
+        "49739",
+        "--policy-service-record",
+        "<repo>/outputs/v2-language-route-development/openwam-pair/service/service.json",
+        "--headless",
+        "--enable_cameras",
+        "--native-layout",
+        "0"
+      ],
+      "status": "process_exited",
+      "pid": 350720,
+      "returncode": 0,
+      "audit": {
+        "status": "evaluated",
+        "returncode": 0,
+        "native_success": false,
+        "native_score": 0.0,
+        "policy": "OpenWAM",
+        "task": "general_pickup",
+        "instance_source": "native",
+        "reset_seed": 0,
+        "native_score_scale": 100,
+        "evaluator_wall_seconds": 123.84704360799515,
+        "io": {
+          "actions_executed": 200,
+          "action_requests": 224,
+          "ignored_after_end": 24,
+          "observations": 225,
+          "unique_rgb_images": 675,
+          "instructions": [
+            "Pick up the mint green scissors by 10 cm."
+          ],
+          "unfinished_action_request": false
+        }
+      }
+    },
+    {
+      "condition": "generated",
+      "command": [
+        "<host>/文档/ChatGPT/infiniDojo/reproduction/astra_robodojo/.venv/bin/python",
+        "-u",
+        "-m",
+        "infinidojo.policy_eval",
+        "--robodojo-root",
+        "<repo>/.deps/robodojo",
+        "--xpolicylab-root",
+        "<host>/文档/ChatGPT/infiniDojo/reproduction/astra_robodojo/XPolicyLab",
+        "--output",
+        "<repo>/outputs/v2-language-route-development/openwam-pair/generated",
+        "--policy",
+        "OpenWAM",
+        "--task",
+        "general_pickup",
+        "--port",
+        "49739",
+        "--policy-service-record",
+        "<repo>/outputs/v2-language-route-development/openwam-pair/service/service.json",
+        "--headless",
+        "--enable_cameras",
+        "--episode",
+        "<repo>/outputs/v2-language-route-development/relocated/pickup-base"
+      ],
+      "status": "process_exited",
+      "pid": 351871,
+      "returncode": 0,
+      "audit": {
+        "status": "evaluated",
+        "returncode": 0,
+        "native_success": false,
+        "native_score": 0.0,
+        "policy": "OpenWAM",
+        "task": "general_pickup",
+        "instance_source": "generated",
+        "reset_seed": 1204,
+        "native_score_scale": 100,
+        "evaluator_wall_seconds": 118.04966925299959,
+        "io": {
+          "actions_executed": 200,
+          "action_requests": 224,
+          "ignored_after_end": 24,
+          "observations": 225,
+          "unique_rgb_images": 675,
+          "instructions": [
+            "Pick up the red circle can, 7 cm tall and 4.4 cm wide by 10 cm."
+          ],
+          "unfinished_action_request": false
+        }
+      }
+    }
+  ],
+  "selection": "Inputs recorded before execution; default inputs match the Astra development pair.",
+  "server_pid": 350576,
+  "service_sha256": "1149fc1f297f6d953ba936de403f7bcaff41894b8d89a22216d8744a9f63d521",
+  "wall_seconds": 323.46656226200867
+}

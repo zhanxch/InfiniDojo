@@ -1,8 +1,8 @@
 {
   "declared_requests": 7,
-  "accepted": 6,
+  "accepted": 7,
   "independent_scene_seeds": 3,
-  "note": "Five pickup conditions share one seed; counts are integration conditions, not independent samples. Pending conditions are retained.",
+  "note": "Five pickup conditions share one seed; counts are integration conditions, not independent samples. All declared conditions are terminal.",
   "rows": [
     {
       "id": "pickup-base",
@@ -92,7 +92,15 @@
       "id": "cover",
       "scene_seed": 1206,
       "task": "cover_blocks",
-      "status": "running"
+      "status": "accepted",
+      "accepted_attempt": 0,
+      "count": 6,
+      "checks_passed": 31,
+      "failed_checks": [],
+      "native_task_success": true,
+      "route_wall_seconds": 893.3072488940088,
+      "local_placement_proposals": 13,
+      "episode_manifest_sha256": "2012cd514e01f46a5689ba639ae2348a39a7b725970b424ef719d2a386f1645f"
     }
   ]
 }

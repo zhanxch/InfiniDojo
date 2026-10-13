@@ -1,0 +1,917 @@
+{
+  "status": "completed",
+  "error": null,
+  "native_task_success": true,
+  "native_score": 100.0,
+  "native_remaining_stages": 0,
+  "event_trace": {
+    "complete": true,
+    "expected": [
+      "00/approach",
+      "00/descend",
+      "00/grasp",
+      "00/lift",
+      "00/transport",
+      "00/place",
+      "00/release",
+      "00/retreat",
+      "01/approach",
+      "01/descend",
+      "01/grasp",
+      "01/lift",
+      "01/transport",
+      "01/place",
+      "01/release",
+      "01/retreat",
+      "02/approach",
+      "02/descend",
+      "02/grasp",
+      "02/lift",
+      "02/transport",
+      "02/place",
+      "02/release",
+      "02/retreat",
+      "03/approach",
+      "03/descend",
+      "03/grasp",
+      "03/lift",
+      "03/transport",
+      "03/place",
+      "03/release",
+      "03/retreat",
+      "04/approach",
+      "04/descend",
+      "04/grasp",
+      "04/lift",
+      "04/transport",
+      "04/place",
+      "04/release",
+      "04/retreat",
+      "05/approach",
+      "05/descend",
+      "05/grasp",
+      "05/lift",
+      "05/transport",
+      "05/place",
+      "05/release",
+      "05/retreat"
+    ],
+    "observed": [
+      "00/approach",
+      "00/descend",
+      "00/grasp",
+      "00/lift",
+      "00/transport",
+      "00/place",
+      "00/release",
+      "00/retreat",
+      "01/approach",
+      "01/descend",
+      "01/grasp",
+      "01/lift",
+      "01/transport",
+      "01/place",
+      "01/release",
+      "01/retreat",
+      "02/approach",
+      "02/descend",
+      "02/grasp",
+      "02/lift",
+      "02/transport",
+      "02/place",
+      "02/release",
+      "02/retreat",
+      "03/approach",
+      "03/descend",
+      "03/grasp",
+      "03/lift",
+      "03/transport",
+      "03/place",
+      "03/release",
+      "03/retreat",
+      "04/approach",
+      "04/descend",
+      "04/grasp",
+      "04/lift",
+      "04/transport",
+      "04/place",
+      "04/release",
+      "04/retreat",
+      "05/approach",
+      "05/descend",
+      "05/grasp",
+      "05/lift",
+      "05/transport",
+      "05/place",
+      "05/release",
+      "05/retreat"
+    ]
+  },
+  "initial_object_poses": {
+    "red": [
+      -0.19999992847442627,
+      -0.1299937665462494,
+      0.7775167226791382,
+      1.0,
+      0.00021248370467219502,
+      6.892019882798195e-05,
+      -6.42109735053964e-05
+    ],
+    "green": [
+      0.2000000774860382,
+      -0.1299937665462494,
+      0.7775167226791382,
+      1.0,
+      0.00021248370467219502,
+      6.892019882798195e-05,
+      -6.42109735053964e-05
+    ],
+    "blue": [
+      9.005593426536507e-08,
+      -0.1299937516450882,
+      0.7775167226791382,
+      1.0,
+      0.00021223460498731583,
+      6.93576512276195e-05,
+      -6.430273060686886e-05
+    ],
+    "cup0": [
+      -0.19997449219226837,
+      -0.23011617362499237,
+      0.800992488861084,
+      -0.00023567862808704376,
+      0.9999998807907104,
+      4.172325134277344e-07,
+      -0.0003773761563934386
+    ],
+    "cup1": [
+      2.54896585829556e-05,
+      -0.23011617362499237,
+      0.8009925484657288,
+      -0.0002359692007303238,
+      0.9999998807907104,
+      1.1920928955078125e-07,
+      -0.0003774130018427968
+    ],
+    "cup2": [
+      0.2000255137681961,
+      -0.23011617362499237,
+      0.800992488861084,
+      -0.00023567862808704376,
+      0.9999998807907104,
+      4.172325134277344e-07,
+      -0.0003773761563934386
+    ]
+  },
+  "final_object_poses": {
+    "red": [
+      -0.19999991357326508,
+      -0.1299937665462494,
+      0.7775167226791382,
+      1.0,
+      0.00021196842135395855,
+      6.91461464157328e-05,
+      -6.432957161450759e-05
+    ],
+    "green": [
+      0.2000000923871994,
+      -0.1299937665462494,
+      0.7775167226791382,
+      1.0,
+      0.00021196842135395855,
+      6.91461464157328e-05,
+      -6.432957161450759e-05
+    ],
+    "blue": [
+      9.334011963346711e-08,
+      -0.12999378144741058,
+      0.7775167226791382,
+      1.0,
+      0.0002125738828908652,
+      6.915713311173022e-05,
+      -6.447397026931867e-05
+    ],
+    "cup0": [
+      -0.20002049207687378,
+      -0.23001693189144135,
+      0.800992488861084,
+      -0.00023572894860990345,
+      0.9999998807907104,
+      -0.00027784708072431386,
+      -0.00037718386738561094
+    ],
+    "cup1": [
+      -4.3852312956005335e-05,
+      -0.23016104102134705,
+      0.800992488861084,
+      -0.00023452194000128657,
+      0.9999998807907104,
+      -0.0001876950409496203,
+      -0.00037599584902636707
+    ],
+    "cup2": [
+      0.1999533325433731,
+      -0.23009224236011505,
+      0.800992488861084,
+      -0.000234896331676282,
+      0.9999998807907104,
+      -0.00027519467403180897,
+      -0.0003773527278099209
+    ]
+  },
+  "max_block_displacement_m": {
+    "red": 2.5380137881570223e-06,
+    "green": 2.5380137881570223e-06,
+    "blue": 2.5448310224799677e-06
+  },
+  "contact_reporting_errors": [],
+  "steps": 15504,
+  "physics_dt": 0.004,
+  "video_frames": 1551,
+  "plans": [
+    {
+      "arm": "left_arm",
+      "event_id": "00/approach",
+      "phase": "approach",
+      "target_flange_pose": [
+        -0.19997298281868553,
+        -0.2299171163610185,
+        1.059992582340762,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "left_arm",
+      "event_id": "00/descend",
+      "phase": "descend",
+      "target_flange_pose": [
+        -0.19997298281868553,
+        -0.2299171163610185,
+        0.959992582340762,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "left_arm",
+      "event_id": "00/lift",
+      "phase": "lift",
+      "target_flange_pose": [
+        -0.19997298281868553,
+        -0.2299171163610185,
+        1.039992582340762,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "left_arm",
+      "event_id": "00/transport",
+      "phase": "transport",
+      "target_flange_pose": [
+        -0.20006050169467926,
+        -0.12985597550868988,
+        1.0399745273590089,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "left_arm",
+      "event_id": "00/place",
+      "phase": "place",
+      "target_flange_pose": [
+        -0.20006050169467926,
+        -0.12985597550868988,
+        0.9609745273590088,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "left_arm",
+      "event_id": "00/retreat",
+      "phase": "retreat",
+      "target_flange_pose": [
+        -0.20006050169467926,
+        -0.12985597550868988,
+        1.0599745273590089,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "left_arm",
+      "phase": "park",
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "01/approach",
+      "phase": "approach",
+      "target_flange_pose": [
+        2.7008717959634798e-05,
+        -0.22991711723369027,
+        1.0599925824272884,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "01/descend",
+      "phase": "descend",
+      "target_flange_pose": [
+        2.7008717959634798e-05,
+        -0.22991711723369027,
+        0.9599925824272885,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "01/lift",
+      "phase": "lift",
+      "target_flange_pose": [
+        2.7008717959634798e-05,
+        -0.22991711723369027,
+        1.0399925824272884,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "01/transport",
+      "phase": "transport",
+      "target_flange_pose": [
+        -9.000823774840683e-05,
+        -0.12986455857753754,
+        1.0399802494049073,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "01/place",
+      "phase": "place",
+      "target_flange_pose": [
+        -9.000823774840683e-05,
+        -0.12986455857753754,
+        0.9609802494049072,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "01/retreat",
+      "phase": "retreat",
+      "target_flange_pose": [
+        -9.000823774840683e-05,
+        -0.12986455857753754,
+        1.0599802494049073,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "phase": "park",
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "02/approach",
+      "phase": "approach",
+      "target_flange_pose": [
+        0.20002703712183353,
+        -0.229917101169856,
+        1.0599925823125949,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "02/descend",
+      "phase": "descend",
+      "target_flange_pose": [
+        0.20002703712183353,
+        -0.229917101169856,
+        0.9599925823125949,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "02/lift",
+      "phase": "lift",
+      "target_flange_pose": [
+        0.20002703712183353,
+        -0.229917101169856,
+        1.0399925823125948,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "02/transport",
+      "phase": "transport",
+      "target_flange_pose": [
+        0.19992321729660034,
+        -0.12985457479953766,
+        1.0399763154983521,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "02/place",
+      "phase": "place",
+      "target_flange_pose": [
+        0.19992321729660034,
+        -0.12985457479953766,
+        0.960976315498352,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "02/retreat",
+      "phase": "retreat",
+      "target_flange_pose": [
+        0.19992321729660034,
+        -0.12985457479953766,
+        1.0599763154983521,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "phase": "park",
+      "status": "Success"
+    },
+    {
+      "arm": "left_arm",
+      "event_id": "03/approach",
+      "phase": "approach",
+      "target_flange_pose": [
+        -0.20006724098117487,
+        -0.12971238493082027,
+        1.0599925723484935,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "left_arm",
+      "event_id": "03/descend",
+      "phase": "descend",
+      "target_flange_pose": [
+        -0.20006724098117487,
+        -0.12971238493082027,
+        0.9599925723484936,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "left_arm",
+      "event_id": "03/lift",
+      "phase": "lift",
+      "target_flange_pose": [
+        -0.20006724098117487,
+        -0.12971238493082027,
+        1.0399925723484935,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "left_arm",
+      "event_id": "03/transport",
+      "phase": "transport",
+      "target_flange_pose": [
+        -0.20006722211837769,
+        -0.22996918857097626,
+        1.0399749445915223,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "left_arm",
+      "event_id": "03/place",
+      "phase": "place",
+      "target_flange_pose": [
+        -0.20006722211837769,
+        -0.22996918857097626,
+        0.9609749445915222,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "left_arm",
+      "event_id": "03/retreat",
+      "phase": "retreat",
+      "target_flange_pose": [
+        -0.20006722211837769,
+        -0.22996918857097626,
+        1.0599749445915223,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "left_arm",
+      "phase": "park",
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "04/approach",
+      "phase": "approach",
+      "target_flange_pose": [
+        0.19990213085631012,
+        -0.12978943515265087,
+        1.0599927030908856,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "04/descend",
+      "phase": "descend",
+      "target_flange_pose": [
+        0.19990213085631012,
+        -0.12978943515265087,
+        0.9599927030908855,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "04/lift",
+      "phase": "lift",
+      "target_flange_pose": [
+        0.19990213085631012,
+        -0.12978943515265087,
+        1.0399927030908855,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "04/transport",
+      "phase": "transport",
+      "target_flange_pose": [
+        0.19992034137248993,
+        -0.22996880114078522,
+        1.0399785208702088,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "04/place",
+      "phase": "place",
+      "target_flange_pose": [
+        0.19992034137248993,
+        -0.22996880114078522,
+        0.9609785208702087,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "04/retreat",
+      "phase": "retreat",
+      "target_flange_pose": [
+        0.19992034137248993,
+        -0.22996880114078522,
+        1.0599785208702088,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "phase": "park",
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "05/approach",
+      "phase": "approach",
+      "target_flange_pose": [
+        -0.00010915628186808312,
+        -0.12986854238122345,
+        1.059992632773986,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "05/descend",
+      "phase": "descend",
+      "target_flange_pose": [
+        -0.00010915628186808312,
+        -0.12986854238122345,
+        0.9599926327739858,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "05/lift",
+      "phase": "lift",
+      "target_flange_pose": [
+        -0.00010915628186808312,
+        -0.12986854238122345,
+        1.039992632773986,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "05/transport",
+      "phase": "transport",
+      "target_flange_pose": [
+        -9.447692718822509e-05,
+        -0.22997653484344482,
+        1.0399836468696595,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "05/place",
+      "phase": "place",
+      "target_flange_pose": [
+        -9.447692718822509e-05,
+        -0.22997653484344482,
+        0.9609836468696594,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "event_id": "05/retreat",
+      "phase": "retreat",
+      "target_flange_pose": [
+        -9.447692718822509e-05,
+        -0.22997653484344482,
+        1.0599836468696595,
+        0.7071067811865476,
+        0,
+        0.7071067811865476,
+        0
+      ],
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "phase": "park",
+      "status": "Success"
+    },
+    {
+      "arm": "left_arm",
+      "phase": "return",
+      "status": "Success"
+    },
+    {
+      "arm": "right_arm",
+      "phase": "return",
+      "status": "Success"
+    }
+  ],
+  "transfers": [
+    {
+      "index": 0,
+      "operation": "cover",
+      "cup": "cup0",
+      "block": "red",
+      "cup_after_release": [
+        -0.20006883144378662,
+        -0.12991151213645935,
+        0.800992488861084,
+        -0.00021071174705866724,
+        0.9999998807907104,
+        -0.0001317858841503039,
+        -0.00038454137393273413
+      ],
+      "native_remaining_stages": 5
+    },
+    {
+      "index": 1,
+      "operation": "cover",
+      "cup": "cup1",
+      "block": "blue",
+      "cup_after_release": [
+        -0.00011142157018184662,
+        -0.1300697922706604,
+        0.8009925484657288,
+        -0.0002406090497970581,
+        0.9999998807907104,
+        -0.00010925531387329102,
+        -0.00037516659358516335
+      ],
+      "native_remaining_stages": 4
+    },
+    {
+      "index": 2,
+      "operation": "cover",
+      "cup": "cup2",
+      "block": "green",
+      "cup_after_release": [
+        0.19990061223506927,
+        -0.12998846173286438,
+        0.8009926080703735,
+        -0.00023929962480906397,
+        0.9999998807907104,
+        -0.0001729428768157959,
+        -0.0003697522624861449
+      ],
+      "native_remaining_stages": 3
+    },
+    {
+      "index": 3,
+      "operation": "uncover",
+      "cup": "cup0",
+      "block": "red",
+      "cup_after_release": [
+        -0.20002047717571259,
+        -0.23001688718795776,
+        0.800992488861084,
+        -0.00023505280842073262,
+        0.9999998807907104,
+        -0.00027737024356611073,
+        -0.0003773112839553505
+      ],
+      "native_remaining_stages": 2
+    },
+    {
+      "index": 4,
+      "operation": "uncover",
+      "cup": "cup2",
+      "block": "green",
+      "cup_after_release": [
+        0.19995328783988953,
+        -0.23009228706359863,
+        0.800992488861084,
+        -0.00023540668189525604,
+        0.9999998807907104,
+        -0.0002753138542175293,
+        -0.0003770024050027132
+      ],
+      "native_remaining_stages": 1
+    },
+    {
+      "index": 5,
+      "operation": "uncover",
+      "cup": "cup1",
+      "block": "blue",
+      "cup_after_release": [
+        -4.3854000978171825e-05,
+        -0.23016104102134705,
+        0.800992488861084,
+        -0.00023434685135725886,
+        0.9999998807907104,
+        -0.0001877844479167834,
+        -0.0003761447442229837
+      ],
+      "native_remaining_stages": 0
+    }
+  ],
+  "execution_mode": "online_reference_planning",
+  "planning_collision_world": "native_table_only_or_replay",
+  "strict_instance_validation": "not evaluated by executor; needs independent contact and cup-cavity audit",
+  "controller": "privileged existing CuRobo; real six cup transfers, no object welding or teleport",
+  "budget_note": "Reference physics steps differ from native 800-action policy budget",
+  "wall_seconds": 441.9219538420002
+}

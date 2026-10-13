@@ -1,0 +1,70 @@
+{
+  "note": "Hashes identify original local artifacts before host-path redaction; large IO, images and runtime copies remain outside Git.",
+  "files": {
+    "openwam-pair-audit.json": "86e13b377380531936378f281eb459da686ce6b7c22e2d00e0fd4d8f638e58d4",
+    "openwam-pair/pair.json": "694c31fda1d1a8f898f096c4f6d58ff89af2c6ea6f0f5aa2405760fb86851f96",
+    "openwam-pair/service/service.json": "1149fc1f297f6d953ba936de403f7bcaff41894b8d89a22216d8744a9f63d521",
+    "openwam-pair/service/engine-config.json": "9a052346dbdde34d2769d8aca95b6e75ae647686cac4fbac467314fc659c95ed",
+    "openwam-pair/native/result.json": "92d272bf209fb18684bca7e7c3e9f099070d500e197f7de2bd8936790d7dc318",
+    "openwam-pair/native/provenance.json": "c9c8a52e85cc616aa002ad47fe088af9d71a6e52c9749bc6d55ebdee642fda30",
+    "openwam-pair/native/service-provenance.json": "1149fc1f297f6d953ba936de403f7bcaff41894b8d89a22216d8744a9f63d521",
+    "openwam-pair/native/native/_result.json": "99b780f4e1842dfa81b413ccd2e5302e5827cc349fea4edf978e1bd847986ed3",
+    "openwam-pair/native/config.json": "948af4b4501e7634fa50fd1a304df2e274109e49ec909b828b5e5f201515e276",
+    "openwam-pair/native/loaded-layout.json": "3e5df81bb7f4c30be6410be5e76fe60a60d77e7fa6fb5bff60b32677715460c6",
+    "openwam-pair/native/layout.json": "7a3ecf189e248f99a75ef8f6fdbe7fca85795846d67e9fd7f2d74954c8e78dda",
+    "openwam-pair/native/policy-io.jsonl": "dad2e4126796d0c10969d903b8b763445b557169d0d7b4a8f4f54bfbe237595a",
+    "openwam-pair/generated/result.json": "758ff9610c695f311269db61ad2670c8448196d8ef31e847f0c4d4ec577af4de",
+    "openwam-pair/generated/provenance.json": "877c328db8a54396e51b7e4d7494e0180db05f2a9147e498e762094df14fb9fa",
+    "openwam-pair/generated/service-provenance.json": "1149fc1f297f6d953ba936de403f7bcaff41894b8d89a22216d8744a9f63d521",
+    "openwam-pair/generated/native/_result.json": "65a0738b50fd7ce8ad9d3cf5a0d47846781c6916ec799e0168aff59f119e7871",
+    "openwam-pair/generated/asset-provenance.json": "a28d144f4a6aa6e35105b7d3b08a531f0a7e0f56a526ff19aa32f37aea4920b0",
+    "openwam-pair/generated/config.json": "613c65f7e3065486f6d0609d3c0b92035b4002ea83a91e270197c82760199fe4",
+    "openwam-pair/generated/loaded-layout.json": "8f9845efaac75b6461145c8cba265b5ed4a519aa3770e1f8f53309f5ad410a3a",
+    "openwam-pair/generated/layout.json": "7de613a990a980a28d86a22c03f25fe26733a7652cb305954d34e77c1ea4c3e7",
+    "openwam-pair/generated/policy-io.jsonl": "0e43408f93cc67aec0a34759f7064335095c2d41350492d204546a2044d49231"
+  },
+  "policy_observations": {
+    "native": {
+      "top_level_fields": [
+        "action",
+        "additional_info",
+        "data_format_version",
+        "env_idx",
+        "instruction",
+        "state",
+        "vision"
+      ],
+      "camera_keys": [
+        "cam_head",
+        "cam_left_wrist",
+        "cam_right_wrist"
+      ],
+      "instructions": [
+        "Pick up the mint green scissors by 10 cm."
+      ],
+      "observations": 225,
+      "only_native_input_fields": true
+    },
+    "generated": {
+      "top_level_fields": [
+        "action",
+        "additional_info",
+        "data_format_version",
+        "env_idx",
+        "instruction",
+        "state",
+        "vision"
+      ],
+      "camera_keys": [
+        "cam_head",
+        "cam_left_wrist",
+        "cam_right_wrist"
+      ],
+      "instructions": [
+        "Pick up the red circle can, 7 cm tall and 4.4 cm wide by 10 cm."
+      ],
+      "observations": 225,
+      "only_native_input_fields": true
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "status": "engineering_route_completed",
+  "date": "2026-10-13",
+  "implementation_commit": "6c12f324db0b8167fee2007d0f4b081be91689ba",
+  "tasks": [
+    "general_pickup",
+    "stack_blocks",
+    "cover_blocks"
+  ],
+  "live_language_requests": 9,
+  "supported_compilations": 7,
+  "correct_unsupported": 2,
+  "accepted_generation_conditions": 7,
+  "independent_scene_seeds": 3,
+  "relocated_bundles_checked": 7,
+  "construction": "Actual task geometry -> complete reference -> incremental constrained completion; G2 only, no G3 repair.",
+  "complexity_scope": {
+    "appearance": "Named material colors; paired geometry/layout/reference controlled",
+    "relational": "Pair distance and whole-footprint target-relative region",
+    "compositional": "Distractor count, one common can profile; mixed categories unsupported"
+  },
+  "procedural_target": "Infinigen CanFactory pickup target, instantiated before obtaining reference",
+  "policy_interface": {
+    "policy": "OpenWAM-step60000-cpu-text-bf16",
+    "task": "general_pickup",
+    "episode_sha256": "93b9774d7110b2035f46f727f458736185b094a8b153118d83e2c21c02fe6fb0",
+    "original_and_relocated_match_plan": true,
+    "native_and_generated_evaluated": true,
+    "native_score": 0,
+    "generated_score": 0,
+    "score_scale": 100,
+    "actions_per_episode": 200
+  },
+  "limits": [
+    "Development integration, not a held-out generation study.",
+    "No independent event/cluster optimization advantage demonstrated.",
+    "Sampled geometry and physical execution do not prove universal or continuous feasibility.",
+    "Full two-policy comparison and paper experiments remain unfinished."
+  ]
+}

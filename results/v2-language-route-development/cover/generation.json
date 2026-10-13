@@ -1,0 +1,1744 @@
+{
+  "method": "G2_fixed_reference_completion",
+  "occupancy": "full_reference",
+  "accepted": true,
+  "requested_count": 6,
+  "generated_count": 6,
+  "seed": 1206,
+  "asset_indices": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "clutter": [
+    {
+      "id": "clutter_0",
+      "asset_id": 19297,
+      "bounds": [
+        [
+          -0.018017999827861786,
+          -0.018017999827861786,
+          0.0
+        ],
+        [
+          0.018017999827861786,
+          0.018017999827861786,
+          0.05000000447034836
+        ]
+      ],
+      "pose": [
+        -0.08140278402314208,
+        -0.02454537117500897,
+        0.765,
+        0.7492305315291218,
+        0,
+        0,
+        -0.6623093013272496
+      ],
+      "cluster": 0
+    },
+    {
+      "id": "clutter_1",
+      "asset_id": 19297,
+      "bounds": [
+        [
+          -0.018017999827861786,
+          -0.018017999827861786,
+          0.0
+        ],
+        [
+          0.018017999827861786,
+          0.018017999827861786,
+          0.05000000447034836
+        ]
+      ],
+      "pose": [
+        -0.0703604339355682,
+        -0.11386539415162636,
+        0.765,
+        0.7492305315291218,
+        0,
+        0,
+        -0.6623093013272496
+      ],
+      "cluster": 0
+    },
+    {
+      "id": "clutter_2",
+      "asset_id": 19297,
+      "bounds": [
+        [
+          -0.018017999827861786,
+          -0.018017999827861786,
+          0.0
+        ],
+        [
+          0.018017999827861786,
+          0.018017999827861786,
+          0.05000000447034836
+        ]
+      ],
+      "pose": [
+        0.2430698103473261,
+        0.14011641327946323,
+        0.765,
+        0.9760800488643191,
+        0,
+        0,
+        -0.21741144912131094
+      ],
+      "cluster": 1
+    },
+    {
+      "id": "clutter_3",
+      "asset_id": 19297,
+      "bounds": [
+        [
+          -0.018017999827861786,
+          -0.018017999827861786,
+          0.0
+        ],
+        [
+          0.018017999827861786,
+          0.018017999827861786,
+          0.05000000447034836
+        ]
+      ],
+      "pose": [
+        0.324561617469701,
+        0.10191843726070472,
+        0.765,
+        0.9760800488643191,
+        0,
+        0,
+        -0.21741144912131094
+      ],
+      "cluster": 1
+    },
+    {
+      "id": "clutter_4",
+      "asset_id": 19297,
+      "bounds": [
+        [
+          -0.018017999827861786,
+          -0.018017999827861786,
+          0.0
+        ],
+        [
+          0.018017999827861786,
+          0.018017999827861786,
+          0.05000000447034836
+        ]
+      ],
+      "pose": [
+        0.09632852285231612,
+        0.10955571015829109,
+        0.765,
+        0.3886410251170827,
+        0,
+        0,
+        0.9213892519429251
+      ],
+      "cluster": 2
+    },
+    {
+      "id": "clutter_5",
+      "asset_id": 19297,
+      "bounds": [
+        [
+          -0.018017999827861786,
+          -0.018017999827861786,
+          0.0
+        ],
+        [
+          0.018017999827861786,
+          0.018017999827861786,
+          0.05000000447034836
+        ]
+      ],
+      "pose": [
+        0.03351605520504637,
+        0.17401184957154398,
+        0.765,
+        0.3886410251170827,
+        0,
+        0,
+        0.9213892519429251
+      ],
+      "cluster": 2
+    }
+  ],
+  "proposals": [
+    {
+      "restart": 0,
+      "cluster": 0,
+      "poses": [
+        [
+          -0.2573685433363015,
+          0.1287947486842787,
+          0.765,
+          0.9145266212528387,
+          0,
+          0,
+          0.40452572108565243
+        ],
+        [
+          -0.19682393395987757,
+          0.19538566604885804,
+          0.765,
+          0.9145266212528387,
+          0,
+          0,
+          0.40452572108565243
+        ]
+      ],
+      "rejection": "footprint_outside_request",
+      "blockers": []
+    },
+    {
+      "restart": 0,
+      "cluster": 0,
+      "poses": [
+        [
+          0.3494872628431578,
+          -0.3080064139769461,
+          0.765,
+          0.650687286237969,
+          0,
+          0,
+          0.7593458076056439
+        ],
+        [
+          0.3356981728480697,
+          -0.21906901466086898,
+          0.765,
+          0.650687286237969,
+          0,
+          0,
+          0.7593458076056439
+        ]
+      ],
+      "rejection": "footprint_outside_request",
+      "blockers": []
+    },
+    {
+      "restart": 0,
+      "cluster": 0,
+      "poses": [
+        [
+          -0.08140278402314208,
+          -0.02454537117500897,
+          0.765,
+          0.7492305315291218,
+          0,
+          0,
+          -0.6623093013272496
+        ],
+        [
+          -0.0703604339355682,
+          -0.11386539415162636,
+          0.765,
+          0.7492305315291218,
+          0,
+          0,
+          -0.6623093013272496
+        ]
+      ],
+      "rejection": null,
+      "blockers": []
+    },
+    {
+      "restart": 0,
+      "cluster": 1,
+      "poses": [
+        [
+          0.27060470628221683,
+          -0.2960862076103009,
+          0.765,
+          0.8539663163427876,
+          0,
+          0,
+          0.5203282911315988
+        ],
+        [
+          0.31187123078286944,
+          -0.21610449747831487,
+          0.765,
+          0.8539663163427876,
+          0,
+          0,
+          0.5203282911315988
+        ]
+      ],
+      "rejection": "footprint_outside_request",
+      "blockers": []
+    },
+    {
+      "restart": 0,
+      "cluster": 1,
+      "poses": [
+        [
+          -0.011515344406043578,
+          -0.023146292391843272,
+          0.765,
+          0.9216603114243105,
+          0,
+          0,
+          0.3879977710570552
+        ],
+        [
+          0.05138704693181268,
+          0.04122209397894581,
+          0.765,
+          0.9216603114243105,
+          0,
+          0,
+          0.3879977710570552
+        ]
+      ],
+      "rejection": "full_reference_occupancy",
+      "blockers": [
+        {
+          "event_id": "01/release",
+          "phase": "release",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "01/retreat",
+          "phase": "retreat",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "05/descend",
+          "phase": "descend",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "05/grasp",
+          "phase": "grasp",
+          "body": "robot1/link7"
+        }
+      ]
+    },
+    {
+      "restart": 0,
+      "cluster": 1,
+      "poses": [
+        [
+          0.2430698103473261,
+          0.14011641327946323,
+          0.765,
+          0.9760800488643191,
+          0,
+          0,
+          -0.21741144912131094
+        ],
+        [
+          0.324561617469701,
+          0.10191843726070472,
+          0.765,
+          0.9760800488643191,
+          0,
+          0,
+          -0.21741144912131094
+        ]
+      ],
+      "rejection": null,
+      "blockers": []
+    },
+    {
+      "restart": 0,
+      "cluster": 2,
+      "poses": [
+        [
+          -0.022904354488460045,
+          -0.07555321601776831,
+          0.765,
+          0.7605444927977386,
+          0,
+          0,
+          -0.6492858187847864
+        ],
+        [
+          -0.008787327893965547,
+          -0.16443915168888745,
+          0.765,
+          0.7605444927977386,
+          0,
+          0,
+          -0.6492858187847864
+        ]
+      ],
+      "rejection": "full_reference_occupancy",
+      "blockers": [
+        {
+          "event_id": "00/approach",
+          "phase": "approach",
+          "body": "blue"
+        },
+        {
+          "event_id": "00/descend",
+          "phase": "descend",
+          "body": "blue"
+        },
+        {
+          "event_id": "00/grasp",
+          "phase": "grasp",
+          "body": "blue"
+        },
+        {
+          "event_id": "00/lift",
+          "phase": "lift",
+          "body": "blue"
+        },
+        {
+          "event_id": "00/place",
+          "phase": "place",
+          "body": "blue"
+        },
+        {
+          "event_id": "00/release",
+          "phase": "release",
+          "body": "blue"
+        },
+        {
+          "event_id": "00/retreat",
+          "phase": "retreat",
+          "body": "blue"
+        },
+        {
+          "event_id": "00/transport",
+          "phase": "transport",
+          "body": "blue"
+        },
+        {
+          "event_id": "01/approach",
+          "phase": "approach",
+          "body": "blue"
+        },
+        {
+          "event_id": "01/descend",
+          "phase": "descend",
+          "body": "blue"
+        },
+        {
+          "event_id": "01/descend",
+          "phase": "descend",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "01/grasp",
+          "phase": "grasp",
+          "body": "blue"
+        },
+        {
+          "event_id": "01/grasp",
+          "phase": "grasp",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "01/lift",
+          "phase": "lift",
+          "body": "blue"
+        },
+        {
+          "event_id": "01/lift",
+          "phase": "lift",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "01/place",
+          "phase": "place",
+          "body": "blue"
+        },
+        {
+          "event_id": "01/place",
+          "phase": "place",
+          "body": "cup1"
+        },
+        {
+          "event_id": "01/place",
+          "phase": "place",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "01/place",
+          "phase": "place",
+          "body": "robot1/link8"
+        },
+        {
+          "event_id": "01/release",
+          "phase": "release",
+          "body": "blue"
+        },
+        {
+          "event_id": "01/release",
+          "phase": "release",
+          "body": "cup1"
+        },
+        {
+          "event_id": "01/release",
+          "phase": "release",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "01/release",
+          "phase": "release",
+          "body": "robot1/link8"
+        },
+        {
+          "event_id": "01/retreat",
+          "phase": "retreat",
+          "body": "blue"
+        },
+        {
+          "event_id": "01/retreat",
+          "phase": "retreat",
+          "body": "cup1"
+        },
+        {
+          "event_id": "01/retreat",
+          "phase": "retreat",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "01/retreat",
+          "phase": "retreat",
+          "body": "robot1/link8"
+        },
+        {
+          "event_id": "01/transport",
+          "phase": "transport",
+          "body": "blue"
+        },
+        {
+          "event_id": "02/approach",
+          "phase": "approach",
+          "body": "blue"
+        },
+        {
+          "event_id": "02/approach",
+          "phase": "approach",
+          "body": "cup1"
+        },
+        {
+          "event_id": "02/descend",
+          "phase": "descend",
+          "body": "blue"
+        },
+        {
+          "event_id": "02/descend",
+          "phase": "descend",
+          "body": "cup1"
+        },
+        {
+          "event_id": "02/grasp",
+          "phase": "grasp",
+          "body": "blue"
+        },
+        {
+          "event_id": "02/grasp",
+          "phase": "grasp",
+          "body": "cup1"
+        },
+        {
+          "event_id": "02/lift",
+          "phase": "lift",
+          "body": "blue"
+        },
+        {
+          "event_id": "02/lift",
+          "phase": "lift",
+          "body": "cup1"
+        },
+        {
+          "event_id": "02/place",
+          "phase": "place",
+          "body": "blue"
+        },
+        {
+          "event_id": "02/place",
+          "phase": "place",
+          "body": "cup1"
+        },
+        {
+          "event_id": "02/release",
+          "phase": "release",
+          "body": "blue"
+        },
+        {
+          "event_id": "02/release",
+          "phase": "release",
+          "body": "cup1"
+        },
+        {
+          "event_id": "02/retreat",
+          "phase": "retreat",
+          "body": "blue"
+        },
+        {
+          "event_id": "02/retreat",
+          "phase": "retreat",
+          "body": "cup1"
+        },
+        {
+          "event_id": "02/transport",
+          "phase": "transport",
+          "body": "blue"
+        },
+        {
+          "event_id": "02/transport",
+          "phase": "transport",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/approach",
+          "phase": "approach",
+          "body": "blue"
+        },
+        {
+          "event_id": "03/approach",
+          "phase": "approach",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/descend",
+          "phase": "descend",
+          "body": "blue"
+        },
+        {
+          "event_id": "03/descend",
+          "phase": "descend",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/grasp",
+          "phase": "grasp",
+          "body": "blue"
+        },
+        {
+          "event_id": "03/grasp",
+          "phase": "grasp",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/lift",
+          "phase": "lift",
+          "body": "blue"
+        },
+        {
+          "event_id": "03/lift",
+          "phase": "lift",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/place",
+          "phase": "place",
+          "body": "blue"
+        },
+        {
+          "event_id": "03/place",
+          "phase": "place",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/release",
+          "phase": "release",
+          "body": "blue"
+        },
+        {
+          "event_id": "03/release",
+          "phase": "release",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/retreat",
+          "phase": "retreat",
+          "body": "blue"
+        },
+        {
+          "event_id": "03/retreat",
+          "phase": "retreat",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/transport",
+          "phase": "transport",
+          "body": "blue"
+        },
+        {
+          "event_id": "03/transport",
+          "phase": "transport",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/approach",
+          "phase": "approach",
+          "body": "blue"
+        },
+        {
+          "event_id": "04/approach",
+          "phase": "approach",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/descend",
+          "phase": "descend",
+          "body": "blue"
+        },
+        {
+          "event_id": "04/descend",
+          "phase": "descend",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/grasp",
+          "phase": "grasp",
+          "body": "blue"
+        },
+        {
+          "event_id": "04/grasp",
+          "phase": "grasp",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/lift",
+          "phase": "lift",
+          "body": "blue"
+        },
+        {
+          "event_id": "04/lift",
+          "phase": "lift",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/place",
+          "phase": "place",
+          "body": "blue"
+        },
+        {
+          "event_id": "04/place",
+          "phase": "place",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/release",
+          "phase": "release",
+          "body": "blue"
+        },
+        {
+          "event_id": "04/release",
+          "phase": "release",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/retreat",
+          "phase": "retreat",
+          "body": "blue"
+        },
+        {
+          "event_id": "04/retreat",
+          "phase": "retreat",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/transport",
+          "phase": "transport",
+          "body": "blue"
+        },
+        {
+          "event_id": "04/transport",
+          "phase": "transport",
+          "body": "cup1"
+        },
+        {
+          "event_id": "05/approach",
+          "phase": "approach",
+          "body": "blue"
+        },
+        {
+          "event_id": "05/approach",
+          "phase": "approach",
+          "body": "cup1"
+        },
+        {
+          "event_id": "05/descend",
+          "phase": "descend",
+          "body": "blue"
+        },
+        {
+          "event_id": "05/descend",
+          "phase": "descend",
+          "body": "cup1"
+        },
+        {
+          "event_id": "05/descend",
+          "phase": "descend",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "05/descend",
+          "phase": "descend",
+          "body": "robot1/link8"
+        },
+        {
+          "event_id": "05/grasp",
+          "phase": "grasp",
+          "body": "blue"
+        },
+        {
+          "event_id": "05/grasp",
+          "phase": "grasp",
+          "body": "cup1"
+        },
+        {
+          "event_id": "05/grasp",
+          "phase": "grasp",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "05/grasp",
+          "phase": "grasp",
+          "body": "robot1/link8"
+        },
+        {
+          "event_id": "05/lift",
+          "phase": "lift",
+          "body": "blue"
+        },
+        {
+          "event_id": "05/lift",
+          "phase": "lift",
+          "body": "cup1"
+        },
+        {
+          "event_id": "05/lift",
+          "phase": "lift",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "05/lift",
+          "phase": "lift",
+          "body": "robot1/link8"
+        },
+        {
+          "event_id": "05/place",
+          "phase": "place",
+          "body": "blue"
+        },
+        {
+          "event_id": "05/place",
+          "phase": "place",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "05/release",
+          "phase": "release",
+          "body": "blue"
+        },
+        {
+          "event_id": "05/release",
+          "phase": "release",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "05/retreat",
+          "phase": "retreat",
+          "body": "blue"
+        },
+        {
+          "event_id": "05/retreat",
+          "phase": "retreat",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "05/transport",
+          "phase": "transport",
+          "body": "blue"
+        },
+        {
+          "event_id": null,
+          "phase": "initial",
+          "body": "blue"
+        },
+        {
+          "event_id": null,
+          "phase": "park",
+          "body": "blue"
+        },
+        {
+          "event_id": null,
+          "phase": "park",
+          "body": "cup1"
+        },
+        {
+          "event_id": null,
+          "phase": "return",
+          "body": "blue"
+        },
+        {
+          "event_id": null,
+          "phase": "settle",
+          "body": "blue"
+        }
+      ]
+    },
+    {
+      "restart": 0,
+      "cluster": 2,
+      "poses": [
+        [
+          0.10483902836121586,
+          0.20178209779196696,
+          0.765,
+          0.19138925184637046,
+          0,
+          0,
+          0.9815142150155985
+        ],
+        [
+          0.021432400591232283,
+          0.2355953266238813,
+          0.765,
+          0.19138925184637046,
+          0,
+          0,
+          0.9815142150155985
+        ]
+      ],
+      "rejection": "footprint_outside_request",
+      "blockers": []
+    },
+    {
+      "restart": 0,
+      "cluster": 2,
+      "poses": [
+        [
+          -0.10724899695671651,
+          -0.1686968604345136,
+          0.765,
+          0.9939112489638876,
+          0,
+          0,
+          -0.11018361576498094
+        ],
+        [
+          -0.019434274209664607,
+          -0.1884091527633729,
+          0.765,
+          0.9939112489638876,
+          0,
+          0,
+          -0.11018361576498094
+        ]
+      ],
+      "rejection": "full_reference_occupancy",
+      "blockers": [
+        {
+          "event_id": "00/approach",
+          "phase": "approach",
+          "body": "cup1"
+        },
+        {
+          "event_id": "00/descend",
+          "phase": "descend",
+          "body": "cup1"
+        },
+        {
+          "event_id": "00/grasp",
+          "phase": "grasp",
+          "body": "cup1"
+        },
+        {
+          "event_id": "00/lift",
+          "phase": "lift",
+          "body": "cup1"
+        },
+        {
+          "event_id": "00/place",
+          "phase": "place",
+          "body": "cup1"
+        },
+        {
+          "event_id": "00/release",
+          "phase": "release",
+          "body": "cup1"
+        },
+        {
+          "event_id": "00/retreat",
+          "phase": "retreat",
+          "body": "cup1"
+        },
+        {
+          "event_id": "00/transport",
+          "phase": "transport",
+          "body": "cup1"
+        },
+        {
+          "event_id": "01/approach",
+          "phase": "approach",
+          "body": "cup1"
+        },
+        {
+          "event_id": "01/descend",
+          "phase": "descend",
+          "body": "cup1"
+        },
+        {
+          "event_id": "01/descend",
+          "phase": "descend",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "01/grasp",
+          "phase": "grasp",
+          "body": "cup1"
+        },
+        {
+          "event_id": "01/grasp",
+          "phase": "grasp",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "01/lift",
+          "phase": "lift",
+          "body": "cup1"
+        },
+        {
+          "event_id": "01/lift",
+          "phase": "lift",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "01/place",
+          "phase": "place",
+          "body": "cup1"
+        },
+        {
+          "event_id": "01/place",
+          "phase": "place",
+          "body": "robot1/link8"
+        },
+        {
+          "event_id": "01/release",
+          "phase": "release",
+          "body": "cup1"
+        },
+        {
+          "event_id": "01/release",
+          "phase": "release",
+          "body": "robot1/link8"
+        },
+        {
+          "event_id": "01/retreat",
+          "phase": "retreat",
+          "body": "cup1"
+        },
+        {
+          "event_id": "01/retreat",
+          "phase": "retreat",
+          "body": "robot1/link8"
+        },
+        {
+          "event_id": "02/approach",
+          "phase": "approach",
+          "body": "cup1"
+        },
+        {
+          "event_id": "02/descend",
+          "phase": "descend",
+          "body": "cup1"
+        },
+        {
+          "event_id": "02/grasp",
+          "phase": "grasp",
+          "body": "cup1"
+        },
+        {
+          "event_id": "02/lift",
+          "phase": "lift",
+          "body": "cup1"
+        },
+        {
+          "event_id": "02/place",
+          "phase": "place",
+          "body": "cup1"
+        },
+        {
+          "event_id": "02/release",
+          "phase": "release",
+          "body": "cup1"
+        },
+        {
+          "event_id": "02/retreat",
+          "phase": "retreat",
+          "body": "cup1"
+        },
+        {
+          "event_id": "02/transport",
+          "phase": "transport",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/approach",
+          "phase": "approach",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/descend",
+          "phase": "descend",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/grasp",
+          "phase": "grasp",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/lift",
+          "phase": "lift",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/place",
+          "phase": "place",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/release",
+          "phase": "release",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/retreat",
+          "phase": "retreat",
+          "body": "cup1"
+        },
+        {
+          "event_id": "03/transport",
+          "phase": "transport",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/approach",
+          "phase": "approach",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/descend",
+          "phase": "descend",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/grasp",
+          "phase": "grasp",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/lift",
+          "phase": "lift",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/place",
+          "phase": "place",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/release",
+          "phase": "release",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/retreat",
+          "phase": "retreat",
+          "body": "cup1"
+        },
+        {
+          "event_id": "04/transport",
+          "phase": "transport",
+          "body": "cup1"
+        },
+        {
+          "event_id": "05/approach",
+          "phase": "approach",
+          "body": "cup1"
+        },
+        {
+          "event_id": "05/descend",
+          "phase": "descend",
+          "body": "cup1"
+        },
+        {
+          "event_id": "05/descend",
+          "phase": "descend",
+          "body": "robot1/link8"
+        },
+        {
+          "event_id": "05/grasp",
+          "phase": "grasp",
+          "body": "cup1"
+        },
+        {
+          "event_id": "05/grasp",
+          "phase": "grasp",
+          "body": "robot1/link8"
+        },
+        {
+          "event_id": "05/lift",
+          "phase": "lift",
+          "body": "cup1"
+        },
+        {
+          "event_id": "05/lift",
+          "phase": "lift",
+          "body": "robot1/link8"
+        },
+        {
+          "event_id": "05/place",
+          "phase": "place",
+          "body": "cup1"
+        },
+        {
+          "event_id": "05/place",
+          "phase": "place",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "05/release",
+          "phase": "release",
+          "body": "cup1"
+        },
+        {
+          "event_id": "05/release",
+          "phase": "release",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "05/retreat",
+          "phase": "retreat",
+          "body": "cup1"
+        },
+        {
+          "event_id": "05/retreat",
+          "phase": "retreat",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": null,
+          "phase": "initial",
+          "body": "cup1"
+        },
+        {
+          "event_id": null,
+          "phase": "park",
+          "body": "cup1"
+        },
+        {
+          "event_id": null,
+          "phase": "return",
+          "body": "cup1"
+        },
+        {
+          "event_id": null,
+          "phase": "settle",
+          "body": "cup1"
+        }
+      ]
+    },
+    {
+      "restart": 0,
+      "cluster": 2,
+      "poses": [
+        [
+          -0.12852566932906975,
+          -0.2947493502071308,
+          0.765,
+          0.18068650387611815,
+          0,
+          0,
+          0.9835407400392856
+        ],
+        [
+          -0.21264909904613435,
+          -0.2627610934143937,
+          0.765,
+          0.18068650387611815,
+          0,
+          0,
+          0.9835407400392856
+        ]
+      ],
+      "rejection": "footprint_outside_request",
+      "blockers": []
+    },
+    {
+      "restart": 0,
+      "cluster": 2,
+      "poses": [
+        [
+          -0.15443606799612564,
+          0.25642130466209634,
+          0.765,
+          0.8610545537998293,
+          0,
+          0,
+          -0.5085125911721132
+        ],
+        [
+          -0.11098137796462947,
+          0.17760702984930254,
+          0.765,
+          0.8610545537998293,
+          0,
+          0,
+          -0.5085125911721132
+        ]
+      ],
+      "rejection": "footprint_outside_request",
+      "blockers": []
+    },
+    {
+      "restart": 0,
+      "cluster": 2,
+      "poses": [
+        [
+          0.2605311252325827,
+          -0.16463920731119525,
+          0.765,
+          0.4344007971318047,
+          0,
+          0,
+          0.9007196830597479
+        ],
+        [
+          0.20449785469135726,
+          -0.09421000461477229,
+          0.765,
+          0.4344007971318047,
+          0,
+          0,
+          0.9007196830597479
+        ]
+      ],
+      "rejection": "full_reference_occupancy",
+      "blockers": [
+        {
+          "event_id": "00/approach",
+          "phase": "approach",
+          "body": "green"
+        },
+        {
+          "event_id": "00/descend",
+          "phase": "descend",
+          "body": "green"
+        },
+        {
+          "event_id": "00/grasp",
+          "phase": "grasp",
+          "body": "green"
+        },
+        {
+          "event_id": "00/lift",
+          "phase": "lift",
+          "body": "green"
+        },
+        {
+          "event_id": "00/place",
+          "phase": "place",
+          "body": "green"
+        },
+        {
+          "event_id": "00/release",
+          "phase": "release",
+          "body": "green"
+        },
+        {
+          "event_id": "00/retreat",
+          "phase": "retreat",
+          "body": "green"
+        },
+        {
+          "event_id": "00/transport",
+          "phase": "transport",
+          "body": "green"
+        },
+        {
+          "event_id": "01/approach",
+          "phase": "approach",
+          "body": "green"
+        },
+        {
+          "event_id": "01/descend",
+          "phase": "descend",
+          "body": "green"
+        },
+        {
+          "event_id": "01/grasp",
+          "phase": "grasp",
+          "body": "green"
+        },
+        {
+          "event_id": "01/lift",
+          "phase": "lift",
+          "body": "green"
+        },
+        {
+          "event_id": "01/place",
+          "phase": "place",
+          "body": "green"
+        },
+        {
+          "event_id": "01/release",
+          "phase": "release",
+          "body": "green"
+        },
+        {
+          "event_id": "01/retreat",
+          "phase": "retreat",
+          "body": "green"
+        },
+        {
+          "event_id": "01/transport",
+          "phase": "transport",
+          "body": "green"
+        },
+        {
+          "event_id": "02/approach",
+          "phase": "approach",
+          "body": "green"
+        },
+        {
+          "event_id": "02/descend",
+          "phase": "descend",
+          "body": "green"
+        },
+        {
+          "event_id": "02/grasp",
+          "phase": "grasp",
+          "body": "green"
+        },
+        {
+          "event_id": "02/lift",
+          "phase": "lift",
+          "body": "cup2"
+        },
+        {
+          "event_id": "02/lift",
+          "phase": "lift",
+          "body": "green"
+        },
+        {
+          "event_id": "02/place",
+          "phase": "place",
+          "body": "cup2"
+        },
+        {
+          "event_id": "02/place",
+          "phase": "place",
+          "body": "green"
+        },
+        {
+          "event_id": "02/place",
+          "phase": "place",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "02/release",
+          "phase": "release",
+          "body": "cup2"
+        },
+        {
+          "event_id": "02/release",
+          "phase": "release",
+          "body": "green"
+        },
+        {
+          "event_id": "02/release",
+          "phase": "release",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "02/retreat",
+          "phase": "retreat",
+          "body": "cup2"
+        },
+        {
+          "event_id": "02/retreat",
+          "phase": "retreat",
+          "body": "green"
+        },
+        {
+          "event_id": "02/retreat",
+          "phase": "retreat",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "02/transport",
+          "phase": "transport",
+          "body": "green"
+        },
+        {
+          "event_id": "03/approach",
+          "phase": "approach",
+          "body": "cup2"
+        },
+        {
+          "event_id": "03/approach",
+          "phase": "approach",
+          "body": "green"
+        },
+        {
+          "event_id": "03/descend",
+          "phase": "descend",
+          "body": "cup2"
+        },
+        {
+          "event_id": "03/descend",
+          "phase": "descend",
+          "body": "green"
+        },
+        {
+          "event_id": "03/grasp",
+          "phase": "grasp",
+          "body": "cup2"
+        },
+        {
+          "event_id": "03/grasp",
+          "phase": "grasp",
+          "body": "green"
+        },
+        {
+          "event_id": "03/lift",
+          "phase": "lift",
+          "body": "cup2"
+        },
+        {
+          "event_id": "03/lift",
+          "phase": "lift",
+          "body": "green"
+        },
+        {
+          "event_id": "03/place",
+          "phase": "place",
+          "body": "cup2"
+        },
+        {
+          "event_id": "03/place",
+          "phase": "place",
+          "body": "green"
+        },
+        {
+          "event_id": "03/release",
+          "phase": "release",
+          "body": "cup2"
+        },
+        {
+          "event_id": "03/release",
+          "phase": "release",
+          "body": "green"
+        },
+        {
+          "event_id": "03/retreat",
+          "phase": "retreat",
+          "body": "cup2"
+        },
+        {
+          "event_id": "03/retreat",
+          "phase": "retreat",
+          "body": "green"
+        },
+        {
+          "event_id": "03/transport",
+          "phase": "transport",
+          "body": "cup2"
+        },
+        {
+          "event_id": "03/transport",
+          "phase": "transport",
+          "body": "green"
+        },
+        {
+          "event_id": "04/approach",
+          "phase": "approach",
+          "body": "cup2"
+        },
+        {
+          "event_id": "04/approach",
+          "phase": "approach",
+          "body": "green"
+        },
+        {
+          "event_id": "04/descend",
+          "phase": "descend",
+          "body": "cup2"
+        },
+        {
+          "event_id": "04/descend",
+          "phase": "descend",
+          "body": "green"
+        },
+        {
+          "event_id": "04/descend",
+          "phase": "descend",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "04/grasp",
+          "phase": "grasp",
+          "body": "cup2"
+        },
+        {
+          "event_id": "04/grasp",
+          "phase": "grasp",
+          "body": "green"
+        },
+        {
+          "event_id": "04/grasp",
+          "phase": "grasp",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "04/lift",
+          "phase": "lift",
+          "body": "cup2"
+        },
+        {
+          "event_id": "04/lift",
+          "phase": "lift",
+          "body": "green"
+        },
+        {
+          "event_id": "04/lift",
+          "phase": "lift",
+          "body": "robot1/link7"
+        },
+        {
+          "event_id": "04/place",
+          "phase": "place",
+          "body": "cup2"
+        },
+        {
+          "event_id": "04/place",
+          "phase": "place",
+          "body": "green"
+        },
+        {
+          "event_id": "04/release",
+          "phase": "release",
+          "body": "green"
+        },
+        {
+          "event_id": "04/retreat",
+          "phase": "retreat",
+          "body": "green"
+        },
+        {
+          "event_id": "04/transport",
+          "phase": "transport",
+          "body": "green"
+        },
+        {
+          "event_id": "05/approach",
+          "phase": "approach",
+          "body": "green"
+        },
+        {
+          "event_id": "05/descend",
+          "phase": "descend",
+          "body": "green"
+        },
+        {
+          "event_id": "05/grasp",
+          "phase": "grasp",
+          "body": "green"
+        },
+        {
+          "event_id": "05/lift",
+          "phase": "lift",
+          "body": "green"
+        },
+        {
+          "event_id": "05/place",
+          "phase": "place",
+          "body": "green"
+        },
+        {
+          "event_id": "05/release",
+          "phase": "release",
+          "body": "green"
+        },
+        {
+          "event_id": "05/retreat",
+          "phase": "retreat",
+          "body": "green"
+        },
+        {
+          "event_id": "05/transport",
+          "phase": "transport",
+          "body": "green"
+        },
+        {
+          "event_id": null,
+          "phase": "initial",
+          "body": "green"
+        },
+        {
+          "event_id": null,
+          "phase": "park",
+          "body": "cup2"
+        },
+        {
+          "event_id": null,
+          "phase": "park",
+          "body": "green"
+        },
+        {
+          "event_id": null,
+          "phase": "return",
+          "body": "green"
+        },
+        {
+          "event_id": null,
+          "phase": "settle",
+          "body": "green"
+        }
+      ]
+    },
+    {
+      "restart": 0,
+      "cluster": 2,
+      "poses": [
+        [
+          0.09632852285231612,
+          0.10955571015829109,
+          0.765,
+          0.3886410251170827,
+          0,
+          0,
+          0.9213892519429251
+        ],
+        [
+          0.03351605520504637,
+          0.17401184957154398,
+          0.765,
+          0.3886410251170827,
+          0,
+          0,
+          0.9213892519429251
+        ]
+      ],
+      "rejection": null,
+      "blockers": []
+    }
+  ],
+  "attempt_budget": 1000,
+  "cluster_budget": 128,
+  "restarts": 0,
+  "attempts": 13,
+  "reason": null,
+  "wall_seconds": 0.18935486700502224
+}

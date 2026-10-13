@@ -1,0 +1,20 @@
+{
+  "status": "evaluated",
+  "native_policy_action_limit": 200,
+  "actions": 200,
+  "physics_dt_s": 0.004,
+  "observation_frequency_hz": 25,
+  "native_result": {
+    "success_rate": 0.0,
+    "eval_time": 1,
+    "score": 0.0,
+    "details": {
+      "0": {
+        "layout_id": 0,
+        "success": false,
+        "score": 0.0
+      }
+    }
+  },
+  "wall_seconds": 123.84704360799515
+}

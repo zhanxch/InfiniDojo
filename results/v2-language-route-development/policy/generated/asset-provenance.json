@@ -1,0 +1,96 @@
+{
+  "19264": {
+    "generator": "infinigen.assets.objects.tableware.can.CanFactory",
+    "seed": 19264,
+    "infinigen_commit": "01c39c7f7adcf7363ccbcc57c64410c69f4a4e7c",
+    "blender_version": "4.2.0",
+    "parameters": {
+      "x_length": 0.022,
+      "z_length": 0.07,
+      "skewness": 1.0,
+      "shape": "circle"
+    },
+    "canonical_offset": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "bounds": [
+      [
+        -0.022022001445293427,
+        -0.022022001445293427,
+        0.0
+      ],
+      [
+        0.022022001445293427,
+        0.022022001445293427,
+        0.07000000029802322
+      ]
+    ],
+    "material": "seeded USD PreviewSurface; original procedural shaders retained only in source.blend",
+    "appearance": {
+      "color_name": "red",
+      "diffuse_color": [
+        0.8,
+        0.05,
+        0.05
+      ],
+      "roughness": 0.4,
+      "metallic": 0.25
+    },
+    "collision": "convex hull, closed can family only",
+    "files": {
+      "mesh.npz": "49b52132e29215c69e452d4af849ec021c1c145e8eb0f25505f53347e017faee",
+      "object.usd": "c471b9ef2af1d2f5dcde2a15cd66f73bf9c568168eb4e56c6beabcb9a8108002",
+      "metadata.json": "e4eea2e145d523fa3105acd6c9399c5a7b6db039278355fcb33e4ff428b9fbba",
+      "description.json": "3b0d3a9eb83043e44b8452d5f221931fddc639035ddaaac4d472f094be5f7ff6"
+    }
+  },
+  "19265": {
+    "generator": "infinigen.assets.objects.tableware.can.CanFactory",
+    "seed": 19265,
+    "infinigen_commit": "01c39c7f7adcf7363ccbcc57c64410c69f4a4e7c",
+    "blender_version": "4.2.0",
+    "parameters": {
+      "x_length": 0.018,
+      "z_length": 0.05,
+      "skewness": 1.0,
+      "shape": "circle"
+    },
+    "canonical_offset": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "bounds": [
+      [
+        -0.018017999827861786,
+        -0.018017999827861786,
+        0.0
+      ],
+      [
+        0.018017999827861786,
+        0.018017999827861786,
+        0.05000000447034836
+      ]
+    ],
+    "material": "seeded USD PreviewSurface; original procedural shaders retained only in source.blend",
+    "appearance": {
+      "color_name": "blue",
+      "diffuse_color": [
+        0.05,
+        0.15,
+        0.8
+      ],
+      "roughness": 0.4,
+      "metallic": 0.25
+    },
+    "collision": "convex hull, closed can family only",
+    "files": {
+      "mesh.npz": "3ea2ab39069f1d04874b4592097ef16dcea2d42a5b3fe1975e74e3f7e00e3563",
+      "object.usd": "3c11b7d57570445966e6be05a6a411e40b4e25d3928da58fbdbc52fad727e4e6",
+      "metadata.json": "f11ced6519e767133cce2a7d5b7cb71ca248db5cfa2c4f9df940684899531aaf",
+      "description.json": "a3ebeb2734acac6a3c2c8785860f3665ff16dd7336444dd3ae14e27e8de361fb"
+    }
+  }
+}

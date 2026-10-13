@@ -24,81 +24,66 @@ evaluation are downstream applications, not the core method.
 
 ## Current development and next stage
 
-The new [`scene-v2` language route](docs/language-frontend.md) connects natural-language
-requests to on-demand Infinigen assets, task-specific reference construction,
-constrained scene completion and portable RoboDojo episodes. Its bounded controls
-cover named colors, paired/target-relative layouts, and distractor counts.
-Pickup uses a generated manipulation target; stacking and covering preserve
-their native task objects. The [procedural-target integration](results/v2-route-development/README.md)
-has already passed physical execution and relocation. The new seven-condition,
-three-task route checks are in progress; nine live language requests have been
-compiled or correctly declined. This is development evidence, not a held-out study.
+The finite engineering route is now connected end to end. The
+[`scene-v2` entry point](docs/language-frontend.md) accepts natural-language
+requests, creates Infinigen assets on demand, obtains a reference for the actual
+task geometry, completes the scene under motion and layout constraints, and
+exports a portable RoboDojo episode.
 
-G3 repair remains an optional implementation with no demonstrated efficiency
-advantage. It is not used by the new route. The current interaction representation
-does not itself establish a novel cluster optimizer.
+The [route development evidence](results/v2-language-route-development/README.md)
+contains nine live language calls: seven supported requests compiled faithfully
+and two unsupported requests were declined. All seven declared generation
+conditions passed complete native task execution on their first full layout;
+all seven bundles passed loading checks after relocation. The tasks are pickup,
+stacking, and covering/uncovering. Five pickup conditions share one seed and
+isolate appearance, relations, count, and their combination around a baseline;
+there are three base seeds in total, not seven independent samples.
 
-The [paper scope and stopping contract / 投稿版本约定](docs/paper-contract.md)
-fixes the main claim, finite scope and evidence requirements. The
-[next-stage work plan / 下一阶段任务](docs/next-stage.md) defines the event and
-cluster representation, a complete pick–transport–place cycle, strong generation
-baselines, independent validation, milestones and completion criteria. It also
-plans to evaluate **OpenWAM** and XPolicyLab's **GPT_6_Astra_Direct_EEF** on both
-native RoboDojo instances and InfiniDojo-generated instances. Development
-integration has started; the full two-policy comparison remains unfinished.
+Current controls are deliberately bounded:
 
-The main claim to establish is a controllable generation workflow that produces
-physically validated, runnable manipulation evaluation episodes. Generation
-baselines and ablations explain the role of event/cluster constraints; higher
-throughput than other generators is a secondary hypothesis, not the central claim.
-Development has started with explicit event/support transitions and a native
-full-stack reference runner. The plan is not a completed implementation or a
-new held-out experimental result.
-See the [development notes and reproduction commands](docs/development.md).
-The [scene-completion evidence](results/v1-completion-development/README.md)
-adds real Infinigen clutter around complete stack references, independent
-physical checks, and portable episode export/reload. The
-[planning integration evidence](results/v1-planning-development/README.md)
-adds observed-scene collision updates, carried-object geometry, and initial-state
-layout candidates. An existing six-clutter layout passes full online execution
-and development validation. The [bounded request runner](results/v1-retry-development/README.md)
-now performs G1/G2 generation, execution, validation and episode export with
-fixed asset identities and explicit time/layout budgets. G3 now adds one
-[event-guided task-position repair](docs/interaction-repair.md), with full physical
-replanning and an explicit request-position check. Its first twelve-clutter
-development request still fails to find a complete layout; no algorithmic
-advantage has been established. Broader coverage and policy comparisons remain
-unfinished; these checks are not a frozen evaluation protocol.
-See the [repair and ablation development evidence](results/v1-repair-development/README.md).
-The [complete-stack language frontend](docs/language-frontend.md) now compiles
-descriptions into hashed generator inputs and selects assets from an explicit
-pool. [Twelve live development descriptions](results/v1-language-development/README.md)
-all produce faithful first responses or correct declines, and one description
-drives physical generation and export. No iterative-refinement benefit is shown.
-The [policy evaluation entry point](docs/policy-evaluation.md) now accepts native
-layouts and exported episodes through the unchanged RoboDojo evaluator. Its
-first native reset/RGB diagnostic passes. Real OpenWAM weights now complete
-evaluation on the native and generated development inputs: each scores 15/100
-without full task success. The Astra pair preserves quota failures without
-counting them as task failures. See the [policy development evidence](results/v1-policy-development/README.md)
-for the distinction between inference probes, completed episodes and infrastructure errors.
-The [pickup development evidence](results/v1-pickup-development/README.md) extends
-the shared generator/validator to a task that ends with an object still held.
-Two native-can references and their six-clutter generated episodes pass physical
-development checks; one exported bundle also passes after relocation and replay.
-The [bounded pickup generation study](results/v1-pickup-retry-development/README.md)
-now connects G1/G2/G3, a sustained-hold contract, and finite target-position repair.
-All seven declared development runs are retained: six are accepted, representing
-four distinct layouts. Repair works on the twelve-clutter request but costs more
-time than fixed-reference retries; no efficiency advantage is established.
-Pickup language, broader coverage and policy scores remain pending.
-The [cover/uncover development evidence](results/v1-cover-development/README.md)
-adds a complete six-transfer native reference and a six-clutter G2 episode.
-It distinguishes coverage from support, preserves native hollow-cup colliders,
-and combines actual contacts with whole-block checks against cup source meshes.
-The generated episode passes all 29 development checks, including after relocation
-and physical replay. This remains one native layout; cover language, scene-aware
-G1/G3, and policy evaluation are unfinished.
+- **Appearance:** named material colors and target/distractor color similarity.
+  The appearance pair preserves geometry, final layout, and reference motion.
+- **Relational:** paired placement and whole-footprint target-relative regions.
+- **Compositional:** distractor count with one common can profile. Mixed asset
+  categories and unrestricted composition are not implemented.
+
+Pickup uses an actual generated CanFactory manipulation target. Stacking and
+covering retain native task objects and full task semantics. New geometry is
+instantiated before reference construction. Materials use USD PreviewSurface;
+this is not a claim of photorealistic shader export or camera control.
+
+A real OpenWAM checkpoint completed the unchanged RoboDojo evaluator on native
+pickup layout 0 and the relocated generated baseline. Both ran 200 valid actions
+and scored 0/100. These are completed policy failures, demonstrating evaluation
+integration without implying success, comparative difficulty, or model superiority.
+Reference actions and event annotations are not policy inputs.
+
+Construction preserves complete reference occupancy; event/contact/support
+semantics organize the interaction. This does not establish an independent new
+cluster optimizer or a formal continuous-time feasibility guarantee. G3 repair
+is not used by this route. Its [existing development results](results/v1-pickup-retry-development/README.md)
+show it works, without an efficiency advantage; further repair heuristics are frozen.
+
+The [paper scope and stopping contract / 投稿版本约定](docs/paper-contract.md) and
+[next-stage plan / 下一阶段任务](docs/next-stage.md) separate the completed engineering
+route from the still-unfinished held-out paper experiments and two-policy
+comparison. The next research work is a finite evaluation of controllability,
+construction validity, and native/generated policy behavior, followed by writing.
+Higher throughput and policy ranking reversals are not required conclusions.
+
+Earlier evidence remains available: [full-stack references](results/v1-development/README.md),
+[scene completion](results/v1-completion-development/README.md),
+[planning integration](results/v1-planning-development/README.md),
+[bounded generation](results/v1-retry-development/README.md),
+[repair](results/v1-repair-development/README.md),
+[language compilation](results/v1-language-development/README.md),
+[policy integration](results/v1-policy-development/README.md),
+[pickup](results/v1-pickup-development/README.md),
+[cover/uncover](results/v1-cover-development/README.md), and
+[procedural-target integration](results/v2-route-development/README.md).
+These are dated development records, not additional held-out studies.
+See [development and reproduction](docs/development.md) and
+[policy evaluation](docs/policy-evaluation.md).
 
 ## Initial implementation scope
 
