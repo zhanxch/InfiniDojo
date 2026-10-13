@@ -63,9 +63,14 @@ PYTHONPATH="$PWD/src" .venv/bin/python scripts/astra_pair.py \
 测试验证观测通道拒绝、RGB 无交换、调用/返回值保持和异常后恢复。
 这些只证明接线与记录功能，不能证明模型已完成评测。
 
-OpenWAM 权重和旧部署环境已在本机找到，但旧副本含 CPU 文本编码器迁移补丁；
-需确定可复现的部署配置并核对内存，再运行真实权重。当前入口列出 OpenWAM 选项不等于
-已验证它的执行链路。两策略四组比较、更广任务覆盖及正式冻结仍未完成。
+OpenWAM 已使用固定版本的干净副本完成真实权重动作推理，部署配置见下文；
+单次推理尚不代表完整原生任务执行。两策略四组比较、更广任务覆盖及正式冻结仍未完成。
+
+Astra 首次开发配对遇到账号调用额度耗尽：原生局完成 74 次调用和 295 个动作，
+第 75 次调用失败；生成局首次调用即失败。两局都没有完整成绩，不能计为任务失败。
+Kit 关闭流程可能在 Python 异常传播前以 0 退出，进程退出码不能代替结果证据。
+`infinidojo.policy_results` 检查显式错误、原生评分、实际动作计数、输入/源码哈希及
+模型调用记录；故障局保留已经消耗的计算，未报告的失败调用用量保持未知。
 
 ## OpenWAM 的显存约束与部署诊断
 
@@ -79,7 +84,11 @@ OpenWAM 权重和旧部署环境已在本机找到，但旧副本含 CPU 文本�
 
 已单独加载真实文本编码器的 5,680,910,336 个参数，在 CPU 上执行原生堆叠指令：
 输出为有限值的 `[1, 512, 4096]` BF16 张量，8 线程下该次约 7.25 秒。
-这是文本编码诊断，尚未完成整个模型的动作推理或策略评分。
+随后在已记录的原生三路 RGB/本体观测上完成整个模型的一次推理：32 步双臂 EEF 动作，
+约 6.91 秒，PyTorch 记录的峰值分配约 13.64 GB。该值不含同时运行仿真的显存，
+也不是整个 GPU 进程占用。此项没有推进仿真，仍不构成策略评分。
+首次完整模型诊断因归档代码尝试解析未使用的训练日期占位符而中止，原记录保留；
+归档改为保留原始表达式，未修改模型推理配置。
 checkpoint SHA256：`78ca4ef5d2f6c8fa877bcae8b40c36b3d8700547fd5a708b472c4564e5f40abb`。
 
 ```bash
@@ -91,3 +100,24 @@ PYTHONPATH="$PWD/src" "$OPENWAM_PYTHON" -m infinidojo.openwam_service \
 服务入口归档实际配置、权重哈希、模块放置与显存。
 `--probe-observation /absolute/path/to/policy-io.jsonl` 可改为单次真实动作推理诊断，
 不启动仿真、不产生任务成功率。正式性能评测仍必须经过完整 evaluator。
+
+`scripts/openwam_pair.py` 在看到结果前保存原生布局及生成 episode 的哈希，启动同一个
+真实权重服务，依次运行两组条件。每局复制服务配置与权重来源，禁止 dummy policy；
+两局必须保持部署记录相同。OpenWAM 的直接 evaluator 调用必须显式传入
+`--policy-service-record /absolute/path/to/service.json`。
+
+```bash
+PYTHONPATH="$PWD/src" .venv/bin/python scripts/openwam_pair.py \
+  --xpolicylab-root "$XPOLICYLAB_ROOT" --robodojo-root "$ROBODOJO_ROOT" \
+  --sim-python "$SIM_PYTHON" --model-python "$OPENWAM_PYTHON" \
+  --checkpoint "$OPENWAM_CHECKPOINT" \
+  --episode outputs/v1-language-development/generated-from-description/episode \
+  --output outputs/v1-policy-development/openwam-pair-01
+
+PYTHONPATH="$PWD/src" .venv/bin/python -m infinidojo.policy_results \
+  --pair outputs/v1-policy-development/openwam-pair-01 \
+  --output outputs/v1-policy-development/openwam-pair-01-audit.json
+```
+
+审计只在启动器确认进程已退出后给出最终状态；未完成、故障和有效的策略失败分别保留。
+两个实例的开发配对仅用于验证接入，不支撑两种策略或两个实例分布的总体优劣结论。

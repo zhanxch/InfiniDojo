@@ -196,7 +196,10 @@ def main():
         from omegaconf import OmegaConf
 
         write_json(
-            output / "resolved-engine-config.json", OmegaConf.to_container(model._engine.cfg, resolve=True)
+            # The checkpoint retains an unused Hydra training-output expression
+            # (${now:...}). Resolving it requires a training-only resolver and
+            # must not prevent inference or invent a deployment-time value.
+            output / "engine-config.json", OmegaConf.to_container(model._engine.cfg, resolve=False)
         )
         architecture = model._engine.architecture
         parameter_bytes = Counter()

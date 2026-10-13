@@ -180,6 +180,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--policy", choices=POLICIES, required=True)
     parser.add_argument("--port", type=int, required=True)
+    parser.add_argument("--policy-service-record", type=Path, help="Ready OpenWAM deployment provenance")
     inputs = parser.add_mutually_exclusive_group(required=True)
     inputs.add_argument("--episode", type=Path)
     inputs.add_argument("--native-layout", type=int)
@@ -192,6 +193,19 @@ def main():
     args = parser.parse_args()
     root, xpl, output = args.robodojo_root.resolve(), args.xpolicylab_root.resolve(), args.output.resolve()
     source = Path(__file__).resolve().parents[2]
+    service = None
+    if args.policy == "OpenWAM":
+        if args.policy_service_record is None:
+            parser.error("OpenWAM needs --policy-service-record from the running service")
+        service = json.loads(args.policy_service_record.read_text())
+        if (
+            service["status"] != "ready"
+            or service["robodojo_commit"] != git_revision(root)
+            or service["xpolicylab_commit"] != git_revision(xpl)
+            or service["adapter_config"]["port"] != args.port
+            or service["adapter_config"]["allow_dummy_policy"]
+        ):
+            raise ValueError("OpenWAM service does not match this evaluation")
     manifest, assets = None, None
     if args.episode:
         manifest, layout, assets = load_episode(args.episode)
@@ -205,6 +219,8 @@ def main():
         layout = root / f"Assets/Eval_Layout/RoboDojo/arx_x5/0/stack_blocks_{seed}.json"
     layout_data = json.loads(layout.read_text())
     output.mkdir(parents=True, exist_ok=False)
+    if service is not None:
+        write_json(output / "service-provenance.json", service)
     write_json(output / "layout.json", layout_data)
     run_id = output.name
     os.environ["ROBODOJO_RUN_ID"] = run_id
@@ -231,6 +247,7 @@ def main():
             "robodojo_commit": git_revision(root),
             "xpolicylab_commit": git_revision(xpl),
             "policy": args.policy,
+            "policy_service_sha256": sha256(output / "service-provenance.json") if service else None,
             "task": "stack_blocks",
             "instance_source": "generated" if manifest else "native",
             "reset_seed": seed,
