@@ -25,8 +25,8 @@ class InteractionEvent:
 
 def transfer_events(index: int, obj: str, source: str, destination: str, arm: str):
     """A transfer preserves object identity across grasp, transport and release."""
-    if obj in (source, destination) or source == destination:
-        raise ValueError("A transfer requires distinct object, source and destination")
+    if obj in (source, destination):
+        raise ValueError("The manipulated object cannot be its own support")
     gripper = f"{arm}/gripper"
     phases = [
         ("approach", "free", source, [(obj, source)]),
@@ -90,6 +90,48 @@ def build_pickup_program(obj: str, source: str, arm: str):
         "final_support": {},
         "final_attachment": {obj: gripper},
     }
+
+
+def build_cover_program(block_order, cup_arms):
+    """Six table-to-table transfers; coverage is distinct from support/contact."""
+    colors = ("red", "green", "blue")
+    cups = ("cup0", "cup1", "cup2")
+    if len(block_order) != 3 or set(block_order) != set(colors) or set(cup_arms) != set(cups):
+        raise ValueError("Cover task needs the three colors and three assigned cups")
+    paired = dict(zip(block_order, cups, strict=True))
+    transfers = []
+    for operation, order in (("cover", block_order), ("uncover", colors)):
+        for block in order:
+            cup = paired[block]
+            transfers.append(
+                {
+                    "object": cup,
+                    "source": "Table",
+                    "destination": "Table",
+                    "arm": cup_arms[cup],
+                    "operation": operation,
+                    "block": block,
+                }
+            )
+    program = build_program(transfers, {label: "Table" for label in (*colors, *cups)})
+    program["transfers"] = transfers
+    program["cover_order"] = list(block_order)
+    covered = {}
+    for index, transfer in enumerate(transfers):
+        before = dict(covered)
+        cup = transfer["object"]
+        if transfer["operation"] == "cover":
+            covered[cup] = transfer["block"]
+        else:
+            del covered[cup]
+        for event in program["events"][index * 8 : (index + 1) * 8]:
+            event.update(
+                operation=transfer["operation"],
+                target_block=transfer["block"],
+                containment_before_transfer=before,
+                containment_goal_after_transfer=dict(covered),
+            )
+    return program
 
 
 def validate_event_trace(program, trajectory):

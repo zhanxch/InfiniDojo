@@ -105,7 +105,9 @@ def main():
     parser.add_argument("--checkpoint", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--port", type=int, default=6124)
-    parser.add_argument("--task", choices=("stack_blocks", "general_pickup"), default="stack_blocks")
+    parser.add_argument(
+        "--task", choices=("stack_blocks", "general_pickup", "cover_blocks"), default="stack_blocks"
+    )
     parser.add_argument(
         "--seed",
         type=int,
@@ -200,7 +202,8 @@ def main():
             # The checkpoint retains an unused Hydra training-output expression
             # (${now:...}). Resolving it requires a training-only resolver and
             # must not prevent inference or invent a deployment-time value.
-            output / "engine-config.json", OmegaConf.to_container(model._engine.cfg, resolve=False)
+            output / "engine-config.json",
+            OmegaConf.to_container(model._engine.cfg, resolve=False),
         )
         architecture = model._engine.architecture
         parameter_bytes = Counter()

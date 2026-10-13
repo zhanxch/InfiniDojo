@@ -1,0 +1,593 @@
+{
+  "development_only": true,
+  "task": "cover_blocks",
+  "native_layout": 0,
+  "seed": 1200,
+  "scope": "One native layout, one six-clutter request; not formal generation rate or a policy score.",
+  "reference": {
+    "path": "outputs/v1-cover-development/reference-1200",
+    "status": "completed",
+    "native_task_success": true,
+    "reference_native_score_not_policy_result": 100.0,
+    "native_remaining_stages": 0,
+    "complete_event_order": true,
+    "reference_physics_steps": 15504,
+    "physics_dt": 0.004,
+    "wall_seconds": 460.9443836029968,
+    "max_block_displacement_m": {
+      "red": 2.5380137881570223e-06,
+      "green": 2.5380137881570223e-06,
+      "blue": 2.5448310224799677e-06
+    },
+    "hashes": {
+      "result.json": "f1488c2d93dab73d15331c9acba4d3a035aac7f253eb66e913d9def9e23880df",
+      "trajectory.json": "4be0afe164449acabb6762917afa6928f356a2062b0196e94e944c40a82af781",
+      "controls.json": "80a11dbdb37951bfd3416e0c624af711ff07deaa06d6ad47aa8617099a3a3276",
+      "contacts.jsonl": "23ffaae325c9c1880a27b6381c69285e4f39c2428bb029dc69a999b85964593a",
+      "provenance.json": "a4e2db102f3913c30ce26c7453528f2804524fe212d1b0a9dda83f3f99765031",
+      "interaction-program.json": "3b8688251e8447acf2f2fa5d9647b0a6fffea8b1bffea4e89bfff515099dcfe3"
+    },
+    "source_sha256": {
+      "src/infinidojo/geometry.py": "350d0be91e221f5b1ecc7541fd8a10dd408bc9aee2776da41531ccfc077b897a",
+      "src/infinidojo/validation.py": "4436e7a14a273ae9673db7c379f1da3adbb749c6bcc8212a286c90c2b454f0f0",
+      "src/infinidojo/openwam_service.py": "c29c46a1be57db9827b9fe025597f74cac6cac30a680caf807a0f6b5185f13ac",
+      "src/infinidojo/native_stack.py": "b1c709cf15b2313a3c88c9fd286807d1ae05038e00eeef9a5118f161509798ba",
+      "src/infinidojo/io.py": "23645e5d675a3da52cbdfea486f648aa4ad83bda198181f43cb06ce3949d3391",
+      "src/infinidojo/native_cover.py": "864a8109b6a9edd7e68dce454ed858ea18fc66d2d373b8c77b279b85288f6b05",
+      "src/infinidojo/generation.py": "80dbca774577f6ce7ac6df272b92e857518223e73a97af10866fdc491079ed75",
+      "src/infinidojo/native_pickup.py": "3d9cacaeed708af975e1255e9ad505b2eec2e1e3c02cad522c25298b4014ce1d",
+      "src/infinidojo/policy_results.py": "6d0adadfaaca298f7e0320cb73ccb6b1d1fbdd3ee70634d02e1247acff96e331",
+      "src/infinidojo/native.py": "0e911e97a2ea902eb46b6928c33b31d39cda491ce951a529f186896a37488e94",
+      "src/infinidojo/study.py": "2c4ce84a8d89a5e48ae22aa629f836b93b68fba711d4d0fb82b59ac716bc873a",
+      "src/infinidojo/assets.py": "bb4a3c092e9a5e2cae62e36ce88b645d9fd78d80caff44c10086742fd9c45f2b",
+      "src/infinidojo/episode.py": "5e9a6c9aa679d7674a161e94646e294062d5ea9d394b075cad28474aaaf5d631",
+      "src/infinidojo/planning.py": "a04467e969e02941be81def9ed2e42a2062106f5089057024afd8c3459a9f313",
+      "src/infinidojo/request_run.py": "56c6c05aa5ec764b279a00bfa9e346750dbdbc9e1e7a9f9e21a43b8302b156a1",
+      "src/infinidojo/repair.py": "63f39e341669aa2ca1e4548c06cc9ee448ac8aaef2ddeea81b80d430f329eabd",
+      "src/infinidojo/__init__.py": "44cf1ca788faa02d0337265e81a7d6bbf08492d7a7dfd3f0ec35982305e70827",
+      "src/infinidojo/cli.py": "d97418c4ab80573332d7d737c6c1fcc0a25c1ef20c8f4074d03ed745357a2c1e",
+      "src/infinidojo/policy_eval.py": "e40228e91a3fba0c46a6f49323ac321c840c62f45cbf4a3d134d14456331572c",
+      "src/infinidojo/frontend.py": "29db31d5708264c0f28b3955bbf6f926999c7ff60a3b4a8e1970ab0b961fb343",
+      "src/infinidojo/completion.py": "be070fa756497dc8bec08ecbf427f6186369f66768f1e3067e77081943df3721",
+      "src/infinidojo/stack_specification.py": "0ce5554233174f28d727888662c639c9f8f74faf82175ce08d3c7a73cab0f677",
+      "src/infinidojo/planning_probe.py": "fd32ffd20ecd0a86b4c2229533777b23d9d27c7c8457d4f32bcbb187be9aa2ca",
+      "src/infinidojo/interaction.py": "993f01aa279260458361b7c5a6836e5f036e93f92f269e0798ad3b653fdb4fef",
+      "src/infinidojo/specification.py": "a529f6a93c5c72d52b843d475bdd40a9673430b09abf8fbdf70c2d0170b60ec6",
+      "src/infinidojo/evaluation.py": "55adc643e96d0c90ac56a8205cd59618a28f12607f7ec930f4d0cd9283322be0"
+    }
+  },
+  "generation": {
+    "method": "G2_fixed_reference_completion",
+    "accepted": true,
+    "requested_count": 6,
+    "generated_count": 6,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2
+    ],
+    "attempts": 8,
+    "attempt_budget": 1000,
+    "wall_seconds": 0.16484762499749195,
+    "attempt_unit": "one local clutter-pair placement proposal, not a whole generated scene",
+    "input_sha256": {
+      "request.json": "49ec813e8dd3133bb323582f89fe7d93b41178b19246d55134b999bfafc64f91",
+      "generation.json": "bf1d639b69f87cc6e0c70687ffe24c02131ac718d2c521eace2803ff4d3298a4",
+      "layout.json": "116e6ffb22a8109b7f443c8de874afd3b88dcf0d37fd83b2c5f8d0c65b4181d1",
+      "provenance.json": "d345621fd81c3a1f6c4bc956328869ffbf53afd8efb8c23e7cc7c432db51bd5e"
+    }
+  },
+  "generated_execution": {
+    "path": "outputs/v1-cover-development/generated-1200-6-execution",
+    "status": "completed",
+    "native_task_success": true,
+    "reference_native_score_not_policy_result": 100.0,
+    "native_remaining_stages": 0,
+    "complete_event_order": true,
+    "reference_physics_steps": 15504,
+    "physics_dt": 0.004,
+    "wall_seconds": 456.13219530800416,
+    "max_block_displacement_m": {
+      "red": 2.5380137881570223e-06,
+      "green": 2.5380137881570223e-06,
+      "blue": 2.5448310224799677e-06
+    },
+    "hashes": {
+      "result.json": "aed66d96e37dd0d145d38f4006944cec9cd190834d71b3091b202cecdc85ad9c",
+      "trajectory.json": "e51bdf0fe7f829706a58502de60cd02ee4973ecdbb885e964a8b36edfb71ed16",
+      "controls.json": "a29fc3b948ba417cf7c6e56599b5ffe91ef8e2f18b40504c6af4d47d2733ffa4",
+      "contacts.jsonl": "a8d05b0d1322673c1a7eff3e6fa1fb8cea9272afd062131cb2d38bc71d13f8d2",
+      "provenance.json": "e26d5e896800383255da723ca76ed0a291034a60eb70d78e953bc9da1f72a3f3",
+      "interaction-program.json": "3b8688251e8447acf2f2fa5d9647b0a6fffea8b1bffea4e89bfff515099dcfe3"
+    },
+    "source_sha256": {
+      "src/infinidojo/geometry.py": "350d0be91e221f5b1ecc7541fd8a10dd408bc9aee2776da41531ccfc077b897a",
+      "src/infinidojo/validation.py": "d3d479ddd3b0a37f70ac347cd5e8be06d063bbea1cc68eedfd5529b41fe70397",
+      "src/infinidojo/openwam_service.py": "c29c46a1be57db9827b9fe025597f74cac6cac30a680caf807a0f6b5185f13ac",
+      "src/infinidojo/native_stack.py": "b1c709cf15b2313a3c88c9fd286807d1ae05038e00eeef9a5118f161509798ba",
+      "src/infinidojo/io.py": "23645e5d675a3da52cbdfea486f648aa4ad83bda198181f43cb06ce3949d3391",
+      "src/infinidojo/native_cover.py": "2217cea1da7aa6906623286f976b4f26437433b017bf74f2aaebe0c2d60459a6",
+      "src/infinidojo/generation.py": "80dbca774577f6ce7ac6df272b92e857518223e73a97af10866fdc491079ed75",
+      "src/infinidojo/native_pickup.py": "3d9cacaeed708af975e1255e9ad505b2eec2e1e3c02cad522c25298b4014ce1d",
+      "src/infinidojo/policy_results.py": "6d0adadfaaca298f7e0320cb73ccb6b1d1fbdd3ee70634d02e1247acff96e331",
+      "src/infinidojo/native.py": "0e911e97a2ea902eb46b6928c33b31d39cda491ce951a529f186896a37488e94",
+      "src/infinidojo/study.py": "2c4ce84a8d89a5e48ae22aa629f836b93b68fba711d4d0fb82b59ac716bc873a",
+      "src/infinidojo/assets.py": "bb4a3c092e9a5e2cae62e36ce88b645d9fd78d80caff44c10086742fd9c45f2b",
+      "src/infinidojo/episode.py": "5e9a6c9aa679d7674a161e94646e294062d5ea9d394b075cad28474aaaf5d631",
+      "src/infinidojo/planning.py": "a04467e969e02941be81def9ed2e42a2062106f5089057024afd8c3459a9f313",
+      "src/infinidojo/request_run.py": "56c6c05aa5ec764b279a00bfa9e346750dbdbc9e1e7a9f9e21a43b8302b156a1",
+      "src/infinidojo/repair.py": "63f39e341669aa2ca1e4548c06cc9ee448ac8aaef2ddeea81b80d430f329eabd",
+      "src/infinidojo/__init__.py": "44cf1ca788faa02d0337265e81a7d6bbf08492d7a7dfd3f0ec35982305e70827",
+      "src/infinidojo/cli.py": "d97418c4ab80573332d7d737c6c1fcc0a25c1ef20c8f4074d03ed745357a2c1e",
+      "src/infinidojo/policy_eval.py": "e40228e91a3fba0c46a6f49323ac321c840c62f45cbf4a3d134d14456331572c",
+      "src/infinidojo/frontend.py": "29db31d5708264c0f28b3955bbf6f926999c7ff60a3b4a8e1970ab0b961fb343",
+      "src/infinidojo/completion.py": "3433a40c3084a6c4409f7745cd5389160feb7e7a253885f0ffa1eb31d40fe798",
+      "src/infinidojo/stack_specification.py": "0ce5554233174f28d727888662c639c9f8f74faf82175ce08d3c7a73cab0f677",
+      "src/infinidojo/planning_probe.py": "fd32ffd20ecd0a86b4c2229533777b23d9d27c7c8457d4f32bcbb187be9aa2ca",
+      "src/infinidojo/interaction.py": "993f01aa279260458361b7c5a6836e5f036e93f92f269e0798ad3b653fdb4fef",
+      "src/infinidojo/cover_geometry.py": "5a5b81e308c550b59ffecd27acdabb37a358688f0b3de3f2bb296be808c7b2ff",
+      "src/infinidojo/specification.py": "a529f6a93c5c72d52b843d475bdd40a9673430b09abf8fbdf70c2d0170b60ec6",
+      "src/infinidojo/evaluation.py": "55adc643e96d0c90ac56a8205cd59618a28f12607f7ec930f4d0cd9283322be0"
+    }
+  },
+  "validation": {
+    "status": "validated_under_development_checks",
+    "checks": {
+      "cup_collision_assets_recorded_and_unchanged": true,
+      "cup_source_mesh_clear_of_blocks": true,
+      "cover_and_uncover_relations": true,
+      "six_native_stages_completed": true,
+      "native_block_displacement_limit": true,
+      "verifier_owned_contact_contract": true,
+      "native_task_success": true,
+      "complete_event_order": true,
+      "complete_execution": true,
+      "initialization_preserved": true,
+      "initial_rotations_preserved": true,
+      "requested_count": true,
+      "requested_asset_identities": true,
+      "initial_footprints_inside_region": true,
+      "requested_initial_clearance": true,
+      "pair_relation_preserved": true,
+      "clutter_remains_stationary": true,
+      "clutter_rotation_stable": true,
+      "contact_reporting_available": true,
+      "all_recorded_bodies_instrumented": true,
+      "contacts_legal_and_shallow": true,
+      "settle_duration": true,
+      "settle_motion": true,
+      "settle_rotation_stable": true,
+      "final_task_support_contacts": true,
+      "final_support_geometry": true,
+      "held_relation_observed": true,
+      "held_rotation_observed": true,
+      "independent_clutter_geometry_screen": true
+    },
+    "failed_checks": [],
+    "thresholds": {
+      "penetration_m": 0.001,
+      "contact_distance_m": 0.001,
+      "initialization_translation_m": 0.005,
+      "initialization_rotation_deg": 2.0,
+      "clutter_motion_m": 0.002,
+      "clutter_rotation_deg": 2.0,
+      "settle_motion_m": 0.002,
+      "settle_rotation_deg": 2.0,
+      "attachment_translation_m": 0.003,
+      "attachment_rotation_deg": 5.0,
+      "pair_distance_error_m": 0.003,
+      "support_gap_m": 0.001,
+      "minimum_settle_s": 1.0
+    },
+    "contact_violations": [],
+    "native_stage_progression": [
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
+    "cup_cavity_pairs_checked": 54,
+    "cup_cavity_endpoints": [
+      {
+        "event_id": "00/retreat",
+        "present": true,
+        "observed_containment": {
+          "cup0": [
+            "red"
+          ]
+        },
+        "expected_containment": {
+          "cup0": "red"
+        },
+        "relations_match": true,
+        "cups_inverted": true
+      },
+      {
+        "event_id": "01/retreat",
+        "present": true,
+        "observed_containment": {
+          "cup0": [
+            "red"
+          ],
+          "cup1": [
+            "blue"
+          ]
+        },
+        "expected_containment": {
+          "cup0": "red",
+          "cup1": "blue"
+        },
+        "relations_match": true,
+        "cups_inverted": true
+      },
+      {
+        "event_id": "02/retreat",
+        "present": true,
+        "observed_containment": {
+          "cup0": [
+            "red"
+          ],
+          "cup1": [
+            "blue"
+          ],
+          "cup2": [
+            "green"
+          ]
+        },
+        "expected_containment": {
+          "cup0": "red",
+          "cup1": "blue",
+          "cup2": "green"
+        },
+        "relations_match": true,
+        "cups_inverted": true
+      },
+      {
+        "event_id": "03/retreat",
+        "present": true,
+        "observed_containment": {
+          "cup1": [
+            "blue"
+          ],
+          "cup2": [
+            "green"
+          ]
+        },
+        "expected_containment": {
+          "cup1": "blue",
+          "cup2": "green"
+        },
+        "relations_match": true,
+        "cups_inverted": true
+      },
+      {
+        "event_id": "04/retreat",
+        "present": true,
+        "observed_containment": {
+          "cup1": [
+            "blue"
+          ]
+        },
+        "expected_containment": {
+          "cup1": "blue"
+        },
+        "relations_match": true,
+        "cups_inverted": true
+      },
+      {
+        "event_id": "05/retreat",
+        "present": true,
+        "observed_containment": {},
+        "expected_containment": {},
+        "relations_match": true,
+        "cups_inverted": true
+      }
+    ],
+    "held_relative_translation_error_m": {
+      "00/lift": 6.640604844972626e-05,
+      "00/transport": 0.0001367127952631538,
+      "01/lift": 7.754153788259676e-05,
+      "01/transport": 0.000139779916859471,
+      "02/lift": 5.511902926793433e-05,
+      "02/transport": 0.00012536509414047412,
+      "03/lift": 7.501365333098906e-05,
+      "03/transport": 0.00015947689612340546,
+      "04/lift": 7.360977331212068e-05,
+      "04/transport": 0.00015776125887927668,
+      "05/lift": 9.27483400780153e-05,
+      "05/transport": 0.00016443056775936987
+    },
+    "held_relative_rotation_error_deg": {
+      "00/lift": 0.0017723460780817199,
+      "00/transport": 0.001598122876124424,
+      "01/lift": 0.005923526599242912,
+      "01/transport": 0.00582650842715182,
+      "02/lift": 0.010255181907852578,
+      "02/transport": 0.010070133967558662,
+      "03/lift": 0.00343491717570844,
+      "03/transport": 0.0024578359451544536,
+      "04/lift": 0.00560861564607993,
+      "04/transport": 0.005021034032122538,
+      "05/lift": 0.013694373573092038,
+      "05/transport": 0.013681615065859515
+    },
+    "final_support_gaps_m": {
+      "red": 9.695828424916009e-06,
+      "green": 9.695828424916009e-06,
+      "blue": 9.680422212166029e-06,
+      "cup0": -0.00013927153787285373,
+      "cup1": -0.00013910009968309822,
+      "cup2": -0.00013922375905250917
+    },
+    "report_sha256": "df5f504e81f52538ce4828687442805076ea367ddf68c94d69883cb0be1d266e",
+    "validator_component_sha256": {
+      "geometry.py": "350d0be91e221f5b1ecc7541fd8a10dd408bc9aee2776da41531ccfc077b897a",
+      "interaction.py": "993f01aa279260458361b7c5a6836e5f036e93f92f269e0798ad3b653fdb4fef",
+      "cover_geometry.py": "ad535e24f6516b32b9b2078f018d2f66ac9ba59ce80d588080d79224d90626f3"
+    },
+    "validator_sha256": "968933b5e6bc870de25bd1c67c6a802f109b4f7d6208efcdd3940960027df451"
+  },
+  "regressions": {
+    "stack": {
+      "status": "validated_under_development_checks",
+      "checks": 24,
+      "failed_checks": [],
+      "report_sha256": "e9153013ff0d17a0684a92631131a68164ad978b3e9c59e06f63cdecaac3d157"
+    },
+    "pickup": {
+      "status": "validated_under_development_checks",
+      "checks": 26,
+      "failed_checks": [],
+      "report_sha256": "9ee57fbdaecb82bd45ef8ef9e278e4dae7a28962f9a048a731808fa6e44f2bcc"
+    }
+  },
+  "portable_reload": {
+    "status": "validated_under_development_checks",
+    "native_task_success": true,
+    "native_remaining_stages": 0,
+    "reference_physics_steps": 15504,
+    "wall_seconds": 310.2533584240009,
+    "video_enabled": false,
+    "checks": {
+      "cup_collision_assets_recorded_and_unchanged": true,
+      "cup_source_mesh_clear_of_blocks": true,
+      "cover_and_uncover_relations": true,
+      "six_native_stages_completed": true,
+      "native_block_displacement_limit": true,
+      "verifier_owned_contact_contract": true,
+      "native_task_success": true,
+      "complete_event_order": true,
+      "complete_execution": true,
+      "initialization_preserved": true,
+      "initial_rotations_preserved": true,
+      "requested_count": true,
+      "requested_asset_identities": true,
+      "initial_footprints_inside_region": true,
+      "requested_initial_clearance": true,
+      "pair_relation_preserved": true,
+      "clutter_remains_stationary": true,
+      "clutter_rotation_stable": true,
+      "contact_reporting_available": true,
+      "all_recorded_bodies_instrumented": true,
+      "contacts_legal_and_shallow": true,
+      "settle_duration": true,
+      "settle_motion": true,
+      "settle_rotation_stable": true,
+      "final_task_support_contacts": true,
+      "final_support_geometry": true,
+      "held_relation_observed": true,
+      "held_rotation_observed": true,
+      "independent_clutter_geometry_screen": true
+    },
+    "failed_checks": [],
+    "all_six_clutter_assets_loaded_from_relocated_bundle": true,
+    "episode_sha256": "9a3af842475b64a0fe2f8903924823de6a66eaec293d21cfd94a81baf38f80a1",
+    "input_sha256": {
+      "result.json": "517ee7ac4e11972430a74a58f3bad7b479e5c9752559d85085c530a598233ead",
+      "trajectory.json": "e51bdf0fe7f829706a58502de60cd02ee4973ecdbb885e964a8b36edfb71ed16",
+      "contacts.jsonl": "636c7be3f20a34bd90998abf12ba11b51fba8bd6f75329c6ee393068b52c3bb7",
+      "scene-objects.json": "fa6d47f954fa55842f7d09c8b8e02e4ded54f9e9d046be23891bd03705546569",
+      "layout.json": "116e6ffb22a8109b7f443c8de874afd3b88dcf0d37fd83b2c5f8d0c65b4181d1",
+      "provenance.json": "2d5720e8d662c690bbc7f469171a58897d1886176e2ef79df026f2acc48912ea",
+      "interaction-program.json": "3b8688251e8447acf2f2fa5d9647b0a6fffea8b1bffea4e89bfff515099dcfe3",
+      "contact-summary.json": "a3a2c1b820c6b211115915506f201a23138fb5f44900b83cc6d11a3fed281a12",
+      "robot-identities.json": "abd3e62ad5b965688f190f43c43705907927f121d63ea9e60f85bd108d8969e7",
+      "cup-collision-assets.json": "d4fff1c2128bb4403b188ab618cd3d05602306464b3fc12e2ab44e5f65a0e550"
+    },
+    "validation_sha256": "1597343ddf2f5a1b89aa763e9709f854d476a5ea905e7eca16958e22234e9acf"
+  },
+  "limitations": [
+    "Native reference uses table-only planning; actual contact audit is independent.",
+    "Source mesh endpoint checks differ from cooked PhysX decomposition and do not prove continuous collision freedom.",
+    "Reference budget of 20000 physics steps is not the native 800-action policy budget.",
+    "Language and bounded G1/G3 interfaces for this task are not implemented.",
+    "No cover-task policy evaluation or held-out study has run."
+  ],
+  "episode_sha256": "9a3af842475b64a0fe2f8903924823de6a66eaec293d21cfd94a81baf38f80a1",
+  "cup_assets": {
+    "cup0": {
+      "sha256": "ccee68b7e35e05728db3c4d9b95920b6b7ebe7f22159c9dcbfce63098accf52b",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "category": "cup",
+      "category_idx": 1
+    },
+    "cup1": {
+      "sha256": "ccee68b7e35e05728db3c4d9b95920b6b7ebe7f22159c9dcbfce63098accf52b",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "category": "cup",
+      "category_idx": 1
+    },
+    "cup2": {
+      "sha256": "ccee68b7e35e05728db3c4d9b95920b6b7ebe7f22159c9dcbfce63098accf52b",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "category": "cup",
+      "category_idx": 1
+    }
+  },
+  "assets": {
+    "1200": {
+      "generator": "infinigen.assets.objects.tableware.can.CanFactory",
+      "seed": 1200,
+      "infinigen_commit": "01c39c7f7adcf7363ccbcc57c64410c69f4a4e7c",
+      "blender_version": "4.2.0",
+      "parameters": {
+        "x_length": 0.018,
+        "z_length": 0.05,
+        "skewness": 1.0,
+        "shape": "circle"
+      },
+      "canonical_offset": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.018017999827861786,
+          -0.018017999827861786,
+          0.0
+        ],
+        [
+          0.018017999827861786,
+          0.018017999827861786,
+          0.05000000447034836
+        ]
+      ],
+      "material": "seeded USD PreviewSurface; original procedural shaders retained only in source.blend",
+      "collision": "convex hull, closed can family only",
+      "files": {
+        "mesh.npz": "0c41efec7021643a2990dcf69a60a37585c6f157149f0a836e27e9d5cf4f4159",
+        "object.usd": "93795903d767606deab6265e0bd0a486dda374cd9b14428ddac1f78c0233795e",
+        "metadata.json": "f11ced6519e767133cce2a7d5b7cb71ca248db5cfa2c4f9df940684899531aaf",
+        "description.json": "e74d25c68378954579279bc0c359d19388309f9889690335a2bd0f30a932ef5f"
+      }
+    },
+    "1201": {
+      "generator": "infinigen.assets.objects.tableware.can.CanFactory",
+      "seed": 1201,
+      "infinigen_commit": "01c39c7f7adcf7363ccbcc57c64410c69f4a4e7c",
+      "blender_version": "4.2.0",
+      "parameters": {
+        "x_length": 0.025,
+        "z_length": 0.09,
+        "skewness": 1.0,
+        "shape": "rectangle"
+      },
+      "canonical_offset": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.025025000795722008,
+          -0.025025000795722008,
+          0.0
+        ],
+        [
+          0.025025000795722008,
+          0.025025000795722008,
+          0.09000000357627869
+        ]
+      ],
+      "material": "seeded USD PreviewSurface; original procedural shaders retained only in source.blend",
+      "collision": "convex hull, closed can family only",
+      "files": {
+        "mesh.npz": "c8fcc279387d22b4f3af0f6ac4e31d90bf6fc5f6506ef54a16ec1aa3831c3915",
+        "object.usd": "ae88a55df1fd10d5086d7c996b268a7cf65667cf97d14c6d5767fcbac59eae7d",
+        "metadata.json": "ec9f377b1e5e3b060cb2fde363964b154a0db11d78bb5ad961ffbc541ac931c8",
+        "description.json": "e74d25c68378954579279bc0c359d19388309f9889690335a2bd0f30a932ef5f"
+      }
+    },
+    "1202": {
+      "generator": "infinigen.assets.objects.tableware.can.CanFactory",
+      "seed": 1202,
+      "infinigen_commit": "01c39c7f7adcf7363ccbcc57c64410c69f4a4e7c",
+      "blender_version": "4.2.0",
+      "parameters": {
+        "x_length": 0.032,
+        "z_length": 0.13,
+        "skewness": 1.0,
+        "shape": "rectangle"
+      },
+      "canonical_offset": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.03203200176358223,
+          -0.03203200176358223,
+          0.0
+        ],
+        [
+          0.03203200176358223,
+          0.03203200176358223,
+          0.12999999523162842
+        ]
+      ],
+      "material": "seeded USD PreviewSurface; original procedural shaders retained only in source.blend",
+      "collision": "convex hull, closed can family only",
+      "files": {
+        "mesh.npz": "21e5e65d1de027fd56434562e9e2efeb9c284aa726173452bcc764f556f437a7",
+        "object.usd": "f0c0ebc7f99ea018fe4da9a796b0f2db2e0bd52007d0ae8a44d1fc575dd7a07c",
+        "metadata.json": "a4379f7f3b269e11560af50b729f19bc162a8d72025897300e1e29802ee58cf9",
+        "description.json": "e74d25c68378954579279bc0c359d19388309f9889690335a2bd0f30a932ef5f"
+      }
+    }
+  },
+  "geometry_diagnostic": {
+    "unit": "m; transformed to mm together with source mesh before querying",
+    "query_points": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        -0.028
+      ],
+      [
+        0.1,
+        0,
+        0
+      ]
+    ],
+    "expected_inside_material": [
+      false,
+      true,
+      false
+    ],
+    "observed_inside_material": [
+      false,
+      true,
+      false
+    ]
+  },
+  "software_checks": {
+    "pytest_passed": 55,
+    "ruff": "passed",
+    "native_and_infinigen_dependency_tracked_changes": false
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "task": "cover_blocks",
+  "clutter": {
+    "count": 6,
+    "region_xy_m": [
+      [
+        -0.35,
+        -0.28
+      ],
+      [
+        0.35,
+        0.22
+      ]
+    ],
+    "clearance_m": 0.003,
+    "pair_distance_m": 0.09
+  }
+}

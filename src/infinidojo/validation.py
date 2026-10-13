@@ -1,4 +1,4 @@
-"""Independent development checks on executed stack and pickup episodes.
+"""Independent development checks on executed stack, pickup and cover episodes.
 
 Uses native task success, actual PhysX contacts, actual motion and an independent
 OBB screen. Thresholds are explicit development values, not a frozen paper
@@ -23,7 +23,12 @@ from infinidojo.geometry import (
     rotation,
     transformed_box,
 )
-from infinidojo.interaction import build_pickup_program, build_program, validate_event_trace
+from infinidojo.interaction import (
+    build_cover_program,
+    build_pickup_program,
+    build_program,
+    validate_event_trace,
+)
 from infinidojo.io import sha256, write_json
 from infinidojo.repair import validate_position_options
 
@@ -96,6 +101,12 @@ def stack_contact_contract(arm):
 def pickup_contact_contract(arm):
     """Verifier-owned pickup contract ends in an actual sustained grasp."""
     return json.loads(json.dumps(build_pickup_program("target", "Table", arm)))
+
+
+def cover_contact_contract(initial, robots):
+    order = sorted(("red", "green", "blue"), key=lambda label: initial[label][0])
+    arms = {"cup0": robots["robot0"]["arm"], "cup1": robots["robot1"]["arm"], "cup2": robots["robot1"]["arm"]}
+    return json.loads(json.dumps(build_cover_program(order, arms)))
 
 
 def audit_contacts(records, program, objects, robots, thresholds):
@@ -186,16 +197,78 @@ def audit_episode(execution, generation, robot_usd, thresholds=None):
     generated = read(generation / "generation.json")
     provenance = read(execution / "provenance.json")
     task = provenance["task"]
-    if task not in ("stack_blocks", "general_pickup") or request["task"] != task:
+    if task not in ("stack_blocks", "general_pickup", "cover_blocks") or request["task"] != task:
         raise ValueError("Execution and generation must use the same supported task")
     pickup = task == "general_pickup"
-    contract = pickup_contact_contract if pickup else stack_contact_contract
-    program = contract(robots["robot1"]["arm"])
+    cover = task == "cover_blocks"
+    if cover:
+        program = cover_contact_contract(frames[0]["objects"], robots)
+    else:
+        contract = pickup_contact_contract if pickup else stack_contact_contract
+        program = contract(robots["robot1"]["arm"])
     robot_hash = sha256(robot_usd)
     if provenance.get("robot_usd_sha256", robot_hash) != robot_hash:
         raise ValueError("Robot geometry changed since execution")
     initial, final = frames[0]["objects"], frames[-1]["objects"]
     checks, diagnostics = {}, {}
+    extra_inputs = []
+    if cover:
+        from infinidojo.cover_geometry import audit_cover_states, collision_mesh
+
+        recorded_assets = (
+            read(execution / "cup-collision-assets.json")
+            if (execution / "cup-collision-assets.json").exists()
+            else {}
+        )
+        meshes, asset_checks, asset_diagnostics = {}, [], {}
+        layout = read(execution / "layout.json")
+        items = {item["label"]: item for group in layout["Rigid"].values() for item in group}
+        for cup in ("cup0", "cup1", "cup2"):
+            item = items[cup]
+            asset = (
+                robot_usd.parents[2]
+                / f"Object/RoboDojo/Rigid/{item['category']}/{item['category_idx']:05d}/object.usdz"
+            )
+            mesh, approximation = collision_mesh(asset, item["scale"])
+            meshes[cup] = mesh
+            actual_record = {
+                "sha256": sha256(asset),
+                "scale": item["scale"],
+                "category": item["category"],
+                "category_idx": item["category_idx"],
+            }
+            asset_checks.append(
+                recorded_assets.get(cup) == actual_record and approximation == "convexDecomposition"
+            )
+            asset_diagnostics[cup] = {
+                **actual_record,
+                "approximation": approximation,
+                "metadata_bounds_m": objects[cup]["bounds"],
+                "source_mesh_bounds_m": (mesh.bounds / 1000).tolist(),
+            }
+            # Use source geometry for cup support and clutter envelope checks.
+            objects[cup] = {**objects[cup], "bounds": (mesh.bounds / 1000).tolist()}
+        checks["cup_collision_assets_recorded_and_unchanged"] = all(asset_checks)
+        if recorded_assets:
+            extra_inputs.append("cup-collision-assets.json")
+        diagnostics["cup_collision_assets"] = asset_diagnostics
+        cavity = audit_cover_states(frames, program, objects, meshes)
+        diagnostics["cup_cavity_audit"] = cavity
+        checks["cup_source_mesh_clear_of_blocks"] = cavity["clear"]
+        checks["cover_and_uncover_relations"] = cavity["relations_match"]
+        stages = [frame.get("native_remaining_stages") for frame in frames]
+        progression = [stage for i, stage in enumerate(stages) if i == 0 or stage != stages[i - 1]]
+        diagnostics["native_stage_progression"] = progression
+        checks["six_native_stages_completed"] = progression == [6, 5, 4, 3, 2, 1, 0]
+        diagnostics["maximum_block_displacement_m"] = {
+            label: max(
+                float(np.linalg.norm(np.array(f["objects"][label][:3]) - initial[label][:3])) for f in frames
+            )
+            for label in ("red", "green", "blue")
+        }
+        checks["native_block_displacement_limit"] = all(
+            v <= 0.05 for v in diagnostics["maximum_block_displacement_m"].values()
+        )
     checks["verifier_owned_contact_contract"] = recorded_program == program
     checks["native_task_success"] = result["native_task_success"]
     checks["complete_event_order"] = validate_event_trace(program, frames)["complete"]
@@ -448,6 +521,7 @@ def audit_episode(execution, generation, robot_usd, thresholds=None):
                 "contact-summary.json",
                 "robot-identities.json",
             ]
+            + extra_inputs
         },
         "generation_input_sha256": {
             name: sha256(generation / name) for name in ["request.json", "generation.json", "asset-map.json"]
@@ -455,6 +529,10 @@ def audit_episode(execution, generation, robot_usd, thresholds=None):
         "robot_geometry_sha256": robot_hash,
         "robot_geometry_hash_recorded_at_execution": "robot_usd_sha256" in provenance,
         "validator_sha256": sha256(Path(__file__)),
+        "validator_component_sha256": {
+            name: sha256(Path(__file__).with_name(name))
+            for name in ["geometry.py", "interaction.py"] + (["cover_geometry.py"] if cover else [])
+        },
     }
 
 

@@ -1,0 +1,17 @@
+{
+  "development_only": true,
+  "task": "cover_blocks",
+  "seed": 1200,
+  "native_layout": 0,
+  "native_layout_sha256": "10a84eed03be80f3ba31bca0cf07c96f34a7143b0670ba0262957add36a1161c",
+  "max_reference_physics_steps": 20000,
+  "reference": "Six physical transfers: left-to-right cover, red-green-blue uncover, both arms home.",
+  "arm_assignment": {
+    "cup0": 0,
+    "cup1": 1,
+    "cup2": 1
+  },
+  "selection": "Native layout 0, unchanged native cups and blocks. No policy results used for selection.",
+  "request": "specs/requests/cover-paired-6.json",
+  "status": "development only; no held-out or policy claim"
+}

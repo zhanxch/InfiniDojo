@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "source-audited development contract; v1 execution and independent thresholds pending",
+  "status": "source-audited development contract; one native full reference and one generated/reloaded episode validated; formal thresholds pending",
   "task": "cover_blocks",
   "robot_configuration": "arx_x5",
   "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
@@ -153,12 +153,14 @@
     "do_not_require": "Do not add block grasping, relocation, or cup-block contact as a task requirement."
   },
   "implementation_status": {
-    "v1": "Full physical reference and cup-cavity contact validation are not implemented yet.",
+    "v1": "Complete six-transfer native reference and six-clutter G2 execution pass. Generated episode passes 29 independent development checks, then passes again after relocation and physical replay. Language, scene-aware G1/G3 and policy evaluation remain incomplete.",
     "required_before_export": [
       "Native full sequence and movement constraints pass",
       "Observed grasp/release and cup-support transitions",
       "Cavity-aware collision handling and independent penetration checks",
       "Request fidelity and portable reload"
-    ]
+    ],
+    "geometry_checks": "Whole block boxes versus normalized source cup meshes at transfer endpoints, plus actual PhysX contacts throughout; no continuous or cooked-mesh collision guarantee.",
+    "development_evidence": "results/v1-cover-development/README.md"
   }
 }

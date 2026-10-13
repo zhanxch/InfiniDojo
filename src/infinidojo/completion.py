@@ -23,10 +23,10 @@ from infinidojo.repair import validate_position_options
 
 def validate_request(request):
     validate_position_options(request)
-    if request["task"] not in ("stack_blocks", "general_pickup"):
-        raise ValueError("Only the complete native stack_blocks/general_pickup contracts are supported here")
-    if request["task"] == "general_pickup" and "task_xy_options_m" in request:
-        raise ValueError("Pickup task-position repair has not been connected")
+    if request["task"] not in ("stack_blocks", "general_pickup", "cover_blocks"):
+        raise ValueError("Unsupported complete native task contract")
+    if request["task"] != "stack_blocks" and "task_xy_options_m" in request:
+        raise ValueError("Task-position repair is only connected for stacking")
     clutter = request["clutter"]
     region = np.asarray(clutter["region_xy_m"], dtype=float)
     count = clutter["count"]
@@ -271,6 +271,21 @@ def main():
     object_bounds = {
         item["label"]: metadata_bounds(root, item) for group in base["Rigid"].values() for item in group
     }
+    if request["task"] == "cover_blocks":
+        from infinidojo.cover_geometry import collision_mesh
+
+        # Reserve the actual cup envelope; native metadata has a small offset.
+        # The envelope applies to new clutter, not the block inside the cavity.
+        for group in base["Rigid"].values():
+            for item in group:
+                if item["label"] not in ("cup0", "cup1", "cup2"):
+                    continue
+                asset = (
+                    root
+                    / f"Assets/Object/RoboDojo/Rigid/{item['category']}/{item['category_idx']:05d}/object.usdz"
+                )
+                mesh, _ = collision_mesh(asset, item["scale"])
+                object_bounds[item["label"]] = (mesh.bounds / 1000).tolist()
     fixtures = [
         (
             item["label"],

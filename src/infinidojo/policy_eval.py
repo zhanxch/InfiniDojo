@@ -180,7 +180,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--policy", choices=POLICIES, required=True)
     parser.add_argument("--port", type=int, required=True)
-    parser.add_argument("--task", choices=("stack_blocks", "general_pickup"))
+    parser.add_argument("--task", choices=("stack_blocks", "general_pickup", "cover_blocks"))
     parser.add_argument("--policy-service-record", type=Path, help="Ready OpenWAM deployment provenance")
     inputs = parser.add_mutually_exclusive_group(required=True)
     inputs.add_argument("--episode", type=Path)

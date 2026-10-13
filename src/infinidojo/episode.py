@@ -9,6 +9,12 @@ from pathlib import Path
 
 from infinidojo.io import sha256, write_json
 
+INSTRUCTIONS = {
+    "stack_blocks": "Stack the three blocks with different textures.",
+    "general_pickup": "Pick up the <target> by 10 cm.",
+    "cover_blocks": "Cover the blocks from left to right, remember their colors, then uncover them in the order: red, green, and blue.",
+}
+
 
 def export_episode(execution, generation, validation_path, destination):
     audit = json.loads(validation_path.read_text())
@@ -26,7 +32,7 @@ def export_episode(execution, generation, validation_path, destination):
             raise ValueError(f"Generation changed since validation: {name}")
     provenance = json.loads((execution / "provenance.json").read_text())
     task = provenance["task"]
-    if task not in ("stack_blocks", "general_pickup"):
+    if task not in INSTRUCTIONS:
         raise ValueError("Unsupported validated task")
     if json.loads((generation / "request.json").read_text())["task"] != task:
         raise ValueError("Generation request differs from the validated task")
@@ -55,11 +61,7 @@ def export_episode(execution, generation, validation_path, destination):
         "task": task,
         "robot": "arx_x5",
         "seed": provenance["seed"],
-        "instruction": (
-            "Stack the three blocks with different textures."
-            if task == "stack_blocks"
-            else "Pick up the <target> by 10 cm."
-        ),
+        "instruction": INSTRUCTIONS[task],
         "instruction_resolution": "Native observation manager resolves target descriptions from scene assets.",
         "robodojo_commit": provenance["robodojo_commit"],
         "layout": "layout.json",
@@ -84,7 +86,7 @@ def load_episode(folder):
     manifest = json.loads((folder / "episode.json").read_text())
     if (
         manifest["format"] != "infinidojo.episode.v1"
-        or manifest["task"] not in ("stack_blocks", "general_pickup")
+        or manifest["task"] not in INSTRUCTIONS
         or manifest["robot"] != "arx_x5"
     ):
         raise ValueError("Unsupported episode format or task")

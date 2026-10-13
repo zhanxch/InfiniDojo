@@ -6,7 +6,7 @@ from infinidojo.episode import export_episode, load_episode
 from infinidojo.io import sha256, write_json
 
 
-@pytest.mark.parametrize("task", ["stack_blocks", "general_pickup"])
+@pytest.mark.parametrize("task", ["stack_blocks", "general_pickup", "cover_blocks"])
 def test_portable_bundle_rejects_changed_or_external_files(tmp_path, task):
     folder = tmp_path / "episode"
     folder.mkdir()

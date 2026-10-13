@@ -446,7 +446,9 @@ def main(default_task="stack_blocks"):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--robodojo-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--task", choices=("stack_blocks", "general_pickup"), default=default_task)
+    parser.add_argument(
+        "--task", choices=("stack_blocks", "general_pickup", "cover_blocks"), default=default_task
+    )
     parser.add_argument("--seed", type=int)
     parser.add_argument("--layout", type=Path, help="Native task layout; default is its saved layout 0")
     parser.add_argument("--episode", type=Path, help="Portable episode bundle to load")
@@ -539,6 +541,8 @@ def main(default_task="stack_blocks"):
         controller = run_reference
         if args.task == "general_pickup":
             from infinidojo.native_pickup import run_reference as controller
+        elif args.task == "cover_blocks":
+            from infinidojo.native_cover import run_reference as controller
 
         config = make_config(root, args.seed, args.task)
         if reference is not None or args.scene_aware or args.capture_initial_state:

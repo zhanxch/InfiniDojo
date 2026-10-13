@@ -74,6 +74,13 @@ the shared generator/validator to a task that ends with an object still held.
 Two native-can references and their six-clutter generated episodes pass physical
 development checks; one exported bundle also passes after relocation and replay.
 Pickup language and bounded G1/G3 integration, broader coverage and policy scores remain pending.
+The [cover/uncover development evidence](results/v1-cover-development/README.md)
+adds a complete six-transfer native reference and a six-clutter G2 episode.
+It distinguishes coverage from support, preserves native hollow-cup colliders,
+and combines actual contacts with whole-block checks against cup source meshes.
+The generated episode passes all 29 development checks, including after relocation
+and physical replay. This remains one native layout; cover language, scene-aware
+G1/G3, and policy evaluation are unfinished.
 
 ## Initial implementation scope
 

@@ -1,6 +1,11 @@
 import pytest
 
-from infinidojo.interaction import build_pickup_program, build_program, validate_event_trace
+from infinidojo.interaction import (
+    build_cover_program,
+    build_pickup_program,
+    build_program,
+    validate_event_trace,
+)
 
 
 def program():
@@ -56,3 +61,22 @@ def test_pickup_ends_held_without_invented_release_or_support():
     trace = [{"step": i, "event_id": e["id"]} for i, e in enumerate(p["events"])]
     assert validate_event_trace(p, trace)["complete"]
     assert not validate_event_trace(p, trace[:-1])["complete"]
+
+
+def test_cover_preserves_table_support_and_uncover_color_order():
+    p = build_cover_program(["green", "blue", "red"], {"cup0": "left", "cup1": "right", "cup2": "right"})
+    assert [t["block"] for t in p["transfers"]] == ["green", "blue", "red", "red", "green", "blue"]
+    assert [t["object"] for t in p["transfers"][3:]] == ["cup2", "cup0", "cup1"]
+    assert p["events"][23]["containment_goal_after_transfer"] == {
+        "cup0": "green",
+        "cup1": "blue",
+        "cup2": "red",
+    }
+    assert p["events"][-1]["containment_goal_after_transfer"] == {}
+    assert all(support == "Table" for support in p["final_support"].values())
+    for event in p["events"]:
+        assert (event["object"], event["target_block"]) not in event["allowed_contacts"]
+        assert event["support_relations"][event["target_block"]] == "Table"
+    trace = [{"step": i, "event_id": e["id"]} for i, e in enumerate(p["events"])]
+    assert validate_event_trace(p, trace)["complete"]
+    assert not validate_event_trace(p, trace[:24])["complete"]
