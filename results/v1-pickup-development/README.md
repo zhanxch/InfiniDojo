@@ -90,3 +90,7 @@ PYTHONPATH="$PWD/src" .venv/bin/python -m infinidojo.episode \
 预算执行器对拾取请求明确拒绝，不会误用堆叠配置。策略入口与配对脚本已按 episode
 任务选择原生配置，堆叠/拾取配置路由已检查；拾取策略实际执行仍待验证。
 `cover_blocks` 仍需要完整覆盖—揭开流程及杯腔物理证据。
+
+后续进展：覆盖任务已有 [完整开发链路](../v1-cover-development/README.md)；
+拾取的预算内 G1/G2/G3 与一次位置修复已有 [七组开发运行](../v1-pickup-retry-development/README.md)。
+本页的历史输入与结果保持不变。

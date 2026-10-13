@@ -1,0 +1,29 @@
+[
+  {
+    "source": "initial-state",
+    "status": "initialized",
+    "native_task_success": null,
+    "steps": 0,
+    "wall_seconds": 12.702387651996105,
+    "motions_planned": 0,
+    "result_sha256": "e07ba2ecd47c11d6002e83e4ff8e6d4529c81e9d9f26c072c4272556a9b5b096"
+  },
+  {
+    "source": "attempt-01/initial-state",
+    "status": "initialized",
+    "native_task_success": null,
+    "steps": 0,
+    "wall_seconds": 12.920442123999237,
+    "motions_planned": 0,
+    "result_sha256": "f85ec3cdbbcc6cea8747e689b4c53fd053731341551ed6acd05c5075fc36a64b"
+  },
+  {
+    "source": "attempt-02/initial-state",
+    "status": "initialized",
+    "native_task_success": null,
+    "steps": 0,
+    "wall_seconds": 14.078730385997915,
+    "motions_planned": 0,
+    "result_sha256": "23a3b0cb6b276bfc175633c60451e694595ed5c8ceb797134a99635c348dbb23"
+  }
+]

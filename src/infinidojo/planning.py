@@ -56,6 +56,13 @@ def transform_spheres(spheres, pose):
     return np.c_[spheres[:, :3] @ rotation(pose).T + pose[:3], spheres[:, 3]]
 
 
+def proxy_capacities(objects, program):
+    """Allocate once before CUDA capture; keep the same geometric resolution."""
+    manipulated = {event["object"] for event in program["events"]}
+    counts = [len(covering_spheres(objects[label]["bounds"])) for label in manipulated]
+    return {**PROXY_SLOTS, "attached_object": max([PROXY_SLOTS["attached_object"], *counts])}
+
+
 def sphere_box_penetration(spheres, obstacle):
     """Positive values mean overlap of a sphere with an oriented cuboid."""
     pose, half = obstacle["pose"], np.asarray(obstacle["dims"]) / 2
@@ -65,11 +72,11 @@ def sphere_box_penetration(spheres, obstacle):
     return spheres[..., 3] - signed_distance
 
 
-def configure_robot(robot_cfg):
+def configure_robot(robot_cfg, proxy_slots=None):
     """Add fixed flange-relative proxy slots; finger opening comes from physics."""
     cfg = copy.deepcopy(robot_cfg)
     kin = cfg["robot_cfg"]["kinematics"]
-    for name, slots in PROXY_SLOTS.items():
+    for name, slots in (proxy_slots or PROXY_SLOTS).items():
         kin.setdefault("extra_links", {})[name] = {
             "link_name": name,
             "joint_name": f"{name}_joint",
@@ -91,7 +98,7 @@ def configure_robot(robot_cfg):
     return cfg
 
 
-def make_scene_planner(robot, dt):
+def make_scene_planner(robot, dt, proxy_slots=None):
     """Reuse native single-arm plan methods without unused batch/IK solvers."""
     import yaml
     from curobo.motion_planner import MotionPlanner, MotionPlannerCfg
@@ -127,7 +134,7 @@ def make_scene_planner(robot, dt):
 
         def _build_robot_and_scene_cfg(self, data, table_height):
             cfg, world = super()._build_robot_and_scene_cfg(data, table_height)
-            return configure_robot(cfg), world
+            return configure_robot(cfg, proxy_slots), world
 
         def _build_motion_planner_cfg(self, max_batch_size):
             cfg = MotionPlannerCfg.create(
@@ -163,10 +170,12 @@ class ScenePlanningContext:
         self.env, self.rec, self.output = env, rec, output
         self.rm = env.robot_manager
         self.robot = self.rm.robot_list[1]
-        self.wrapper = make_scene_planner(self.robot, env.dt)
+        self.objects = json.loads((output / "scene-objects.json").read_text())
+        program = json.loads((output / "interaction-program.json").read_text())
+        self.proxy_slots = proxy_capacities(self.objects, program)
+        self.wrapper = make_scene_planner(self.robot, env.dt, self.proxy_slots)
         self.rm.planner[self.robot.robot_name] = self.wrapper
         self.planner = self.wrapper.motion_planner
-        self.objects = json.loads((output / "scene-objects.json").read_text())
         self.bounds = extract_robot_bounds(root / "Assets/Robots/x5/ARX.usd")
         self.table = json.loads((output / "layout.json").read_text())["Table"]
         lm = env.scene_manager.layout_manager
@@ -199,7 +208,8 @@ class ScenePlanningContext:
                 "held_object": "covering spheres of measured object OBB, flange-relative in planning only",
                 "contact_handling": "omit legal payload support from optimizer, screen all other pairs before execution",
                 "collision_cache_cuboids": 64,
-                "proxy_slots": PROXY_SLOTS,
+                "proxy_slots": self.proxy_slots,
+                "proxy_capacity_rule": "Preallocate enough 1-cm-cell covering spheres for every manipulated object",
                 "candidate_screen": "all interpolated arm controls; sphere-OBB overlap, tolerance 1e-5 m",
                 "validation": "requires separate physical validation; approximations can reject valid motions",
                 "curobo_commit": git_revision(Path(curobo.__file__).resolve().parents[1]),

@@ -1,0 +1,343 @@
+{
+  "status": "accepted",
+  "method": "g1",
+  "seed": 1200,
+  "request": {
+    "task": "general_pickup",
+    "clutter": {
+      "count": 6,
+      "region_xy_m": [
+        [
+          0.08,
+          -0.14
+        ],
+        [
+          0.5,
+          0.28
+        ]
+      ],
+      "clearance_m": 0.003,
+      "pair_distance_m": 0.09
+    },
+    "task_xy_options_m": {
+      "target": [
+        [
+          0.22,
+          -0.05
+        ],
+        [
+          0.16,
+          -0.05
+        ],
+        [
+          0.28,
+          -0.05
+        ],
+        [
+          0.22,
+          -0.11
+        ],
+        [
+          0.22,
+          0.01
+        ]
+      ]
+    }
+  },
+  "task": "general_pickup",
+  "infinidojo_commit": "713566504936685fd170bd282c2498d5af601fa1",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "source_sha256": {
+    "__init__.py": "44cf1ca788faa02d0337265e81a7d6bbf08492d7a7dfd3f0ec35982305e70827",
+    "assets.py": "bb4a3c092e9a5e2cae62e36ce88b645d9fd78d80caff44c10086742fd9c45f2b",
+    "cli.py": "d97418c4ab80573332d7d737c6c1fcc0a25c1ef20c8f4074d03ed745357a2c1e",
+    "completion.py": "8f88688521b6488539a91518d12d5ef809a6e5f31653b6fccc5973bc85966fda",
+    "cover_geometry.py": "ad535e24f6516b32b9b2078f018d2f66ac9ba59ce80d588080d79224d90626f3",
+    "episode.py": "926e8ecd14c2f94fc2f3870495397bc97e23516213be34a85d3c72c0691194ed",
+    "evaluation.py": "55adc643e96d0c90ac56a8205cd59618a28f12607f7ec930f4d0cd9283322be0",
+    "frontend.py": "29db31d5708264c0f28b3955bbf6f926999c7ff60a3b4a8e1970ab0b961fb343",
+    "generation.py": "80dbca774577f6ce7ac6df272b92e857518223e73a97af10866fdc491079ed75",
+    "geometry.py": "350d0be91e221f5b1ecc7541fd8a10dd408bc9aee2776da41531ccfc077b897a",
+    "interaction.py": "993f01aa279260458361b7c5a6836e5f036e93f92f269e0798ad3b653fdb4fef",
+    "io.py": "23645e5d675a3da52cbdfea486f648aa4ad83bda198181f43cb06ce3949d3391",
+    "native.py": "0e911e97a2ea902eb46b6928c33b31d39cda491ce951a529f186896a37488e94",
+    "native_cover.py": "2217cea1da7aa6906623286f976b4f26437433b017bf74f2aaebe0c2d60459a6",
+    "native_pickup.py": "3d9cacaeed708af975e1255e9ad505b2eec2e1e3c02cad522c25298b4014ce1d",
+    "native_stack.py": "b1c709cf15b2313a3c88c9fd286807d1ae05038e00eeef9a5118f161509798ba",
+    "openwam_service.py": "74b6a1bb9dc04baa96157d18ec238c5d7a5b004abe90b09e732b6b3c64e806ab",
+    "planning.py": "54df0b767cde65b2d3ee78a0c4962f318ad37b871f92bd7e2c21d8640f9f7f5d",
+    "planning_probe.py": "fd32ffd20ecd0a86b4c2229533777b23d9d27c7c8457d4f32bcbb187be9aa2ca",
+    "policy_eval.py": "3e44fdfe9af8d15cb823541e86279b006ba136feaefbe7369988ba517513bbb2",
+    "policy_results.py": "6d0adadfaaca298f7e0320cb73ccb6b1d1fbdd3ee70634d02e1247acff96e331",
+    "repair.py": "721328e3c32f794118e6acf56e88d850a2ea75626b294f05ab309a39d9fd99ef",
+    "request_run.py": "3875da2541b6fc96572f0762ac0d53409b9eb2a3269ea3c670df34d96a252a1f",
+    "specification.py": "a529f6a93c5c72d52b843d475bdd40a9673430b09abf8fbdf70c2d0170b60ec6",
+    "stack_specification.py": "0ce5554233174f28d727888662c639c9f8f74faf82175ce08d3c7a73cab0f677",
+    "study.py": "2c4ce84a8d89a5e48ae22aa629f836b93b68fba711d4d0fb82b59ac716bc873a",
+    "validation.py": "968933b5e6bc870de25bd1c67c6a802f109b4f7d6208efcdd3940960027df451"
+  },
+  "initial_layout_sha256": "d0158f73800081b1d88020de56c3f228a2f301e08a397010e5cecaee4891afac",
+  "base_layout_sha256": "d0158f73800081b1d88020de56c3f228a2f301e08a397010e5cecaee4891afac",
+  "initial_task_positions": {
+    "target": [
+      0.22,
+      -0.05
+    ]
+  },
+  "language_compilation": null,
+  "repair_enabled": false,
+  "task_position_updates": [
+    {
+      "selection": "uniform_untried_task_positions",
+      "after": {
+        "target": [
+          0.16,
+          -0.05
+        ]
+      },
+      "attempt": 1,
+      "layout_sha256": "eff981309b8bfcf97fc73226f698daec6f09d942e52e8a5eb708bce5527f536b"
+    },
+    {
+      "selection": "uniform_untried_task_positions",
+      "after": {
+        "target": [
+          0.28,
+          -0.05
+        ]
+      },
+      "attempt": 2,
+      "layout_sha256": "fa54223b1a941d5aab18dfe5655ef95e2b59d85765110af5f642c0543d02258d"
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": 1200,
+      "provenance_sha256": "d476c3bafeb434d3c3778e036a151f6d3bb07d41ffd1033c7d734a4a3d39ec79"
+    },
+    {
+      "asset_id": 1201,
+      "provenance_sha256": "3208931cc80df2e7b2da3e5f87160ba7d19ffd4e9dc236c5fc70db48b90b035a"
+    },
+    {
+      "asset_id": 1202,
+      "provenance_sha256": "ca9cdeef09080bf887e6d7e94ce1d031cbec55533e011ec835ca12a1a50e69f1"
+    }
+  ],
+  "asset_indices": [
+    2,
+    1,
+    1,
+    0,
+    1,
+    2
+  ],
+  "budgets": {
+    "wall_seconds": 240.0,
+    "max_layouts": 4,
+    "total_proposals": 4000,
+    "proposals_per_layout": 1000,
+    "cluster_proposals": 128,
+    "physics_steps_per_execution": 10000
+  },
+  "cost_scope": "precomputed assets; includes reset/reference acquisition, all candidate generation, simulator startup/shutdown, planning, execution, independent validation and episode export",
+  "asset_generation_seconds": null,
+  "protocol_status": "development; thresholds and formal protocol not frozen",
+  "attempts": [
+    {
+      "index": 0,
+      "layout_seed": 1200,
+      "status": "unverified",
+      "proposal_limit": 1000,
+      "task_positions": {
+        "target": [
+          0.22,
+          -0.05
+        ]
+      },
+      "state_source": "initial-state",
+      "proposals": 13,
+      "native_task_success": false,
+      "controller_status": "controller_failed",
+      "controller_error": "Planner failed during descend",
+      "physics_steps": 581,
+      "motions_planned": 2,
+      "failed_checks": [
+        "native_task_success",
+        "complete_event_order",
+        "complete_execution",
+        "contact_reporting_available",
+        "hold_duration",
+        "hold_motion",
+        "hold_rotation_stable",
+        "sustained_native_lift",
+        "held_relation_observed",
+        "held_rotation_observed"
+      ]
+    },
+    {
+      "index": 1,
+      "layout_seed": 1001203,
+      "status": "unverified",
+      "proposal_limit": 1000,
+      "task_positions": {
+        "target": [
+          0.16,
+          -0.05
+        ]
+      },
+      "state_source": "attempt-01/initial-state",
+      "proposals": 33,
+      "native_task_success": false,
+      "controller_status": "controller_failed",
+      "controller_error": "Planner failed during descend",
+      "physics_steps": 601,
+      "motions_planned": 2,
+      "failed_checks": [
+        "native_task_success",
+        "complete_event_order",
+        "complete_execution",
+        "contact_reporting_available",
+        "hold_duration",
+        "hold_motion",
+        "hold_rotation_stable",
+        "sustained_native_lift",
+        "held_relation_observed",
+        "held_rotation_observed"
+      ]
+    },
+    {
+      "index": 2,
+      "layout_seed": 2001206,
+      "status": "validated_under_development_checks",
+      "proposal_limit": 1000,
+      "task_positions": {
+        "target": [
+          0.28,
+          -0.05
+        ]
+      },
+      "state_source": "attempt-02/initial-state",
+      "proposals": 7,
+      "native_task_success": true,
+      "controller_status": "completed",
+      "controller_error": null,
+      "physics_steps": 1703,
+      "motions_planned": 3,
+      "failed_checks": []
+    }
+  ],
+  "stages": [
+    {
+      "name": "state-acquisition",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 14.3012016369903,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.native_stack"
+    },
+    {
+      "name": "attempt-00/generation",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.21400588599499315,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.completion"
+    },
+    {
+      "name": "attempt-00/execution",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 30.326872235003975,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.native_stack"
+    },
+    {
+      "name": "attempt-00/validation",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.367918729010853,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.validation"
+    },
+    {
+      "name": "attempt-01/state-acquisition",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 15.253986868992797,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.native_stack"
+    },
+    {
+      "name": "attempt-01/generation",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.2649486440059263,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.completion"
+    },
+    {
+      "name": "attempt-01/execution",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 27.285342054994544,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.native_stack"
+    },
+    {
+      "name": "attempt-01/validation",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.31723861100908834,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.validation"
+    },
+    {
+      "name": "attempt-02/state-acquisition",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 16.3042526539939,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.native_stack"
+    },
+    {
+      "name": "attempt-02/generation",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.2159992630040506,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.completion"
+    },
+    {
+      "name": "attempt-02/execution",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 37.37608191699837,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.native_stack"
+    },
+    {
+      "name": "attempt-02/validation",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.5148833820130676,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.validation"
+    },
+    {
+      "name": "attempt-02/export",
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.03184910300478805,
+      "deadline_overrun_seconds": 0.0,
+      "module": "infinidojo.episode"
+    }
+  ],
+  "accepted_attempt": 2,
+  "total_proposals_used": 53,
+  "unreported_proposals_upper_bound": 0,
+  "wall_seconds": 142.80714139700285,
+  "deadline_overrun_seconds": 0.0,
+  "episode_manifest_sha256": "089acc65de453c4a4668918b9a4d898ba0274f83e0eb54e863df35ad07e2aa92",
+  "raw_run_sha256": "7c21650c672fd7c73a756c7a516fa7cbdcc215524692f0909064bef192bc2591"
+}

@@ -17,14 +17,13 @@ from types import SimpleNamespace
 import numpy as np
 
 from infinidojo.io import sha256, write_json
-from infinidojo.planning import make_scene_planner, sphere_box_penetration
+from infinidojo.planning import PROXY_SLOTS, make_scene_planner, sphere_box_penetration
 
 
-def run_probe(root, execution):
+def run_probe(root, execution, event_id="00/transport"):
     import torch
     from curobo.scene import Cuboid, Scene
 
-    event_id = "00/transport"
     record = next(
         x for x in json.loads((execution / "planner-scenes.json").read_text()) if x["event_id"] == event_id
     )
@@ -41,7 +40,11 @@ def run_probe(root, execution):
         arm_joints_name=[f"joint{i}" for i in range(1, 7)],
         entity_origin_pose=record["base_pose"],
     )
-    wrapper = make_scene_planner(robot, 0.004)
+    slots = {
+        name: max(default, len(record["proxy_spheres"].get(name, [])))
+        for name, default in PROXY_SLOTS.items()
+    }
+    wrapper = make_scene_planner(robot, 0.004, slots)
     planner = wrapper.motion_planner
     params = planner.kinematics.config.kinematics_config
     for name, spheres in record["proxy_spheres"].items():
@@ -66,7 +69,7 @@ def run_probe(root, execution):
 
     result = plan("clear_world", world)
     if result["status"] != "Success":
-        return {"passed": False, "reason": "baseline_transport_unavailable", "cases": cases}
+        return {"passed": False, "reason": "baseline_motion_unavailable", "cases": cases}
     state = planner.compute_kinematics(wrapper._build_joint_state(result["position"][-1]))
     spheres = state.robot_spheres.cpu().numpy().reshape(-1, 4)
     indices = params.get_sphere_index_from_link_name("attached_object")
@@ -95,6 +98,7 @@ def run_probe(root, execution):
         "blocker": blocker,
         "non_payload_robot_overlap_m": overlap,
         "event_id": event_id,
+        "proxy_slots": slots,
         "description": __doc__,
     }
 
@@ -104,6 +108,9 @@ def main():
     parser.add_argument("--robodojo-root", type=Path, required=True)
     parser.add_argument("--execution", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument(
+        "--event-id", default="00/transport", help="A recorded planned motion with an attached object"
+    )
     args = parser.parse_args()
     root, execution, output = args.robodojo_root.resolve(), args.execution.resolve(), args.output.resolve()
     output.mkdir(parents=True, exist_ok=False)
@@ -122,7 +129,7 @@ def main():
         },
     )
     try:
-        result = run_probe(root, execution)
+        result = run_probe(root, execution, args.event_id)
         write_json(output / "result.json", result)
     except Exception as exc:
         write_json(output / "error.json", {"type": type(exc).__name__, "message": str(exc)})

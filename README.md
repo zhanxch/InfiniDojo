@@ -73,7 +73,12 @@ The [pickup development evidence](results/v1-pickup-development/README.md) exten
 the shared generator/validator to a task that ends with an object still held.
 Two native-can references and their six-clutter generated episodes pass physical
 development checks; one exported bundle also passes after relocation and replay.
-Pickup language and bounded G1/G3 integration, broader coverage and policy scores remain pending.
+The [bounded pickup generation study](results/v1-pickup-retry-development/README.md)
+now connects G1/G2/G3, a sustained-hold contract, and finite target-position repair.
+All seven declared development runs are retained: six are accepted, representing
+four distinct layouts. Repair works on the twelve-clutter request but costs more
+time than fixed-reference retries; no efficiency advantage is established.
+Pickup language, broader coverage and policy scores remain pending.
 The [cover/uncover development evidence](results/v1-cover-development/README.md)
 adds a complete six-transfer native reference and a six-clutter G2 episode.
 It distinguishes coverage from support, preserves native hollow-cup colliders,

@@ -13,14 +13,22 @@ from itertools import product
 import numpy as np
 
 LABELS = ("block_0", "block_1", "block_2")
+TASK_LABELS = {"stack_blocks": LABELS, "general_pickup": ("target",)}
+
+
+def task_labels(task):
+    if task not in TASK_LABELS:
+        raise ValueError(f"Task-position repair is not connected for {task}")
+    return TASK_LABELS[task]
 
 
 def validate_position_options(request):
     options = request.get("task_xy_options_m")
     if options is None:
         return
-    if set(options) != set(LABELS):
-        raise ValueError("Task position options must specify all three block identities")
+    labels = task_labels(request.get("task", "stack_blocks"))
+    if set(options) != set(labels):
+        raise ValueError(f"Task position options must specify all task object identities: {labels}")
     for label, values in options.items():
         points = np.asarray(values, dtype=float)
         if (
@@ -35,9 +43,9 @@ def validate_position_options(request):
             raise ValueError(f"Invalid finite XY options for {label}")
 
 
-def task_positions(layout):
+def task_positions(layout, task="stack_blocks"):
     entries = {item["label"]: item for group in layout["Rigid"].values() for item in group}
-    return {label: list(entries[label]["default_pos"][:2]) for label in LABELS}
+    return {label: list(entries[label]["default_pos"][:2]) for label in task_labels(task)}
 
 
 def with_positions(layout, positions):
@@ -51,15 +59,17 @@ def with_positions(layout, positions):
 
 def position_choices(request, base):
     validate_position_options(request)
+    task = request.get("task", "stack_blocks")
+    labels = task_labels(task)
     options = request.get("task_xy_options_m")
     if options is None:
-        return [task_positions(base)]
-    return [dict(zip(LABELS, points, strict=True)) for points in product(*(options[k] for k in LABELS))]
+        return [task_positions(base, task)]
+    return [dict(zip(labels, points, strict=True)) for points in product(*(options[k] for k in labels))]
 
 
 def initial_positions(request, base, seed):
     choices = position_choices(request, base)
-    original = task_positions(base)
+    original = task_positions(base, request.get("task", "stack_blocks"))
     # Preserve a supplied allowed layout as the common starting point.
     return (
         original if original in choices else choices[int(np.random.default_rng(seed).integers(len(choices)))]
@@ -79,8 +89,9 @@ def event_dependencies(program, robots):
     result = {}
     for events in groups.values():
         obj = events[0]["object"]
-        destination = next(e["support"] for e in events if e["phase"] == "release")
-        source_root, destination_root = roots[obj], roots[destination]
+        release = next((e for e in events if e["phase"] == "release"), None)
+        source_root = roots[obj]
+        destination_root = roots.get(release["support"], source_root) if release else source_root
         for event in events:
             phase = event["phase"]
             active = (
@@ -99,11 +110,12 @@ def event_dependencies(program, robots):
             if phase == "release":
                 roots[obj] = destination_root
     result["initial"] = {label: {label} for label in program["initial_support"]}
-    result["settle"] = {label: {root} for label, root in roots.items()}
-    result["return"] = {**result["settle"]}
-    for robot, identity in robots.items():
-        if identity["arm"] == program["events"][-1]["arm"]:
-            result["return"][robot] = {roots[program["events"][-1]["object"]]}
+    if not program.get("final_attachment"):
+        result["settle"] = {label: {root} for label, root in roots.items()}
+        result["return"] = {**result["settle"]}
+        for robot, identity in robots.items():
+            if identity["arm"] == program["events"][-1]["arm"]:
+                result["return"][robot] = {roots[program["events"][-1]["object"]]}
     return result
 
 
@@ -118,7 +130,8 @@ def rank_repairs(request, layout, generation, program, robots):
     if "task_xy_options_m" not in request:
         return []
     dependencies = event_dependencies(program, robots)
-    points, causes = {label: [] for label in LABELS}, {label: set() for label in LABELS}
+    labels = task_labels(request.get("task", "stack_blocks"))
+    points, causes = {label: [] for label in labels}, {label: set() for label in labels}
     for proposal in generation["proposals"]:
         if proposal["rejection"] != "full_reference_occupancy":
             continue
@@ -134,9 +147,9 @@ def rank_repairs(request, layout, generation, program, robots):
         center = np.mean([pose[:2] for pose in proposal["poses"]], axis=0)
         for anchor in voters:
             points[anchor].append(center)
-    current = task_positions(layout)
+    current = task_positions(layout, request.get("task", "stack_blocks"))
     ranked = []
-    for label in LABELS:
+    for label in labels:
         if not points[label]:
             continue
         centers = np.asarray(points[label])

@@ -1,0 +1,61 @@
+{
+  "status": "development diagnostics, declared before bounded runs; not formal held-out results",
+  "task": "general_pickup",
+  "request_seeds": [
+    1200
+  ],
+  "native_target": "can/00000 upright; fixed mass and friction, fixed 45-degree front/down grasp profile",
+  "base_layout_sha256": "d0158f73800081b1d88020de56c3f228a2f301e08a397010e5cecaee4891afac",
+  "requests": [
+    "requests/pickup-anchor-paired-6.json",
+    "requests/pickup-anchor-paired-12.json"
+  ],
+  "method_requests": [
+    {
+      "method": "g1",
+      "count": 6
+    },
+    {
+      "method": "g2",
+      "count": 6
+    },
+    {
+      "method": "g3",
+      "count": 6
+    },
+    {
+      "method": "g1",
+      "count": 12
+    },
+    {
+      "method": "g2",
+      "count": 12
+    },
+    {
+      "method": "g3",
+      "count": 12
+    },
+    {
+      "method": "g3",
+      "disable_repair": true,
+      "count": 12
+    }
+  ],
+  "asset_seeds_in_pool_order": [
+    1200,
+    1201,
+    1202
+  ],
+  "budget": {
+    "wall_seconds": 240,
+    "max_layouts": 4,
+    "total_proposals": 4000,
+    "proposals_per_layout": 1000,
+    "cluster_proposals": 128,
+    "physics_steps_per_execution": 10000,
+    "g3_anchor_repairs": 1
+  },
+  "shared_task_freedom": "Original target position plus four 6-cm axis offsets; every method has the same finite options.",
+  "purpose": "Connect sustained-hold task to shared planner, generation, event-attributed repair, validator and export; preserve all negative outcomes.",
+  "cost_scope": "Fresh reset/reference and all candidate stages included; previously generated assets excluded and reported separately."
+}

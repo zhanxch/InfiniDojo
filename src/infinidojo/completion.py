@@ -25,8 +25,6 @@ def validate_request(request):
     validate_position_options(request)
     if request["task"] not in ("stack_blocks", "general_pickup", "cover_blocks"):
         raise ValueError("Unsupported complete native task contract")
-    if request["task"] != "stack_blocks" and "task_xy_options_m" in request:
-        raise ValueError("Task-position repair is only connected for stacking")
     clutter = request["clutter"]
     region = np.asarray(clutter["region_xy_m"], dtype=float)
     count = clutter["count"]

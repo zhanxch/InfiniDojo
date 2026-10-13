@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "source-audited contract; native-can pickup/G2/hold validation/export demonstrated on two development positions; formal thresholds pending",
+  "status": "source-audited development contract; native-can G1/G2/G3 generation and hold validation demonstrated; formal thresholds pending",
   "task": "general_pickup",
   "robot_configuration": "arx_x5",
   "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
@@ -53,6 +53,7 @@
   },
   "implementation_status": {
     "historical_v0": "Native lift was executed with generated targets; historical conservative box audit remains separate.",
-    "v1": "Two native-can positions complete approach/grasp/lift/hold and six-clutter G2 replay; 26 independent development checks pass, episode relocation/replay passes. Language, bounded G1/G3, policy execution and held-out coverage remain pending."
+    "v1": "Two native-can positions complete pickup/hold and G2 replay, with export/reload. Seven bounded G1/G2/G3 development runs now include scene-aware planning and one event-attributed target-position repair; accepted runs pass 27 checks including requested position options. Language, policy execution and held-out coverage remain pending.",
+    "bounded_generation_evidence": "results/v1-pickup-retry-development/README.md"
   }
 }

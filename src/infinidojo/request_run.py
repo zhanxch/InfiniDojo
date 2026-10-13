@@ -128,9 +128,10 @@ def run_request(args):
     else:
         request = read_json(args.request)
     validate_request(request)
-    if request["task"] != "stack_blocks":
+    task = request["task"]
+    if task not in ("stack_blocks", "general_pickup"):
         raise ValueError(
-            "The bounded G1/G2/G3 runner still requires stack_blocks; pickup uses completion directly"
+            "The bounded runner requires scene-aware planning; cover currently uses G2 completion directly"
         )
     frozen = source_hashes(source)
     for name in frozen:
@@ -153,9 +154,7 @@ def run_request(args):
     selected = np.random.default_rng(args.seed).integers(0, len(assets), request["clutter"]["count"]).tolist()
     write_json(output / "asset-selection.json", selected)
     native_layout = (
-        args.layout.resolve()
-        if args.layout
-        else root / "Assets/Eval_Layout/RoboDojo/arx_x5/0/stack_blocks_0.json"
+        args.layout.resolve() if args.layout else root / f"Assets/Eval_Layout/RoboDojo/arx_x5/0/{task}_0.json"
     )
     if compiler_context and sha256(native_layout) != compiler_context["native_layout_sha256"]:
         raise ValueError("Native layout differs from the language compiler context")
@@ -164,18 +163,19 @@ def run_request(args):
     current_layout = with_positions(base_layout, initial_positions(request, base_layout, args.seed))
     write_json(output / "initial-layout.json", current_layout)
     choices = position_choices(request, base_layout)
-    tried_positions = [task_positions(current_layout)]
+    tried_positions = [task_positions(current_layout, task)]
     manifest = {
         "status": "running",
         "method": args.method,
         "seed": args.seed,
         "request": request,
+        "task": task,
         "infinidojo_commit": git_revision(source),
         "robodojo_commit": git_revision(root),
         "source_sha256": frozen,
         "initial_layout_sha256": sha256(output / "initial-layout.json"),
         "base_layout_sha256": sha256(output / "base-layout.json"),
-        "initial_task_positions": task_positions(current_layout),
+        "initial_task_positions": task_positions(current_layout, task),
         "language_compilation": compilation,
         "repair_enabled": args.method == "g3" and not args.disable_repair,
         "task_position_updates": [],
@@ -206,6 +206,8 @@ def run_request(args):
         "-u",
         "-m",
         "infinidojo.native_stack",
+        "--task",
+        task,
         "--robodojo-root",
         str(root),
         "--seed",
@@ -288,7 +290,7 @@ def run_request(args):
                     positions = remaining[int(np.random.default_rng(layout_seed).integers(len(remaining)))]
                     update = {"selection": "uniform_untried_task_positions", "after": positions}
             elif pending_repair is not None:
-                positions = task_positions(current_layout)
+                positions = task_positions(current_layout, task)
                 positions[pending_repair["anchor"]] = pending_repair["after_xy_m"]
                 update = {
                     "selection": "event_conditioned_anchor_repair",
@@ -319,7 +321,7 @@ def run_request(args):
                 if args.method != "g1" and not changed_result.get("native_task_success"):
                     manifest["status"] = row["status"] = "reference_unverified"
                     break
-            row["task_positions"] = task_positions(current_layout)
+            row["task_positions"] = task_positions(current_layout, task)
             row["state_source"] = str(state.relative_to(output))
             command = [
                 sys.executable,

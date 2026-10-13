@@ -1,0 +1,22 @@
+{
+  "scope": "Same seed/request; actual independently acquired references and placement records, not an assumed equivalence",
+  "reference_controls_sha256_equal": true,
+  "reference_trajectory_sha256_equal": true,
+  "placement_comparisons": [
+    {
+      "attempt": 0,
+      "placement_records_equal_except_time": true
+    },
+    {
+      "attempt": 1,
+      "placement_records_equal_except_time": true
+    },
+    {
+      "attempt": 2,
+      "placement_records_equal_except_time": true
+    }
+  ],
+  "accepted_layout_sha256_equal": true,
+  "g2_wall_seconds": 68.88769114100432,
+  "g3_disabled_wall_seconds": 65.6874069260084
+}

@@ -1,0 +1,228 @@
+[
+  {
+    "id": "g1-6",
+    "method": "g1",
+    "status": "accepted",
+    "seed": 1200,
+    "wall_seconds": 142.80714139700285,
+    "accepted_attempt": 2,
+    "total_proposals_used": 53,
+    "repair_enabled": false,
+    "clutter_count": 6,
+    "layout_attempts": 3,
+    "task_position_updates": [
+      {
+        "selection": "uniform_untried_task_positions",
+        "after": {
+          "target": [
+            0.16,
+            -0.05
+          ]
+        },
+        "attempt": 1,
+        "layout_sha256": "eff981309b8bfcf97fc73226f698daec6f09d942e52e8a5eb708bce5527f536b"
+      },
+      {
+        "selection": "uniform_untried_task_positions",
+        "after": {
+          "target": [
+            0.28,
+            -0.05
+          ]
+        },
+        "attempt": 2,
+        "layout_sha256": "fa54223b1a941d5aab18dfe5655ef95e2b59d85765110af5f642c0543d02258d"
+      }
+    ],
+    "physically_executed_candidates": 3,
+    "generated_counts": [
+      6,
+      6,
+      6
+    ]
+  },
+  {
+    "id": "g2-6",
+    "method": "g2",
+    "status": "accepted",
+    "seed": 1200,
+    "wall_seconds": 70.39585784899828,
+    "accepted_attempt": 0,
+    "total_proposals_used": 17,
+    "repair_enabled": false,
+    "clutter_count": 6,
+    "layout_attempts": 1,
+    "task_position_updates": [],
+    "physically_executed_candidates": 1,
+    "generated_counts": [
+      6
+    ]
+  },
+  {
+    "id": "g3-6",
+    "method": "g3",
+    "status": "accepted",
+    "seed": 1200,
+    "wall_seconds": 63.46409276299528,
+    "accepted_attempt": 0,
+    "total_proposals_used": 17,
+    "repair_enabled": true,
+    "clutter_count": 6,
+    "layout_attempts": 1,
+    "task_position_updates": [],
+    "physically_executed_candidates": 1,
+    "generated_counts": [
+      6
+    ]
+  },
+  {
+    "id": "g1-12",
+    "method": "g1",
+    "status": "layout_budget_exhausted",
+    "seed": 1200,
+    "wall_seconds": 180.70882045300095,
+    "accepted_attempt": null,
+    "total_proposals_used": 464,
+    "repair_enabled": false,
+    "clutter_count": 12,
+    "layout_attempts": 4,
+    "task_position_updates": [
+      {
+        "selection": "uniform_untried_task_positions",
+        "after": {
+          "target": [
+            0.16,
+            -0.05
+          ]
+        },
+        "attempt": 1,
+        "layout_sha256": "eff981309b8bfcf97fc73226f698daec6f09d942e52e8a5eb708bce5527f536b"
+      },
+      {
+        "selection": "uniform_untried_task_positions",
+        "after": {
+          "target": [
+            0.28,
+            -0.05
+          ]
+        },
+        "attempt": 2,
+        "layout_sha256": "fa54223b1a941d5aab18dfe5655ef95e2b59d85765110af5f642c0543d02258d"
+      },
+      {
+        "selection": "uniform_untried_task_positions",
+        "after": {
+          "target": [
+            0.22,
+            0.01
+          ]
+        },
+        "attempt": 3,
+        "layout_sha256": "5b065f85a990918cd497de541943b2d63b5d9251e06d7e237abd628c571d587a"
+      }
+    ],
+    "physically_executed_candidates": 4,
+    "generated_counts": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  {
+    "id": "g2-12",
+    "method": "g2",
+    "status": "accepted",
+    "seed": 1200,
+    "wall_seconds": 68.88769114100432,
+    "accepted_attempt": 2,
+    "total_proposals_used": 2244,
+    "repair_enabled": false,
+    "clutter_count": 12,
+    "layout_attempts": 3,
+    "task_position_updates": [],
+    "physically_executed_candidates": 1,
+    "generated_counts": [
+      10,
+      10,
+      12
+    ]
+  },
+  {
+    "id": "g3-12",
+    "method": "g3",
+    "status": "accepted",
+    "seed": 1200,
+    "wall_seconds": 106.99899238299986,
+    "accepted_attempt": 1,
+    "total_proposals_used": 1550,
+    "repair_enabled": true,
+    "clutter_count": 12,
+    "layout_attempts": 2,
+    "task_position_updates": [
+      {
+        "selection": "event_conditioned_anchor_repair",
+        "anchor": "target",
+        "before_xy_m": [
+          0.22,
+          -0.05
+        ],
+        "after_xy_m": [
+          0.22,
+          -0.11
+        ],
+        "mean_distance_gain_m": 0.034682393503877654,
+        "blocking_cluster_proposals": 56,
+        "blocking_events": [
+          "00/approach",
+          "00/descend",
+          "00/grasp",
+          "00/lift",
+          "initial"
+        ],
+        "dependent_events": [
+          "00/approach",
+          "00/descend",
+          "00/grasp",
+          "00/hold",
+          "00/lift",
+          "initial",
+          "return",
+          "settle"
+        ],
+        "after": {
+          "target": [
+            0.22,
+            -0.11
+          ]
+        },
+        "attempt": 1,
+        "layout_sha256": "e3f3c7cb8aef8e4e02abc9a4d8c082f9f4cae3d68022dceb2a8cec5ad5482ac3"
+      }
+    ],
+    "physically_executed_candidates": 1,
+    "generated_counts": [
+      10,
+      12
+    ]
+  },
+  {
+    "id": "g3-12-no-repair",
+    "method": "g3",
+    "status": "accepted",
+    "seed": 1200,
+    "wall_seconds": 65.6874069260084,
+    "accepted_attempt": 2,
+    "total_proposals_used": 2244,
+    "repair_enabled": false,
+    "clutter_count": 12,
+    "layout_attempts": 3,
+    "task_position_updates": [],
+    "physically_executed_candidates": 1,
+    "generated_counts": [
+      10,
+      10,
+      12
+    ]
+  }
+]

@@ -1,0 +1,254 @@
+{
+  "purpose": "Remove non-existent pickup return/settle names from affected-event metadata after the seven physical runs.",
+  "physical_program_changed": false,
+  "ranking_order_coordinates_and_scores_changed": false,
+  "old_ranking": [
+    {
+      "anchor": "target",
+      "before_xy_m": [
+        0.22,
+        -0.05
+      ],
+      "after_xy_m": [
+        0.22,
+        -0.11
+      ],
+      "mean_distance_gain_m": 0.034682393503877654,
+      "blocking_cluster_proposals": 56,
+      "blocking_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/lift",
+        "initial"
+      ],
+      "dependent_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/hold",
+        "00/lift",
+        "initial",
+        "return",
+        "settle"
+      ]
+    },
+    {
+      "anchor": "target",
+      "before_xy_m": [
+        0.22,
+        -0.05
+      ],
+      "after_xy_m": [
+        0.16,
+        -0.05
+      ],
+      "mean_distance_gain_m": 0.02197957122095467,
+      "blocking_cluster_proposals": 56,
+      "blocking_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/lift",
+        "initial"
+      ],
+      "dependent_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/hold",
+        "00/lift",
+        "initial",
+        "return",
+        "settle"
+      ]
+    },
+    {
+      "anchor": "target",
+      "before_xy_m": [
+        0.22,
+        -0.05
+      ],
+      "after_xy_m": [
+        0.28,
+        -0.05
+      ],
+      "mean_distance_gain_m": 0.015442507042961271,
+      "blocking_cluster_proposals": 56,
+      "blocking_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/lift",
+        "initial"
+      ],
+      "dependent_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/hold",
+        "00/lift",
+        "initial",
+        "return",
+        "settle"
+      ]
+    },
+    {
+      "anchor": "target",
+      "before_xy_m": [
+        0.22,
+        -0.05
+      ],
+      "after_xy_m": [
+        0.22,
+        0.01
+      ],
+      "mean_distance_gain_m": 0.005217716040136525,
+      "blocking_cluster_proposals": 56,
+      "blocking_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/lift",
+        "initial"
+      ],
+      "dependent_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/hold",
+        "00/lift",
+        "initial",
+        "return",
+        "settle"
+      ]
+    }
+  ],
+  "corrected_ranking": [
+    {
+      "anchor": "target",
+      "before_xy_m": [
+        0.22,
+        -0.05
+      ],
+      "after_xy_m": [
+        0.22,
+        -0.11
+      ],
+      "mean_distance_gain_m": 0.034682393503877654,
+      "blocking_cluster_proposals": 56,
+      "blocking_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/lift",
+        "initial"
+      ],
+      "dependent_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/hold",
+        "00/lift",
+        "initial"
+      ]
+    },
+    {
+      "anchor": "target",
+      "before_xy_m": [
+        0.22,
+        -0.05
+      ],
+      "after_xy_m": [
+        0.16,
+        -0.05
+      ],
+      "mean_distance_gain_m": 0.02197957122095467,
+      "blocking_cluster_proposals": 56,
+      "blocking_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/lift",
+        "initial"
+      ],
+      "dependent_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/hold",
+        "00/lift",
+        "initial"
+      ]
+    },
+    {
+      "anchor": "target",
+      "before_xy_m": [
+        0.22,
+        -0.05
+      ],
+      "after_xy_m": [
+        0.28,
+        -0.05
+      ],
+      "mean_distance_gain_m": 0.015442507042961271,
+      "blocking_cluster_proposals": 56,
+      "blocking_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/lift",
+        "initial"
+      ],
+      "dependent_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/hold",
+        "00/lift",
+        "initial"
+      ]
+    },
+    {
+      "anchor": "target",
+      "before_xy_m": [
+        0.22,
+        -0.05
+      ],
+      "after_xy_m": [
+        0.22,
+        0.01
+      ],
+      "mean_distance_gain_m": 0.005217716040136525,
+      "blocking_cluster_proposals": 56,
+      "blocking_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/lift",
+        "initial"
+      ],
+      "dependent_events": [
+        "00/approach",
+        "00/descend",
+        "00/grasp",
+        "00/hold",
+        "00/lift",
+        "initial"
+      ]
+    }
+  ],
+  "actual_reference_events": [
+    "00/approach",
+    "00/descend",
+    "00/grasp",
+    "00/lift",
+    "00/hold"
+  ],
+  "ranking_input_sha256": {
+    "generation": "e17b9ac12c8ff91c2aeea3a094ae029468308da977aedb39b897a3bf06d5fc94",
+    "program": "d6ed6a27e83dd2995c3f109a158b228e34df281b1d638fa2fa93b93daa866a96",
+    "robot_identities": "abd3e62ad5b965688f190f43c43705907927f121d63ea9e60f85bd108d8969e7"
+  },
+  "corrected_repair_source_sha256": "25f6a11955872e0297b25c92de09b0e221420d9568a3aac6312c3c776c3111ae"
+}

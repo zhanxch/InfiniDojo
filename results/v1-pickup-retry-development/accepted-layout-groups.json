@@ -1,0 +1,21 @@
+{
+  "accepted_method_requests": 6,
+  "unique_layout_hashes": 4,
+  "groups": {
+    "f086734c2346fb7a1478244fddcfd0e3d3135063a8dadd1291c9eacc0bc85392": [
+      "g3-12"
+    ],
+    "4d367cc8102b2970d20ebbc8690cf3f53cf74bd1eaea14badb72613029a8bc32": [
+      "g2-12",
+      "g3-12-no-repair"
+    ],
+    "d29be2d61482896aea7e03c658308ecc9a42da9e62576a096ee5ab10fd76c05a": [
+      "g1-6"
+    ],
+    "67681257fcf3214f6b25792e281a265400591c9d6abe58ce0a7fa6b9cb18497b": [
+      "g3-6",
+      "g2-6"
+    ]
+  },
+  "interpretation": "Repeated method/ablation results are not independent generated instances or population samples."
+}

@@ -4,6 +4,7 @@ from scipy.spatial.transform import Rotation
 from infinidojo.planning import (
     box_obstacle,
     covering_spheres,
+    proxy_capacities,
     relative_pose,
     sphere_box_penetration,
     transform_spheres,
@@ -48,3 +49,17 @@ def test_rotated_obstacle_distinguishes_contact_gap_and_penetration():
     # Rotating swaps the X/Y half-extents: the world X face is at 1.2.
     spheres = np.array([[1.25, 2, 3, 0.05], [1.26, 2, 3, 0.05], [1.24, 2, 3, 0.05]])
     np.testing.assert_allclose(sphere_box_penetration(spheres, obstacle), [0, -0.01, 0.01], atol=1e-12)
+
+
+def test_tall_payload_capacity_grows_without_coarsening_or_counting_static_clutter():
+    can = [[-0.0247, -0.0247, 0.0005], [0.0247, 0.0247, 0.1385]]
+    objects = {
+        "target": {"bounds": can},
+        "clutter_0": {"bounds": [[-1, -1, -1], [1, 1, 1]]},
+    }
+    program = {"events": [{"object": "target", "phase": "lift"}]}
+    capacities = proxy_capacities(objects, program)
+    assert capacities["attached_object"] == 350 == len(covering_spheres(can))
+    assert capacities["gripper_proxy"] == 512
+    objects["target"]["bounds"] = [[-0.0125] * 3, [0.0125] * 3]
+    assert proxy_capacities(objects, program)["attached_object"] == 125

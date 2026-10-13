@@ -2,7 +2,7 @@ import copy
 
 import pytest
 
-from infinidojo.interaction import build_program
+from infinidojo.interaction import build_pickup_program, build_program
 from infinidojo.repair import (
     event_dependencies,
     initial_positions,
@@ -90,5 +90,34 @@ def test_position_changes_preserve_geometry_robot_and_initial_common_layout():
 def test_task_position_identity_omission_is_rejected():
     _, request, _, _ = fixture()
     del request["task_xy_options_m"]["block_2"]
-    with pytest.raises(ValueError, match="all three"):
+    with pytest.raises(ValueError, match="identities"):
         validate_position_options(request)
+
+
+def test_pickup_repair_uses_lift_and_hold_without_inventing_release():
+    request = {"task": "general_pickup", "task_xy_options_m": {"target": [[0.22, -0.05], [0.16, -0.05]]}}
+    layout = {
+        "Rigid": {"can": [{"label": "target", "default_pos": [0.22, -0.05, 0.765], "scale": [1, 1, 1]}]}
+    }
+    robots = {"robot0": {"arm": "left"}, "robot1": {"arm": "right"}}
+    program = build_pickup_program("target", "Table", "right")
+    dependencies = event_dependencies(program, robots)
+    assert dependencies["00/hold"]["target"] == dependencies["00/lift"]["robot1"] == {"target"}
+    assert "return" not in dependencies and "settle" not in dependencies
+    assert "robot0" not in dependencies["00/hold"]
+    assert initial_positions(request, layout, 1200) == {"target": [0.22, -0.05]}
+    assert len(position_choices(request, layout)) == 2
+    generation = {
+        "proposals": [
+            {
+                "rejection": "full_reference_occupancy",
+                "poses": [[0.3, 0, 0.8, 1, 0, 0, 0], [0.39, 0, 0.8, 1, 0, 0, 0]],
+                "blockers": [{"event_id": "00/hold", "phase": "hold", "body": "robot1/link7"}],
+            }
+        ]
+    }
+    repair = rank_repairs(request, layout, generation, program, robots)[0]
+    assert repair["anchor"] == "target" and repair["after_xy_m"] == [0.16, -0.05]
+    changed = with_positions(layout, {"target": repair["after_xy_m"]})
+    assert changed["Rigid"]["can"][0]["default_pos"] == [0.16, -0.05, 0.765]
+    assert changed["Rigid"]["can"][0]["scale"] == [1, 1, 1]

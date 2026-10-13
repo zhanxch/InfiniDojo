@@ -1,0 +1,63 @@
+{
+  "status": "validated_under_development_checks",
+  "checks": {
+    "verifier_owned_contact_contract": true,
+    "native_task_success": true,
+    "complete_event_order": true,
+    "complete_execution": true,
+    "initialization_preserved": true,
+    "initial_rotations_preserved": true,
+    "requested_count": true,
+    "requested_task_positions": true,
+    "requested_asset_identities": true,
+    "initial_footprints_inside_region": true,
+    "requested_initial_clearance": true,
+    "pair_relation_preserved": true,
+    "clutter_remains_stationary": true,
+    "clutter_rotation_stable": true,
+    "contact_reporting_available": true,
+    "all_recorded_bodies_instrumented": true,
+    "contacts_legal_and_shallow": true,
+    "settle_duration": true,
+    "settle_motion": true,
+    "settle_rotation_stable": true,
+    "final_task_support_contacts": true,
+    "final_support_geometry": true,
+    "held_relation_observed": true,
+    "held_rotation_observed": true,
+    "independent_clutter_geometry_screen": true
+  },
+  "failed_checks": [],
+  "thresholds": {
+    "penetration_m": 0.001,
+    "contact_distance_m": 0.001,
+    "initialization_translation_m": 0.005,
+    "initialization_rotation_deg": 2.0,
+    "clutter_motion_m": 0.002,
+    "clutter_rotation_deg": 2.0,
+    "settle_motion_m": 0.002,
+    "settle_rotation_deg": 2.0,
+    "attachment_translation_m": 0.003,
+    "attachment_rotation_deg": 5.0,
+    "pair_distance_error_m": 0.003,
+    "support_gap_m": 0.001,
+    "minimum_settle_s": 1.0
+  },
+  "input_sha256": {
+    "result.json": "d57495538e0ffe58358ca71c27ef1ed636e88aa7235f6d1e434413b39c3da03c",
+    "trajectory.json": "23293a582974b9ab64e92d02c6bcd98f92629aa3cb1f2296032baa47e9bce1e0",
+    "contacts.jsonl": "71b8286f07b4926fb12e7b9e9f7c1920a0ae9c1e11b3122006cf233de8b9708b",
+    "scene-objects.json": "a2d51e13ac688a657e1a6785dfcfdbbe07401d566d70c8718ab84ec57071a3b0",
+    "layout.json": "321411e26c48465a0ee21437ecf559ba21ad9eb5c0d37723ba74cfca47958693",
+    "provenance.json": "32662bc151aad9d99a5a552307c8fa73e6ae9a071b65917e38b6cdc9c35cd908",
+    "interaction-program.json": "b8d1fd93f4d797522019fbeb7e38b532b39378f946d95ee58434f0f8de2528ce",
+    "contact-summary.json": "c85f4ab8dd16a95fabef358b819176356622e28e37405982c86cd1b4d91da55d",
+    "robot-identities.json": "abd3e62ad5b965688f190f43c43705907927f121d63ea9e60f85bd108d8969e7"
+  },
+  "generation_input_sha256": {
+    "request.json": "7d261d251940880ca3d3243c5e5ca6097c7e0fb25ea0079c48dd820854158564",
+    "generation.json": "890f27c7a3f5c00acf4d05597722d45ccc28632f1aeba58814e3ff0aaad417bb",
+    "asset-map.json": "901f4ed9cc5b5c1e0056aee01c2efd11bc57996264cabf78638ca64dd7a60ec8"
+  },
+  "validator_sha256": "968933b5e6bc870de25bd1c67c6a802f109b4f7d6208efcdd3940960027df451"
+}

@@ -1,0 +1,44 @@
+{
+  "scope": "Pre-matrix scene-aware pickup diagnostic; not a generated request or policy score",
+  "status": "completed",
+  "native_task_success": true,
+  "minimum_hold_origin_lift_m": 0.1497361660003662,
+  "hold_duration_s": 1.0,
+  "wall_seconds": 32.308291253008065,
+  "steps": 1723,
+  "proxy_slots": {
+    "gripper_proxy": 512,
+    "attached_object": 350
+  },
+  "plans": [
+    {
+      "event_id": "00/approach",
+      "held_object": null,
+      "optimizer_omissions": [],
+      "candidate_intersections": [],
+      "status": "Success"
+    },
+    {
+      "event_id": "00/descend",
+      "held_object": null,
+      "optimizer_omissions": [],
+      "candidate_intersections": [],
+      "status": "Success"
+    },
+    {
+      "event_id": "00/lift",
+      "held_object": "target",
+      "optimizer_omissions": [
+        "Table"
+      ],
+      "candidate_intersections": [],
+      "status": "Success"
+    }
+  ],
+  "input_sha256": {
+    "result.json": "ebfa4d9b43fe4e4d1c163649ff67f0403b4c73a4af06bd9d790f7d1d878e9b56",
+    "planner-model.json": "58ee2cdd10e4d8cd9b4e5d09de09c8fb0ea750ca4c7a3e9399b8ee23c5bd7359",
+    "planner-scenes.json": "731ea2104f77cc86bccd473c0fa6a005770f3c557de85f8ae06c2f8977f4dc98",
+    "provenance.json": "8a621f70cb397050b16bf64d3a4ef1467e18096045e985ab329ba8ef9decdefe"
+  }
+}

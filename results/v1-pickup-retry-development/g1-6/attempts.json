@@ -1,0 +1,299 @@
+[
+  {
+    "index": 0,
+    "layout_seed": 1200,
+    "status": "unverified",
+    "proposal_limit": 1000,
+    "task_positions": {
+      "target": [
+        0.22,
+        -0.05
+      ]
+    },
+    "state_source": "initial-state",
+    "proposals": 13,
+    "native_task_success": false,
+    "controller_status": "controller_failed",
+    "controller_error": "Planner failed during descend",
+    "physics_steps": 581,
+    "motions_planned": 2,
+    "failed_checks": [
+      "native_task_success",
+      "complete_event_order",
+      "complete_execution",
+      "contact_reporting_available",
+      "hold_duration",
+      "hold_motion",
+      "hold_rotation_stable",
+      "sustained_native_lift",
+      "held_relation_observed",
+      "held_rotation_observed"
+    ],
+    "generated_count": 6,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2
+    ],
+    "rejections": {
+      "clutter_overlap": 3,
+      "accepted_cluster": 3,
+      "footprint_outside_request": 7
+    },
+    "generation_sha256": "b4d269f8a13c0412590b9eb5c1d4a3e9894074d8451dfa249a0657bc7c0d013e",
+    "validation": {
+      "status": "unverified",
+      "checks": {
+        "verifier_owned_contact_contract": true,
+        "native_task_success": false,
+        "complete_event_order": false,
+        "complete_execution": false,
+        "initialization_preserved": true,
+        "initial_rotations_preserved": true,
+        "requested_count": true,
+        "requested_task_positions": true,
+        "requested_asset_identities": true,
+        "initial_footprints_inside_region": true,
+        "requested_initial_clearance": true,
+        "pair_relation_preserved": true,
+        "clutter_remains_stationary": true,
+        "clutter_rotation_stable": true,
+        "contact_reporting_available": false,
+        "all_recorded_bodies_instrumented": true,
+        "contacts_legal_and_shallow": true,
+        "hold_duration": false,
+        "hold_motion": false,
+        "hold_rotation_stable": false,
+        "sustained_native_lift": false,
+        "initial_rest_duration": true,
+        "initial_target_support_geometry": true,
+        "initial_target_stable": true,
+        "held_relation_observed": false,
+        "held_rotation_observed": false,
+        "independent_clutter_geometry_screen": true
+      },
+      "failed_checks": [
+        "native_task_success",
+        "complete_event_order",
+        "complete_execution",
+        "contact_reporting_available",
+        "hold_duration",
+        "hold_motion",
+        "hold_rotation_stable",
+        "sustained_native_lift",
+        "held_relation_observed",
+        "held_rotation_observed"
+      ],
+      "thresholds": {
+        "penetration_m": 0.001,
+        "contact_distance_m": 0.001,
+        "initialization_translation_m": 0.005,
+        "initialization_rotation_deg": 2.0,
+        "clutter_motion_m": 0.002,
+        "clutter_rotation_deg": 2.0,
+        "settle_motion_m": 0.002,
+        "settle_rotation_deg": 2.0,
+        "attachment_translation_m": 0.003,
+        "attachment_rotation_deg": 5.0,
+        "pair_distance_error_m": 0.003,
+        "support_gap_m": 0.001,
+        "minimum_settle_s": 1.0
+      },
+      "full_report_sha256": "29849bc8312f3192baba0f6f67ce26e8743745a5845a2166961c0bf78e253687"
+    }
+  },
+  {
+    "index": 1,
+    "layout_seed": 1001203,
+    "status": "unverified",
+    "proposal_limit": 1000,
+    "task_positions": {
+      "target": [
+        0.16,
+        -0.05
+      ]
+    },
+    "state_source": "attempt-01/initial-state",
+    "proposals": 33,
+    "native_task_success": false,
+    "controller_status": "controller_failed",
+    "controller_error": "Planner failed during descend",
+    "physics_steps": 601,
+    "motions_planned": 2,
+    "failed_checks": [
+      "native_task_success",
+      "complete_event_order",
+      "complete_execution",
+      "contact_reporting_available",
+      "hold_duration",
+      "hold_motion",
+      "hold_rotation_stable",
+      "sustained_native_lift",
+      "held_relation_observed",
+      "held_rotation_observed"
+    ],
+    "generated_count": 6,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2
+    ],
+    "rejections": {
+      "accepted_cluster": 3,
+      "clutter_overlap": 9,
+      "footprint_outside_request": 20,
+      "initial_state_occupancy": 1
+    },
+    "generation_sha256": "ba33e057d27d147d6dea8b2c7a3bb78046ada2207090841f0a30512f7d98e163",
+    "validation": {
+      "status": "unverified",
+      "checks": {
+        "verifier_owned_contact_contract": true,
+        "native_task_success": false,
+        "complete_event_order": false,
+        "complete_execution": false,
+        "initialization_preserved": true,
+        "initial_rotations_preserved": true,
+        "requested_count": true,
+        "requested_task_positions": true,
+        "requested_asset_identities": true,
+        "initial_footprints_inside_region": true,
+        "requested_initial_clearance": true,
+        "pair_relation_preserved": true,
+        "clutter_remains_stationary": true,
+        "clutter_rotation_stable": true,
+        "contact_reporting_available": false,
+        "all_recorded_bodies_instrumented": true,
+        "contacts_legal_and_shallow": true,
+        "hold_duration": false,
+        "hold_motion": false,
+        "hold_rotation_stable": false,
+        "sustained_native_lift": false,
+        "initial_rest_duration": true,
+        "initial_target_support_geometry": true,
+        "initial_target_stable": true,
+        "held_relation_observed": false,
+        "held_rotation_observed": false,
+        "independent_clutter_geometry_screen": true
+      },
+      "failed_checks": [
+        "native_task_success",
+        "complete_event_order",
+        "complete_execution",
+        "contact_reporting_available",
+        "hold_duration",
+        "hold_motion",
+        "hold_rotation_stable",
+        "sustained_native_lift",
+        "held_relation_observed",
+        "held_rotation_observed"
+      ],
+      "thresholds": {
+        "penetration_m": 0.001,
+        "contact_distance_m": 0.001,
+        "initialization_translation_m": 0.005,
+        "initialization_rotation_deg": 2.0,
+        "clutter_motion_m": 0.002,
+        "clutter_rotation_deg": 2.0,
+        "settle_motion_m": 0.002,
+        "settle_rotation_deg": 2.0,
+        "attachment_translation_m": 0.003,
+        "attachment_rotation_deg": 5.0,
+        "pair_distance_error_m": 0.003,
+        "support_gap_m": 0.001,
+        "minimum_settle_s": 1.0
+      },
+      "full_report_sha256": "f717cffc5e3ce45540d5a89c6a761e919d16c6fcc4eda384d72e885089fb4be9"
+    }
+  },
+  {
+    "index": 2,
+    "layout_seed": 2001206,
+    "status": "validated_under_development_checks",
+    "proposal_limit": 1000,
+    "task_positions": {
+      "target": [
+        0.28,
+        -0.05
+      ]
+    },
+    "state_source": "attempt-02/initial-state",
+    "proposals": 7,
+    "native_task_success": true,
+    "controller_status": "completed",
+    "controller_error": null,
+    "physics_steps": 1703,
+    "motions_planned": 3,
+    "failed_checks": [],
+    "generated_count": 6,
+    "asset_indices": [
+      2,
+      1,
+      1,
+      0,
+      1,
+      2
+    ],
+    "rejections": {
+      "footprint_outside_request": 3,
+      "accepted_cluster": 3,
+      "clutter_overlap": 1
+    },
+    "generation_sha256": "e0068402e317983d9d050748c4b9a08961b70e7528fb10f67a3161811de7cb27",
+    "validation": {
+      "status": "validated_under_development_checks",
+      "checks": {
+        "verifier_owned_contact_contract": true,
+        "native_task_success": true,
+        "complete_event_order": true,
+        "complete_execution": true,
+        "initialization_preserved": true,
+        "initial_rotations_preserved": true,
+        "requested_count": true,
+        "requested_task_positions": true,
+        "requested_asset_identities": true,
+        "initial_footprints_inside_region": true,
+        "requested_initial_clearance": true,
+        "pair_relation_preserved": true,
+        "clutter_remains_stationary": true,
+        "clutter_rotation_stable": true,
+        "contact_reporting_available": true,
+        "all_recorded_bodies_instrumented": true,
+        "contacts_legal_and_shallow": true,
+        "hold_duration": true,
+        "hold_motion": true,
+        "hold_rotation_stable": true,
+        "sustained_native_lift": true,
+        "initial_rest_duration": true,
+        "initial_target_support_geometry": true,
+        "initial_target_stable": true,
+        "held_relation_observed": true,
+        "held_rotation_observed": true,
+        "independent_clutter_geometry_screen": true
+      },
+      "failed_checks": [],
+      "thresholds": {
+        "penetration_m": 0.001,
+        "contact_distance_m": 0.001,
+        "initialization_translation_m": 0.005,
+        "initialization_rotation_deg": 2.0,
+        "clutter_motion_m": 0.002,
+        "clutter_rotation_deg": 2.0,
+        "settle_motion_m": 0.002,
+        "settle_rotation_deg": 2.0,
+        "attachment_translation_m": 0.003,
+        "attachment_rotation_deg": 5.0,
+        "pair_distance_error_m": 0.003,
+        "support_gap_m": 0.001,
+        "minimum_settle_s": 1.0
+      },
+      "full_report_sha256": "7a9603c119e0c0d06d7792fff07aa11a144ab57d986716f12a4ec3f21fc03537"
+    }
+  }
+]
