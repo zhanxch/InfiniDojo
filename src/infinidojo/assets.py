@@ -9,6 +9,7 @@ containers, insertion sockets or articulated assets without a new adapter.
 from __future__ import annotations
 
 import argparse
+import copy
 import itertools
 import json
 import sys
@@ -18,8 +19,88 @@ import numpy as np
 
 from infinidojo.io import git_revision, sha256, write_json
 
+COLORS = {
+    "red": [0.8, 0.05, 0.05],
+    "blue": [0.05, 0.15, 0.8],
+    "green": [0.05, 0.65, 0.1],
+    "yellow": [0.85, 0.7, 0.05],
+    "gray": [0.45, 0.45, 0.45],
+}
 
-def generate_can(seed: int, output: Path, infinigen_root: Path, *, radius: float, height: float) -> dict:
+
+def verified_asset(folder: Path) -> dict:
+    record = json.loads((folder / "provenance.json").read_text())
+    if record["generator"] != "infinigen.assets.objects.tableware.can.CanFactory":
+        raise ValueError("Only the closed CanFactory adapter is supported")
+    for name, digest in record["files"].items():
+        if sha256(folder / name) != digest:
+            raise ValueError(f"Asset content changed: {folder.name}/{name}")
+    return record
+
+
+def merge_asset(mapping: dict, folder: Path) -> dict:
+    """Keep task and clutter assets together without silently replacing an ID."""
+    folder = folder.resolve()
+    record = verified_asset(folder)
+    key = str(record["seed"])
+    if key in mapping and sha256(Path(mapping[key]) / "provenance.json") != sha256(
+        folder / "provenance.json"
+    ):
+        raise ValueError(f"Conflicting generated asset identity: {key}")
+    mapping[key] = str(folder)
+    return record
+
+
+def pickup_layout(base: dict, folder: Path, xy: list[float]) -> dict:
+    """Replace the pickup template's target and clutter with a minimal task scene.
+
+    The requested clutter is generated separately around the new interaction.
+    Native unlabeled clutter entries are not part of the pickup task contract.
+    """
+    record = verified_asset(folder)
+    params = record["parameters"]
+    if not 0.018 <= params["x_length"] <= 0.03 or not 0.05 <= params["z_length"] <= 0.09:
+        raise ValueError("Target dimensions outside the declared small-can grasp profile")
+    if len(xy) != 2 or not np.isfinite(xy).all() or not (0.12 <= xy[0] <= 0.35 and -0.14 <= xy[1] <= 0.1):
+        raise ValueError("Target outside the declared right-arm pickup region")
+    task_items = [
+        item for group in base["Rigid"].values() for item in group if item.get("type") != "cluttered"
+    ]
+    if len(task_items) != 1 or task_items[0].get("label") != "target":
+        raise ValueError("Procedural target replacement requires a single-target pickup layout")
+    metadata = json.loads((folder / "metadata.json").read_text())
+    layout = copy.deepcopy(base)
+    tabletop = layout["Table"]["default_pos"][2] + layout["Table"]["scale"][2] / 2
+    layout["Rigid"] = {
+        "infinigen_can": [
+            {
+                "category": "infinigen_can",
+                "category_idx": record["seed"],
+                "label": "target",
+                "default_pos": [*xy, tabletop - record["bounds"][0][2]],
+                "default_ori": [1, 0, 0, 0],
+                "scale": [1, 1, 1],
+                "physics": {"type": "rigid", **metadata["physics"]},
+                "visual": {},
+                "relative_plane": "Table",
+            }
+        ]
+    }
+    return layout
+
+
+def generate_can(
+    seed: int,
+    output: Path,
+    infinigen_root: Path,
+    *,
+    radius: float,
+    height: float,
+    shape: str | None = None,
+    color_name: str | None = None,
+) -> dict:
+    if shape not in (None, "circle", "rectangle") or color_name not in (None, *COLORS):
+        raise ValueError("Unsupported can shape or appearance")
     sys.path.insert(0, str(infinigen_root.resolve()))
     import bpy
     from infinigen.assets.objects.tableware.can import CanFactory
@@ -32,6 +113,8 @@ def generate_can(seed: int, output: Path, infinigen_root: Path, *, radius: float
         factory.x_length = radius
         factory.z_length = height
         factory.skewness = 1.0
+        if shape is not None:
+            factory.shape = shape
         obj = factory.create_asset()
         obj.name = "procedural_can"
     bpy.context.view_layer.update()
@@ -50,7 +133,7 @@ def generate_can(seed: int, output: Path, infinigen_root: Path, *, radius: float
     # Preserve the procedural source for inspection; do not claim its shaders
     # have been baked into the v0 USD PreviewSurface material.
     bpy.ops.wm.save_as_mainfile(filepath=str(output / "source.blend"))
-    color = np.random.default_rng(seed).uniform(0.2, 0.8, 3).tolist()
+    color = COLORS[color_name] if color_name else np.random.default_rng(seed).uniform(0.2, 0.8, 3).tolist()
     export_usd(output / "object.usd", vertices, faces, color)
     corners = list(itertools.product(*zip(lo.tolist(), hi.tolist())))
     box = {"vertices": corners, "extents": (hi - lo).tolist()}
@@ -69,9 +152,10 @@ def generate_can(seed: int, output: Path, infinigen_root: Path, *, radius: float
         "passive": {},
     }
     write_json(output / "metadata.json", metadata)
+    caption = f"{color_name} procedurally generated can" if color_name else "procedurally generated can"
     write_json(
         output / "description.json",
-        {"description": ["procedurally generated can"], "caption": "procedurally generated can"},
+        {"description": [caption], "caption": caption},
     )
     provenance = {
         "generator": "infinigen.assets.objects.tableware.can.CanFactory",
@@ -82,6 +166,7 @@ def generate_can(seed: int, output: Path, infinigen_root: Path, *, radius: float
         "canonical_offset": offset.tolist(),
         "bounds": [lo.tolist(), hi.tolist()],
         "material": "seeded USD PreviewSurface; original procedural shaders retained only in source.blend",
+        "appearance": {"color_name": color_name, "diffuse_color": color, "roughness": 0.4, "metallic": 0.25},
         "collision": "convex hull, closed can family only",
         "files": {
             name: sha256(output / name)
@@ -126,13 +211,21 @@ def main() -> None:
     parser.add_argument("--seed", type=int, required=True)
     parser.add_argument("--radius", type=float, default=0.025)
     parser.add_argument("--height", type=float, default=0.07)
+    parser.add_argument("--shape", choices=["circle", "rectangle"])
+    parser.add_argument("--color", choices=list(COLORS))
     args = parser.parse_args()
     if not 0.015 <= args.radius <= 0.1 or not 0.03 <= args.height <= 0.3:
         parser.error("unsupported can dimensions")
     print(
         json.dumps(
             generate_can(
-                args.seed, args.output.resolve(), args.infinigen_root, radius=args.radius, height=args.height
+                args.seed,
+                args.output.resolve(),
+                args.infinigen_root,
+                radius=args.radius,
+                height=args.height,
+                shape=args.shape,
+                color_name=args.color,
             )
         )
     )

@@ -1,0 +1,101 @@
+{
+  "status": "completed",
+  "error": null,
+  "native_task_success": true,
+  "native_process_score": null,
+  "reward_manager_raw_score": 0.0,
+  "event_trace": {
+    "complete": true,
+    "expected": [
+      "00/approach",
+      "00/descend",
+      "00/grasp",
+      "00/lift",
+      "00/hold"
+    ],
+    "observed": [
+      "00/approach",
+      "00/descend",
+      "00/grasp",
+      "00/lift",
+      "00/hold"
+    ]
+  },
+  "initial_object_poses": {
+    "target": [
+      0.22000004351139069,
+      -0.050000108778476715,
+      0.76500004529953,
+      1.0,
+      1.8421964114168077e-06,
+      -2.6397421493129514e-07,
+      -2.477219993579638e-07
+    ]
+  },
+  "final_object_poses": {
+    "target": [
+      0.22016070783138275,
+      -0.05001923069357872,
+      0.9149386882781982,
+      1.0,
+      -0.00010749279317678884,
+      0.00013533946184907109,
+      -7.1784897954785265e-06
+    ]
+  },
+  "final_origin_lift_m": 0.1499386429786682,
+  "minimum_hold_origin_lift_m": 0.14993858337402344,
+  "hold_duration_s": 1.0,
+  "contact_reporting_errors": [],
+  "steps": 1683,
+  "physics_dt": 0.004,
+  "video_frames": 169,
+  "plans": [
+    {
+      "event_id": "00/approach",
+      "target_flange_pose": [
+        0.22000002503316357,
+        -0.22324139912292562,
+        0.9732412068390033,
+        0.6532814824381883,
+        -0.27059805007309845,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "status": "Success"
+    },
+    {
+      "event_id": "00/descend",
+      "target_flange_pose": [
+        0.2200000250331636,
+        -0.15253072100427087,
+        0.9025305287203486,
+        0.6532814824381883,
+        -0.27059805007309845,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "status": "Success"
+    },
+    {
+      "event_id": "00/lift",
+      "target_flange_pose": [
+        0.2200000250331636,
+        -0.15253072100427087,
+        1.0525305287203486,
+        0.6532814824381883,
+        -0.27059805007309845,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "status": "Success"
+    }
+  ],
+  "grasp_profile": "upright_can_front_down_45_pinch; no arbitrary-object grasp synthesis claim",
+  "execution_mode": "online_reference_planning",
+  "planning_collision_world": "observed_scene",
+  "strict_instance_validation": "not evaluated by executor; requires independent pickup/hold validation",
+  "controller": "privileged existing CuRobo; physical grasp and sustained hold, no weld or teleport",
+  "budget_note": "Raw physics steps differ from the native 200-action policy budget",
+  "wall_seconds": 49.455455118004465
+}

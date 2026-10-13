@@ -21,6 +21,7 @@ from pathlib import Path
 
 import numpy as np
 
+from infinidojo.assets import merge_asset
 from infinidojo.completion import validate_request
 from infinidojo.io import git_revision, sha256, write_json
 from infinidojo.repair import (
@@ -162,6 +163,18 @@ def run_request(args):
     base_layout = read_json(output / "base-layout.json")
     current_layout = with_positions(base_layout, initial_positions(request, base_layout, args.seed))
     write_json(output / "initial-layout.json", current_layout)
+    task_asset_map = {}
+    for folder in getattr(args, "task_assets", None) or []:
+        merge_asset(task_asset_map, folder)
+    required_task_assets = {
+        str(item["category_idx"]) for item in current_layout["Rigid"].get("infinigen_can", [])
+    }
+    if required_task_assets != set(task_asset_map):
+        raise ValueError("--task-assets must resolve exactly the generated objects in the base layout")
+    task_asset_args = []
+    if task_asset_map:
+        write_json(output / "task-asset-map.json", task_asset_map)
+        task_asset_args = ["--asset-map", str(output / "task-asset-map.json")]
     choices = position_choices(request, base_layout)
     tried_positions = [task_positions(current_layout, task)]
     manifest = {
@@ -180,6 +193,10 @@ def run_request(args):
         "repair_enabled": args.method == "g3" and not args.disable_repair,
         "task_position_updates": [],
         "assets": asset_records,
+        "task_assets": {
+            key: {"provenance_sha256": sha256(Path(folder) / "provenance.json")}
+            for key, folder in task_asset_map.items()
+        },
         "asset_indices": selected,
         "budgets": {
             "wall_seconds": args.wall_seconds,
@@ -262,7 +279,15 @@ def run_request(args):
         mode = "--capture-initial-state" if args.method == "g1" else "--scene-aware"
         if not stage(
             "state-acquisition",
-            [*sim_base, "--layout", str(output / "initial-layout.json"), "--output", str(state), mode],
+            [
+                *sim_base,
+                *task_asset_args,
+                "--layout",
+                str(output / "initial-layout.json"),
+                "--output",
+                str(state),
+                mode,
+            ],
         ):
             return manifest
         initial_result = execution_result(state)
@@ -310,7 +335,15 @@ def run_request(args):
                 mode = "--capture-initial-state" if args.method == "g1" else "--scene-aware"
                 if not stage(
                     f"attempt-{index:02d}/state-acquisition",
-                    [*sim_base, "--layout", str(changed_layout), "--output", str(state), mode],
+                    [
+                        *sim_base,
+                        *task_asset_args,
+                        "--layout",
+                        str(changed_layout),
+                        "--output",
+                        str(state),
+                        mode,
+                    ],
                 ):
                     row["status"] = manifest["status"]
                     break
@@ -487,6 +520,9 @@ def main():
     parser.add_argument("--robodojo-root", type=Path, required=True)
     parser.add_argument("--sim-python", type=Path, required=True)
     parser.add_argument("--assets", type=Path, nargs="+", required=True)
+    parser.add_argument(
+        "--task-assets", type=Path, nargs="+", help="Generated assets used by base task objects"
+    )
     inputs = parser.add_mutually_exclusive_group(required=True)
     inputs.add_argument("--request", type=Path)
     inputs.add_argument("--compiled", type=Path, help="Accepted stack-v1 language compilation directory")

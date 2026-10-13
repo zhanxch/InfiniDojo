@@ -1,0 +1,10 @@
+{
+  "all_generated_assets_resolved_inside_relocated_episode": true,
+  "resolved_assets": {
+    "01202": "assets/1202",
+    "01200": "assets/1200",
+    "01203": "assets/1203",
+    "01201": "assets/1201"
+  },
+  "episode_sha256": "2cc0f4ebc19edbcec66fa231e6fb165e917c13aee614af20b1f1eccafc083c64"
+}

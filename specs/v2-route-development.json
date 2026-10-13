@@ -1,0 +1,26 @@
+{
+  "status": "development integration, not held-out paper experiments",
+  "purpose": "Natural-language complexity requests to construction-conditioned runnable RoboDojo episodes",
+  "mechanism": "Instantiate task assets and event contact/support constraints before obtaining the reference; preserve that reference while completing the scene. No added G3 repair heuristics.",
+  "first_integration": {
+    "task": "general_pickup",
+    "target": {"seed": 1203, "family": "CanFactory", "radius_m": 0.022, "height_m": 0.07, "shape": "circle", "color": "red", "xy_m": [0.22, -0.05]},
+    "clutter": {"asset_seeds": [1200, 1201, 1202], "count": 6, "region_xy_m": [[0.08, -0.14], [0.5, 0.28]], "clearance_m": 0.003, "pair_distance_m": 0.09},
+    "layout_seed": 1203,
+    "method": "g2",
+    "budgets": {"wall_seconds": 360, "max_layouts": 4, "total_proposals": 4000, "proposals_per_layout": 1000, "cluster_proposals": 128, "max_steps": 10000},
+    "required_evidence": ["new reference using generated target geometry", "physical full pickup and stable hold", "request fidelity", "portable episode with target and clutter assets", "independent relocation and replay"]
+  },
+  "route_remaining": [
+    "Unify language request compilation for the three existing task templates",
+    "Connect requested procedural target and appearance parameters to actual asset generation",
+    "Expose appearance, relational and compositional controls with explicit supported bounds",
+    "Run an end-to-end language-to-episode example and reload through the RoboDojo evaluation interface"
+  ],
+  "scope_limits": [
+    "No claim of a new cluster optimizer or G3 efficiency advantage",
+    "No extra asset family, robot, task, policy training or continuous-physics proof",
+    "Physical execution checks are evidence, not a replacement for constraints during generation",
+    "Development failures and infrastructure errors are retained; no hidden replacement of conditions"
+  ]
+}

@@ -212,6 +212,19 @@ def audit_episode(execution, generation, robot_usd, thresholds=None):
     initial, final = frames[0]["objects"], frames[-1]["objects"]
     checks, diagnostics = {}, {}
     extra_inputs = []
+    mapping = read(generation / "asset-map.json")
+    if mapping:
+        recorded_assets = read(execution / "asset-provenance.json")
+        checks["generated_assets_match_execution"] = set(recorded_assets) == set(mapping) and all(
+            record == read((generation / mapping[key]).resolve() / "provenance.json")
+            and all(
+                sha256((generation / mapping[key]).resolve() / name) == digest
+                for name, digest in record["files"].items()
+            )
+            for key, record in recorded_assets.items()
+            if key in mapping
+        )
+        extra_inputs.append("asset-provenance.json")
     if cover:
         from infinidojo.cover_geometry import audit_cover_states, collision_mesh
 

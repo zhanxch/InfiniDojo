@@ -1,0 +1,98 @@
+{
+  "pickup-generated-target-01/reference/trajectory.json": {
+    "sha256": "ebc6c1f13e78eec8f7a403e9cca0f3ac3bbb852b85567a2f8715e4a7363f9725",
+    "bytes": 2457263
+  },
+  "pickup-generated-target-01/reference/controls.json": {
+    "sha256": "4ca21356b1c7bb871d9226a7b2128683ccef612ec4d40652add8f4e561c6a86e",
+    "bytes": 1910717
+  },
+  "pickup-generated-target-01/reference/contacts.jsonl": {
+    "sha256": "a3f81c1da316c82132eea3954eaa57d13f3f6cd6bc10c772b9109b197d4cb417",
+    "bytes": 2115593
+  },
+  "pickup-generated-target-01/reference/scene-objects.json": {
+    "sha256": "70d32f0715ad571c24a16c1950b96caea87043560b64c9237fe45a76278c728b",
+    "bytes": 481
+  },
+  "pickup-generated-target-01/reference/interaction-program.json": {
+    "sha256": "d6ed6a27e83dd2995c3f109a158b228e34df281b1d638fa2fa93b93daa866a96",
+    "bytes": 1873
+  },
+  "pickup-generated-target-01/reference/asset-map.json": {
+    "sha256": "cd0fe1fb4914be8139febddd52effd8356e1079e7e4b1e5299f4ae898359a466",
+    "bytes": 78
+  },
+  "pickup-generated-target-01/reference/asset-provenance.json": {
+    "sha256": "12a46873300bd8f8247ddb717ca9ace5829750b2265deb799818c0480e8fb003",
+    "bytes": 1328
+  },
+  "pickup-generated-target-01/reference/provenance.json": {
+    "sha256": "0eb30550f1560e8fbd56027bee91ca73812c5e6446382d95e12576cb64c1e5d1",
+    "bytes": 3356
+  },
+  "pickup-generated-target-01/attempt-00/execution/trajectory.json": {
+    "sha256": "4d06b72fa899d3927e76292b919889ebf63ba4e4b28641ff919f54356aca9a13",
+    "bytes": 2920493
+  },
+  "pickup-generated-target-01/attempt-00/execution/controls.json": {
+    "sha256": "4ca21356b1c7bb871d9226a7b2128683ccef612ec4d40652add8f4e561c6a86e",
+    "bytes": 1910717
+  },
+  "pickup-generated-target-01/attempt-00/execution/contacts.jsonl": {
+    "sha256": "a3f81c1da316c82132eea3954eaa57d13f3f6cd6bc10c772b9109b197d4cb417",
+    "bytes": 2115593
+  },
+  "pickup-generated-target-01/attempt-00/execution/scene-objects.json": {
+    "sha256": "b3e9f488ca487f72a251d3aca8a23f01cc7dabe6242a82e8f2f8fd0f97c458ad",
+    "bytes": 3745
+  },
+  "pickup-generated-target-01/attempt-00/execution/interaction-program.json": {
+    "sha256": "d6ed6a27e83dd2995c3f109a158b228e34df281b1d638fa2fa93b93daa866a96",
+    "bytes": 1873
+  },
+  "pickup-generated-target-01/attempt-00/execution/asset-map.json": {
+    "sha256": "e958bb5e4f836d0eb02ff152cc4fda9973d467869944ad80c2b24630d1a9f71f",
+    "bytes": 285
+  },
+  "pickup-generated-target-01/attempt-00/execution/asset-provenance.json": {
+    "sha256": "621cf2dd438b1b25cbec73a72c6977bdd60e638aa50a5910d58be4450fcb2d9b",
+    "bytes": 4780
+  },
+  "pickup-generated-target-01/attempt-00/execution/provenance.json": {
+    "sha256": "931bf1f4c5ae33d68ae9c919e262ca2932091433a172d482473238bf1808f480",
+    "bytes": 3419
+  },
+  "relocated/replay/trajectory.json": {
+    "sha256": "4d06b72fa899d3927e76292b919889ebf63ba4e4b28641ff919f54356aca9a13",
+    "bytes": 2920493
+  },
+  "relocated/replay/controls.json": {
+    "sha256": "4ca21356b1c7bb871d9226a7b2128683ccef612ec4d40652add8f4e561c6a86e",
+    "bytes": 1910717
+  },
+  "relocated/replay/contacts.jsonl": {
+    "sha256": "a3f81c1da316c82132eea3954eaa57d13f3f6cd6bc10c772b9109b197d4cb417",
+    "bytes": 2115593
+  },
+  "relocated/replay/scene-objects.json": {
+    "sha256": "b3e9f488ca487f72a251d3aca8a23f01cc7dabe6242a82e8f2f8fd0f97c458ad",
+    "bytes": 3745
+  },
+  "relocated/replay/interaction-program.json": {
+    "sha256": "d6ed6a27e83dd2995c3f109a158b228e34df281b1d638fa2fa93b93daa866a96",
+    "bytes": 1873
+  },
+  "relocated/replay/asset-map.json": {
+    "sha256": "0ed6071be321fec114505e2d66637910e16353631591e4ce23c9294619de6ff0",
+    "bytes": 375
+  },
+  "relocated/replay/asset-provenance.json": {
+    "sha256": "621cf2dd438b1b25cbec73a72c6977bdd60e638aa50a5910d58be4450fcb2d9b",
+    "bytes": 4780
+  },
+  "relocated/replay/provenance.json": {
+    "sha256": "931bf1f4c5ae33d68ae9c919e262ca2932091433a172d482473238bf1808f480",
+    "bytes": 3419
+  }
+}

@@ -16,6 +16,7 @@ from pathlib import Path
 
 import numpy as np
 
+from infinidojo.assets import merge_asset
 from infinidojo.geometry import aabb, extract_robot_bounds, overlap_aabb, transformed_box
 from infinidojo.io import git_revision, sha256, write_json
 from infinidojo.repair import validate_position_options
@@ -216,8 +217,16 @@ def add_clutter(base, clutter):
     return layout
 
 
-def metadata_bounds(root, item, kind="Rigid"):
-    path = root / f"Assets/Object/RoboDojo/{kind}/{item['category']}/{item['category_idx']:05d}/metadata.json"
+def metadata_bounds(root, item, kind="Rigid", asset_map=None):
+    if kind == "Rigid" and item["category"] == "infinigen_can":
+        if str(item["category_idx"]) not in (asset_map or {}):
+            raise ValueError("Generated task asset is missing from the reference asset map")
+        path = Path(asset_map[str(item["category_idx"])]) / "metadata.json"
+    else:
+        path = (
+            root
+            / f"Assets/Object/RoboDojo/{kind}/{item['category']}/{item['category_idx']:05d}/metadata.json"
+        )
     points = np.array(json.loads(path.read_text())["geometry"]["aligned_bbox"]["vertices"])
     points *= item["scale"]
     return [points.min(0).tolist(), points.max(0).tolist()]
@@ -261,13 +270,21 @@ def main():
             raise ValueError("Reference did not complete the native task and event sequence")
     base = json.loads((reference / "layout.json").read_text())
     trajectory = json.loads((reference / "trajectory.json").read_text())
+    asset_map = {}
+    if (reference / "asset-map.json").exists():
+        for key, value in json.loads((reference / "asset-map.json").read_text()).items():
+            record = merge_asset(asset_map, (reference / value).resolve())
+            if key != str(record["seed"]):
+                raise ValueError("Reference asset map key differs from its provenance")
     if args.initial_state_only:
         trajectory = trajectory[:1]
         if not trajectory or trajectory[0]["phase"] != "initial" or trajectory[0]["step"] != 0:
             raise ValueError("G1 needs an observed reset state before any reference motion")
         write_json(output / "initial-state.json", trajectory[0])
     object_bounds = {
-        item["label"]: metadata_bounds(root, item) for group in base["Rigid"].values() for item in group
+        item["label"]: metadata_bounds(root, item, asset_map=asset_map)
+        for group in base["Rigid"].values()
+        for item in group
     }
     if request["task"] == "cover_blocks":
         from infinidojo.cover_geometry import collision_mesh
@@ -296,11 +313,10 @@ def main():
     ]
     robot_bounds = extract_robot_bounds(root / "Assets/Robots/x5/ARX.usd")
     frames = reference_boxes(trajectory, robot_bounds, object_bounds, fixtures)
-    pool, asset_map = [], {}
+    pool = []
     for folder in args.assets:
-        provenance = json.loads((folder / "provenance.json").read_text())
+        provenance = merge_asset(asset_map, folder)
         pool.append({"asset_id": provenance["seed"], "bounds": provenance["bounds"]})
-        asset_map[str(provenance["seed"])] = str(folder.resolve())
     table = base["Table"]
     generated = complete_scene(
         request,
@@ -325,8 +341,13 @@ def main():
                 str(p.relative_to(source)): sha256(p) for p in (source / "src/infinidojo").glob("*.py")
             },
             "reference_trajectory_sha256": sha256(reference / "trajectory.json"),
+            "reference_asset_map_sha256": sha256(reference / "asset-map.json")
+            if (reference / "asset-map.json").exists()
+            else None,
             "uses_reference_motion": not args.initial_state_only,
-            "asset_provenance_sha256": {str(a.resolve()): sha256(a / "provenance.json") for a in args.assets},
+            "asset_provenance_sha256": {
+                path: sha256(Path(path) / "provenance.json") for path in asset_map.values()
+            },
         },
     )
     if generated["accepted"]:

@@ -439,6 +439,9 @@ def install_asset_overlay(root, output, asset_map):
         (category / f"{int(asset_id):05d}").symlink_to(folder, target_is_directory=True)
         provenance[asset_id] = record
     write_json(output / "asset-provenance.json", provenance)
+    write_json(
+        output / "asset-map.json", {key: str(Path(value).resolve()) for key, value in asset_map.items()}
+    )
     layout_module.OBJECTS_PATH = str(overlay)
 
 
