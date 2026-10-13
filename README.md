@@ -31,8 +31,8 @@ fixes the main claim, finite scope and evidence requirements. The
 cluster representation, a complete pick–transport–place cycle, strong generation
 baselines, independent validation, milestones and completion criteria. It also
 plans to evaluate **OpenWAM** and XPolicyLab's **GPT_6_Astra_Direct_EEF** on both
-native RoboDojo instances and InfiniDojo-generated instances. Neither has been
-evaluated on this repository's generated episodes yet.
+native RoboDojo instances and InfiniDojo-generated instances. Development
+integration has started; the full two-policy comparison remains unfinished.
 
 The main claim to establish is a controllable generation workflow that produces
 physically validated, runnable manipulation evaluation episodes. Generation
@@ -64,7 +64,11 @@ all produce faithful first responses or correct declines, and one description
 drives physical generation and export. No iterative-refinement benefit is shown.
 The [policy evaluation entry point](docs/policy-evaluation.md) now accepts native
 layouts and exported episodes through the unchanged RoboDojo evaluator. Its
-first native reset/RGB diagnostic passes; this is not a policy score.
+first native reset/RGB diagnostic passes. Real OpenWAM weights now complete
+evaluation on the native and generated development inputs: each scores 15/100
+without full task success. The Astra pair preserves quota failures without
+counting them as task failures. See the [policy development evidence](results/v1-policy-development/README.md)
+for the distinction between inference probes, completed episodes and infrastructure errors.
 
 ## Initial implementation scope
 

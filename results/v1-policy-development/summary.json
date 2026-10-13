@@ -1,0 +1,184 @@
+{
+  "development_only": true,
+  "date": "2026-10-13",
+  "task": "stack_blocks",
+  "robot": "arx_x5",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "xpolicylab_commit": "f6e309e8ece20bfa33c0e5d7b05a5f3287522757",
+  "official_leaderboard_reproduction": false,
+  "openwam_probe": {
+    "status": "unscored_real_inference",
+    "variant": "OpenWAM-step60000-cpu-text-bf16",
+    "checkpoint_sha256": "78ca4ef5d2f6c8fa877bcae8b40c36b3d8700547fd5a708b472c4564e5f40abb",
+    "input_sha256": "27bc4ae991716a135efdd327c8b0a634bf56fdb5995f4b21538e245bf58b787e",
+    "action_chunk_length": 32,
+    "seconds": 6.912157640996156,
+    "cuda_peak_allocated_bytes": 13635970048,
+    "parameter_bytes": {
+      "other:cuda:0:torch.bfloat16": 13451687512,
+      "text_encoder:cpu:torch.bfloat16": 11361820672
+    },
+    "simulation_actions": 0,
+    "native_success": null,
+    "attempts": [
+      {
+        "name": "openwam-full-probe-01",
+        "status": "logging_error_before_inference",
+        "error": {
+          "type": "UnsupportedInterpolationType",
+          "message": "Unsupported interpolation type now\n    full_key: project.output_dir\n    object_type=dict"
+        }
+      },
+      {
+        "name": "openwam-full-probe-02",
+        "status": "unscored_real_inference"
+      }
+    ]
+  },
+  "astra_pair": {
+    "requested": 2,
+    "evaluated": 0,
+    "condition_comparison": {
+      "status": "matched",
+      "checks": {
+        "policy": true,
+        "task": true,
+        "robodojo_commit": true,
+        "xpolicylab_commit": true,
+        "policy_environment": true,
+        "instance_sources": true,
+        "evaluation_configuration": true,
+        "runner_and_adapter_sources": true
+      },
+      "scope": "Same policy/evaluator settings; different instance distributions, no causal attribution."
+    },
+    "infrastructure_cause": "Codex usage limit exhausted",
+    "runs": [
+      {
+        "condition": "native",
+        "status": "execution_error",
+        "returncode": 0,
+        "native_success": null,
+        "native_score": null,
+        "actions_executed": 295,
+        "model_calls": 74,
+        "model_call_attempts": 75,
+        "model_latency_seconds": 1829.966677208955,
+        "cli_tokens": {
+          "input_tokens": 2798382,
+          "output_tokens": 15442,
+          "cached_input_tokens": 345600
+        },
+        "token_scope": "Usage reported by completed CLI turns; failed-turn billing is unknown."
+      },
+      {
+        "condition": "generated",
+        "status": "execution_error",
+        "returncode": 0,
+        "native_success": null,
+        "native_score": null,
+        "actions_executed": 0,
+        "model_calls": 0,
+        "model_call_attempts": 1,
+        "model_latency_seconds": 14.44123706100072,
+        "cli_tokens": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cached_input_tokens": 0
+        },
+        "token_scope": "Usage reported by completed CLI turns; failed-turn billing is unknown."
+      }
+    ]
+  },
+  "evidence_sha256": {
+    "openwam-full-probe-01/error.json": "15c7b32e1d9246873486879f1a79e964296506c1801e5060ae43eeed4156259d",
+    "openwam-full-probe-02/probe.json": "29b456b43b32d38bd346aea3b0f797ca075762e7751fcff6557b7e420bb38f66",
+    "openwam-full-probe-02/service.json": "9acf695f33c4d61d6ffdc38cfdd5cfe127866798b4dd04e06f57f753b6b715a4",
+    "astra-pair-01/pair.json": "4b33947dc3673359811957c6d9d18ad489e69e063360bb1356d49ed8fbe30908",
+    "astra-pair-01-audit.json": "001b8e2a713256542a755b9e58019025b3ce02352eb30a7a009e322934a50085",
+    "openwam-pair-01/pair.json": "e7c1c5c236e837bba63f4a1314d990ad79dfa7bb893c1e9c35f38b02d6f14b0a",
+    "openwam-pair-01-audit.json": "3b6531e82d8491dcd4c59c2369cb5ded0a6bedebf312e25fa679662d02870d4b",
+    "openwam-pair-01/native/result.json": "5a48bb4616748dfd7c1846f1d03a8421485277d9b413cd93085f22d6d393d6af",
+    "openwam-pair-01/generated/result.json": "a1c0ee4823024829d5047ce9fb63fb25aba57c4b88cbb92188fb4da3c1d8f78a",
+    "openwam-pair-01/native/provenance.json": "212d027c4ab2af501cba60e5c248cdcd0aff404e556b8e73c23dfa5528d7ff73",
+    "openwam-pair-01/generated/provenance.json": "c9f6006b057ace2d4fa804092577ee803884ffe23e0b78a7f93e64c73663bcb9",
+    "openwam-pair-01/service/engine-config.json": "9a052346dbdde34d2769d8aca95b6e75ae647686cac4fbac467314fc659c95ed"
+  },
+  "openwam_pair": {
+    "development_only": true,
+    "requested": 2,
+    "pair_sha256": "e7c1c5c236e837bba63f4a1314d990ad79dfa7bb893c1e9c35f38b02d6f14b0a",
+    "condition_comparison": {
+      "status": "matched",
+      "checks": {
+        "policy": true,
+        "task": true,
+        "robodojo_commit": true,
+        "xpolicylab_commit": true,
+        "policy_environment": true,
+        "instance_sources": true,
+        "policy_deployment": true,
+        "evaluation_configuration": true,
+        "runner_and_adapter_sources": true
+      },
+      "scope": "Same policy/evaluator settings; different instance distributions, no causal attribution."
+    },
+    "runs": [
+      {
+        "condition": "native",
+        "status": "evaluated",
+        "returncode": 0,
+        "native_success": false,
+        "native_score": 15.0,
+        "policy": "OpenWAM",
+        "task": "stack_blocks",
+        "instance_source": "native",
+        "reset_seed": 0,
+        "native_score_scale": 100,
+        "evaluator_wall_seconds": 272.4010898500128,
+        "io": {
+          "actions_executed": 550,
+          "action_requests": 576,
+          "ignored_after_end": 26,
+          "observations": 577,
+          "unique_rgb_images": 1731,
+          "instructions": [
+            "Stack the three blocks with different textures."
+          ],
+          "unfinished_action_request": false
+        }
+      },
+      {
+        "condition": "generated",
+        "status": "evaluated",
+        "returncode": 0,
+        "native_success": false,
+        "native_score": 15.0,
+        "policy": "OpenWAM",
+        "task": "stack_blocks",
+        "instance_source": "generated",
+        "reset_seed": 1200,
+        "native_score_scale": 100,
+        "evaluator_wall_seconds": 267.27384525499656,
+        "io": {
+          "actions_executed": 550,
+          "action_requests": 576,
+          "ignored_after_end": 26,
+          "observations": 577,
+          "unique_rgb_images": 1731,
+          "instructions": [
+            "Stack the three blocks with different textures."
+          ],
+          "unfinished_action_request": false
+        }
+      }
+    ],
+    "evaluated": 2,
+    "infinidojo_commit": "592d895d3e7cb9ba664db945ffebb74231f740a2",
+    "episode_sha256": "3b8a0a75a5c96a66d4302ad4e6600b56c8713dd59c2b20fc6e456c89944653a0",
+    "native_layout_sha256": "9a6b1ba160b2fc5420fd4aa858400b1ee0346d7d7449bdd85aa99d9f65418191",
+    "pair_wall_seconds": 636.3169658270053,
+    "service_sha256": "ec7a603ddfd6a7ee9423317fd96c72f28abf6d05e16f36fb10b15602c39dc060",
+    "interpretation": "Two completed development evaluations; no population, difficulty or causal claim."
+  }
+}
