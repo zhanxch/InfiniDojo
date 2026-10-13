@@ -1,0 +1,44 @@
+{
+  "format": "infinidojo.episode.v1",
+  "task": "stack_blocks",
+  "robot": "arx_x5",
+  "seed": 1205,
+  "instruction": "Stack the three blocks with different textures.",
+  "instruction_resolution": "Native observation manager resolves target descriptions from scene assets.",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "layout": "layout.json",
+  "asset_map": "asset-map.json",
+  "request": "request.json",
+  "files_sha256": {
+    "asset-map.json": "3628f2a2506a987b2ff9601e205ab3d5fe3d19d41b5da76e6014ccfc18ffa741",
+    "assets/19281/description.json": "a3ebeb2734acac6a3c2c8785860f3665ff16dd7336444dd3ae14e27e8de361fb",
+    "assets/19281/mesh.npz": "5ac7170dbfb87c1c33639ac6b7eba5877e6aa38e4657b3d5a1feb6c7a93e92d9",
+    "assets/19281/metadata.json": "f11ced6519e767133cce2a7d5b7cb71ca248db5cfa2c4f9df940684899531aaf",
+    "assets/19281/object.usd": "8be92af5b6d670e5966bbe9c8df5379e597de860d46ef20521cfb5b6dfb189c3",
+    "assets/19281/provenance.json": "dd5c0dc5ea39e9b29770e21bc8b06c0de7d5fd54a49cf81afaa3a360493ce5b6",
+    "layout.json": "d7a9fa60f4ffd4acb0b87f71918bc81b623df63c75ac3b8e33fafddcd814e422",
+    "request.json": "de7760357e83d04609ba79eb3145a199367d1848982b14657260ecac6935d761"
+  },
+  "validation": {
+    "status": "validated_under_development_checks",
+    "threshold_status": "development values, not frozen held-out protocol",
+    "thresholds": {
+      "penetration_m": 0.001,
+      "contact_distance_m": 0.001,
+      "initialization_translation_m": 0.005,
+      "initialization_rotation_deg": 2.0,
+      "clutter_motion_m": 0.002,
+      "clutter_rotation_deg": 2.0,
+      "settle_motion_m": 0.002,
+      "settle_rotation_deg": 2.0,
+      "attachment_translation_m": 0.003,
+      "attachment_rotation_deg": 5.0,
+      "pair_distance_error_m": 0.003,
+      "support_gap_m": 0.001,
+      "minimum_settle_s": 1.0
+    },
+    "report_sha256": "779b006bc0ff8369008df79a758676e57fc0d0291d1395a48e1153feedaaa08a"
+  },
+  "policy_observation_contract": "Native cameras and proprioception only; scene metadata stays in harness.",
+  "native_asset_requirement": "Licensed native RoboDojo assets must be installed separately."
+}

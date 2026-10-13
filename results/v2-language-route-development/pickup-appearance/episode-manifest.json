@@ -1,0 +1,49 @@
+{
+  "format": "infinidojo.episode.v1",
+  "task": "general_pickup",
+  "robot": "arx_x5",
+  "seed": 1204,
+  "instruction": "Pick up the <target> by 10 cm.",
+  "instruction_resolution": "Native observation manager resolves target descriptions from scene assets.",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "layout": "layout.json",
+  "asset_map": "asset-map.json",
+  "request": "request.json",
+  "files_sha256": {
+    "asset-map.json": "573e3be5f89467237c15a9337f74df43ab5648c6d54e63d6d1839686163169ac",
+    "assets/19264/description.json": "3b0d3a9eb83043e44b8452d5f221931fddc639035ddaaac4d472f094be5f7ff6",
+    "assets/19264/mesh.npz": "49b52132e29215c69e452d4af849ec021c1c145e8eb0f25505f53347e017faee",
+    "assets/19264/metadata.json": "e4eea2e145d523fa3105acd6c9399c5a7b6db039278355fcb33e4ff428b9fbba",
+    "assets/19264/object.usd": "c471b9ef2af1d2f5dcde2a15cd66f73bf9c568168eb4e56c6beabcb9a8108002",
+    "assets/19264/provenance.json": "836cd6430a0b0fc24f9ea56a381478bb13aec1a8d1f9a545e58941bac6f0b7bd",
+    "assets/19265/description.json": "8c2984858653bd12b7ecba86f1f7c7b82b97e030fe77f3e9be6f191b3af94497",
+    "assets/19265/mesh.npz": "3ea2ab39069f1d04874b4592097ef16dcea2d42a5b3fe1975e74e3f7e00e3563",
+    "assets/19265/metadata.json": "f11ced6519e767133cce2a7d5b7cb71ca248db5cfa2c4f9df940684899531aaf",
+    "assets/19265/object.usd": "cf5fedb78e1badd63511ec84bf6c3f85ff458190a55cf15f3117a2b1feb922d5",
+    "assets/19265/provenance.json": "9ff9eeceda8b7e453103bb1bbb6d2fee2fddc08b7d0b9e9e700bec70cd7641a4",
+    "layout.json": "7de613a990a980a28d86a22c03f25fe26733a7652cb305954d34e77c1ea4c3e7",
+    "request.json": "db1ba71628cc68abf8b05f5e5db27bda87b0f095e6023363e1395795d8c57216"
+  },
+  "validation": {
+    "status": "validated_under_development_checks",
+    "threshold_status": "development values, not frozen held-out protocol",
+    "thresholds": {
+      "penetration_m": 0.001,
+      "contact_distance_m": 0.001,
+      "initialization_translation_m": 0.005,
+      "initialization_rotation_deg": 2.0,
+      "clutter_motion_m": 0.002,
+      "clutter_rotation_deg": 2.0,
+      "settle_motion_m": 0.002,
+      "settle_rotation_deg": 2.0,
+      "attachment_translation_m": 0.003,
+      "attachment_rotation_deg": 5.0,
+      "pair_distance_error_m": 0.003,
+      "support_gap_m": 0.001,
+      "minimum_settle_s": 1.0
+    },
+    "report_sha256": "5c8edc872f2a3b54a8d5360bee83e572fe2c86a4b2206544da2cf94b429d132a"
+  },
+  "policy_observation_contract": "Native cameras and proprioception only; scene metadata stays in harness.",
+  "native_asset_requirement": "Licensed native RoboDojo assets must be installed separately."
+}

@@ -1,0 +1,12 @@
+{
+  "purpose": "Native evaluator integration on a new language-generated procedural-target episode; not a model comparison study",
+  "policy": "OpenWAM-step60000-cpu-text-bf16",
+  "task": "general_pickup",
+  "generated_condition": "pickup-base",
+  "generated_episode_sha256": "93b9774d7110b2035f46f727f458736185b094a8b153118d83e2c21c02fe6fb0",
+  "native_layout": 0,
+  "selection": "The first predeclared baseline case, fixed before policy execution",
+  "native_action_budget": 200,
+  "same_deployment_for_native_and_generated": true,
+  "policy_has_reference_trajectory": false
+}

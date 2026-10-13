@@ -38,6 +38,16 @@ def verified_asset(folder: Path) -> dict:
     return record
 
 
+def matches_parameters(record: dict, requested: dict) -> bool:
+    params = record["parameters"]
+    return (
+        params["x_length"] == requested["radius_m"]
+        and params["z_length"] == requested["height_m"]
+        and params["shape"] == requested["shape"]
+        and record.get("appearance", {}).get("color_name") == requested["color"]
+    )
+
+
 def merge_asset(mapping: dict, folder: Path) -> dict:
     """Keep task and clutter assets together without silently replacing an ID."""
     folder = folder.resolve()
@@ -152,7 +162,11 @@ def generate_can(
         "passive": {},
     }
     write_json(output / "metadata.json", metadata)
-    caption = f"{color_name} procedurally generated can" if color_name else "procedurally generated can"
+    caption = (
+        f"{color_name} {factory.shape} can, {height * 100:g} cm tall and {radius * 200:g} cm wide"
+        if color_name
+        else "procedurally generated can"
+    )
     write_json(
         output / "description.json",
         {"description": [caption], "caption": caption},

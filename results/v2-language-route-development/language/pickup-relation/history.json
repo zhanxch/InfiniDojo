@@ -1,0 +1,57 @@
+[
+  {
+    "proposal": {
+      "status": "ready",
+      "reason": "",
+      "task": "general_pickup",
+      "target": {
+        "asset": {
+          "radius_m": 0.022,
+          "height_m": 0.07,
+          "shape": "circle",
+          "color": "red"
+        },
+        "xy_m": [
+          0.22,
+          -0.05
+        ]
+      },
+      "clutter": {
+        "count": 6,
+        "region_xy_m": [
+          [
+            -0.35,
+            -0.28
+          ],
+          [
+            0.5,
+            0.28
+          ]
+        ],
+        "clearance_m": 0.003,
+        "pair_distance_m": 0.09,
+        "anchor_region": {
+          "anchor": "target",
+          "offset_region_xy_m": [
+            [
+              -0.14,
+              -0.09
+            ],
+            [
+              0.28,
+              0.33
+            ]
+          ]
+        },
+        "asset": {
+          "radius_m": 0.018,
+          "height_m": 0.05,
+          "shape": "circle",
+          "color": "blue"
+        }
+      }
+    },
+    "errors": [],
+    "wall_seconds": 33.14131962301326
+  }
+]

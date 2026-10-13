@@ -2,6 +2,7 @@ import numpy as np
 import pytest
 
 from infinidojo.completion import complete_scene, reference_boxes
+from infinidojo.geometry import aabb, transformed_box
 
 
 def request(count=2, distance=0.09):
@@ -89,3 +90,23 @@ def test_retry_preserves_asset_identities_and_first_candidate_reproducibility():
     assert retried["clutter"] != first["clutter"]
     with pytest.raises(ValueError, match="Fixed asset"):
         complete_scene(request(), pool, [initial], seed=1200, selected_indices=[0], **kwargs)
+
+
+def test_anchor_region_constrains_whole_footprints_before_placement():
+    spec = request(distance=None)
+    spec["clutter"]["anchor_region"] = {
+        "anchor": "block_0",
+        "offset_region_xy_m": [[-0.15, -0.05], [-0.04, 0.15]],
+    }
+    pool = [{"asset_id": 1, "bounds": [[-0.01, -0.01, 0], [0.01, 0.01, 0.05]]}]
+    initial = {"bodies": [("block_0", (np.array([0.3, 0, 0.8]), np.ones(3) * 0.02, np.eye(3)))]}
+    result = complete_scene(spec, pool, [initial], seed=1204, tabletop_z=0.765, attempt_budget=100)
+    assert result["accepted"]
+    for item in result["clutter"]:
+        bounds = aabb(transformed_box(item["bounds"], item["pose"]))
+        assert np.all(bounds[0, :2] >= [0.15, -0.05])
+        assert np.all(bounds[1, :2] <= [0.26, 0.15])
+    spec["clutter"]["anchor_region"]["offset_region_xy_m"] = [[1, 1], [2, 2]]
+    failed = complete_scene(spec, pool, [initial], seed=1204, tabletop_z=0.765)
+    assert not failed["accepted"] and failed["reason"] == "empty_anchor_region_intersection"
+    assert failed["attempts"] == 0 and spec["clutter"]["count"] == 2

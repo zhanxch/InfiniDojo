@@ -1,0 +1,13 @@
+[
+  {
+    "proposal": {
+      "status": "unsupported",
+      "reason": "请求的目标是装水的开口陶瓷杯；新资产仅支持封闭的圆形或圆角矩形罐，不支持开口杯或液体。",
+      "task": null,
+      "target": null,
+      "clutter": null
+    },
+    "errors": [],
+    "wall_seconds": 23.33703389299626
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "protocol_sha256": "b87c84eebe3d3f5342e71942e8eea595194d332fce0940ebeff47a7f0c8791fa",
+  "evaluation_labels_used_for_feedback": false,
+  "cases": [
+    {
+      "id": "pickup-base",
+      "status": "compiled",
+      "attempts": 1,
+      "faithful": true,
+      "wall_seconds": 29.99562501499895
+    },
+    {
+      "id": "pickup-appearance",
+      "status": "compiled",
+      "attempts": 1,
+      "faithful": true,
+      "wall_seconds": 35.914660914000706
+    },
+    {
+      "id": "pickup-relation",
+      "status": "compiled",
+      "attempts": 1,
+      "faithful": true,
+      "wall_seconds": 33.14457610799582
+    },
+    {
+      "id": "pickup-composition",
+      "status": "compiled",
+      "attempts": 1,
+      "faithful": true,
+      "wall_seconds": 30.059491246996913
+    },
+    {
+      "id": "pickup-combined",
+      "status": "compiled",
+      "attempts": 1,
+      "faithful": true,
+      "wall_seconds": 31.746406402991852
+    },
+    {
+      "id": "stack",
+      "status": "compiled",
+      "attempts": 1,
+      "faithful": true,
+      "wall_seconds": 41.678139462004765
+    },
+    {
+      "id": "cover",
+      "status": "compiled",
+      "attempts": 1,
+      "faithful": true,
+      "wall_seconds": 38.703479718009476
+    },
+    {
+      "id": "unsupported-open-cup",
+      "status": "unsupported",
+      "attempts": 1,
+      "faithful": true,
+      "wall_seconds": 23.34017033300188
+    },
+    {
+      "id": "unsupported-partial-stack",
+      "status": "unsupported",
+      "attempts": 1,
+      "faithful": true,
+      "wall_seconds": 32.14176526799565
+    }
+  ]
+}

@@ -40,6 +40,15 @@ def validate_request(request):
     distance = clutter.get("pair_distance_m")
     if distance is not None and (not 0.05 <= distance <= 0.2 or count % 2):
         raise ValueError("Paired clutter needs an even count and separation in [0.05, 0.2] m")
+    relation = clutter.get("anchor_region")
+    if relation is not None:
+        from infinidojo.repair import task_labels
+
+        offset = np.asarray(relation["offset_region_xy_m"], dtype=float)
+        if relation["anchor"] not in task_labels(request["task"]):
+            raise ValueError("Anchor must be a task object of the selected task")
+        if offset.shape != (2, 2) or not np.isfinite(offset).all() or np.any(offset[0] >= offset[1]):
+            raise ValueError("Invalid anchor-relative footprint region")
 
 
 def reference_boxes(trajectory, robot_bounds, object_bounds, fixtures=()):
@@ -88,6 +97,17 @@ def complete_scene(
     clutter = request["clutter"]
     count = clutter["count"]
     region = np.asarray(clutter["region_xy_m"])
+    if clutter.get("anchor_region") is not None:
+        relation = clutter["anchor_region"]
+        initial_bodies = dict(frames[0]["bodies"])
+        if relation["anchor"] not in initial_bodies:
+            raise ValueError("Anchor is missing from the observed initial task state")
+        anchor_center = np.asarray(initial_bodies[relation["anchor"]][0])[:2]
+        relative_region = anchor_center + np.asarray(relation["offset_region_xy_m"])
+        region = np.array(
+            [np.maximum(region[0], relative_region[0]), np.minimum(region[1], relative_region[1])]
+        )
+    region_available = bool(np.all(region[0] < region[1]))
     margin = clutter["clearance_m"]
     distance = clutter.get("pair_distance_m")
     rng = np.random.default_rng(seed)
@@ -109,7 +129,7 @@ def complete_scene(
     placed, occupied, proposals = [], [], []
     best_partial, restarts = [], 0
     group_size = 2 if distance is not None else 1
-    while len(placed) < count and len(proposals) < attempt_budget:
+    while region_available and len(placed) < count and len(proposals) < attempt_budget:
         first = len(placed)
         group_start = len(proposals)
         while len(proposals) < attempt_budget and len(proposals) - group_start < cluster_budget:
@@ -192,7 +212,11 @@ def complete_scene(
         "cluster_budget": cluster_budget,
         "restarts": restarts,
         "attempts": len(proposals),
-        "reason": None if len(placed) == count else "candidate_budget_exhausted",
+        "reason": None
+        if len(placed) == count
+        else "candidate_budget_exhausted"
+        if region_available
+        else "empty_anchor_region_intersection",
         "wall_seconds": time.monotonic() - started,
     }
 

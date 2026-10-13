@@ -213,15 +213,16 @@ def audit_episode(execution, generation, robot_usd, thresholds=None):
     checks, diagnostics = {}, {}
     extra_inputs = []
     mapping = read(generation / "asset-map.json")
+    generated_records = {}
     if mapping:
-        recorded_assets = read(execution / "asset-provenance.json")
-        checks["generated_assets_match_execution"] = set(recorded_assets) == set(mapping) and all(
+        generated_records = read(execution / "asset-provenance.json")
+        checks["generated_assets_match_execution"] = set(generated_records) == set(mapping) and all(
             record == read((generation / mapping[key]).resolve() / "provenance.json")
             and all(
                 sha256((generation / mapping[key]).resolve() / name) == digest
                 for name, digest in record["files"].items()
             )
-            for key, record in recorded_assets.items()
+            for key, record in generated_records.items()
             if key in mapping
         )
         extra_inputs.append("asset-provenance.json")
@@ -322,6 +323,25 @@ def audit_episode(execution, generation, robot_usd, thresholds=None):
     checks["initial_footprints_inside_region"] = all(
         np.all(box[0, :2] >= region[0]) and np.all(box[1, :2] <= region[1]) for box in bounds
     )
+    if request["clutter"].get("anchor_region") is not None:
+        relation = request["clutter"]["anchor_region"]
+        anchor = relation["anchor"]
+        center = aabb(transformed_box(objects[anchor]["bounds"], initial[anchor])).mean(axis=0)[:2]
+        relative_region = center + np.asarray(relation["offset_region_xy_m"])
+        checks["requested_anchor_region"] = all(
+            np.all(box[0, :2] >= relative_region[0]) and np.all(box[1, :2] <= relative_region[1])
+            for box in bounds
+        )
+    if "asset_requirements" in request:
+        from infinidojo.assets import matches_parameters
+
+        checks["requested_procedural_assets"] = all(
+            label in objects
+            and objects[label]["category"] == "infinigen_can"
+            and matches_parameters(generated_records[str(objects[label]["category_idx"])], expected)
+            for role, expected in request["asset_requirements"].items()
+            for label in (clutter if role == "clutter" else [role])
+        )
     checks["requested_initial_clearance"] = not any(
         overlap_aabb(a, b, request["clutter"]["clearance_m"]) for a, b in combinations(bounds, 2)
     )

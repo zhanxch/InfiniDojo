@@ -1,0 +1,35 @@
+{
+  "accepted": true,
+  "status": "compiled",
+  "profile": "scene-v2",
+  "attempts": 1,
+  "specification": {
+    "status": "ready",
+    "reason": "",
+    "task": "cover_blocks",
+    "target": null,
+    "clutter": {
+      "count": 6,
+      "region_xy_m": [
+        [
+          -0.35,
+          -0.28
+        ],
+        [
+          0.35,
+          0.22
+        ]
+      ],
+      "clearance_m": 0.003,
+      "pair_distance_m": 0.09,
+      "anchor_region": null,
+      "asset": {
+        "radius_m": 0.018,
+        "height_m": 0.05,
+        "shape": "circle",
+        "color": "blue"
+      }
+    }
+  },
+  "wall_seconds": 38.703479718009476
+}

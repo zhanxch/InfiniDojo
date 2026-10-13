@@ -6,24 +6,37 @@ built on **Infinigen** and **RoboDojo**.
 ## Research direction
 
 InfiniDojo aims to generate RoboDojo evaluation episodes with customizable scene
-complexity. A minimal task scene and reference interaction guide procedural
+complexity through natural-language requests. A minimal task scene and reference interaction guide procedural
 scene completion, so requested variations can preserve a physically executable
-task. The two components below describe the research direction; the implemented
-v0 scope is listed separately.
+task. The current route has two main parts; the historical v0 evidence is listed separately.
 
-1. An LLM agent translates scene descriptions and a supported RoboDojo task
-   contract into procedural constraints and interaction events. Structured
-   generation feedback drives bounded refinement.
-2. An interaction-centric generator coordinates procedural assets and scene
-   layouts with event-conditioned robot–object motion. Grasp establishment,
-   lift-off, and release change the constraints between bodies. Robot links
-   remain articulated; only a stable grasp permits a fixed hand–object transform.
+1. An LLM compiles descriptions into bounded appearance, spatial-relation and
+   scene-composition constraints. The backend retains complete native task and
+   event programs; unsupported requirements are explicitly declined.
+2. Procedural task assets are instantiated before obtaining a reference interaction.
+   Event-dependent contact, attachment and support relations describe the operation;
+   scene completion preserves its full motion space while satisfying requested layouts.
+   Robot links remain articulated; only a stable grasp permits a fixed hand–object transform.
 
 Reference motions are internal generation and validation tools. Evaluated
 policies remain free to choose their own actions. Failure diagnosis and RSI
 evaluation are downstream applications, not the core method.
 
 ## Current development and next stage
+
+The new [`scene-v2` language route](docs/language-frontend.md) connects natural-language
+requests to on-demand Infinigen assets, task-specific reference construction,
+constrained scene completion and portable RoboDojo episodes. Its bounded controls
+cover named colors, paired/target-relative layouts, and distractor counts.
+Pickup uses a generated manipulation target; stacking and covering preserve
+their native task objects. The [procedural-target integration](results/v2-route-development/README.md)
+has already passed physical execution and relocation. The new seven-condition,
+three-task route checks are in progress; nine live language requests have been
+compiled or correctly declined. This is development evidence, not a held-out study.
+
+G3 repair remains an optional implementation with no demonstrated efficiency
+advantage. It is not used by the new route. The current interaction representation
+does not itself establish a novel cluster optimizer.
 
 The [paper scope and stopping contract / 投稿版本约定](docs/paper-contract.md)
 fixes the main claim, finite scope and evidence requirements. The

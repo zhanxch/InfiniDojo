@@ -1,0 +1,98 @@
+{
+  "declared_requests": 7,
+  "accepted": 6,
+  "independent_scene_seeds": 3,
+  "note": "Five pickup conditions share one seed; counts are integration conditions, not independent samples. Pending conditions are retained.",
+  "rows": [
+    {
+      "id": "pickup-base",
+      "scene_seed": 1204,
+      "task": "general_pickup",
+      "status": "accepted",
+      "accepted_attempt": 0,
+      "count": 6,
+      "checks_passed": 28,
+      "failed_checks": [],
+      "native_task_success": true,
+      "route_wall_seconds": 126.45068414299749,
+      "local_placement_proposals": 9,
+      "episode_manifest_sha256": "93b9774d7110b2035f46f727f458736185b094a8b153118d83e2c21c02fe6fb0"
+    },
+    {
+      "id": "pickup-appearance",
+      "scene_seed": 1204,
+      "task": "general_pickup",
+      "status": "accepted",
+      "accepted_attempt": 0,
+      "count": 6,
+      "checks_passed": 28,
+      "failed_checks": [],
+      "native_task_success": true,
+      "route_wall_seconds": 97.29862620300264,
+      "local_placement_proposals": 9,
+      "episode_manifest_sha256": "3720c313e2e9099f417e26ca4ee086a4ae4c3f66b22405f653331ecf24143661"
+    },
+    {
+      "id": "pickup-relation",
+      "scene_seed": 1204,
+      "task": "general_pickup",
+      "status": "accepted",
+      "accepted_attempt": 0,
+      "count": 6,
+      "checks_passed": 29,
+      "failed_checks": [],
+      "native_task_success": true,
+      "route_wall_seconds": 96.39732781899511,
+      "local_placement_proposals": 9,
+      "episode_manifest_sha256": "5f9ec788aaf8ed3f78c3f6c7c2c3c2fa6d9fc635a29a6759e547f8f2ad0c95c6"
+    },
+    {
+      "id": "pickup-composition",
+      "scene_seed": 1204,
+      "task": "general_pickup",
+      "status": "accepted",
+      "accepted_attempt": 0,
+      "count": 12,
+      "checks_passed": 28,
+      "failed_checks": [],
+      "native_task_success": true,
+      "route_wall_seconds": 98.36009000900958,
+      "local_placement_proposals": 18,
+      "episode_manifest_sha256": "c80dd309febdaae047bce88c1864b0fb5f5697fc2dc16c7381cbbae2c18ae39b"
+    },
+    {
+      "id": "pickup-combined",
+      "scene_seed": 1204,
+      "task": "general_pickup",
+      "status": "accepted",
+      "accepted_attempt": 0,
+      "count": 12,
+      "checks_passed": 29,
+      "failed_checks": [],
+      "native_task_success": true,
+      "route_wall_seconds": 98.58164875001239,
+      "local_placement_proposals": 97,
+      "episode_manifest_sha256": "ebe3462dd73bfecc10be7b07765e72738025aa033b8b5f216fea8f8c20455506"
+    },
+    {
+      "id": "stack",
+      "scene_seed": 1205,
+      "task": "stack_blocks",
+      "status": "accepted",
+      "accepted_attempt": 0,
+      "count": 6,
+      "checks_passed": 26,
+      "failed_checks": [],
+      "native_task_success": true,
+      "route_wall_seconds": 232.6862923269946,
+      "local_placement_proposals": 7,
+      "episode_manifest_sha256": "94a4b09ee03406c99f1641d01fd234258e942ffe082b4982cbe2a163dfb19113"
+    },
+    {
+      "id": "cover",
+      "scene_seed": 1206,
+      "task": "cover_blocks",
+      "status": "running"
+    }
+  ]
+}

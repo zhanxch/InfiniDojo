@@ -1,0 +1,345 @@
+{
+  "status": "predeclared development integration; not held-out or a performance study",
+  "model": "gpt-6-sol",
+  "axes": [
+    "appearance via named colors",
+    "relations via pair distance and initial target-relative regions",
+    "composition via distractor count"
+  ],
+  "paired_family": "All five pickup conditions share seed 1204; these are matched variants, not independent samples",
+  "asset_seed_derivation": "scene_seed * 16 + 0 for target, +1 for clutter",
+  "budgets": {
+    "wall_seconds": 1800,
+    "max_layouts": 4,
+    "total_proposals": 4000,
+    "proposals_per_layout": 1000,
+    "max_steps": 20000,
+    "llm_attempts": 2,
+    "llm_timeout": 90
+  },
+  "evaluation_labels_used_for_feedback": false,
+  "cases": [
+    {
+      "id": "pickup-base",
+      "seed": 1204,
+      "description": "生成一个 RoboDojo general_pickup 完整拾取评测实例。用 Infinigen 生成红色圆罐作为目标，半径2.2厘米、高7厘米，初始位置x=22厘米、y=-5厘米。生成6个蓝色圆罐作为干扰物，每个半径1.8厘米、高5厘米。所有干扰物的完整占地位于世界坐标x=[-35,50]厘米、y=[-28,28]厘米内，最小间隙3毫米。干扰物不要求成对，也不附加相对目标的区域限制。",
+      "expected": {
+        "status": "ready",
+        "reason": "",
+        "task": "general_pickup",
+        "target": {
+          "asset": {
+            "radius_m": 0.022,
+            "height_m": 0.07,
+            "shape": "circle",
+            "color": "red"
+          },
+          "xy_m": [
+            0.22,
+            -0.05
+          ]
+        },
+        "clutter": {
+          "count": 6,
+          "region_xy_m": [
+            [
+              -0.35,
+              -0.28
+            ],
+            [
+              0.5,
+              0.28
+            ]
+          ],
+          "clearance_m": 0.003,
+          "pair_distance_m": null,
+          "anchor_region": null,
+          "asset": {
+            "radius_m": 0.018,
+            "height_m": 0.05,
+            "shape": "circle",
+            "color": "blue"
+          }
+        }
+      }
+    },
+    {
+      "id": "pickup-appearance",
+      "seed": 1204,
+      "description": "生成一个 RoboDojo general_pickup 完整拾取评测实例。用 Infinigen 生成红色圆罐作为目标，半径2.2厘米、高7厘米，初始位置x=22厘米、y=-5厘米。生成6个红色圆罐作为干扰物，每个半径1.8厘米、高5厘米。所有干扰物的完整占地位于世界坐标x=[-35,50]厘米、y=[-28,28]厘米内，最小间隙3毫米。干扰物不要求成对，也不附加相对目标的区域限制。",
+      "expected": {
+        "status": "ready",
+        "reason": "",
+        "task": "general_pickup",
+        "target": {
+          "asset": {
+            "radius_m": 0.022,
+            "height_m": 0.07,
+            "shape": "circle",
+            "color": "red"
+          },
+          "xy_m": [
+            0.22,
+            -0.05
+          ]
+        },
+        "clutter": {
+          "count": 6,
+          "region_xy_m": [
+            [
+              -0.35,
+              -0.28
+            ],
+            [
+              0.5,
+              0.28
+            ]
+          ],
+          "clearance_m": 0.003,
+          "pair_distance_m": null,
+          "anchor_region": null,
+          "asset": {
+            "radius_m": 0.018,
+            "height_m": 0.05,
+            "shape": "circle",
+            "color": "red"
+          }
+        }
+      }
+    },
+    {
+      "id": "pickup-relation",
+      "seed": 1204,
+      "description": "生成一个 RoboDojo general_pickup 完整拾取评测实例。用 Infinigen 生成红色圆罐作为目标，半径2.2厘米、高7厘米，初始位置x=22厘米、y=-5厘米。生成6个蓝色圆罐作为干扰物，每个半径1.8厘米、高5厘米。所有干扰物的完整占地位于世界坐标x=[-35,50]厘米、y=[-28,28]厘米内，最小间隙3毫米。干扰物两两成对，对内中心距离9厘米；此外每个干扰物的完整占地都必须位于目标初始中心的相对区域dx=[-14,28]厘米、dy=[-9,33]厘米内。",
+      "expected": {
+        "status": "ready",
+        "reason": "",
+        "task": "general_pickup",
+        "target": {
+          "asset": {
+            "radius_m": 0.022,
+            "height_m": 0.07,
+            "shape": "circle",
+            "color": "red"
+          },
+          "xy_m": [
+            0.22,
+            -0.05
+          ]
+        },
+        "clutter": {
+          "count": 6,
+          "region_xy_m": [
+            [
+              -0.35,
+              -0.28
+            ],
+            [
+              0.5,
+              0.28
+            ]
+          ],
+          "clearance_m": 0.003,
+          "pair_distance_m": 0.09,
+          "anchor_region": {
+            "anchor": "target",
+            "offset_region_xy_m": [
+              [
+                -0.14,
+                -0.09
+              ],
+              [
+                0.28,
+                0.33
+              ]
+            ]
+          },
+          "asset": {
+            "radius_m": 0.018,
+            "height_m": 0.05,
+            "shape": "circle",
+            "color": "blue"
+          }
+        }
+      }
+    },
+    {
+      "id": "pickup-composition",
+      "seed": 1204,
+      "description": "生成一个 RoboDojo general_pickup 完整拾取评测实例。用 Infinigen 生成红色圆罐作为目标，半径2.2厘米、高7厘米，初始位置x=22厘米、y=-5厘米。生成12个蓝色圆罐作为干扰物，每个半径1.8厘米、高5厘米。所有干扰物的完整占地位于世界坐标x=[-35,50]厘米、y=[-28,28]厘米内，最小间隙3毫米。干扰物不要求成对，也不附加相对目标的区域限制。",
+      "expected": {
+        "status": "ready",
+        "reason": "",
+        "task": "general_pickup",
+        "target": {
+          "asset": {
+            "radius_m": 0.022,
+            "height_m": 0.07,
+            "shape": "circle",
+            "color": "red"
+          },
+          "xy_m": [
+            0.22,
+            -0.05
+          ]
+        },
+        "clutter": {
+          "count": 12,
+          "region_xy_m": [
+            [
+              -0.35,
+              -0.28
+            ],
+            [
+              0.5,
+              0.28
+            ]
+          ],
+          "clearance_m": 0.003,
+          "pair_distance_m": null,
+          "anchor_region": null,
+          "asset": {
+            "radius_m": 0.018,
+            "height_m": 0.05,
+            "shape": "circle",
+            "color": "blue"
+          }
+        }
+      }
+    },
+    {
+      "id": "pickup-combined",
+      "seed": 1204,
+      "description": "生成一个 RoboDojo general_pickup 完整拾取评测实例。用 Infinigen 生成红色圆罐作为目标，半径2.2厘米、高7厘米，初始位置x=22厘米、y=-5厘米。生成12个红色圆罐作为干扰物，每个半径1.8厘米、高5厘米。所有干扰物的完整占地位于世界坐标x=[-35,50]厘米、y=[-28,28]厘米内，最小间隙3毫米。干扰物两两成对，对内中心距离9厘米；此外每个干扰物的完整占地都必须位于目标初始中心的相对区域dx=[-14,28]厘米、dy=[-9,33]厘米内。",
+      "expected": {
+        "status": "ready",
+        "reason": "",
+        "task": "general_pickup",
+        "target": {
+          "asset": {
+            "radius_m": 0.022,
+            "height_m": 0.07,
+            "shape": "circle",
+            "color": "red"
+          },
+          "xy_m": [
+            0.22,
+            -0.05
+          ]
+        },
+        "clutter": {
+          "count": 12,
+          "region_xy_m": [
+            [
+              -0.35,
+              -0.28
+            ],
+            [
+              0.5,
+              0.28
+            ]
+          ],
+          "clearance_m": 0.003,
+          "pair_distance_m": 0.09,
+          "anchor_region": {
+            "anchor": "target",
+            "offset_region_xy_m": [
+              [
+                -0.14,
+                -0.09
+              ],
+              [
+                0.28,
+                0.33
+              ]
+            ]
+          },
+          "asset": {
+            "radius_m": 0.018,
+            "height_m": 0.05,
+            "shape": "circle",
+            "color": "red"
+          }
+        }
+      }
+    },
+    {
+      "id": "stack",
+      "seed": 1205,
+      "description": "生成 RoboDojo stack_blocks 评测实例：完整堆叠三个原生方块并返回初始姿态。保持原生任务物体的位置和外观。加入6个Infinigen蓝色圆罐作为干扰物，半径1.8厘米、高5厘米，两两成对、中心距离9厘米，最小间隙3毫米。所有干扰物完整占地位于世界坐标x=[-35,50]厘米、y=[-28,28]厘米内，不附加目标相对区域。",
+      "expected": {
+        "status": "ready",
+        "reason": "",
+        "task": "stack_blocks",
+        "target": null,
+        "clutter": {
+          "count": 6,
+          "region_xy_m": [
+            [
+              -0.35,
+              -0.28
+            ],
+            [
+              0.5,
+              0.28
+            ]
+          ],
+          "clearance_m": 0.003,
+          "pair_distance_m": 0.09,
+          "anchor_region": null,
+          "asset": {
+            "radius_m": 0.018,
+            "height_m": 0.05,
+            "shape": "circle",
+            "color": "blue"
+          }
+        }
+      }
+    },
+    {
+      "id": "cover",
+      "seed": 1206,
+      "description": "生成 RoboDojo cover_blocks 评测实例：从左到右覆盖三个原生方块，随后按红、绿、蓝顺序揭开并返回初始姿态。保持原生任务物体的位置和外观。加入6个Infinigen蓝色圆罐作为干扰物，半径1.8厘米、高5厘米，两两成对、中心距离9厘米，最小间隙3毫米。所有干扰物完整占地位于世界坐标x=[-35,35]厘米、y=[-28,22]厘米内，不附加目标相对区域。",
+      "expected": {
+        "status": "ready",
+        "reason": "",
+        "task": "cover_blocks",
+        "target": null,
+        "clutter": {
+          "count": 6,
+          "region_xy_m": [
+            [
+              -0.35,
+              -0.28
+            ],
+            [
+              0.35,
+              0.22
+            ]
+          ],
+          "clearance_m": 0.003,
+          "pair_distance_m": 0.09,
+          "anchor_region": null,
+          "asset": {
+            "radius_m": 0.018,
+            "height_m": 0.05,
+            "shape": "circle",
+            "color": "blue"
+          }
+        }
+      }
+    },
+    {
+      "id": "unsupported-open-cup",
+      "seed": null,
+      "description": "生成general_pickup评测实例，要求待操作目标为装水的开口陶瓷杯。",
+      "expected_status": "unsupported"
+    },
+    {
+      "id": "unsupported-partial-stack",
+      "seed": null,
+      "description": "生成stack_blocks评测实例，只需堆叠两个方块，不要求返回初始姿态。",
+      "expected_status": "unsupported"
+    }
+  ]
+}

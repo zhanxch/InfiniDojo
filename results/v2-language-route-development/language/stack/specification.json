@@ -1,0 +1,28 @@
+{
+  "status": "ready",
+  "reason": "",
+  "task": "stack_blocks",
+  "target": null,
+  "clutter": {
+    "count": 6,
+    "region_xy_m": [
+      [
+        -0.35,
+        -0.28
+      ],
+      [
+        0.5,
+        0.28
+      ]
+    ],
+    "clearance_m": 0.003,
+    "pair_distance_m": 0.09,
+    "anchor_region": null,
+    "asset": {
+      "radius_m": 0.018,
+      "height_m": 0.05,
+      "shape": "circle",
+      "color": "blue"
+    }
+  }
+}

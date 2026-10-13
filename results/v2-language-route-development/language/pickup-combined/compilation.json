@@ -1,0 +1,15 @@
+{
+  "profile": "scene-v2",
+  "model": "gpt-6-sol",
+  "wall_seconds": 31.745960013999138,
+  "files_sha256": {
+    "context.json": "7e55197fd67075929a73c8290f0773e04afbafd130f6f89f64c007dd8cf66d35",
+    "generator-request.json": "9f82e6a907bd08e391fec7e2b51b703eaf0a5561ffefd328a705a0c2a3b8aed1",
+    "history.json": "3ff7a66f0dc752be831812fb1235a7faa3f3aa0d38f4c3539726b01c57ae77af",
+    "provenance.json": "45f829978ce35c7a12b6392b3335a9b5870772ad7dff1f7abf0991894a3cacf2",
+    "request.txt": "0fbf67a1554ea6bd39218155d52544ebaf844459470bb9d236c35a3a3a37e09e",
+    "schema.json": "ceb121d26ce6e7bf804686018990597c7b357bb6f32e777550278b34c55e6ca6",
+    "specification.json": "37d15c11c87e6879f839d5113199ff1a7c20481bcf7617553cf143238c3d0fec"
+  },
+  "note": "Constraint compilation only; procedural construction and physical evidence follow"
+}

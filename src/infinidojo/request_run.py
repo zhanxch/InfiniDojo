@@ -130,9 +130,9 @@ def run_request(args):
         request = read_json(args.request)
     validate_request(request)
     task = request["task"]
-    if task not in ("stack_blocks", "general_pickup"):
+    if task == "cover_blocks" and args.method != "g2":
         raise ValueError(
-            "The bounded runner requires scene-aware planning; cover currently uses G2 completion directly"
+            "Cover supports G2 reference-conditioned completion only; G1/G3 scene-aware planning is unsupported"
         )
     frozen = source_hashes(source)
     for name in frozen:
@@ -276,7 +276,13 @@ def run_request(args):
     save()
     try:
         state = output / "initial-state" if args.method == "g1" else output / "reference"
-        mode = "--capture-initial-state" if args.method == "g1" else "--scene-aware"
+        mode_args = (
+            ["--capture-initial-state"]
+            if args.method == "g1"
+            else []
+            if task == "cover_blocks"
+            else ["--scene-aware"]
+        )
         if not stage(
             "state-acquisition",
             [
@@ -286,7 +292,7 @@ def run_request(args):
                 str(output / "initial-layout.json"),
                 "--output",
                 str(state),
-                mode,
+                *mode_args,
             ],
         ):
             return manifest

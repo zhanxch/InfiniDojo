@@ -1,0 +1,14 @@
+{
+  "accepted": false,
+  "status": "unsupported",
+  "profile": "scene-v2",
+  "attempts": 1,
+  "specification": {
+    "status": "unsupported",
+    "reason": "stack_blocks requires stacking all three native cubes with two transfers and returning to the initial pose; the request specifies only two cubes and no return.",
+    "task": null,
+    "target": null,
+    "clutter": null
+  },
+  "wall_seconds": 32.14176526799565
+}

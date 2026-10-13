@@ -13,7 +13,11 @@ from itertools import product
 import numpy as np
 
 LABELS = ("block_0", "block_1", "block_2")
-TASK_LABELS = {"stack_blocks": LABELS, "general_pickup": ("target",)}
+TASK_LABELS = {
+    "stack_blocks": LABELS,
+    "general_pickup": ("target",),
+    "cover_blocks": ("red", "green", "blue", "cup0", "cup1", "cup2"),
+}
 
 
 def task_labels(task):
@@ -26,6 +30,8 @@ def validate_position_options(request):
     options = request.get("task_xy_options_m")
     if options is None:
         return
+    if request.get("task") == "cover_blocks":
+        raise ValueError("Cover task positions remain native; position repair is unsupported")
     labels = task_labels(request.get("task", "stack_blocks"))
     if set(options) != set(labels):
         raise ValueError(f"Task position options must specify all task object identities: {labels}")

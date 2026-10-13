@@ -1,0 +1,283 @@
+{
+  "status": "accepted",
+  "method": "g2",
+  "seed": 1204,
+  "request": {
+    "task": "general_pickup",
+    "clutter": {
+      "count": 12,
+      "region_xy_m": [
+        [
+          -0.35,
+          -0.28
+        ],
+        [
+          0.5,
+          0.28
+        ]
+      ],
+      "clearance_m": 0.003
+    },
+    "asset_requirements": {
+      "clutter": {
+        "radius_m": 0.018,
+        "height_m": 0.05,
+        "shape": "circle",
+        "color": "blue"
+      },
+      "target": {
+        "radius_m": 0.022,
+        "height_m": 0.07,
+        "shape": "circle",
+        "color": "red"
+      }
+    }
+  },
+  "task": "general_pickup",
+  "infinidojo_commit": "4c38a939c383b1ea96d1beb268e3dcda765659d7",
+  "robodojo_commit": "726e9aabfaa642203722eb126f5eaf0f37f3e1ad",
+  "source_sha256": {
+    "__init__.py": "44cf1ca788faa02d0337265e81a7d6bbf08492d7a7dfd3f0ec35982305e70827",
+    "assets.py": "cf4571c93c18a8d68ef426a607ca8ba1ffe8bc0974a427d495217b7e3a0274c7",
+    "cli.py": "d97418c4ab80573332d7d737c6c1fcc0a25c1ef20c8f4074d03ed745357a2c1e",
+    "completion.py": "26835928555958e3614582e4cc1a726b93f5b33629a0134fd0fc81df8cefe6e6",
+    "cover_geometry.py": "ad535e24f6516b32b9b2078f018d2f66ac9ba59ce80d588080d79224d90626f3",
+    "episode.py": "926e8ecd14c2f94fc2f3870495397bc97e23516213be34a85d3c72c0691194ed",
+    "evaluation.py": "55adc643e96d0c90ac56a8205cd59618a28f12607f7ec930f4d0cd9283322be0",
+    "frontend.py": "1310e61e612265e85858298336ff7dac99a4fa170a62f966e384d979296eddb1",
+    "generation.py": "80dbca774577f6ce7ac6df272b92e857518223e73a97af10866fdc491079ed75",
+    "geometry.py": "350d0be91e221f5b1ecc7541fd8a10dd408bc9aee2776da41531ccfc077b897a",
+    "interaction.py": "993f01aa279260458361b7c5a6836e5f036e93f92f269e0798ad3b653fdb4fef",
+    "io.py": "23645e5d675a3da52cbdfea486f648aa4ad83bda198181f43cb06ce3949d3391",
+    "native.py": "0e911e97a2ea902eb46b6928c33b31d39cda491ce951a529f186896a37488e94",
+    "native_cover.py": "2217cea1da7aa6906623286f976b4f26437433b017bf74f2aaebe0c2d60459a6",
+    "native_pickup.py": "3d9cacaeed708af975e1255e9ad505b2eec2e1e3c02cad522c25298b4014ce1d",
+    "native_stack.py": "7ab708533deb21f3dad8420eb4beea70b02f6b5792b47b80f80450be061635a9",
+    "openwam_service.py": "74b6a1bb9dc04baa96157d18ec238c5d7a5b004abe90b09e732b6b3c64e806ab",
+    "planning.py": "54df0b767cde65b2d3ee78a0c4962f318ad37b871f92bd7e2c21d8640f9f7f5d",
+    "planning_probe.py": "5712ea894705c3c1f8f5c2a90d84cbb03f742c5a37179ad15937033c76370fb6",
+    "policy_eval.py": "3e44fdfe9af8d15cb823541e86279b006ba136feaefbe7369988ba517513bbb2",
+    "policy_results.py": "6d0adadfaaca298f7e0320cb73ccb6b1d1fbdd3ee70634d02e1247acff96e331",
+    "repair.py": "f7ed130ff08b8a9adc2924185536a129f355f10bef81b220139142540d899fe3",
+    "request_run.py": "7daa10f5183805f409592b30010eed765255c3bca4930cc25165d3a5bd30341f",
+    "route.py": "bba397c3b2de3ac7adee72ea82f58e18c8d68eab1b24160a6955a9b166c196e2",
+    "scene_specification.py": "226c8412a29d38911f93b46790f8665a56683d6e979905dbdecad0285a766c28",
+    "specification.py": "a529f6a93c5c72d52b843d475bdd40a9673430b09abf8fbdf70c2d0170b60ec6",
+    "stack_specification.py": "0ce5554233174f28d727888662c639c9f8f74faf82175ce08d3c7a73cab0f677",
+    "study.py": "2c4ce84a8d89a5e48ae22aa629f836b93b68fba711d4d0fb82b59ac716bc873a",
+    "validation.py": "fa83f358dc0f3bf70d5406d290cae3d5e34fc8bab7b37100db2c8e8a503c3683"
+  },
+  "initial_layout_sha256": "532d8b71c825b54f2f8a33259a807c9d68e806ff29b5fc4fe29521b693a3a43f",
+  "base_layout_sha256": "532d8b71c825b54f2f8a33259a807c9d68e806ff29b5fc4fe29521b693a3a43f",
+  "initial_task_positions": {
+    "target": [
+      0.22,
+      -0.05
+    ]
+  },
+  "language_compilation": null,
+  "repair_enabled": false,
+  "task_position_updates": [],
+  "assets": [
+    {
+      "asset_id": 19265,
+      "provenance_sha256": "c2a8202dc9da38a2cbe262504c6adfdc6b1f00705a4a5d0369b81f4d2c0a75f3"
+    }
+  ],
+  "task_assets": {
+    "19264": {
+      "provenance_sha256": "836cd6430a0b0fc24f9ea56a381478bb13aec1a8d1f9a545e58941bac6f0b7bd"
+    }
+  },
+  "asset_indices": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "budgets": {
+    "wall_seconds": 1795.3366467199958,
+    "max_layouts": 4,
+    "total_proposals": 4000,
+    "proposals_per_layout": 1000,
+    "cluster_proposals": 128,
+    "physics_steps_per_execution": 20000
+  },
+  "cost_scope": "precomputed assets; includes reset/reference acquisition, all candidate generation, simulator startup/shutdown, planning, execution, independent validation and episode export",
+  "asset_generation_seconds": null,
+  "protocol_status": "development; thresholds and formal protocol not frozen",
+  "attempts": [
+    {
+      "index": 0,
+      "layout_seed": 1204,
+      "status": "validated_under_development_checks",
+      "proposal_limit": 1000,
+      "task_positions": {
+        "target": [
+          0.22,
+          -0.05
+        ]
+      },
+      "state_source": "reference",
+      "proposals": 18,
+      "native_task_success": true,
+      "controller_status": "completed",
+      "controller_error": null,
+      "physics_steps": 1663,
+      "motions_planned": 0,
+      "failed_checks": []
+    }
+  ],
+  "stages": [
+    {
+      "name": "state-acquisition",
+      "command": [
+        "<host>/miniforge3/envs/RoboDojo/bin/python3.11",
+        "-u",
+        "-m",
+        "infinidojo.native_stack",
+        "--task",
+        "general_pickup",
+        "--robodojo-root",
+        "<repo>/.deps/robodojo",
+        "--seed",
+        "1204",
+        "--max-steps",
+        "20000",
+        "--headless",
+        "--enable_cameras",
+        "--asset-map",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/task-asset-map.json",
+        "--layout",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/initial-layout.json",
+        "--output",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/reference",
+        "--scene-aware"
+      ],
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 51.33358696498908,
+      "pid": 342416,
+      "deadline_overrun_seconds": 0.0
+    },
+    {
+      "name": "attempt-00/generation",
+      "command": [
+        "<repo>/.venv/bin/python",
+        "-m",
+        "infinidojo.completion",
+        "--robodojo-root",
+        "<repo>/.deps/robodojo",
+        "--reference",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/reference",
+        "--assets",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/assets/clutter",
+        "--request",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/request.json",
+        "--output",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/attempt-00/generation",
+        "--seed",
+        "1204",
+        "--asset-selection",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/asset-selection.json",
+        "--attempt-budget",
+        "1000",
+        "--cluster-budget",
+        "128"
+      ],
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.31417452299501747,
+      "pid": 343041,
+      "deadline_overrun_seconds": 0.0
+    },
+    {
+      "name": "attempt-00/execution",
+      "command": [
+        "<host>/miniforge3/envs/RoboDojo/bin/python3.11",
+        "-u",
+        "-m",
+        "infinidojo.native_stack",
+        "--task",
+        "general_pickup",
+        "--robodojo-root",
+        "<repo>/.deps/robodojo",
+        "--seed",
+        "1204",
+        "--max-steps",
+        "20000",
+        "--headless",
+        "--enable_cameras",
+        "--layout",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/attempt-00/generation/layout.json",
+        "--asset-map",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/attempt-00/generation/asset-map.json",
+        "--output",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/attempt-00/execution",
+        "--reference",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/reference"
+      ],
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 43.228496538009495,
+      "pid": 343113,
+      "deadline_overrun_seconds": 0.0
+    },
+    {
+      "name": "attempt-00/validation",
+      "command": [
+        "<repo>/.venv/bin/python",
+        "-m",
+        "infinidojo.validation",
+        "--execution",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/attempt-00/execution",
+        "--generation",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/attempt-00/generation",
+        "--robodojo-root",
+        "<repo>/.deps/robodojo",
+        "--output",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/attempt-00/validation.json"
+      ],
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.6160072490019957,
+      "pid": 343647,
+      "deadline_overrun_seconds": 0.0
+    },
+    {
+      "name": "attempt-00/export",
+      "command": [
+        "<repo>/.venv/bin/python",
+        "-m",
+        "infinidojo.episode",
+        "--execution",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/attempt-00/execution",
+        "--generation",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/attempt-00/generation",
+        "--validation",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/attempt-00/validation.json",
+        "--output",
+        "<repo>/outputs/v2-language-route-development/pickup-composition/generation/episode"
+      ],
+      "status": "completed",
+      "returncode": 0,
+      "wall_seconds": 0.033486061001894996,
+      "pid": 343718,
+      "deadline_overrun_seconds": 0.0
+    }
+  ],
+  "accepted_attempt": 0,
+  "total_proposals_used": 18,
+  "unreported_proposals_upper_bound": 0,
+  "wall_seconds": 95.53823179900064,
+  "deadline_overrun_seconds": 0.0,
+  "episode_manifest_sha256": "c80dd309febdaae047bce88c1864b0fb5f5697fc2dc16c7381cbbae2c18ae39b"
+}

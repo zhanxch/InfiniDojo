@@ -1,0 +1,182 @@
+[
+  {
+    "id": "pickup-base",
+    "attempts": [
+      {
+        "attempt": "attempt-0",
+        "events_sha256": "de7e99797c5ba98a95601c5cd13d18a0fdeb56a34def40c956adad6beba42489",
+        "response_sha256": "9be823a6f84ea3db45a977b9143067f9ff1aec32796bb9697879113cdd4f33d3",
+        "usage": [
+          {
+            "input_tokens": 14754,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 191,
+            "reasoning_output_tokens": 54
+          }
+        ],
+        "tool_items": []
+      }
+    ]
+  },
+  {
+    "id": "pickup-appearance",
+    "attempts": [
+      {
+        "attempt": "attempt-0",
+        "events_sha256": "688344070fe9fa39e8551f02db75cde17859d18ccc40eb7f9fc10b26d1098b13",
+        "response_sha256": "0d93ab011e00036037cfdd41a36c0eddf0b1fc202bf6051d53b03a9e9f70deec",
+        "usage": [
+          {
+            "input_tokens": 14754,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 207,
+            "reasoning_output_tokens": 70
+          }
+        ],
+        "tool_items": []
+      }
+    ]
+  },
+  {
+    "id": "pickup-relation",
+    "attempts": [
+      {
+        "attempt": "attempt-0",
+        "events_sha256": "0a5294746c7a53b419a6622767253a82bf157365a463a927f735614277be5908",
+        "response_sha256": "7cd2e67b142ddcd367537ea0683d4e71ec57dd5c0fabf96ee0694975383e8d37",
+        "usage": [
+          {
+            "input_tokens": 14795,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 275,
+            "reasoning_output_tokens": 111
+          }
+        ],
+        "tool_items": []
+      }
+    ]
+  },
+  {
+    "id": "pickup-composition",
+    "attempts": [
+      {
+        "attempt": "attempt-0",
+        "events_sha256": "13f176c662fba23e1b63d5b1a4a40f483c4a6f14f757590e4efbd6e65680300b",
+        "response_sha256": "22b400f8760ef815d7e4d3d88984fd95dca8a25543ed197e848ce5e3ce19d5b2",
+        "usage": [
+          {
+            "input_tokens": 14756,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 192,
+            "reasoning_output_tokens": 55
+          }
+        ],
+        "tool_items": []
+      }
+    ]
+  },
+  {
+    "id": "pickup-combined",
+    "attempts": [
+      {
+        "attempt": "attempt-0",
+        "events_sha256": "47cf10974ad6ed36e344363c92cbb397f6fedfba2ebe3beba80643e9d36aa524",
+        "response_sha256": "e1c372e503fc21c57b0f28e4813b53ebd908bac7d09ad8bbab792100b27f50e3",
+        "usage": [
+          {
+            "input_tokens": 14795,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 262,
+            "reasoning_output_tokens": 98
+          }
+        ],
+        "tool_items": []
+      }
+    ]
+  },
+  {
+    "id": "stack",
+    "attempts": [
+      {
+        "attempt": "attempt-0",
+        "events_sha256": "26925c8b0c0bea823b63ff9760e1897939ee1f8970bf902acc6b04a08f74667d",
+        "response_sha256": "2e5bcd464b75cbf954f6b5a7add5bd70c2f5f1fdce8b125fc9eade74c1c3b463",
+        "usage": [
+          {
+            "input_tokens": 14605,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 163,
+            "reasoning_output_tokens": 60
+          }
+        ],
+        "tool_items": []
+      }
+    ]
+  },
+  {
+    "id": "cover",
+    "attempts": [
+      {
+        "attempt": "attempt-0",
+        "events_sha256": "925a2dddfb338bcc0800af42fef46207f298a865845be7ec0214e3946bb3c5c6",
+        "response_sha256": "ab097b4eadb766ad681246bcb4eb3129683d6ad4edb0b569712504fcd62d6cfa",
+        "usage": [
+          {
+            "input_tokens": 14753,
+            "cached_input_tokens": 12160,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 153,
+            "reasoning_output_tokens": 50
+          }
+        ],
+        "tool_items": []
+      }
+    ]
+  },
+  {
+    "id": "unsupported-open-cup",
+    "attempts": [
+      {
+        "attempt": "attempt-0",
+        "events_sha256": "3e6b67f67d2efd867cb8d53cacc3a61c1bca26f3bf4b3a3fed2164c77a700c1a",
+        "response_sha256": "0fc43b20f43fd489543bf42bed0dad7ff420c1e55ae59c42c9959415b4b0e240",
+        "usage": [
+          {
+            "input_tokens": 14644,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 102,
+            "reasoning_output_tokens": 30
+          }
+        ],
+        "tool_items": []
+      }
+    ]
+  },
+  {
+    "id": "unsupported-partial-stack",
+    "attempts": [
+      {
+        "attempt": "attempt-0",
+        "events_sha256": "1e9034daf6a7551e45cb68b06c7b50d27c5f86995c0438038068b97439a3467a",
+        "response_sha256": "7324d8f0a7b12bbe08bd670f138f58d3997f646480cc4b5b6796f2b3f0b55afc",
+        "usage": [
+          {
+            "input_tokens": 14644,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 86,
+            "reasoning_output_tokens": 26
+          }
+        ],
+        "tool_items": []
+      }
+    ]
+  }
+]

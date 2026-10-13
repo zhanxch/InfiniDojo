@@ -1,0 +1,286 @@
+{
+  "pickup-base/generation/reference/provenance.json": {
+    "sha256": "b7fb66139c81ec78e7c52c9a4f2e282eb741198c3fd02b5ba484e815d63624b1",
+    "bytes": 3568
+  },
+  "pickup-base/generation/reference/trajectory.json": {
+    "sha256": "b1163afbf1fe3c891e340405b138d57ea2d209b442b0568789d7d74958c97cce",
+    "bytes": 2429170
+  },
+  "pickup-base/generation/reference/controls.json": {
+    "sha256": "c1497f5d1d3a9a64a1d38152f4a9b98fb827e01a5b0b77796e0e0a74c32a69b1",
+    "bytes": 1886719
+  },
+  "pickup-base/generation/reference/contacts.jsonl": {
+    "sha256": "be080417ae56725d836644dc09c0672aa5f6a5feb90394318ee5b0dd10a943a3",
+    "bytes": 2222213
+  },
+  "pickup-base/generation/reference/scene-objects.json": {
+    "sha256": "2bf0304aef09f25590efd041dd95f152849ab2c44fe78dfa124b937b853797ea",
+    "bytes": 483
+  },
+  "pickup-base/generation/reference/asset-provenance.json": {
+    "sha256": "f23c8e9dcb4ea754d0fe54f7b8f05e6f78ee8f79baba8c9978b40e0533ce837a",
+    "bytes": 1330
+  },
+  "pickup-base/generation/attempt-00/execution/provenance.json": {
+    "sha256": "c7ec8d6db1502c28dd7d45dc1aed109e76cdce01b43b2f5c9b7a9a68a693f6e9",
+    "bytes": 3631
+  },
+  "pickup-base/generation/attempt-00/execution/trajectory.json": {
+    "sha256": "4190530b48d73ca2dd4563451c440922481e4092fb153faa03d16e1aaf245008",
+    "bytes": 2887996
+  },
+  "pickup-base/generation/attempt-00/execution/controls.json": {
+    "sha256": "c1497f5d1d3a9a64a1d38152f4a9b98fb827e01a5b0b77796e0e0a74c32a69b1",
+    "bytes": 1886719
+  },
+  "pickup-base/generation/attempt-00/execution/contacts.jsonl": {
+    "sha256": "be080417ae56725d836644dc09c0672aa5f6a5feb90394318ee5b0dd10a943a3",
+    "bytes": 2222213
+  },
+  "pickup-base/generation/attempt-00/execution/scene-objects.json": {
+    "sha256": "0533801a980a2808680462c3369f025c5455e12ca45a08b6522e2952d552da8c",
+    "bytes": 3768
+  },
+  "pickup-base/generation/attempt-00/execution/asset-provenance.json": {
+    "sha256": "a28d144f4a6aa6e35105b7d3b08a531f0a7e0f56a526ff19aa32f37aea4920b0",
+    "bytes": 2658
+  },
+  "pickup-appearance/generation/reference/provenance.json": {
+    "sha256": "b7fb66139c81ec78e7c52c9a4f2e282eb741198c3fd02b5ba484e815d63624b1",
+    "bytes": 3568
+  },
+  "pickup-appearance/generation/reference/trajectory.json": {
+    "sha256": "b1163afbf1fe3c891e340405b138d57ea2d209b442b0568789d7d74958c97cce",
+    "bytes": 2429170
+  },
+  "pickup-appearance/generation/reference/controls.json": {
+    "sha256": "c1497f5d1d3a9a64a1d38152f4a9b98fb827e01a5b0b77796e0e0a74c32a69b1",
+    "bytes": 1886719
+  },
+  "pickup-appearance/generation/reference/contacts.jsonl": {
+    "sha256": "be080417ae56725d836644dc09c0672aa5f6a5feb90394318ee5b0dd10a943a3",
+    "bytes": 2222213
+  },
+  "pickup-appearance/generation/reference/scene-objects.json": {
+    "sha256": "2bf0304aef09f25590efd041dd95f152849ab2c44fe78dfa124b937b853797ea",
+    "bytes": 483
+  },
+  "pickup-appearance/generation/reference/asset-provenance.json": {
+    "sha256": "f23c8e9dcb4ea754d0fe54f7b8f05e6f78ee8f79baba8c9978b40e0533ce837a",
+    "bytes": 1330
+  },
+  "pickup-appearance/generation/attempt-00/execution/provenance.json": {
+    "sha256": "c7ec8d6db1502c28dd7d45dc1aed109e76cdce01b43b2f5c9b7a9a68a693f6e9",
+    "bytes": 3631
+  },
+  "pickup-appearance/generation/attempt-00/execution/trajectory.json": {
+    "sha256": "4190530b48d73ca2dd4563451c440922481e4092fb153faa03d16e1aaf245008",
+    "bytes": 2887996
+  },
+  "pickup-appearance/generation/attempt-00/execution/controls.json": {
+    "sha256": "c1497f5d1d3a9a64a1d38152f4a9b98fb827e01a5b0b77796e0e0a74c32a69b1",
+    "bytes": 1886719
+  },
+  "pickup-appearance/generation/attempt-00/execution/contacts.jsonl": {
+    "sha256": "be080417ae56725d836644dc09c0672aa5f6a5feb90394318ee5b0dd10a943a3",
+    "bytes": 2222213
+  },
+  "pickup-appearance/generation/attempt-00/execution/scene-objects.json": {
+    "sha256": "0533801a980a2808680462c3369f025c5455e12ca45a08b6522e2952d552da8c",
+    "bytes": 3768
+  },
+  "pickup-appearance/generation/attempt-00/execution/asset-provenance.json": {
+    "sha256": "91b18f76cd0fe48788968a1aaa123257ff04877e632fd5302dba0ed0e7a7f38f",
+    "bytes": 2657
+  },
+  "pickup-relation/generation/reference/provenance.json": {
+    "sha256": "b7fb66139c81ec78e7c52c9a4f2e282eb741198c3fd02b5ba484e815d63624b1",
+    "bytes": 3568
+  },
+  "pickup-relation/generation/reference/trajectory.json": {
+    "sha256": "b1163afbf1fe3c891e340405b138d57ea2d209b442b0568789d7d74958c97cce",
+    "bytes": 2429170
+  },
+  "pickup-relation/generation/reference/controls.json": {
+    "sha256": "c1497f5d1d3a9a64a1d38152f4a9b98fb827e01a5b0b77796e0e0a74c32a69b1",
+    "bytes": 1886719
+  },
+  "pickup-relation/generation/reference/contacts.jsonl": {
+    "sha256": "be080417ae56725d836644dc09c0672aa5f6a5feb90394318ee5b0dd10a943a3",
+    "bytes": 2222213
+  },
+  "pickup-relation/generation/reference/scene-objects.json": {
+    "sha256": "2bf0304aef09f25590efd041dd95f152849ab2c44fe78dfa124b937b853797ea",
+    "bytes": 483
+  },
+  "pickup-relation/generation/reference/asset-provenance.json": {
+    "sha256": "f23c8e9dcb4ea754d0fe54f7b8f05e6f78ee8f79baba8c9978b40e0533ce837a",
+    "bytes": 1330
+  },
+  "pickup-relation/generation/attempt-00/execution/provenance.json": {
+    "sha256": "e0fd6f75272bdfd49821e8608ee157e188d50258b9ecd8e2977dafbba1c18554",
+    "bytes": 3631
+  },
+  "pickup-relation/generation/attempt-00/execution/trajectory.json": {
+    "sha256": "04f4e862b3d6cb54842ddcc4271cfa7a70b5857ff8d412349fb9d999f1ef2b09",
+    "bytes": 2888166
+  },
+  "pickup-relation/generation/attempt-00/execution/controls.json": {
+    "sha256": "c1497f5d1d3a9a64a1d38152f4a9b98fb827e01a5b0b77796e0e0a74c32a69b1",
+    "bytes": 1886719
+  },
+  "pickup-relation/generation/attempt-00/execution/contacts.jsonl": {
+    "sha256": "be080417ae56725d836644dc09c0672aa5f6a5feb90394318ee5b0dd10a943a3",
+    "bytes": 2222213
+  },
+  "pickup-relation/generation/attempt-00/execution/scene-objects.json": {
+    "sha256": "94d0f6f63bc6b549aad9f5c1c91b11749c8f683fdd263876966fc103e78a01b0",
+    "bytes": 3764
+  },
+  "pickup-relation/generation/attempt-00/execution/asset-provenance.json": {
+    "sha256": "a28d144f4a6aa6e35105b7d3b08a531f0a7e0f56a526ff19aa32f37aea4920b0",
+    "bytes": 2658
+  },
+  "pickup-composition/generation/reference/provenance.json": {
+    "sha256": "b7fb66139c81ec78e7c52c9a4f2e282eb741198c3fd02b5ba484e815d63624b1",
+    "bytes": 3568
+  },
+  "pickup-composition/generation/reference/trajectory.json": {
+    "sha256": "b1163afbf1fe3c891e340405b138d57ea2d209b442b0568789d7d74958c97cce",
+    "bytes": 2429170
+  },
+  "pickup-composition/generation/reference/controls.json": {
+    "sha256": "c1497f5d1d3a9a64a1d38152f4a9b98fb827e01a5b0b77796e0e0a74c32a69b1",
+    "bytes": 1886719
+  },
+  "pickup-composition/generation/reference/contacts.jsonl": {
+    "sha256": "be080417ae56725d836644dc09c0672aa5f6a5feb90394318ee5b0dd10a943a3",
+    "bytes": 2222213
+  },
+  "pickup-composition/generation/reference/scene-objects.json": {
+    "sha256": "2bf0304aef09f25590efd041dd95f152849ab2c44fe78dfa124b937b853797ea",
+    "bytes": 483
+  },
+  "pickup-composition/generation/reference/asset-provenance.json": {
+    "sha256": "f23c8e9dcb4ea754d0fe54f7b8f05e6f78ee8f79baba8c9978b40e0533ce837a",
+    "bytes": 1330
+  },
+  "pickup-composition/generation/attempt-00/execution/provenance.json": {
+    "sha256": "e4c59e0bd85777cab05bf07816dad4104b23836c33dd3bfd54e124e4bc3b8a99",
+    "bytes": 3631
+  },
+  "pickup-composition/generation/attempt-00/execution/trajectory.json": {
+    "sha256": "b37a6a421ff6c402b244fd34a1bf3ad53c0a90d27897cabcb5d9dcdfb8b29451",
+    "bytes": 3377116
+  },
+  "pickup-composition/generation/attempt-00/execution/controls.json": {
+    "sha256": "c1497f5d1d3a9a64a1d38152f4a9b98fb827e01a5b0b77796e0e0a74c32a69b1",
+    "bytes": 1886719
+  },
+  "pickup-composition/generation/attempt-00/execution/contacts.jsonl": {
+    "sha256": "be080417ae56725d836644dc09c0672aa5f6a5feb90394318ee5b0dd10a943a3",
+    "bytes": 2222213
+  },
+  "pickup-composition/generation/attempt-00/execution/scene-objects.json": {
+    "sha256": "16661cf5e27ac007168e63b85b368960913ed5b542a14856c1389cc6d037ef2e",
+    "bytes": 7061
+  },
+  "pickup-composition/generation/attempt-00/execution/asset-provenance.json": {
+    "sha256": "a28d144f4a6aa6e35105b7d3b08a531f0a7e0f56a526ff19aa32f37aea4920b0",
+    "bytes": 2658
+  },
+  "pickup-combined/generation/reference/provenance.json": {
+    "sha256": "b7fb66139c81ec78e7c52c9a4f2e282eb741198c3fd02b5ba484e815d63624b1",
+    "bytes": 3568
+  },
+  "pickup-combined/generation/reference/trajectory.json": {
+    "sha256": "b1163afbf1fe3c891e340405b138d57ea2d209b442b0568789d7d74958c97cce",
+    "bytes": 2429170
+  },
+  "pickup-combined/generation/reference/controls.json": {
+    "sha256": "c1497f5d1d3a9a64a1d38152f4a9b98fb827e01a5b0b77796e0e0a74c32a69b1",
+    "bytes": 1886719
+  },
+  "pickup-combined/generation/reference/contacts.jsonl": {
+    "sha256": "be080417ae56725d836644dc09c0672aa5f6a5feb90394318ee5b0dd10a943a3",
+    "bytes": 2222213
+  },
+  "pickup-combined/generation/reference/scene-objects.json": {
+    "sha256": "2bf0304aef09f25590efd041dd95f152849ab2c44fe78dfa124b937b853797ea",
+    "bytes": 483
+  },
+  "pickup-combined/generation/reference/asset-provenance.json": {
+    "sha256": "f23c8e9dcb4ea754d0fe54f7b8f05e6f78ee8f79baba8c9978b40e0533ce837a",
+    "bytes": 1330
+  },
+  "pickup-combined/generation/attempt-00/execution/provenance.json": {
+    "sha256": "bae49090308c0f5f8e7cba10b7c88dfdb53a1ea1818276eb79de32bb40fa1e51",
+    "bytes": 3631
+  },
+  "pickup-combined/generation/attempt-00/execution/trajectory.json": {
+    "sha256": "e9e9ded15053df49598addeb314975bfdbecf7f45db39fbe9cebfa85dfe77e1f",
+    "bytes": 3375056
+  },
+  "pickup-combined/generation/attempt-00/execution/controls.json": {
+    "sha256": "c1497f5d1d3a9a64a1d38152f4a9b98fb827e01a5b0b77796e0e0a74c32a69b1",
+    "bytes": 1886719
+  },
+  "pickup-combined/generation/attempt-00/execution/contacts.jsonl": {
+    "sha256": "be080417ae56725d836644dc09c0672aa5f6a5feb90394318ee5b0dd10a943a3",
+    "bytes": 2222213
+  },
+  "pickup-combined/generation/attempt-00/execution/scene-objects.json": {
+    "sha256": "e718785b08dc0ec1b756004d9dff2be049325d8a7e8322fbba8e7452ac0bb611",
+    "bytes": 7048
+  },
+  "pickup-combined/generation/attempt-00/execution/asset-provenance.json": {
+    "sha256": "91b18f76cd0fe48788968a1aaa123257ff04877e632fd5302dba0ed0e7a7f38f",
+    "bytes": 2657
+  },
+  "stack/generation/reference/provenance.json": {
+    "sha256": "f8279511dcc89cd20783bb31ed7926250c0bcabee77dd9f00042fe6665d7cee3",
+    "bytes": 3566
+  },
+  "stack/generation/reference/trajectory.json": {
+    "sha256": "867ac427a08991e4439a7399cec1fec468f72d52a552b8946b919f0f0b54e112",
+    "bytes": 8786334
+  },
+  "stack/generation/reference/controls.json": {
+    "sha256": "d3f7856107dd5e8a6b1f668d364c88613172ec8389e8b914bdc705b42c721e7e",
+    "bytes": 6471589
+  },
+  "stack/generation/reference/contacts.jsonl": {
+    "sha256": "71b8286f07b4926fb12e7b9e9f7c1920a0ae9c1e11b3122006cf233de8b9708b",
+    "bytes": 13834251
+  },
+  "stack/generation/reference/scene-objects.json": {
+    "sha256": "2570257cf2e72242c3a12b9677bf97b4986f320493e96a4d0a2986040b348d3c",
+    "bytes": 1468
+  },
+  "stack/generation/attempt-00/execution/provenance.json": {
+    "sha256": "b78d10b9496603afae12739d79fe58600edc8034f0b02a59f2ebc8ebc42e6a6b",
+    "bytes": 3629
+  },
+  "stack/generation/attempt-00/execution/trajectory.json": {
+    "sha256": "64558b2934e2c7b41b2caaeec669e14a3a31e461ede944e1727f815e12f23e82",
+    "bytes": 10293162
+  },
+  "stack/generation/attempt-00/execution/controls.json": {
+    "sha256": "a11402e883935cc354ccdf0245032151210e94c25a9af131a52fe0d7be227434",
+    "bytes": 6471587
+  },
+  "stack/generation/attempt-00/execution/contacts.jsonl": {
+    "sha256": "71b8286f07b4926fb12e7b9e9f7c1920a0ae9c1e11b3122006cf233de8b9708b",
+    "bytes": 13834251
+  },
+  "stack/generation/attempt-00/execution/scene-objects.json": {
+    "sha256": "7d73f87124a16a6782950e6fd884bc37d4ecbb17fba5112cbd3fca2222516730",
+    "bytes": 4755
+  },
+  "stack/generation/attempt-00/execution/asset-provenance.json": {
+    "sha256": "dc1799f36848964f2dd819f5af469423574ab6d1f2ef916619288567f935d708",
+    "bytes": 1331
+  }
+}

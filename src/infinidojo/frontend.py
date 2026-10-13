@@ -31,13 +31,19 @@ def compile_request(
         raise ValueError("attempts must be positive")
     started = time.monotonic()
     schema, capability, validator = SCHEMA, CAPABILITY, lambda spec: validate(spec, expected)
-    if profile == "stack-v1":
-        from infinidojo import stack_specification as stack
+    compiler = None
+    if profile in ("stack-v1", "scene-v2"):
+        if profile == "stack-v1":
+            from infinidojo import stack_specification as compiler
+        else:
+            from infinidojo import scene_specification as compiler
 
         if expected is not None:
-            raise ValueError("stack-v1 evaluation labels must be scored separately, not supplied as feedback")
-        schema, capability = stack.SCHEMA, stack.capability(context or {})
-        validator = lambda spec: stack.validate(spec, context)
+            raise ValueError(
+                f"{profile} evaluation labels must be scored separately, not supplied as feedback"
+            )
+        schema, capability = compiler.SCHEMA, compiler.capability(context or {})
+        validator = lambda spec: compiler.validate(spec, context)
     elif profile != "pickup-v0":
         raise ValueError("Unknown compiler profile")
     output = output.resolve()
@@ -121,7 +127,7 @@ def compile_request(
                 raise
         if process.returncode or not (folder / "response.json").exists():
             raise RuntimeError(f"LLM backend failed; inspect {folder}")
-        if profile == "stack-v1":
+        if compiler is not None:
             events = [json.loads(line) for line in (folder / "events.jsonl").read_text().splitlines() if line]
             tool_items = [
                 event["item"]["type"]
@@ -139,9 +145,9 @@ def compile_request(
         write_json(output / "history.json", history)
         if not errors:
             write_json(output / "specification.json", spec)
-            ready = profile != "stack-v1" or spec["status"] == "ready"
-            if profile == "stack-v1" and ready:
-                stack.export_compilation(
+            ready = compiler is None or spec["status"] == "ready"
+            if compiler is not None and ready:
+                compiler.export_compilation(
                     output, spec, context, model=model, wall_seconds=time.monotonic() - started
                 )
             return {
@@ -174,8 +180,8 @@ def main():
     parser.add_argument("--executable", default="codex")
     parser.add_argument("--model")
     parser.add_argument("--timeout", type=float, default=240, help="Timeout per model call, in seconds")
-    parser.add_argument("--profile", choices=["pickup-v0", "stack-v1"], default="pickup-v0")
-    parser.add_argument("--context", type=Path, help="Capability context required for stack-v1")
+    parser.add_argument("--profile", choices=["pickup-v0", "stack-v1", "scene-v2"], default="pickup-v0")
+    parser.add_argument("--context", type=Path, help="Capability context required for stack-v1 and scene-v2")
     args = parser.parse_args()
     expected = json.loads(args.expected.read_text()) if args.expected else None
     result = compile_request(

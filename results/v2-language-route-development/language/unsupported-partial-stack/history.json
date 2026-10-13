@@ -1,0 +1,13 @@
+[
+  {
+    "proposal": {
+      "status": "unsupported",
+      "reason": "stack_blocks requires stacking all three native cubes with two transfers and returning to the initial pose; the request specifies only two cubes and no return.",
+      "task": null,
+      "target": null,
+      "clutter": null
+    },
+    "errors": [],
+    "wall_seconds": 32.13781082299829
+  }
+]

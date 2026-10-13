@@ -1,0 +1,19 @@
+{
+  "type": "appearance-only matched construction; one scene family",
+  "asset_geometry": {
+    "target": {
+      "vertices_identical": true,
+      "faces_identical": true,
+      "physics_metadata_identical": true
+    },
+    "clutter": {
+      "vertices_identical": true,
+      "faces_identical": true,
+      "physics_metadata_identical": true
+    }
+  },
+  "reference_controls.json_identical": true,
+  "reference_trajectory.json_identical": true,
+  "final_layout_identical": true,
+  "clutter_material_changed": true
+}
